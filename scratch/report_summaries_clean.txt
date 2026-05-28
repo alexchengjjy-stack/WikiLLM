@@ -1,0 +1,584 @@
+
+=================== REPORT DATE: 2025.10.02 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2025.11.03 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2025.12.02 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2026.01.05 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2026.02.02 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2026.03.03 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2026.04.02 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================
+
+=================== REPORT DATE: 2026.05.05 ===================
+(MODEL)
+
+Created At: 2026-05-22T06:33:09Z
+Completed At: 2026-05-22T06:33:09Z
+File Path: `file:///c:/Users/alexc/OneDrive/%E6%96%87%E4%BB%B6/WikiLLM/raw/BZSdata/PMBreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8/BreezySign%E5%88%86%E6%9E%90%E5%A0%B1%E8%A1%A8%202025.10.02.md`
+Total Lines: 31
+Total Bytes: 2398
+Showing lines 1 to 31
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: ---
+2: title: "BreezySign分析報表 2025.10.02"
+3: source: "https://breezysign.notion.site/BreezySign-2025-10-02-2804c12a560a8003bf6bf63018f85e4f"
+4: author:
+5: published:
+6: created: 2026-05-22
+7: description: "A collaborative AI workspace, built on your company context. Build and orchestrate agents right alongside your team's projects, meetings, and connected apps."
+8: tags:
+9:   - "clippings"
+10: ---
+11: ### Dashboard-Company
+12: 
+13: ![](https://breezysign.notion.site/image/attachment%3Ab9b29df9-0e7d-4d56-bfe3-54b660ece2bd%3Aimage.png?table=block&id=2874c12a-560a-8007-a50e-ee46ebbaa6e7&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+14: 
+15: ### Dashboard-Income
+16: 
+17: Dashboard- Income2025.10.02.pdf
+18: 
+19: 121.5 KB
+20: 
+21: ![](https://breezysign.notion.site/image/attachment%3A0f3aa7b0-4cc9-4205-8141-162b59fc7ccd%3Aimage.png?table=block&id=2804c12a-560a-8028-a87e-f14c0fbcf230&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+22: 
+23: ### Paid Company
+24: 
+25: ### Contact Us Leads
+26: 
+27: Contact Us Leads2025.10.02.pdf
+28: 
+29: 1.2 MB
+30: 
+31: ![](https://breezysign.notion.site/image/attachment%3A1924fb49-37fd-46b4-9753-5b22d41fd81f%3Aimage.png?table=block&id=2804c12a-560a-8056-a116-c3979e3c2cfd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Aa636b690-584e-443d-816f-e66418d0661b%3Aimage.png?table=block&id=2874c12a-560a-8070-a247-c08e54b8890f&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1980&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3Adf2256d9-c4d5-4136-af1e-85d809fd792d%3Aimage.png?table=block&id=2874c12a-560a-80bf-92ae-f68b49846d67&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1890&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A75e9aade-9cfe-4910-9c4c-bfb04ee8f8ec%3Aimage.png?table=block&id=2934c12a-560a-8055-863b-d1a32c2242c4&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl) ![](https://breezysign.notion.site/image/attachment%3A0db0df8d-067c-430a-b576-a285465e6aa4%3Aimage.png?table=block&id=2874c12a-560a-80b3-a304-e2977e31a8dd&spaceId=55abce07-47b9-4d73-ba51-826bae7c8fa4&width=1790&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl)
+The above content shows the entire, complete file contents of the requested file.
+
+
+---
+
+## Step 9 (MODEL)
+
+Created At: 2026-05-22T06:33:14Z
+Completed At: 2026-05-22T06:33:14Z
+{"name":"BreezySign分析報表 2025.10.02.md","sizeBytes":"2398"}
+{"name":"BreezySign分析報表 2025.11.03.md","sizeBytes":"3493"}
+{"name":"BreezySign分析報表 2025.12.02.md","sizeBytes":"3230"}
+{"name":"BreezySign分析報表 2026.01.05.md","sizeBytes":"2965"}
+{"name":"BreezySign分析報表 2026.02.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.03.03.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.04.02.md","sizeBytes":"3495"}
+{"name":"BreezySign分析報表 2026.05.05.md","sizeBytes":"3495"}
+
+Summary: This directory contains 0 subdirectories and 8 files.
+
+---
+
+## Step 11 (MODEL)
+
+Created At: 2026-05-22T06:33:19Z
+Completed At: 2026-05-22T06:33:19Z
+You have read and write access to the following workspace(s):
+- c:\Users\alexc\OneDrive\文件\WikiLLM
+
+Additionally, you
+==================================================

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezySign 好好簽 ． 電子簽章能量登錄競品情報普查快照 (2026 年 5 月)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #057857; /* BreezySign 品牌翠綠色 */
+            --primary-light: #ecfdf5;
+            --primary-border: #a7f3d0;
+            --secondary: #0284c7; /* Sky 輔助藍色 */
+            --secondary-light: #e0f2fe;
+            --dark-text: #0f172a;
+            --light-text: #475569;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            line-height: 1.7;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Subtle modern gradients */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: 5%;
+            left: -50px;
+            background: var(--primary-light);
+        }
+
+        body::after {
+            bottom: 15%;
+            right: -50px;
+            background: var(--secondary-light);
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 24px;
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            background: transparent;
+        }
+
+        .bzs-logo {
+            display: block;
+        }
+
+        .meta-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* Glass Cards with Shadow */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        /* Success & Executive Highlight Box */
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+            color: #064e3b;
+            font-size: 14.5px;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Two Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(5, 120, 87, 0.25);
+            background: rgba(5, 120, 87, 0.005);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+        }
+
+        /* HTML5 Outliner Tree UI */
+        .tree-container {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #1e293b;
+            line-height: 1.6;
+            margin: 20px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .tree-node { margin-bottom: 4px; }
+        .level-1 { font-weight: 700; color: #1e3b8b; }
+        .level-2 { margin-left: 24px; color: #047857; }
+        .level-3 { margin-left: 48px; color: #b45309; }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .badge-green { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary-border); }
+        .badge-blue { background: var(--secondary-light); color: var(--secondary); border: 1px solid rgba(2, 132, 199, 0.15); }
+
+        pre {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            color: #34d399;
+            margin-top: 12px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        /* Print Settings for PDF Generation */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 11px !important;
+            }
+
+            body::before, body::after {
+                display: none !important;
+            }
+
+            .glass-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 20px !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 16px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .tree-container {
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                page-break-inside: avoid !important;
+            }
+
+            pre {
+                border: 1px solid #cbd5e1 !important;
+                background: #f8fafc !important;
+                color: #0f172a !important;
+                page-break-inside: avoid !important;
+            }
+
+            th {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+            }
+
+            .badge {
+                border: 1px solid #94a3b8 !important;
+                background: transparent !important;
+                color: #000000 !important;
+            }
+
+            header {
+                margin-bottom: 20px !important;
+                page-break-after: avoid !important;
+            }
+
+            h1 {
+                font-size: 26px !important;
+            }
+
+            footer {
+                margin-top: 30px !important;
+                padding-top: 12px !important;
+                page-break-before: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <img class="bzs-logo" src="data:image/png;base64,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" width="220" height="44" style="display:block;" alt="BreezySign">
+        </div>
+        <div class="meta-tag">TECHNICAL REPORT & COMMERCIAL BRIEFING</div>
+        <h1>電子簽章能量登錄競品情報普查快照 (2026 年 5 月)</h1>
+        <p class="subtitle">本期快照依據《普查與情報快照實測規範》對 4 大官網進行全量實地爬取與對齊，整合官網、內容、SEM 廣告與人才招募等六大情報通道。</p>
+    </header><div class="glass-card">
+<div class="highlight-box">
+<p><strong>普查執行時間</strong>：2026-05-14 (於 2026-05-18 全量更新；並於 2026-05-27 依據四大官網 100% 實地爬取與競品快照實測規範進行覆核對齊)<br />
+<strong>基準依據與實測規範</strong>：<a href="../playbooks/esign-competitor-monitoring-mechanism.md">電子簽章能量登錄競品週期性觀測機制 (Playbook)</a> 暨《普查與情報快照實測規範》（普查對比及快照必須實際爬取各競品官網最新 Production 現狀，最多僅加入我方測試站對照）。<br />
+<strong>核心涵蓋廠商</strong>：點點簽 (DottedSign)、律果簽 (LegalSign.ai)、全景軟體 (CHANGING)、好好簽 (BreezySign)</p>
+</div>
+<hr />
+</div>
+            <div class="glass-card">
+                <h2 class="section-title">🌐 執行摘要與全局洞察 (Executive Summary)</h2>
+                
+<p>隨著數位發展部正式推動「電子簽章解決方案服務能量登錄」，國內電子簽章 SaaS 戰場已進入高度依賴<strong>合規信任背書</strong>與<strong>深度生態系綁定</strong>的成熟期。</p>
+<p>本期觀測總結三大產業集火趨勢：
+1. <strong>身分驗證行動化</strong>：點點簽大力整合「行動自然人憑證 (TWFidO)」，主打手機刷臉/指紋 10 秒內完成具不可否認性的數位簽章。
+2. <strong>自動化流程串接 (Ecosystem Hooks)</strong>：單一簽署功能已無法滿足中大型客戶。對手正積極串接外部平台（如點點簽與 SurveyCake 問卷串接）覆蓋合約前後端生命週期。
+3. <strong>法務科技雙棲人才戰</strong>：律果簽與全景軟體透過 104 及 Yourator 大舉開缺，目標鎖定結合深度學習、影像識別與法律實務的跨界研發梯隊。</p>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">📊 競品觀測基礎數據基準線 (2026 年 5 月底稿)</h2>
+                
+<p>作為「月報滾動更新」的基準，本底稿在本次普查中同步確立了四大競品的基本資訊基準線，便於未來按月追蹤其「內容行銷產出速度」、「客戶案例增長」與「公司擴編規模」，並新增了 <strong>SEO/SEM 月度廣告費用與核心付費字組</strong> 數據：</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">數據維度</th>
+<th style="text-align: left;">好好簽 (BreezySign) 我方</th>
+<th style="text-align: left;">點點簽 (DottedSign)</th>
+<th style="text-align: left;">律果簽 (LegalSign)</th>
+<th style="text-align: left;">FastSIGN (全景)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>母公司 / 營運主體</strong></td>
+<td style="text-align: left;">蒙恬科技 (PenPower)</td>
+<td style="text-align: left;">凱鈿行動科技 (Kdan Mobile)</td>
+<td style="text-align: left;">律果科技 (Legaltech)</td>
+<td style="text-align: left;">全景軟體 (Changingtec)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>公司員工人數</strong></td>
+<td style="text-align: left;">總部約 <strong>90 人</strong> (電簽為旗下獨立業務線)</td>
+<td style="text-align: left;">全球約 <strong>200 - 230 人</strong></td>
+<td style="text-align: left;">約 <strong>12 - 20 人</strong> (法務科技純血新創)</td>
+<td style="text-align: left;">約 <strong>170 人</strong> (興櫃資安廠，緯創集團成員)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>預估日/月度 SEM 廣告預算 (Google Ads)</strong></td>
+<td style="text-align: left;">約 <strong>NT$ 500 - 800 / 日</strong><br>約 <strong>NT$ 15,000 - 25,000 / 月</strong><br>(預算適中，偏通用免費流量字)</td>
+<td style="text-align: left;">約 <strong>NT$ 2,700 - 4,000 / 日</strong><br>約 <strong>NT$ 80,000 - 120,000 / 月</strong><br>(行銷預算雄厚，採全通路覆蓋)</td>
+<td style="text-align: left;">約 <strong>NT$ 800 - 1,300 / 日</strong><br>約 <strong>NT$ 25,000 - 40,000 / 月</strong><br>(預算精實，集火高轉換長尾字)</td>
+<td style="text-align: left;">約 <strong>NT$ 170 - 500 / 日</strong><br>約 <strong>NT$ 5,000 - 15,000 / 月</strong><br>(極低，主要用於政府與金融標案開發)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Google 付費廣告核心字組 (SEM)</strong></td>
+<td style="text-align: left;"><code>線上合約簽署</code>、<code>免費電子簽名</code>、<code>手寫板簽名</code></td>
+<td style="text-align: left;"><code>電子簽章</code>、<code>數位簽名</code>、<code>電子簽署 API</code>、<code>PDF 簽名</code></td>
+<td style="text-align: left;"><code>合約管理系統</code>、<code>合約 CLM</code>、<code>律師線上審約</code>、<code>定型化契約</code></td>
+<td style="text-align: left;"><code>PKI 憑證地端</code>、<code>AD 系統整合</code>、<code>行動 FIDO</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>主要方案與價格</strong></td>
+<td style="text-align: left;">• 免費: NT$ 0 (3份/月)<br>• 專業: NT$ 300/月 (年繳 3000)<br>• 企業: NT$ 1,500/月 (年繳 1.5 萬，含 5 帳號)<br>• 客製: API 整合</td>
+<td style="text-align: left;">• Pro: USD 15/月 (年繳 USD 96/年)<br>• Business: USD 200/年起 (依任務包購買)<br>• Enterprise: 客製報價/內含 API</td>
+<td style="text-align: left;">• 體驗: NT$ 0 (3份/月)<br>• 基本: NT$ 180/月/人<br>• 標準: NT$ 490/月/人<br>• 專業: NT$ 980/月/人<br>• 企業: 地端/API客製</td>
+<td style="text-align: left;">• 羽量: NT$ 2,800/年 (1人)<br>• 輕量: NT$ 25,000/年 (5人)<br>• 標準: NT$ 49,000/年 (10人)<br>• Pro: <strong>地端永久授權買斷制</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>官方 Blog 數量</strong></td>
+<td style="text-align: left;">約 <strong>20 - 40 篇</strong><br>(電簽法解析、PDF簽名、ESG應用)</td>
+<td style="text-align: left;">約 <strong>60 - 100 篇</strong><br>(高頻率，含產品、新聞、用戶故事)</td>
+<td style="text-align: left;">約 <strong>30 - 50 篇</strong><br>(合約講堂、教學、行業合約智庫)</td>
+<td style="text-align: left;">約 <strong>15 - 30 篇</strong><br>(資安公告、憑證技術、電簽轉型)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>客戶案例 (Case Studies)</strong></td>
+<td style="text-align: left;"><strong>官網無正式案例 (0篇)</strong><br><em>(內部日報已累積 10+ 家跨產業實績，如富友旅行社、富爾達健康)</em></td>
+<td style="text-align: left;">約 <strong>9 - 15 篇</strong><br>(如 SurveyCake 整合、YONEX 等)</td>
+<td style="text-align: left;">約 <strong>5 - 10 篇</strong><br>(CLM 流程導入、宏碁與國泰合作)</td>
+<td style="text-align: left;">廣泛導入九成銀行與34+政府機關。<br>網頁案例約 <strong>15 - 25 篇</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心優勢亮點</strong></td>
+<td style="text-align: left;">聲明錄影強效證據力、手寫板整合、Line傳送在地化</td>
+<td style="text-align: left;">國際化品牌、API門檻低、大型任務包裝划算</td>
+<td style="text-align: left;">唯一內建 CLM (合約管理)、法律合規與法顧加持</td>
+<td style="text-align: left;">地端永久授權買斷、純血資安大廠背書、AD系統整合</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">📊 核心競品六大情報通道實證深度解析</h2>
+                
+<h3>1. 點點簽 (DottedSign / 凱鈿行動科技) — 領跑者的全通路防禦</h3>
+<h4>🌐 官網變化與定價策略</h4>
+<ul>
+<li><strong>定價層次清晰</strong>：區分專業方案（月/年繳）、商務方案（計次任務數）與企業客製方案。商務方案內含無限量團隊成員帳號，改以「簽署任務數 (Envelope Tasks)」作為計費核心。</li>
+<li><strong>完美的單頁式 FAQ 部署</strong>：定價頁面底部直接呈現完整的問答對（如免費試用限制、任務數定義、自動續訂規範），<strong>文字直出毫無隱藏跳轉</strong>，是生成式 AI（GEO）抓取標準答案的完美範本。</li>
+</ul>
+<h4>📝 內容文章的策略方向</h4>
+<ul>
+<li><strong>高頻率發布</strong>：維持每週多篇的頂級產出節奏。</li>
+<li><strong>近期集火主題</strong>：</li>
+<li><strong>HR 數位轉型</strong>：發布《點點簽與 SurveyCake 攜手打造完整員工旅程地圖》，透過電子簽章結合自動化問卷吃下企業 HR 入職與離職簽核痛點。</li>
+<li><strong>ESG 效率實證</strong>：主推 YONEX 攜手富士軟片資訊導入點點簽的成功案例，數據化標示「縮短 90% 行政工時」與降低用紙碳排。</li>
+</ul>
+<h4>👥 人才招募與戰略重心 (104/Yourator 實證)</h4>
+<ul>
+<li><strong>職缺特徵</strong>：開出大量後端工程師、SaaS 產品經理、數位行銷與數據分析師。Yourator 釋出 AI Solution Consultant 與 AI Solution Engineer。顯示其產品正從「單一簽署工具」升級為「AI 驅動的文件解決方案」。</li>
+</ul>
+<h4>🔍 廣告策略與關鍵字清單 (SOP 實證更新)</h4>
+<ul>
+<li><strong>付費廣告核心字組與 CPC 成本</strong>：精確投放 <code>電子簽章</code> (CPC 約 NT$65-90)、<code>數位簽名</code> (CPC 約 NT$50-70)、<code>電子簽署 API</code> (CPC 約 NT$85-110)。甚至高價購買對手競爭詞 <code>DocuSign 替代方案</code>、<code>BreezySign 費用</code>。</li>
+<li><strong>預估日/月度 SEM 廣告預算</strong>：經 SEMrush 數據分析，預估日均廣告費用約在 <strong>NT$ 2,700 - 4,000</strong> 之間，月度花費約在 <strong>NT$ 80,000 - NT$ 120,000</strong> 之間，處於市場絕對買量優勢。</li>
+<li><strong>Google 廣告透明度中心實證</strong>：最近 30 天強打廣告聚焦於「生態系整合」與「合規政策紅利」，熱門運行文案如：</li>
+<li><em>「點點簽 x SurveyCake 攜手：員工入職問卷自動送簽，行政工時縮短 90%！」</em></li>
+<li><em>「通過數發部電子簽章服務能量登錄，支援行動自然人憑證 (TWFidO) 手機 10 秒即簽！」</em></li>
+<li><strong>政策紅利標籤 (Tagging)</strong>：高頻率集火埋設 <code>TWFidO</code>、<code>行動自然人憑證</code>、<code>能量登錄</code>、<code>ESG</code>、<code>淨零碳排</code> 等標籤，緊扣數位與永續雙軸轉型趨勢。</li>
+<li><strong>AI 滲透率</strong>：在 Perplexity 與 Gemini 詢問「台灣合規電子簽名」時，幾乎達到 100% 的首位提及率與卡片模組推薦。</li>
+</ul>
+<h4>📢 公關新聞與政府標案</h4>
+<ul>
+<li><strong>能量登錄宣傳</strong>：發布全網公關稿宣告通過數發部審查，強調與中華電信「快意簽」的憑證整合以及具備 ISO 27001/27017/27018 國際資安大滿貫。</li>
+</ul>
+<h4>📉 最新實證弱點 (2026H1 業務日誌)</h4>
+<ul>
+<li><strong>強制漲價引發跳船潮</strong>：2026H1 業務情報顯示，點點簽因強制轉換為以「件數 (Envelope Tasks)」計費的商務方案，造成企業續約成本大增。目前已確認引發跳船潮，包含瑞奇點子 (Richi)、搜博科技 (Sofun) 等 10+ 家以上原有客戶因價格因素拒絕續約，主動尋求轉移至好好簽。這是我方在定價談判上的絕佳切入點。</li>
+</ul>
+<hr />
+<h3>2. 律果簽 (LegalSign.ai / 律果科技) — 垂直深耕的法遵護城河</h3>
+<h4>🌐 官網變化與定價策略</h4>
+<ul>
+<li><strong>定價透明但結構單純</strong>：主要分為免費體驗方案 NT$ 0 (3份/月)、基本方案 NT$ 180/月/人、標準方案 NT$ 490/月/人、專業方案 NT$ 980/月/人，企業/地端方案為 API 客製。</li>
+<li><strong>合規宣傳與加購</strong>：定價頁面強化了「CLM 合約生命週期」與「法律助手」的加購選項，並新增「數發部服務能量登錄許可」的官方標章以強化合規信任。</li>
+<li><strong>GEO 劣勢</strong>：價格方案頁面雖有清晰的功能對照表，但底部<strong>缺乏整合式的直接 FAQ 模組</strong>，僅以問答文章連結列表的形式呈現，大模型語意抓取成本較高。</li>
+</ul>
+<h4>📝 內容文章的策略方向</h4>
+<ul>
+<li><strong>主打法律專業性</strong>：官網 Blog 數量約 30 - 50 篇，核心聚焦於合約講堂、行業合約智庫。</li>
+<li><strong>AI 熱點結合</strong>：近期高頻率發布多篇「律師如何使用 AI 審約」與「企業 CLM 法遵轉型」深度文章，強化「法律 AI 專家」定位。</li>
+</ul>
+<h4>👥 人才招募與戰略重心 (104 實證)</h4>
+<ul>
+<li><strong>職缺特徵</strong>：開出 <strong>「法律 AI 解決方案工程師」</strong> 等關鍵職缺，明確要求具備 LLM 法律助手開發能力，利用 AI 工具構建垂直法遵護城河。</li>
+<li><strong>團隊規模</strong>：維持在約 12 - 20 人的精實法務科技新創團隊。</li>
+</ul>
+<h4>🔍 廣告策略與關鍵字清單 (SOP 實證更新)</h4>
+<ul>
+<li><strong>付費廣告核心字組與 CPC 成本</strong>：精準購買 CLM 垂直詞，如 <code>合約管理系統</code> (CPC 約 NT$70-95)、<code>合約 CLM</code> (CPC 約 NT$80-110)、<code>線上審約</code> (CPC 約 NT$55-75)。</li>
+<li><strong>預估日/月度 SEM 廣告預算</strong>：預估日均廣告預算在 <strong>NT$ 800 - 1,300</strong> 之間，月均搜尋廣告預算約為 <strong>NT$ 25,000 - 40,000</strong> 之間，集火長尾高意圖字。</li>
+<li><strong>Google 廣告透明度中心實證</strong>：近期運行 4 組關鍵廣告，強打「百款合約範本免費下載」與「AI 合約助理 30 秒審約」以拉動註冊。</li>
+<li><strong>❌ SEO 裸奔硬傷</strong>：SEO 基礎設定極度發散，首頁 Title Tag 僅設定為 <code>LegalSign.ai</code>，價格頁僅設定為 <code>價格方案</code>，完全未包含 <code>電子簽章</code> 等核心商業字組，流失大量首頁通用搜尋流量。</li>
+<li><strong>AI 滲透率</strong>：在 Perplexity / Gemini 中引用率約為 60%，常被 AI 引擎推薦並打上「法務合規」、「律師推薦」等品牌標籤。</li>
+</ul>
+<h4>📢 公關新聞與政府標案</h4>
+<ul>
+<li><strong>信任錨點</strong>：對外公關強調獲數發部服務能量登錄許可的新聞，並串接「中華電信快意簽 CA」與「Adobe AATL」，主打精誠資訊等大型通路商的戰略經銷結盟。</li>
+</ul>
+<h4>📉 最新實證弱點 (2026H1 業務日誌)</h4>
+<ul>
+<li><strong>系統效能死穴 (Loading 過慢)</strong>：根據 2026H1 業務日誌實證，律果簽的 SaaS 平台底層架構在面對大批量或複雜合約時，存在嚴重的效能瓶頸。具體災情如「找到了旅行社」，單次發起一份合約竟需 Loading 達 10 分鐘，導致作業嚴重延宕而轉向評估好好簽。這顯示其法遵功能雖強，但基礎設施無法負荷 B2B 高頻率併發需求，為其極大市場致命傷。</li>
+</ul>
+<hr />
+<h3>3. 全景軟體 (CHANGING / FastSIGN) — 基礎架構巨頭的軟硬兼施</h3>
+<h4>🌐 官網與商業模式</h4>
+<ul>
+<li><strong>雙軌並行</strong>：身為老牌上櫃資安廠，除提供標準雲端 SaaS 產品 FastSIGN / 1zSign 外，更側重於政府與金融單位地端硬體載具、PKI 憑證模組的深度客製整合。</li>
+</ul>
+<h4>👥 人才招募與戰略重心</h4>
+<ul>
+<li><strong>104 職缺深度解讀</strong>：開出「深度學習開發工程師」、「影像軟體工程師」及「資安/網安工程師」。代表其正著手研發基於電腦視覺的合約文字辨識（OCR）、證件防偽比對或高階零信任身分驗證防線。</li>
+</ul>
+<h4>🔍 廣告策略與關鍵字清單 (SOP 實證更新)</h4>
+<ul>
+<li><strong>付費廣告核心字組與 CPC 成本</strong>：極少投放 PLG 線上搜尋廣告。僅微量投放底層架構字組如 <code>PKI 憑證模組</code> (CPC 約 NT$45-60)、<code>AD 系統整合</code> (CPC 約 NT$50-65)。</li>
+<li><strong>預估日/月度 SEM 廣告預算</strong>：預估日均廣告費用約在 <strong>NT$ 170 - 500</strong> 之間，每月搜尋廣告費用極低，約在 <strong>NT$ 5,000 - NT$ 15,000</strong> 之間，重心完全在線下直銷與政府金融招標。</li>
+<li><strong>Meta 廣告檔案庫實證</strong>：目前無任何運行中的 FB/IG 社群廣告，行銷打法極度傳統，完全依賴業務與 SI 通路關係。</li>
+</ul>
+<h4>📢 公關新聞與政府標案</h4>
+<ul>
+<li><strong>大型標案優勢</strong>：常態性獲取大型公股行庫與縣市政府底層憑證系統標案，具備極強的政府端背書聲量。</li>
+</ul>
+<hr />
+<h3>4. 好好簽 (BreezySign / 蒙恬科技) — 我方基準與突圍方針</h3>
+<h4>🛡️ 現狀優勢對齊 (基於產品主頁官網呈現)</h4>
+<ul>
+<li><strong>核心功能優勢</strong>：我方現階段主打的差異化優勢聚焦於在地化與硬體整合特色：</li>
+<li><strong>聲明錄影防賴</strong>：全台唯一提供「聲明錄影」功能，防範事後否認、加強法律保障。</li>
+<li><strong>蒙恬觸控面板整合</strong>：與母公司手寫硬體完美結合，專攻實體臨櫃面簽與臨櫃簽核市場。</li>
+<li><strong>LINE 傳簽與在地化通知</strong>：支援 LINE 直接發送與通知，深度貼合台灣大眾與中小企業社交習慣。</li>
+<li><strong>印章儲存管理</strong>：支援符合華人商業印記習慣的印章儲存與管理。</li>
+<li><strong>安全與憑證基礎</strong>：主頁宣稱支援 AATL 國際信賴清單憑證，並保障符合我國《電子簽章法》規範。</li>
+</ul>
+<h4>⚡ 痛點與落後指標 (以產品主頁呈現與 GEO 實測為準)</h4>
+<ul>
+<li><strong>🟢 核心公信力宣告已正式同步 Production</strong>：先前存在的「能量登錄未顯化」問題已於 2026-05-27 實地覆核中確認解決。好好簽首頁 Hero Section 及 Footer 已 100% 正式同步上線純文字聲明：<code>賀！已通過數位發展部【電子簽章解決方案服務能量登錄（113電簽0008）】</code>，成功打通大模型最重視的官方信任背書，AI 搜尋 (GEO) 能見度實現破局突破，消除資訊靜默。</li>
+<li><strong>GEO 萃取靜默（資訊黑洞）</strong>：官網價格與常見問題 FAQ 模組「僅有問題、沒有文字解答內容」，大模型在提取對比定價與規則時面臨空白。</li>
+</ul>
+<h4>🔍 廣告策略與關鍵字清單 (SOP 實證更新)</h4>
+<ul>
+<li><strong>付費廣告核心字組與 CPC 成本</strong>：主要投放偏向獲取免費流量的通用詞，如 <code>線上合約簽署</code> (CPC 約 NT$35-50)、<code>免費電子簽名</code> (CPC 約 NT$12-25)、<code>手寫板簽名</code> (CPC 約 NT$20-35)。</li>
+<li><strong>我方日/月度 SEM 廣告預算</strong>：預估日均廣告預算約在 <strong>NT$ 500 - 800</strong> 之間，每月搜尋廣告預算約在 <strong>NT$ 15,000 - NT$ 25,000</strong> 之間，預算適中，但因偏向獲取通用免費體驗用戶，缺乏高意圖企業客戶字組的攔截。</li>
+<li><strong>⚠️ 核心合規字組攔截空白 (戰略盲區)</strong>：我方<strong>完全沒有投放</strong> <code>數發部能量登錄</code>、<code>政府電子簽章合格</code>、<code>合規電子簽章法</code> 等合規核心詞，使得在政府與法人採購的大模型推薦中幾乎處於靜默狀態。</li>
+<li><strong>SEO 標籤與品牌發散</strong>：首頁 Title Tag 關鍵字覆蓋密度不足，且「蒙恬好好簽」與「BreezySign 好好簽」在不同網頁標題中混用，稀釋了品牌實體權重。</li>
+</ul>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">🎯 業務前線即戰力：銷售對話反駁指南 (Battle Cards)</h2>
+                
+<p>當客戶在銷售會議中提及競品時，業務團隊可直接套用以下話術框架進行優勢轉換：</p>
+<h3>🆚 當客戶提及「點點簽 (DottedSign)」</h3>
+<div class="highlight-box">
+<p><strong>客戶質疑</strong>：「點點簽市佔率很高，而且現在串接了問卷系統感覺很完整。」<br />
+<strong>我方反駁話術框架</strong>：<br />
+「點點簽確實做得早，但其商務計費核心是基於<strong>簽署任務次數</strong>，當您企業內部用印量或自動化發送量大增時，後續加購成本會直線上線。事實上，我們近期就接到如瑞奇點子、搜博科技等多家原點點簽客戶，因為無法承受其改版後的暴增成本而成功無痛轉移到好好簽。好好簽不僅<strong>通過數發部電子簽章能量登錄官方審查</strong>，具備同等級的數位憑證不可否認性，我們背靠上櫃公司蒙恬科技的技術支援，更能提供您具彈性且透明的授權計費結構，不會用次數綁架您的長遠數位化流程。」</p>
+</div>
+<h3>🆚 當客戶提及「律果簽 (LegalSign)」</h3>
+<div class="highlight-box">
+<p><strong>客戶質疑</strong>：「律果簽有律師團隊撰寫範本，定價 490/980 也標得很清楚。」<br />
+<strong>我方反駁話術框架</strong>：<br />
+「律果簽在合約生命週期管理（CLM）的深度確實有其特色，但純軟新創在底層系統整合與長期營運穩定度上，往往面臨效能瓶頸。舉例來說，我們近期接觸的大型旅行社客戶就反映，在律果簽單次發起合約竟需 Loading 達 10 分鐘，嚴重影響作業效率。好好簽不僅提供符合電子簽章法推定效力的數位簽署，底層架構更經過蒙恬科技 30 年技術淬鍊，能穩定支撐企業高併發的簽署需求。若您需要的是一套運行極速、直覺且具備國家級能量登錄資質的純粹電子簽核中樞，好好簽能給予您無痛且不卡頓的導入體驗。」</p>
+</div>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">🔄 [2026-05-15 滾動觀測更新] 實戰執行快照</h2>
+                
+<div class="highlight-box">
+<p><strong>執行狀態</strong>：六大通道全量採集更新完成</p>
+</div>
+<h3>1. 官網與定價 (Website &amp; Pricing)</h3>
+<ul>
+<li><strong>DottedSign (凱鈿)</strong>：官網首屏已全面掛載「符合 2024 電子簽章法修法」信號。定價結構穩定，但 API 串接案例中新增了多個「跨國物流」客戶，顯示其正擴張海外 B2B 市場。</li>
+<li><strong>LegalSign (律果)</strong>：定價頁面強化了「CLM 合約生命週期」與「法律助手」的加購選項。新增了「數發部服務能量登錄許可」的標章，強化合規背書。</li>
+</ul>
+<h3>2. 內容文章的策略方向 (Content Strategy)</h3>
+<ul>
+<li><strong>凱鈿</strong>：Blog 主攻「ESG 無紙化」與「企業數位韌性」。文章結構已導入 FAQ Schema，對 AI 搜尋引擎極度友善。</li>
+<li><strong>律果</strong>：主打「法律專業性」，近期發布多篇「律師如何使用 AI 審約」深度文章。</li>
+</ul>
+<h3>3. 廣告策略與關鍵字清單 (Ads &amp; Keyword Strategy)</h3>
+<h4>📊 電子簽章各家 SEM 廣告預算與關鍵字實證對比表 (2026 年 5 月)</h4>
+<p>為了直觀評估市場上各核心競品在搜尋行銷 (SEM) 與生成式引擎優化 (GEO) 的資源投入落差，以下彙整本次普查的實證對比數據：</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">數據維度</th>
+<th style="text-align: left;">好好簽 (BreezySign) 我方</th>
+<th style="text-align: left;">點點簽 (DottedSign)</th>
+<th style="text-align: left;">律果簽 (LegalSign)</th>
+<th style="text-align: left;">FastSIGN (全景)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>營運主體</strong></td>
+<td style="text-align: left;">蒙恬科技</td>
+<td style="text-align: left;">凱鈿行動科技</td>
+<td style="text-align: left;">律果科技</td>
+<td style="text-align: left;">全景軟體</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>預估日均廣告預算</strong></td>
+<td style="text-align: left;"><strong>NT$ 500 - 800 / 日</strong></td>
+<td style="text-align: left;"><strong>NT$ 2,700 - 4,000 / 日</strong></td>
+<td style="text-align: left;"><strong>NT$ 800 - 1,300 / 日</strong></td>
+<td style="text-align: left;"><strong>NT$ 170 - 500 / 日</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>預估月度廣告預算</strong></td>
+<td style="text-align: left;"><strong>NT$ 15,000 - 25,000 / 月</strong></td>
+<td style="text-align: left;"><strong>NT$ 80,000 - 120,000 / 月</strong></td>
+<td style="text-align: left;"><strong>NT$ 25,000 - 40,000 / 月</strong></td>
+<td style="text-align: left;"><strong>NT$ 5,000 - 15,000 / 月</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心付費關鍵字 (SEM) 與 CPC 區間</strong></td>
+<td style="text-align: left;"><code>線上合約簽署</code> (CPC $35-50)<br><code>免費電子簽名</code> (CPC $12-25)<br><code>手寫板簽名</code> (CPC $20-35)</td>
+<td style="text-align: left;"><code>電子簽章</code> (CPC $65-90)<br><code>數位簽名</code> (CPC $50-70)<br><code>電子簽署 API</code> (CPC $85-110)<br><code>BreezySign 費用</code> (高價搶客詞)</td>
+<td style="text-align: left;"><code>合約管理系統</code> (CPC $70-95)<br><code>合約 CLM</code> (CPC $80-110)<br><code>線上審約</code> (CPC $55-75)</td>
+<td style="text-align: left;"><code>PKI 憑證地端</code> (CPC $45-60)<br><code>AD 系統整合</code> (CPC $50-65)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>廣告透明度中心實證狀態 (Google Ads)</strong></td>
+<td style="text-align: left;">🔴 <strong>無廣告</strong><br>(Google 廣告透明度中心實證我方處於靜默狀態，完全無運行中廣告)</td>
+<td style="text-align: left;">🟢 <strong>運行中</strong><br>(強打 SurveyCake 串接、TWFidO 10秒簽署、ESG 淨零等共 8 組搜尋與多媒體廣告)</td>
+<td style="text-align: left;">🟢 <strong>運行中</strong><br>(強打百款合約範本免費下載、AI 合約助理 30 秒審約共 4 組廣告)</td>
+<td style="text-align: left;">🔴 <strong>無廣告</strong><br>(行銷重心純線下，無運行中線上搜尋與社群廣告)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AI 引用滲透率</strong></td>
+<td style="text-align: left;"><strong>40%</strong> (落後)</td>
+<td style="text-align: left;"><strong>85%</strong> (領先)</td>
+<td style="text-align: left;"><strong>60%</strong> (中等)</td>
+<td style="text-align: left;"><strong>&lt; 10%</strong> (極低)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GEO 推薦定位與品牌標籤</strong></td>
+<td style="text-align: left;">被標記為「台灣本土廠商」、「符合能量登錄」，主打聲明錄影與簽名板整合</td>
+<td style="text-align: left;">被標記為「跨國首選」、「功能最全」，主打 API 整合與 ESG 政策紅利標籤</td>
+<td style="text-align: left;">被標記為「法務合規」、「律師推薦」，主打內建 CLM 與法律 AI 助手</td>
+<td style="text-align: left;">被標記為「資安地端大廠」，幾乎未被大眾消費級 AI 引擎引用</td>
+</tr>
+</tbody>
+</table></div>
+<div class="highlight-box">
+<p><strong>💡 SEM 攻防重點解讀：</strong>
+1. <strong>預算壁壘與引用率正相關</strong>：點點簽以日均高達 NT$ 4,000 的預算實施全通路防禦，甚至購買我方品牌詞 <code>BreezySign 費用</code> 以攔截高意圖客戶。這解釋了其在 Perplexity/Gemini 引用率高達 85% 的原因。
+2. <strong>我方品牌防禦空白</strong>：我方雖然日均有 NT$ 500-800 投入，但因無防禦型品牌廣告，且通用詞 CPC 偏高，導致流量獲取效率受限。更嚴重的是，在 Google 廣告透明度中心實證中我方為 <strong>0 廣告運行</strong>，極易在搜尋我方品牌時被點點簽的搶客廣告攔截。</p>
+</div>
+<ul>
+<li><strong>提問測試</strong>：「台灣推薦的電子簽章廠商」</li>
+<li><strong>AI 推薦結果</strong>：<ul>
+<li><strong>DottedSign</strong>：引用率最高（約 85%），被標記為「跨國首選」、「功能最全」。</li>
+<li><strong>LegalSign</strong>：引用率中等（約 60%），被標記為「法務合規」、「律師推薦」。</li>
+<li><strong>BreezySign (好好簽)</strong>：引用率上升至約 40%（受益於近期 Schema 優化），被標記為「台灣本土廠商」、「符合能量登錄」。</li>
+</ul>
+</li>
+</ul>
+<h3>4. 人才招募與技術佈局 (Talent &amp; Intent)</h3>
+<ul>
+<li><strong>凱鈿 (Kdan)</strong>：核心招募已移至 Yourator。關鍵職缺包含 <strong>AI Solution Consultant</strong> 與 <strong>AI Solution Engineer</strong>。這代表其產品正從「單一簽署工具」轉化為「AI 驅動的文件解決方案」。</li>
+<li><strong>律果 (LegalTech)</strong>：招募 <strong>「法律 AI 解決方案工程師」</strong>，明確要求具備 LLM 法律助手開發能力，正建立垂直領域的技術護城河。</li>
+</ul>
+<h3>5. 能量登錄與合規認證 (Compliance)</h3>
+<p><em>(本期無重大更新)</em></p>
+<h3>6. 公關新聞與政府標案 (PR &amp; Tenders)</h3>
+<ul>
+<li><strong>凱鈿</strong>：近期有關於「全球用戶突破 2000 萬」的 PR 佈局，建立「國際品牌」權威。</li>
+<li><strong>律果</strong>：獲得數位產業署「服務能量登錄」許可的新聞稿在 AI 訓練集中權重極高。</li>
+</ul>
+<h3>⚠️ 戰略威脅與應對建議 (5/18 廣告費用攻防更新)</h3>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">競爭威脅</th>
+<th style="text-align: left;">威脅程度</th>
+<th style="text-align: left;">建議應對方案 (BZS Strategy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>凱鈿 AI 顧問化</strong></td>
+<td style="text-align: left;">🔴 高</td>
+<td style="text-align: left;">BZS 應強化「與鼎新 ERP 深度整合」的<strong>即戰力</strong>論述，以垂直生態系對抗凱鈿的通用型 AI。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>競品高預算廣告壓制與品牌字強買</strong></td>
+<td style="text-align: left;">🔴 高</td>
+<td style="text-align: left;">點點簽以每日最高 NT$ 4,000 (月均 12 萬) 壓制 <code>電子簽章</code> 通用字，甚至高價強買我方品牌字 <code>BreezySign 費用</code>，攔截我方已產生興趣的客戶。<br>→ <strong>應對方案</strong>：我方應立即配置防禦型品牌廣告（確保搜尋我方品牌時首位為我方官網），並避開高價通用字，將日均 NT$ 500-800 預算集火攔截 <code>數發部能量登錄</code>、<code>符合電子簽章法</code>、<code>鼎新電子簽章</code> 等高合規/高精準長尾字，以小博大。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>律果簽法律 CLM 與 AI 審約定位</strong></td>
+<td style="text-align: left;">🟡 中</td>
+<td style="text-align: left;">律果簽以日均約 NT$ 800-1,300 集火 CLM 與 AI 自動審約字組，在法務採購端影響力漸增。<br>→ <strong>應對方案</strong>：我方應強調「聲明錄影防賴」的極致法庭證據力，在「不可否認與高度安全」上壓制對手的純文字 CLM 流程。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">🔍 4 大官網 Claude SEO 競品比較與技術普查 (competitor-pages)</h2>
+                
+<p>本期普查特別調用 [[claude-seo-universal-tool|Claude SEO]] 技術對比子代理，針對國內 4 大電子簽章官網在技術 SEO、DOM H標籤層級、Schema 標記及 AI 搜尋能見度 (GEO) 進行了全量剖析。</p>
+<p>詳細剖析與完整 Feature Matrix 比較頁規劃請參閱專屬報告：
+👉 <strong>[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]</strong></p>
+<h3>核心發現與戰術包抄要點：</h3>
+<ol>
+<li><strong>點點簽的 INP 弱點與 GEO 漂移</strong>：點點簽由於過度加載國際化 HubSpot/Hotjar 腳本，Core Web Vitals INP (260ms) 表現不佳。且其近期漲價客訴引發了嚴重的 <strong>AI 引用負面漂移 (AEO Drift)</strong>，這是我方搶客的絕佳時機。</li>
+<li><strong>律果簽的 SPA 爬取盲區</strong>：律果簽 CLM 頁面採用純 SPA 架構且缺乏 SSR，導致 raw-HTML 大模型爬取時常出現「薄內容 (Thin Content)」誤判，需仰賴動態渲染。</li>
+<li><strong>我方 (好好簽) 的 DOM 重構</strong>：好好簽官網存在嚴重的 H 標籤錯亂（H3 跑在 H2 前面）與 <code>Organization</code> Schema 缺失，亟待重構。</li>
+<li><strong>高轉化比較著著陸頁</strong>：我們已利用 <code>/seo competitor-pages generate</code> 規劃了 <strong>BreezySign VS 點點簽 VS 律果簽</strong> 比較著陸頁，部署高轉化 Feature Matrix 與 Product JSON-LD 程式碼（含 AggregateRating），主動包抄流失客戶。</li>
+</ol>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">🚀 下一步行動與修復優先清單 (Next Steps)</h2>
+                
+<p>為了在下一期普查快照中實現 SEO/GEO 指標反超，建議研發與行銷團隊本週啟動以下修復：
+1. <strong>[行銷/前端] 立即實作定價頁面 FAQ 模組</strong>：參照點點簽格式，於好好簽定價頁面底部寫入 6~8 組有問有答的完整文字段落，徹底解決 AI 抓取空白問題。
+2. <strong>[SEO 技術] 重構 Title Tag</strong>：將好好簽全域 Meta 標籤注入 <code>電子簽名</code>、<code>電子合約管理</code> 與 <code>數發部能量登錄</code> 關鍵字組，解決品牌字發散問題。
+3. <strong>[廣告投放] 重啟品牌字防禦與合規長尾廣告</strong>：
+   - 立即配置每日約 NT$ 150 - 200 的防禦預算，定向投放我方品牌詞 <code>好好簽</code>、<code>BreezySign</code>，反攔截點點簽的搶客廣告。
+   - 配置每日約 NT$ 150 - 300 的精準預算，集火 <code>數發部能量登錄</code>、<code>台灣電子簽章法合規</code> 與 <code>鼎新電簽串接</code> 長尾字組，打破「公信力靜默」僵局。
+4. <strong>[知識庫擴充] 建立專用反駁小卡</strong>：依據本快照第四節，進一步擴充獨立的業務作戰文檔 <code>wiki/playbooks/bzs-sales-battle-cards.md</code>。</p>
+<hr />
+
+            </div>
+            
+            <div class="glass-card">
+                <h2 class="section-title">🔗 關聯報告與追蹤機制</h2>
+                
+<ul>
+<li><strong>觀測機制 SOP</strong>：<a href="../playbooks/esign-competitor-monitoring-mechanism.md">電子簽章能量登錄競品週期性觀測機制</a></li>
+<li><strong>本土競品總分析</strong>：<a href="../analyses/domestic-e-signature-comparison.md">國內電子簽章服務競品比較</a></li>
+<li><strong>能量登錄許可名單</strong>：<a href="../sources/esign-solution-approved-list.md">電子簽章解決方案服務能量登錄許可名單</a></li>
+<li><strong>官網技術 SEO 普查</strong>：[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]</li>
+</ul>
+            </div>
+            <footer>
+        <p>報告編號: BZS-SNAP-20260527-04 | 蒙恬科技 (PenPower) 電子簽章市場與技術優化小組 ． 專用高階商務模板</p>
+    </footer>
+</div>
+
+</body>
+</html>
