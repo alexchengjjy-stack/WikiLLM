@@ -1,0 +1,120 @@
+Total lines: 1646
+Line 19 [LLM]: 它的目標是「用大腦驅動手腳」—— 透過 Local LLM，將合約簽署前段的 CRM 與後段的 BPM/KM 完美串聯。
+Line 27 [LLM]: *   **AI 合約審閱與資料抽取 (LLM-based Extraction)**：Zapier 只能處理結構化資料 (JSON/Webhooks)，但 BreezyBrain 內建的 AI 大腦能直接閱讀 PDF 或 Word，自動判別客戶意圖並提取關鍵字（如：合約金額、日期、對象），這成為不可取代的技術壁壘。
+Line 34 [LLM, 部署]: 1. **混合式落地 (Hybrid On-Premises)**：基於資料隱私與 Local LLM 硬體/軟體建置成本考量，大腦核心、BreezyCRM 與文件處理可落地部署於客戶端地端硬體。
+Line 53 [LLM]: 為了方便各部門（產品、技術、銷售）在研發與對接時進行精準溝通，BreezyBrain 採用以下**分層式架構設計**。大腦中樞（地端 Local LLM）作為核心推理引擎，驅動前段客資 CRM、中段 CLM 合約管理與後段 KM 歸檔，並由 DMZ 網閘安全代理對接外部 BreezySign 雲端 API，或降級執行地端簽署：
+Line 93 [Ollama, 部署, Llama]: Ollama["Ollama 地端部署 API"]
+Line 94 [Apache, LLM, Qwen, 7B]: LLM["Qwen 2.5 7B 推理大腦 (Apache 2.0)"]
+Line 115 [Ollama, Llama]: CLM <--> Ollama
+Line 116 [Ollama, Llama]: BreezyCRM <--> Ollama
+Line 117 [Ollama, Llama]: KM <--> Ollama
+Line 119 [LLM, Ollama, Llama]: Ollama --> LLM
+Line 120 [LLM]: LLM --> RAG
+Line 121 [LLM]: LLM --> Agent
+Line 131 [LLM, Ollama, Llama]: class Ollama,LLM,RAG,Agent,Gate brain;
+Line 156 [Ollama, Qwen, 7B, Llama]: E -->|Ollama 載入 Qwen 2.5-7B| F["大腦語意範本匹配"]
+Line 165 [授權]: J -->|人工防禦審查 / 確認安全| K["派單授權發送"]
+Line 202 [LLM]: *   **US 1.2 (非結構化解析)**：身為診所助理，我希望上傳一份紙本掃描的同意書後，系統能透過 OCR + LLM 自動識別病患姓名，並發送 Line 傳簽給該病患。
+Line 334 [LLM]: - **大腦合理瞎猜與欄位補全**：若名片或留單上缺少「員工人數」、「資本額」等潛力評估核心指標，地端 LLM 自動分析公司名稱於本地資料庫中進行推論；若無法推論，系統自動降級預設為 `🟡 中潛力`，並於 UI/CLI 警示業務「待補充關鍵欄位」。
+Line 416 [部署]: *   **實體存儲架構**：地端部署模式下，系統於伺服器或 NAS 建立受控的檔案目錄結構，格式如下：
+Line 432 [模型]: - 使用輕量化地端 Embedding 模型（如 `bge-m3`）將合約條文段落向量化，存儲於地端向量資料庫（如 SQLite/ChromaDB/Qdrant）。
+Line 452 [MIT]: - 智庫合約語意檢索：`breezy-brain km search --query <string> [--filter-account <uuid>] [--limit <int>] --format json`
+Line 491 [MIT]: "limit": 5
+Line 514 [LLM]: ### Epic 5: LLM 大腦工作清單 (LLM Brain Job List & Agentic Tasks)
+Line 515 [LLM]: 定義 Local LLM (大腦) 於 BreezyBrain 系統各個階段所承擔的 AI 自動化工作：
+Line 517 [LLM]: | 階段別 | 核心工作任務 (LLM Job) | 輸入 (Inputs) | 輸出 (Outputs) | 大腦處理邏輯 (Processing Logic) |
+Line 619 [LLM]: *   **節點類型**：支援「OCR 解析節點」、「LLM 審閱節點」、「分支判斷節點」、「審批路由節點」、「BreezySign 電子簽章節點」與「KM 向量歸檔節點」。
+Line 705 [LLM]: ### Epic 8: KM 智庫 — WikiLLM 模式知識庫架構 (Wiki-style Knowledge Management)
+Line 707 [LLM]: BreezyBrain 的知識智庫（KM）採用與 **WikiLLM** 相同的架構理念：以標準 Markdown + YAML Frontmatter 為基礎，透過 Agent 自動攝入、向量索引與圖關聯，將簽署完成的合約文件轉化為可被人類閱讀與 AI 問答的結構化知識頁面。這使得合約知識庫不只是一個被動文件倉庫，而是一個活的、可持續更新的企業第二大腦。
+Line 769 [LLM]: 當 BreezySign 回調告知合約簽署完成後，KM Agent 自動依序執行以下步驟（完整實踐 WikiLLM 的「Ingest 流程」）：
+Line 772 [LLM]: 2. **大腦解析 (LLM Parsing)**：呼叫 Local LLM 進行：
+Line 809 [LLM]: └── 產出 WikiLLM 相容格式 .md → 可選擇性匯入 Obsidian
+Line 858 [選型]: #### 2.8.6 KM DB 分層架構規格（依企業規模選型）
+Line 864 [授權, 選型]: | 功能層 | 職責 | 選型技術 | 授權 |
+Line 866 [MIT]: | **Metadata DB** | 合約結構化欄位（金額/日期/狀態/帳戶）、RBAC 權限、履約義務追蹤 | PostgreSQL 16 | PostgreSQL License（類 MIT）|
+Line 867 [Apache]: | **Vector DB** | 合約段落語意 Embedding、RAG 向量檢索 | ChromaDB → Qdrant | Apache 2.0 |
+Line 868 [Apache]: | **Graph Layer** | 合約-客戶-條款-實體 知識圖譜關聯查詢 | pgvector HNSW → Neo4j | Apache 2.0 / Community |
+Line 871 [選型]: ##### 規模分層選型（Scale-tier Selection）
+Line 878 [Apache]: Vector DB     → ChromaDB (SQLite-backed, Apache 2.0)
+Line 884 [部署]: 部署方式：地端單機，一鍵 Docker Compose 啟動
+Line 899 [Apache]: Vector DB     → Qdrant (Apache 2.0, 單節點)
+Line 908 [部署]: 部署方式：地端 Docker Compose (多容器)，或雲端單節點 VM
+Line 924 [Apache]: Vector DB     → Qdrant (分散式集群, Apache 2.0)
+Line 927 [Apache]: Graph Layer   → Neo4j Community (或 Apache AGE on PostgreSQL)
+Line 930 [部署]: 全文搜尋      → Elasticsearch (SSPL, 自部署)
+Line 931 [授權]: 或 PostgreSQL FTS (若已足夠，避免 SSPL 授權)
+Line 936 [部署]: 部署方式：Kubernetes (K8s) 或 Docker Swarm 多節點
+Line 956 [LLM]: summary         TEXT,          -- LLM 生成 100 字摘要
+Line 995 [部署]: > **MVP 落地建議**：MVP 階段以 **Tier 1 (SQLite + ChromaDB)** 啟動，降低部署複雜度；系統設計必須保證 Tier 1 → Tier 2 的**零資料遷移成本升級路徑**（API 介面不變，僅替換 DB 連線設定）。
+Line 1001 [LLM]: BreezyBrain 提供統一的視覺化儀表板，整合六大功能模組（BCR、CRM、CLM、BPM、KM、LLM 大腦）的即時數據，讓管理者一眼掌握合約健康度、銷售漏斗與 AI 工作績效，並支援多格式報告匯出，滿足內部管理與外部稽核需求。
+Line 1015 [LLM]: │  │ Knowledge│  │ LLM Jobs │  │  PDF / Excel / CSV / JSON │  │
+Line 1039 [LLM]: | **AI 大腦本月處理任務數** | LLM Job Log | 所有 LLM 任務成功計數 |
+Line 1040 [LLM]: | **AI 任務成功率** | LLM Job Log | `Success / Total` 比率 |
+Line 1132 [LLM]: ##### 🤖 D6: AI 大腦工作績效儀表板 (LLM Brain Performance Dashboard)
+Line 1139 [模型]: | **模型推理速度** | 平均 tokens/sec（按模型版本分組）；低於 5 tokens/sec 標紅警示 |
+Line 1143 [Ollama, 模型, Llama]: | **模型版本比較** | 不同 Ollama 模型版本的任務成功率 / 平均信心分比較表 |
+Line 1160 [LLM]: | **Markdown** | 知識庫歸檔、GitOps 報告流程 | WikiLLM 相容格式，可直接攝入 KM 知識庫 |
+Line 1169 [LLM]: | **AI 大腦月度績效報告** | LLM Dashboard | 每月 |
+Line 1209 [LLM]: - `<module>` 可選：`overview | crm | clm | bpm | km | llm`
+Line 1235 [LLM]: - `GET /api/v1/dashboard/llm` — LLM 任務績效數據
+Line 1267 [LLM, 部署, 模型]: *   **底層模型**：依賴在地化部署的 Local LLM（保障合規與隱私）。
+Line 1272 [LLM]: 基於內部效能測試數據（大檔案傳輸與 Local LLM 處理耗時，當測試文件大小達到 20MB 時，有 50% 機率 [10次中發生5次] 會因為處理時間過長導致 HTTP 連線 Timeout），系統制定以下傳輸與容錯規格：
+Line 1279 [LLM]: - **運作機制**：客戶端上傳檔案 ➡️ 伺服器立即寫入任務佇列並回傳 `task_id` (HTTP 202 Accepted) ➡️ 釋放 HTTP 連線避免超時 ➡️ 地端 Local LLM 於背景執行解析 ➡️ 完成後透過 Webhook 推播或客戶端異步輪詢 (Polling) 更新狀態。
+Line 1336 [LLM]: ### 3.2 地端 Local LLM 軟硬體與雲端回退規格 (Local LLM Hardware/Software & Fallback Specs)
+Line 1337 [LLM]: 為保證混合落地模式的執行效率，避免地端 CPU 推理超時，系統定義地端 LLM 的基本軟硬體要求與自動回退機制。
+Line 1339 [Apache, 授權, 模型, 選型, 資源計算]: #### 3.2.1 開源模型選型與資源計算（Apache 2.0 授權優先）
+Line 1341 [Apache, LLM, 授權, 部署, 模型, 選型]: > **授權原則**：BreezyBrain 地端部署的所有 LLM 模型，**優先採用 Apache 2.0 授權**之開源模型，確保商業用途無授權疑慮。以下為已驗證 Apache 2.0 之推薦選型清單：
+Line 1343 [Ollama, 授權, 模型, Llama]: | 模型 | 授權 | 參數量 | 繁中能力 | VRAM 需求 | 最適任務 | Ollama Tag |
+Line 1345 [Apache, Qwen, 7B]: | **Qwen 2.5 7B Instruct** | Apache 2.0 | 7B | ⭐⭐⭐⭐⭐ | 8 GB | 合約抽取、摘要、問答（主力） | `qwen2.5:7b` |
+Line 1346 [Apache, Qwen]: | **Qwen 2.5 14B Instruct** | Apache 2.0 | 14B | ⭐⭐⭐⭐⭐ | 16 GB | 高風險合約審閱、複雜 JSON 輸出 | `qwen2.5:14b` |
+Line 1347 [Apache, Qwen]: | **Qwen 2.5 32B Instruct** | Apache 2.0 | 32B | ⭐⭐⭐⭐⭐ | 24 GB | 長文本法務分析（企業重型客戶） | `qwen2.5:32b` |
+Line 1348 [Apache, Qwen]: | **Qwen3 8B** | Apache 2.0 | 8B | ⭐⭐⭐⭐⭐ | 8 GB | 思考推理（Thinking Mode）、合約風險評估 | `qwen3:8b` |
+Line 1349 [授權, MIT]: | **Phi-4 14B** | MIT | 14B | ⭐⭐⭐⭐ | 10 GB | 結構化 JSON 輸出（備選，MIT 授權） | `phi4:14b` |
+Line 1350 [Apache]: | **BGE-M3** | Apache 2.0 | 570M | N/A | 1 GB | 多語言向量 Embedding（KM 向量化） | `bge-m3` |
+Line 1351 [Apache]: | **nomic-embed-text** | Apache 2.0 | 137M | ⭐⭐⭐ | 0.5 GB | 輕量向量 Embedding（低算力環境） | `nomic-embed-text` |
+Line 1353 [模型]: > **⚠️ 排除模型說明**：
+Line 1354 [Apache, Llama]: > - `Llama 3.x` 系列採用 **Meta Llama Community License（非 Apache 2.0）**，商業用途需遵守月活躍用戶 < 7 億的限制，不建議作為預設首選。
+Line 1355 [Apache, Qwen, Mistral]: > - `Mistral` 系列部分版本為 Apache 2.0，但繁體中文能力遜於 Qwen 系列，降為備選。
+Line 1357 [Qwen, 7B]: *   **MVP 主力推薦**：**Qwen 2.5 7B Instruct (Q4_K_M 量化版本)**。
+Line 1358 [Apache, 授權]: - **原因**：Apache 2.0 授權、具備 128K Context Window、對繁體中文合約條款理解與結構化 JSON 輸出具備頂級表現，且對 RTX 3060 12GB VRAM 環境友好。
+Line 1359 [模型]: *   **KM Embedding 模型**：**BGE-M3 (BAAI/bge-m3)**。
+Line 1360 [Apache, 授權]: - **原因**：Apache 2.0 授權、支援 100+ 語言（含繁體中文）、同時支援 Dense / Sparse / ColBERT 三種向量化策略，最高 8,192 Token 長度，適合合約段落向量化。
+Line 1361 [Qwen, 7B]: *   **記憶體 (VRAM/RAM) 計算 (以 Qwen 2.5 7B 為基準)**：
+Line 1362 [模型]: - 模型檔大小：約 4.8 GB。
+Line 1366 [部署]: #### 3.2.2 部署硬體環境要求
+Line 1376 [部署]: #### 3.2.3 部署軟體環境
+Line 1377 [Ollama, Llama]: *   **底層推理器**：**Ollama**（自動識別地端 CPU/GPU 硬體加速，支援動態載入/釋放）。
+Line 1389 [部署]: 為確保系統具備高度的擴充性與部署彈性（特別是地端/雲端混合式架構），BreezyBrain 的六大核心模組（BCR、CRM、CLM、BPM、ESign、KM）之間必須遵循**完全解耦與通訊邊界隔離原則**。
+Line 1440 [Ollama, Llama]: ### 3.4 Agent + Ollama 完整架構規格 (Agent Architecture with Ollama)
+Line 1442 [LLM, Ollama, Llama]: BreezyBrain 的智能大腦並非單純的「LLM API 呼叫」，而是一套以 **Ollama** 為推理後端、基於 **ReAct（Reasoning + Acting）迴圈** 的多工具 Agent 架構。以下定義其核心架構、工具清單、RAG 鏈路，以及商品/服務實踐指南。
+Line 1468 [LLM, Ollama, Qwen, 7B, Llama]: Ollama (Local LLM: Qwen 2.5 7B)
+Line 1473 [Ollama, 部署, Llama]: #### 3.4.2 Ollama 部署與 OpenAI 相容 API 規格
+Line 1475 [Ollama, 部署, Llama]: *   **Ollama 安裝指令（一行部署）**：
+Line 1478 [Ollama, Llama]: curl -fsSL https://ollama.com/install.sh | sh
+Line 1481 [Ollama, Llama]: winget install Ollama.Ollama
+Line 1483 [模型]: *   **拉取推薦模型**：
+Line 1485 [Apache, Ollama, Qwen, 7B, 模型, Llama]: ollama pull qwen2.5:7b          # 主力合約解析模型 (Apache 2.0)
+Line 1486 [Apache, Ollama, 模型, Llama]: ollama pull bge-m3              # KM 向量 Embedding 模型 (Apache 2.0)
+Line 1487 [Apache, Ollama, Llama]: ollama pull nomic-embed-text    # 備用輕量 Embedding (Apache 2.0)
+Line 1489 [Ollama, Llama]: *   **啟動服務**：`ollama serve` (預設監聽 `http://localhost:11434`)
+Line 1493 [Qwen, 7B]: "model": "qwen2.5:7b",
+Line 1557 [模型]: | 業務場景 | Agent 工作流 | 使用工具鏈 | 推薦模型 | 特殊注意事項 |
+Line 1559 [Qwen, 7B]: | **旅遊定型化契約自動派單** | template_match → risk_assess → [人工確認] → breezysign_dispatch → km_ingest | template_match, risk_assess, breezysign_dispatch, km_ingest | Qwen 2.5 7B | 置信度 < 0.85 必須人工選範本 |
+Line 1560 [Qwen, 7B]: | **醫美診所同意書多份批量發送** | ocr_extract → crm_update → breezysign_dispatch (batch) → file_archive | ocr_extract, breezysign_dispatch, file_archive | Qwen 2.5 7B | 病患個資需加密儲存，禁止寫入 KM 頁面 |
+Line 1561 [Qwen]: | **API 企業客戶合約 AI 審閱** | ocr_extract → risk_assess → contract_diff → notify_send | ocr_extract, risk_assess, contract_diff | Qwen 2.5 14B | 高風險強制法務路由，不可 override |
+Line 1562 [LLM, Qwen, 7B]: | **KM 智庫語意問答（業務自助查詢）** | km_search → [LLM 綜合回答] | km_search | Qwen 2.5 7B | RAG 架構，回答需附原文段落引用 |
+Line 1564 [Qwen, 7B]: | **競品跳槽客戶知識萃取（銷售洞察）** | km_search(query="點點簽 跳槽 原因") → topics/update | km_search, km_ingest | Qwen 2.5 7B | 產出 Wiki 主題頁，供業務參考競品痛點 |
+Line 1588 [LLM]: [Step 4] LLM Generation
+Line 1589 [Ollama, Qwen, 7B, Llama]: Ollama (Qwen 2.5 7B) 生成自然語言回答
+Line 1600 [選型]: *   **向量資料庫選型**：
+Line 1601 [Apache]: - **ChromaDB**（Apache 2.0）：輕量 SQLite-backed，適合 MVP 與低算力環境，零運維。
+Line 1602 [Apache]: - **Qdrant**（Apache 2.0）：效能更高，支援分散式，適合企業重型客戶（> 10,000 份合約）。
+Line 1603 [選型]: - **預設選型**：MVP 階段使用 ChromaDB；單一帳戶合約數 > 5,000 份時建議升級 Qdrant。
+Line 1605 [選型]: #### 3.4.7 Agent 框架選型（Python 生態）
+Line 1607 [授權, MIT, Llama]: *   **推薦框架**：**LangChain** 或 **LlamaIndex**（均為 MIT 授權，可商業使用）。
+Line 1609 [LLM, Llama]: - LlamaIndex 優點：RAG 鏈路設計更細緻，Markdown Document Store 對 WikiLLM 格式天然友好。
+Line 1610 [Ollama, Llama]: *   **Ollama 整合方式**（以 LangChain 為例）：
+Line 1612 [Ollama, Llama]: from langchain_ollama import ChatOllama
+Line 1615 [LLM, Ollama, Llama]: llm = ChatOllama(
+Line 1616 [Qwen, 7B]: model="qwen2.5:7b",
+Line 1622 [LLM]: agent = create_react_agent(llm=llm, tools=TOOL_REGISTRY, prompt=SYSTEM_PROMPT)

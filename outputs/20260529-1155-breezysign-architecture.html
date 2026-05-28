@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>BreezySign Architecture (Eraser Neon Blueprint)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #010205;
+            --grid-color: rgba(30, 58, 138, 0.15);
+            --blue-neon:   #00e5ff;
+            --blue-glow:   rgba(0, 229, 255, 0.45);
+            --green-neon:  #00ff87;
+            --green-glow:  rgba(0, 255, 135, 0.45);
+            --purple-neon: #d53dff;
+            --purple-glow: rgba(213, 61, 255, 0.45);
+            --orange-neon: #ff7c00;
+            --orange-glow: rgba(255, 124, 0, 0.45);
+            --text-main: #ffffff;
+            --text-sub:  #cbd5e1;
+            /* 外框：各欄深色漸層底色，稍微拉低亮度以襯托卡片 */
+            --col-blue-bg:   linear-gradient(180deg, rgba(1, 8, 16, 0.95) 0%, rgba(1, 4, 10, 0.98) 100%);
+            --col-green-bg:  linear-gradient(180deg, rgba(1, 10, 6, 0.95) 0%, rgba(1, 5, 3, 0.98) 100%);
+            --col-purple-bg: linear-gradient(180deg, rgba(6, 2, 12, 0.95) 0%, rgba(3, 1, 8, 0.98) 100%);
+            --col-orange-bg: linear-gradient(180deg, rgba(12, 5, 0, 0.95) 0%, rgba(6, 2, 0, 0.98) 100%);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── 與形式一 v6 完全相同的 body 結構 ── */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 26px 26px;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;   /* ← 與 v6 相同 */
+            overflow: hidden;           /* ← 與 v6 相同 */
+            position: relative;
+        }
+
+        /* 標題區 */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 1366px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+        }
+
+        .subtitle {
+            font-family: 'Fira Code', sans-serif;
+            font-size: 18px;
+            color: var(--text-sub);
+            letter-spacing: 0.5px;
+        }
+
+        /* ── 與形式一 v6 相同：aspect-ratio: 16/9 自動縮放 ── */
+        .architecture-container {
+            width: 100%;
+            max-width: 1366px;
+            aspect-ratio: 16 / 9;      /* ← 關鍵！與 v6 相同 */
+            position: relative;
+            background: rgba(3, 6, 12, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr 1.3fr 1fr;
+            justify-content: space-between;
+            align-content: stretch;
+            gap: 18px;
+            z-index: 10;
+        }
+
+        /* 欄位容器：各欄獨立漸層底色，製造主色調氛圍 */
+        .column-wrapper {
+            border-radius: 16px;
+            padding: 18px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            overflow: hidden;
+        }
+        .layer-presentation { background: var(--col-blue-bg); }
+        .layer-application  { background: var(--col-green-bg); }
+        .layer-brain        { background: var(--col-purple-bg); }
+        .layer-security     { background: var(--col-orange-bg); }
+
+        /* 四欄霓虹邊框 + 強化內部光暈 */
+        .layer-presentation { border: 3px solid var(--blue-neon);   box-shadow: 0 0 32px var(--blue-glow),   inset 0 0 40px rgba(0,229,255,0.12),   inset 0 0 80px rgba(0,229,255,0.04); }
+        .layer-application  { border: 3px solid var(--green-neon);  box-shadow: 0 0 32px var(--green-glow),  inset 0 0 40px rgba(0,255,135,0.12),  inset 0 0 80px rgba(0,255,135,0.04); }
+        .layer-brain        { border: 3px solid var(--purple-neon); box-shadow: 0 0 32px var(--purple-glow), inset 0 0 40px rgba(213,61,255,0.12), inset 0 0 80px rgba(213,61,255,0.04); }
+        .layer-security     { border: 3px solid var(--orange-neon); box-shadow: 0 0 32px var(--orange-glow), inset 0 0 40px rgba(255,124,0,0.12), inset 0 0 80px rgba(255,124,0,0.04); }
+
+        /* 欄位標題 */
+        .layer-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.15);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .layer-presentation .layer-title { color: var(--blue-neon);   text-shadow: 0 0 6px var(--blue-glow); }
+        .layer-application  .layer-title { color: var(--green-neon);  text-shadow: 0 0 6px var(--green-glow); }
+        .layer-brain        .layer-title { color: var(--purple-neon); text-shadow: 0 0 6px var(--purple-glow); }
+        .layer-security     .layer-title { color: var(--orange-neon); text-shadow: 0 0 6px var(--orange-glow); }
+
+        /* 子卡片 — 大幅調亮背景色，與外框形成強烈對比 */
+        .node-card {
+            border: 1.5px solid rgba(255,255,255,0.22);
+            border-radius: 12px;
+            padding: 10px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 4px;
+            flex: 1;
+            min-height: 0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+        }
+        .node-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(255,255,255,0.5) !important;
+            box-shadow: 0 6px 20px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        /* 各欄卡片：左側幻光粗線 + 明亮漸層底色 + 對應主色邊框與光暈 */
+        .layer-presentation .node-card {
+            border-left: 5px solid var(--blue-neon);
+            border-right: 1.5px solid rgba(0, 229, 255, 0.35);
+            border-top: 1.5px solid rgba(0, 229, 255, 0.35);
+            border-bottom: 1.5px solid rgba(0, 229, 255, 0.35);
+            background: linear-gradient(135deg, #0e2a4a 0%, #06172d 100%);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15), 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .layer-application .node-card {
+            border-left: 5px solid var(--green-neon);
+            border-right: 1.5px solid rgba(0, 255, 135, 0.35);
+            border-top: 1.5px solid rgba(0, 255, 135, 0.35);
+            border-bottom: 1.5px solid rgba(0, 255, 135, 0.35);
+            background: linear-gradient(135deg, #09341e 0%, #031c10 100%);
+            box-shadow: 0 4px 15px rgba(0, 255, 135, 0.15), 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .layer-brain .node-card {
+            border-left: 5px solid var(--purple-neon);
+            border-right: 1.5px solid rgba(213, 61, 255, 0.35);
+            border-top: 1.5px solid rgba(213, 61, 255, 0.35);
+            border-bottom: 1.5px solid rgba(213, 61, 255, 0.35);
+            background: linear-gradient(135deg, #24133b 0%, #10051e 100%);
+            box-shadow: 0 4px 15px rgba(213, 61, 255, 0.15), 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .layer-security .node-card {
+            border-left: 5px solid var(--orange-neon);
+            border-right: 1.5px solid rgba(255, 124, 0, 0.35);
+            border-top: 1.5px solid rgba(255, 124, 0, 0.35);
+            border-bottom: 1.5px solid rgba(255, 124, 0, 0.35);
+            background: linear-gradient(135deg, #321503 0%, #150901 100%);
+            box-shadow: 0 4px 15px rgba(255, 124, 0, 0.15), 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .node-icon {
+            width: 52px; height: 52px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.07);
+            flex-shrink: 0;
+            margin-bottom: 2px;
+        }
+        .node-icon svg { width: 32px !important; height: 32px !important; }
+
+        .layer-presentation .node-icon { color: var(--blue-neon);   filter: drop-shadow(0 0 6px var(--blue-glow)); }
+        .layer-application  .node-icon { color: var(--green-neon);  filter: drop-shadow(0 0 6px var(--green-glow)); }
+        .layer-brain        .node-icon { color: var(--purple-neon); filter: drop-shadow(0 0 6px var(--purple-glow)); }
+        .layer-security     .node-icon { color: var(--orange-neon); filter: drop-shadow(0 0 6px var(--orange-glow)); }
+
+        .node-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .node-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        /* 垂直箭頭 */
+        .vertical-flow-arrow {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1;
+            margin: -2px 0;
+            opacity: 0.85;
+            flex-shrink: 0;
+        }
+        .layer-presentation .vertical-flow-arrow { color: var(--blue-neon); }
+        .layer-application  .vertical-flow-arrow { color: var(--green-neon); }
+        .layer-brain        .vertical-flow-arrow { color: var(--purple-neon); }
+        .layer-security     .vertical-flow-arrow { color: var(--orange-neon); }
+
+        /* SVG 跨欄連接線（絕對定位在容器內，z-index 低於欄位） */
+        .flow-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 頁尾 */
+        footer {
+            margin-top: 20px;
+            font-family: 'Fira Code', sans-serif;
+            font-size: 13px;
+            color: var(--text-sub);
+            text-align: center;
+            z-index: 10;
+        }
+
+        @media print {
+            @page { size: landscape; margin: 0; }
+            body {
+                background: #ffffff !important;
+                background-image: none !important;
+                color: #0f172a !important;
+                padding: 10px !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            header h1 {
+                color: #0f172a !important;
+                text-shadow: none !important;
+            }
+            header .subtitle {
+                color: #475569 !important;
+            }
+            .architecture-container {
+                aspect-ratio: 16/9 !important;
+                background: #ffffff !important;
+                border: 2px solid #94a3b8 !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            /* 外框淡色漸層與高對比邊框 */
+            .layer-presentation { background: #f0f9ff !important; border: 2.5px solid #0284c7 !important; box-shadow: none !important; }
+            .layer-application  { background: #f0fdf4 !important; border: 2.5px solid #16a34a !important; box-shadow: none !important; }
+            .layer-brain        { background: #faf5ff !important; border: 2.5px solid #9333ea !important; box-shadow: none !important; }
+            .layer-security     { background: #fff7ed !important; border: 2.5px solid #ea580c !important; box-shadow: none !important; }
+            
+            /* 外框標題與邊線 */
+            .layer-title { border-bottom: 2px solid #cbd5e1 !important; text-shadow: none !important; }
+            .layer-presentation .layer-title { color: #0284c7 !important; }
+            .layer-application  .layer-title { color: #16a34a !important; }
+            .layer-brain        .layer-title { color: #9333ea !important; }
+            .layer-security     .layer-title { color: #ea580c !important; }
+
+            /* 內框卡片白底與深色邊框 */
+            .node-card {
+                background: #ffffff !important;
+                border: 1.5px solid #94a3b8 !important;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+            }
+            .layer-presentation .node-card {
+                border-left: 5px solid #0284c7 !important;
+                border-right: 1.5px solid #bae6fd !important;
+                border-top: 1.5px solid #bae6fd !important;
+                border-bottom: 1.5px solid #bae6fd !important;
+            }
+            .layer-application .node-card {
+                border-left: 5px solid #16a34a !important;
+                border-right: 1.5px solid #bbf7d0 !important;
+                border-top: 1.5px solid #bbf7d0 !important;
+                border-bottom: 1.5px solid #bbf7d0 !important;
+            }
+            .layer-brain .node-card {
+                border-left: 5px solid #9333ea !important;
+                border-right: 1.5px solid #e9d5ff !important;
+                border-top: 1.5px solid #e9d5ff !important;
+                border-bottom: 1.5px solid #e9d5ff !important;
+            }
+            .layer-security .node-card {
+                border-left: 5px solid #ea580c !important;
+                border-right: 1.5px solid #ffedd5 !important;
+                border-top: 1.5px solid #ffedd5 !important;
+                border-bottom: 1.5px solid #ffedd5 !important;
+            }
+
+            /* 卡片內部文字與圖示 */
+            .node-title { color: #0f172a !important; }
+            .node-desc { color: #334155 !important; }
+            .node-icon { background: rgba(0, 0, 0, 0.05) !important; }
+            
+            .layer-presentation .node-icon { color: #0284c7 !important; filter: none !important; }
+            .layer-application  .node-icon { color: #16a34a !important; filter: none !important; }
+            .layer-brain        .node-icon { color: #9333ea !important; filter: none !important; }
+            .layer-security     .node-icon { color: #ea580c !important; filter: none !important; }
+
+            /* 垂直箭頭 */
+            .layer-presentation .vertical-flow-arrow { color: #0284c7 !important; }
+            .layer-application  .vertical-flow-arrow { color: #16a34a !important; }
+            .layer-brain        .vertical-flow-arrow { color: #9333ea !important; }
+            .layer-security     .vertical-flow-arrow { color: #ea580c !important; }
+
+            /* SVG 跨欄連接線在白底下的配色調深 */
+            .flow-canvas path {
+                filter: none !important;
+                stroke-width: 4 !important;
+            }
+            .flow-canvas path[stroke="#00e5ff"] { stroke: #0284c7 !important; }
+            .flow-canvas path[stroke="#00ff87"] { stroke: #16a34a !important; }
+            .flow-canvas path[stroke="#d53dff"] { stroke: #9333ea !important; }
+
+            /* SVG 標記箭頭填充色 */
+            #arrow-blue path { fill: #0284c7 !important; }
+            #arrow-green path { fill: #16a34a !important; }
+            #arrow-purple path { fill: #9333ea !important; }
+
+            footer {
+                color: #475569 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BreezySign Architecture</h1>
+    <div class="subtitle">Eraser.io Style Interactive Dataflow Diagram</div>
+</header>
+
+<div class="architecture-container">
+
+    <!-- SVG 跨欄發光連接線（viewBox 與容器 aspect-ratio 16:9 對齊） -->
+    <svg class="flow-canvas" viewBox="0 0 1366 768" preserveAspectRatio="xMidYMid meet">
+        <defs>
+            <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00e5ff"/>
+            </marker>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00ff87"/>
+            </marker>
+            <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d53dff"/>
+            </marker>
+        </defs>
+
+        <!--
+            16:9 viewBox = 1366×768
+            padding: 24px 32px → 有效內容區 = (32→1334) × (24→744)
+            grid-template-columns: 1fr 1.3fr 1.3fr 1fr, gap=18px, 總寬=1302px
+            每fr≈ 1302/(1+1.3+1.3+1)=1302/4.6≈283px
+            Col1: 32→315 中心≈173
+            Col2: 333→700 中心≈516
+            Col3: 718→1017 中心≈867
+            Col4: 1035→1334 中心≈1185
+
+            卡片 Y 軸（padding-top=24，層標題≈50px，卡片+gap均分到剩餘高度744-24-50-24=646px）
+            Application Layer 5 卡 + 4 箭頭 ≈ 5*110+4*20≈630px → 卡片中心:
+            Card1: 74+55=129
+            Arrow: 184, Card2: 184+10+55=249
+            Arrow: 314, Card3: 314+10+55=379
+            Arrow: 444, Card4: 444+10+55=509
+            Arrow: 574, Card5: 574+10+55=639
+        -->
+
+        <!-- Presentation → Application: CLI(Y≈600) 引出，分叉到 CRM/BCR/CLM -->
+        <path d="M 230 600 H 315" stroke="#00e5ff" stroke-width="4.5" fill="none" filter="url(#glow-blue)"/>
+        <path d="M 315 600 V 129 H 333" stroke="#00e5ff" stroke-width="4.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)"/>
+        <path d="M 315 600 V 249 H 333" stroke="#00e5ff" stroke-width="4.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)"/>
+        <path d="M 315 600 V 509 H 333" stroke="#00e5ff" stroke-width="4.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)"/>
+
+        <!-- Application → AI Brain: CRM→Ollama, CLM→Qwen -->
+        <path d="M 700 129 H 718" stroke="#00ff87" stroke-width="4.5" fill="none" filter="url(#glow-green)" marker-end="url(#arrow-green)"/>
+        <path d="M 700 509 H 760 V 249 H 718" stroke="#00ff87" stroke-width="4.5" fill="none" filter="url(#glow-green)" marker-end="url(#arrow-green)"/>
+
+        <!-- AI Brain → Security: ReAct→DMZ -->
+        <path d="M 1017 639 H 1060 V 129 H 1035" stroke="#d53dff" stroke-width="4.5" fill="none" filter="url(#glow-purple)" marker-end="url(#arrow-purple)"/>
+    </svg>
+
+    <!-- 1. Presentation Layer -->
+    <div class="column-wrapper layer-presentation">
+        <div class="layer-title">Presentation Layer</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            </div>
+            <div class="node-title">Web Console</div>
+            <div class="node-desc">Web-based integration portal</div>
+        </div>
+
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card" style="margin-top: auto;">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <div class="node-title">CLI Tool</div>
+            <div class="node-desc">Command-line management CLI</div>
+        </div>
+    </div>
+
+    <!-- 2. Application Layer -->
+    <div class="column-wrapper layer-application">
+        <div class="layer-title">Application Layer</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="node-title">BreezyCRM</div>
+            <div class="node-desc">Micro CRM system</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card" translate="no">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 13h4M15 17h4"/></svg>
+            </div>
+            <div class="node-title">BCR (Card Ingestion)</div>
+            <div class="node-desc">Business Card Ingestion &amp; OCR</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="node-title">BPM / Workflow</div>
+            <div class="node-desc">Visual approval engine</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="node-title">BreezyCLM / E-Sign</div>
+            <div class="node-desc">Contract life-cycle dispatch</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="node-title">BreezyKM</div>
+            <div class="node-desc">Contract summary &amp; archive</div>
+        </div>
+    </div>
+
+    <!-- 3. AI Brain Core -->
+    <div class="column-wrapper layer-brain">
+        <div class="layer-title">AI Brain Core</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            </div>
+            <div class="node-title">Ollama Router</div>
+            <div class="node-desc">RAG embedding &amp; model router</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H9m10.59 11.41A2 2 0 1 1 18 16h2m-9 0A8 8 0 1 0 3 9h2"/></svg>
+            </div>
+            <div class="node-title">Qwen LLM (Local)</div>
+            <div class="node-desc">Local inference &amp; PII masking</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+            </div>
+            <div class="node-title">ChromaDB / Qdrant</div>
+            <div class="node-desc">Vector search &amp; memory store</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </div>
+            <div class="node-title">ReAct Agent Loop</div>
+            <div class="node-desc">Autonomous decision &amp; HITL gate</div>
+        </div>
+    </div>
+
+    <!-- 4. Security & Boundary -->
+    <div class="column-wrapper layer-security">
+        <div class="layer-title">Security &amp; Boundary</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="node-title">DMZ Gateway</div>
+            <div class="node-desc">Network isolated port proxy</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <div class="node-title">BreezySign Cloud</div>
+            <div class="node-desc">Cloud AATL &amp; LTV signing</div>
+        </div>
+        <div class="vertical-flow-arrow">⬇</div>
+
+        <div class="node-card">
+            <div class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+            </div>
+            <div class="node-title">Offline Local Sign</div>
+            <div class="node-desc">Offline private CA signature</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>BreezySign Neon Blueprint ．2026H2 Dataflow &amp; Integration Architecture (Technical Draft)</p>
+</footer>
+
+</body>
+</html>

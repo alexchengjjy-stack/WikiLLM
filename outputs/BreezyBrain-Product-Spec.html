@@ -1,0 +1,3019 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>BreezyBrain 產品需求文件 (Product Spec)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap');
+        
+        body {
+            font-family: 'Outfit', 'Inter', "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.75;
+            color: #1e293b;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            font-size: 15px;
+        }
+        
+        /* 頁首樣式 */
+        .doc-header {
+            border-bottom: 2px solid #009CDF;
+            padding-bottom: 20px;
+            margin-bottom: 45px;
+        }
+        .doc-title {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 15px 0;
+            line-height: 1.25;
+        }
+        .doc-meta {
+            font-size: 13.5px;
+            color: #64748b;
+            display: flex;
+            gap: 25px;
+        }
+        .meta-item strong {
+            color: #475569;
+        }
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* 標題與分頁控管 */
+        h1 {
+            font-size: 24px;
+            color: #0f172a;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            page-break-before: always; /* 每個主章節自動換頁，讓 PDF 排版非常工整 */
+        }
+        h1:first-of-type {
+            page-break-before: avoid; /* 第一個 h1 不換頁 */
+        }
+        h2 {
+            font-size: 19px;
+            color: #009CDF; /* 好好簽藍色 */
+            margin-top: 35px;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+        h4 {
+            font-size: 14.5px;
+            color: #334155;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            page-break-inside: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        
+        strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+        
+        /* 引用與提示框 */
+        blockquote {
+            border-left: 4px solid #009CDF;
+            background-color: #f0f9ff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #0369a1;
+            font-style: normal;
+        }
+        blockquote p {
+            margin: 0;
+        }
+
+        /* 清單 */
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 表格優化 (適合 PDF 寬度) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13.5px;
+            page-break-inside: avoid;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+        }
+        td {
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* 程式碼與區塊 */
+        pre {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12.5px;
+            line-height: 1.5;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #f1f5f9;
+            color: #e11d48;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+            font-size: inherit;
+        }
+
+        /* 圖表佔位與通用圖片 */
+        img {
+            max-width: 100%;
+            width: 100%; /* 撐滿容器寬度 */
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        /* 大圖換頁容器 */
+        .page-break {
+            margin: 35px 0;
+        }
+
+        /* 列印最佳化 */
+        @media print {
+            body {
+                padding: 0;
+                font-size: 13.5px;
+            }
+            h1, h2, h3, h4, table, pre {
+                page-break-inside: avoid;
+            }
+            a {
+                text-decoration: none;
+                color: #1e293b;
+            }
+            /* 強制大圖單獨分頁並滿版 */
+            .page-break {
+                page-break-before: always !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .page-break img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="doc-header">
+        <h1 class="doc-title">BreezyBrain 產品需求文件 (Product Spec)</h1>
+        <div class="doc-meta">
+            <span class="meta-item"><strong>版本：</strong> v1.6.0-MVP</span>
+            <span class="meta-item"><strong>更新日期：</strong> 2026-05-28</span>
+            <span class="meta-item"><strong>狀態：</strong> <span class="badge">active</span></span>
+        </div>
+    </div>
+    
+    <h1 id="breezybrain">🧠 BreezyBrain (好好腦) 產品需求文件</h1>
+<blockquote>
+<p><strong>文件狀態</strong>：MVP 階段需求定義 (Draft)<br />
+<strong>維護角色</strong>：<code>/pm</code> (Product Spec Builder)</p>
+</blockquote>
+<h2 id="1">1. 產品定位與商業目標</h2>
+<h3 id="11-what-is-it">1.1 核心定義 (What is it?)</h3>
+<p>BreezyBrain 不是一個與通用自動化工具 (如 Zapier, Make) 硬碰硬的底層 iPaaS 平台，而是 <strong>BreezySign 企業版的高階自動化中樞模組</strong>。
+它的目標是「用大腦驅動手腳」—— 透過 Local LLM，將合約簽署前段的 CRM 與後段的 BPM/KM 完美串聯。</p>
+<h3 id="12-target-audience">1.2 目標受眾 (Target Audience)</h3>
+<p><strong>MVP 階段鎖定：</strong> 具備高度標準化合約流程、且合約發送量極大的中小型企業。
+*   <strong>首要畫像</strong>：旅遊服務業 (旅遊定型化契約)、醫療/醫美診所 (同意書)、健康管理顧問。
+*   <strong>痛點</strong>：這類企業缺乏強大的 IT 團隊自行串接 Zapier 或 ERP，他們需要的是「開箱即用」的智能合約派單系統。</p>
+<h3 id="13-defensibility">1.3 核心護城河 (Defensibility)</h3>
+<ul>
+<li><strong>AI 合約審閱與資料抽取 (LLM-based Extraction)</strong>：Zapier 只能處理結構化資料 (JSON/Webhooks)，但 BreezyBrain 內建的 AI 大腦能直接閱讀 PDF 或 Word，自動判別客戶意圖並提取關鍵字（如：合約金額、日期、對象），這成為不可取代的技術壁壘。</li>
+<li><strong>Graphify (知識圖譜化)</strong>：簽完的合約直接轉化為企業內部知識庫，增加客戶黏著度。</li>
+</ul>
+<h3 id="14-pricing-strategy-business-model">1.4 定價策略與商業模式 (Pricing Strategy &amp; Business Model)</h3>
+<p>BreezyBrain 採取「雲端 SaaS 訂閱」與「混合落地建置」雙軌模式，但因應電子簽章之法律效力，底層簽署費用獨立計費。</p>
+<h4 id="141">1.4.1 技術架構與落地考量</h4>
+<ol>
+<li><strong>混合式落地 (Hybrid On-Premises)</strong>：基於資料隱私與 Local LLM 硬體/軟體建置成本考量，大腦核心、BreezyCRM 與文件處理可落地部署於客戶端地端硬體。</li>
+<li><strong>雲端簽核連動與 LTV 時戳 (Cloud Integration &amp; Global Providers)</strong>：為確保電子簽章具備 AATL 認證與 LTV 完整時戳，電子簽章模組（BreezySign API 或海外對接之 DocuSign / Adobe Sign API）仍必須與對應市場的雲端認證機構（如中華電信或國外 CA）進行線上串接，以符合當地法律規範。</li>
+<li><strong>物理隔離地端環境防線 (Offline Signing &amp; DMZ Gateway)</strong>：
+   - 若企業客戶為 100% 物理隔離之無外網環境 (Intranet)，系統提供 <strong>「DMZ 網閘代理 (Proxy Gateway)」</strong> 方案，將網路請求限縮於專用連接埠連通至外部時戳伺服器。
+   - 若客戶政策完全禁止任何外網連線，則 CLM/BPM 自動切換至 <strong>「降級電子簽章模式」</strong>：採用地端自簽私有憑證（無 AATL/LTV 中華電信時戳，但具備地端大腦私鑰簽章與 SHA256 雜湊防偽），並於系統內加註「[Offline-Signature] 私有憑證簽署」。</li>
+</ol>
+<h4 id="142">1.4.2 計費方案</h4>
+<ol>
+<li><strong>方案 A：雲端 SaaS 服務</strong>
+   - <strong>計費方式</strong>：依企業使用人數（Users）計費，採月/年訂閱制。
+   - <strong>內含成本</strong>：通知 Mail、雲端託管大腦算力、雲端儲存。</li>
+<li><strong>方案 B：混合落地建置 (Enterprise On-Premises)</strong>
+   - <strong>一次性費用</strong>：安裝設定費、地端軟硬體建置費、首次教育訓練費。
+   - <strong>持續性費用</strong>：系統年度維護合約費 (Annual Maintenance Fee)。</li>
+<li><strong>基礎簽署費（不論方案均適用）</strong>
+   - <strong>計費方式</strong>：以「份 (Per Document)」計費。
+   - <strong>原因</strong>：電子簽章發送（包含 AATL、LTV 時戳及通知通道）均有實質之憑證與通訊成本。</li>
+</ol>
+<h3 id="15-product-architecture-diagram">1.5 產品核心架構圖 (Product Architecture Diagram)</h3>
+<p>為了方便各部門（產品、技術、銷售）在研發與對接時進行精準溝通，BreezyBrain 採用分層式架構設計。大腦中樞（地端 Local LLM）作為核心推理引擎，驅動前段客資 CRM、中段 CLM 合約管理與後段 KM 歸檔，並由 DMZ 網閘安全代理對接外部 BreezySign 雲端 API，或降級執行地端簽署。</p>
+<p>為了適應不同的溝通與列印需求，本規格書提供了以下<strong>四種不同形式的旗艦級架構示意圖</strong>：</p>
+<h4 id="151-breezybrain-layered-workflow-blueprint">1.5.1 形式一：產品核心分層架構藍圖 (BreezyBrain Layered Workflow Blueprint)</h4>
+<ul>
+<li><strong>設計形式</strong>：分層規格說明型架構圖。以直欄將系統垂直切割，卡片內部包含詳細的中文功能說明與技術標籤（Tech Badges），強調模組歸屬與功能規格。</li>
+<li><strong>線上預覽與列印</strong>：<a href="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1139-breezy-brain-architecture_v6.html">HTML 自適應網頁版</a> | <a href="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1139-breezy-brain-architecture_v6.pdf">高畫質 PDF 下載</a></li>
+<li><strong>架構藍圖預覽</strong>：</li>
+</ul>
+<div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1139-breezy-brain-architecture_v6.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 產品核心分層架構 (V6 流程引導版)" />
+</div>
+
+<h4 id="152-breezysign-neon-connection-blueprint">1.5.2 形式二：系統拓撲關係示意圖 (BreezySign Neon Connection Blueprint)</h4>
+<ul>
+<li><strong>設計形式</strong>：極簡英文關係圖。強調模組之間的「動態呼叫」與「數據流向」，配有發光 SVG 連接線與分叉箭頭，去成了多餘的功能說明，對比度高且結構工整。</li>
+<li><strong>線上預覽與列印</strong>：<a href="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1140-breezysign-architecture.html">HTML 自適應網頁版</a> | <a href="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1140-breezysign-architecture.pdf">高畫質 PDF 下載</a></li>
+<li><strong>系統拓撲預覽</strong>：</li>
+</ul>
+<div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1140-breezysign-architecture.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezySign 核心關係圖 (Eraser.io 霓虹風格版)" />
+</div>
+
+<h4 id="153-breezybrain-breezybrain-agent-framework">1.5.3 形式三：BreezyBrain 智慧工作流操作系統架構圖 (BreezyBrain Agent Framework)</h4>
+<ul>
+<li><strong>設計形式</strong>：中央大腦驅動型架構圖。以深藍色發光霓虹風格展示，突顯「大腦中樞」與六大業務垂直支柱（BCR、CRM、BPM、CLM、KM、Integration）的雙向推理與控制流。</li>
+<li><strong>架構藍圖預覽</strong>：</li>
+</ul>
+<div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/breezy_brain_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 智慧工作流操作系統架構圖 (BreezyBrain Agent Framework)" />
+</div>
+
+<h4 id="154-wikillm-agent-wikillm-agent-orchestration-blueprint">1.5.4 形式四：WikiLLM Agent 系統架構編排藍圖 (WikiLLM Agent Orchestration Blueprint)</h4>
+<ul>
+<li><strong>設計形式</strong>：Agent 管道流程型架構圖。以深藍色霓虹發光風格展示，呈現從 Raw Ingestion 到 Agent Engine（三層式架構：Planning, Execution, Memory）再到 Local Knowledge Base 的資料流向與協定。</li>
+<li><strong>架構藍圖預覽</strong>：</li>
+</ul>
+<div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/wikillm_agent_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="WikiLLM Agent 系統架構編排藍圖 (WikiLLM Agent Orchestration Blueprint)" />
+</div>
+
+<h3 id="16-product-runtime-technical-framework">1.6 產品運行與技術框架 (Product Runtime &amp; Technical Framework)</h3>
+<p>為了進一步釐清資料與智能決策在系統中的「動態生命週期 (Runtime Pipeline)」，BreezyBrain 建立了端到端的<strong>數據流與智能推理框架</strong>。下圖詳細展示了客資掃描、CLM 派單、地端大腦 RAG 推理、人機協作審批（Human-in-the-Loop）以及最終歸檔 KM 知識庫並完成閉環的完整運作 Framework：</p>
+<pre><code class="language-mermaid">graph TD
+    %% 樣式定義
+    classDef step fill:#f8fafc,stroke:#64748b,stroke-width:2px;
+    classDef brain fill:#faf5ff,stroke:#7c3aed,stroke-width:2px;
+    classDef ext fill:#fff7ed,stroke:#ea580c,stroke-width:2px;
+    classDef success fill:#f0fdf4,stroke:#16a34a,stroke-width:2px;
+
+    %% 步驟與框架流轉
+    subgraph Capture [&quot;1. 數據採集與輸入 (Data Capture)&quot;]
+        A[&quot;蒙恬名片雲 (WorldCard Cloud)&quot;] --&gt;|Webhook| B[&quot;BreezyCRM 客資模組&quot;]
+        B --&gt;|模糊去重 / 大腦合理補全| C[&quot;聯絡人與商機建立 (Deals)&quot;]
+    end
+
+    subgraph Reasoning [&quot;2. 大腦語意推理與決策 (AI Reasoning Framework)&quot;]
+        C --&gt;|觸發合約派單| D[&quot;CLM 非結構化合約解析&quot;]
+        D --&gt;|PDF / Word OCR 提取| E[&quot;向量檢索 RAG (BGE-M3 + ChromaDB)&quot;]
+        E --&gt;|Ollama 載入 Qwen 2.5-7B| F[&quot;大腦語意範本匹配&quot;]
+        F --&gt;|置信度評估 Confidence| G{&quot;Confidence &gt;= 0.85?&quot;}
+
+        G --&gt;|No| H[&quot;CRM 後台卡片警示&lt;br&gt;(提示業務手動確認/指定)&quot;]
+        G --&gt;|Yes| I[&quot;ReAct 思考推理迴圈&quot;]
+    end
+
+    subgraph Approval [&quot;3. 人工守門審批 (Human-in-the-Loop Gateway)&quot;]
+        I --&gt; J[&quot;BPM 智慧審批控制台&quot;]
+        J --&gt;|人工防禦審查 / 確認安全| K[&quot;派單授權發送&quot;]
+    end
+
+    subgraph Signing [&quot;4. 雲地雙軌簽署 (Dual-Track Signing Framework)&quot;]
+        K --&gt; L{&quot;網路環境狀態?&quot;}
+        L --&gt;|Intranet 物理隔離| M[&quot;DMZ 網閘代理 (Proxy)&quot;]
+        L --&gt;|完全隔離無外網| N[&quot;離線私有憑證簽章&lt;br&gt;(SHA256 防偽雜湊)&quot;]
+
+        M --&gt;|串接| O[&quot;BreezySign 雲端 API&quot;]
+        O --&gt;|AATL 認證 + LTV 時戳| P[&quot;消費者 LINE 傳簽 / 簡訊簽署&quot;]
+    end
+
+    subgraph Feedback [&quot;5. 回饋與知識沉澱 (Feedback &amp; KM沉澱)&quot;]
+        P --&gt;|完簽 PDF| Q[&quot;自動化歸檔 KM 智庫&quot;]
+        N --&gt;|完簽 PDF| Q
+
+        Q --&gt;|大腦處理| R[&quot;AI 智慧合約摘要生成&quot;]
+        R --&gt;|推播提醒| S[&quot;IM 系統 (Slack / Teams)&quot;]
+        R --&gt;|Graphify| T[&quot;企業內部合約知識圖譜&quot;]
+        T --&gt;|更新商機狀態| U[&quot;CRM Deal 結案 (Closed-Won)&quot;]
+    end
+
+    %% 樣式套用
+    class A,P,S ext;
+    class E,F,G,I brain;
+    class B,C,D,H,J,K,L,M,N,O,Q,R,T step;
+    class U success;
+</code></pre>
+<hr />
+<h2 id="2-mvp-user-stories">2. MVP 核心功能需求 (User Stories)</h2>
+<h3 id="epic-1-smart-dispatch">Epic 1: 智能合約派發 (Smart Dispatch)</h3>
+<ul>
+<li><strong>US 1.1 (自建 CRM 觸發)</strong>：身為業務，我希望當我在 BreezyBrain 內建的「微型 CRM 模組」將交易狀態改為 "Won" 時，BreezyBrain 能自動從報價單提取金額與品項，並自動填入對應的 BreezySign 範本中。<ul>
+<li><strong>大腦範本語意匹配機制 (Semantic Template Mapping)</strong>：大腦讀取非結構化合約標題及前導段落，以「語意向量比對」自動關聯至最契合之 BreezySign 範本。例如偵測到「房屋租賃」關鍵特徵即匹配「房租範本」；若匹配置信度 (Confidence) &lt; 0.85，則於 CRM 後台卡片警示並提示業務「手動確認/指定範本」，避免自動套用錯誤。</li>
+</ul>
+</li>
+<li><strong>US 1.2 (非結構化解析)</strong>：身為診所助理，我希望上傳一份紙本掃描的同意書後，系統能透過 Local LLM 的高精度 OCR 服務自動解析同意書內容，並將姓名、簽署日期等結構化欄位提取出來。</li>
+</ul>
+<h3 id="epic-2-bcr-bcr-data-ingestion">Epic 2: BCR 人脈與資料採集 (BCR &amp; Data Ingestion)</h3>
+<ul>
+<li><strong>US 2.1 (名片掃描與 OCR)</strong>：身為銷售業務，我希望使用手機拍照或掃描儀上傳名片後，系統能串接 WorldCard Cloud 的 API 進行高精度名片解析。</li>
+<li><strong>US 2.2 (大腦資料清洗與補全)</strong>：身為銷售業務，我希望當 OCR 解析出的資料有缺失時，大腦能自動清洗、修復並與政府工商登記資料比對，補齊稅號 (Tax ID) 等核心欄位，以維持客資的精準度。</li>
+</ul>
+<h3 id="epic-3-breezycrm-breezycrm-for-enterprise">Epic 3: 輕量企業級 BreezyCRM (BreezyCRM for Enterprise)</h3>
+<ul>
+<li><strong>US 3.1 (多類型客資管理)</strong>：身為銷售主管，我希望系統能將客戶區分為 SaaS 訂閱者 (SaaS Product)、零售經銷通路 (Retail Channel) 以及專案客製建置 (Project Custom) 等多種類型，以便針對不同業務特性進行精細化管理。</li>
+<li><strong>US 3.2 (自訂增強欄位)</strong>：身為系統管理員，我希望系統預留動態擴充欄位空間（採用 JSONB 格式），讓我可以隨時於後台無代碼自訂客戶、聯絡人與商機的客製欄位，為未來的業務擴充和系統集成預留增強空間。</li>
+</ul>
+<h4 id="232-breezycrm-data-schema">2.3.2 BreezyCRM 核心資料欄位 (Data Schema) &amp; 預留客製化增強規格</h4>
+<p>依據多通路銷售日報與客戶進件需求，BreezyCRM 分類管理 <strong>SaaS 產品 (SaaS)</strong>、<strong>零售經銷通路 (Retail)</strong> 及 <strong>專案客製工程 (Project)</strong> 三種不同型態之客戶與商機。為了滿足極致的擴充性與「預留未來更新與增強的空間」，BreezyCRM 在 Accounts、Contacts 與 Deals 實體中均預留了 JSONB 格式的 <code>custom_fields</code> 動態擴充欄位。這使得系統在對接不同業務管道特有的客戶屬性或第三方系統 API（如名片 OCR 採集、經銷分潤、專案里程碑等）時，無須變更底層資料庫實體 Schema 即可完成無痛增強。BreezyCRM 主要維護以下三大實體：</p>
+<ol>
+<li><strong>客戶 (Accounts)</strong>：
+   - <code>id</code> (主鍵，UUID)
+   - <code>name</code> (公司名稱，必填，對應 WorldCard.Company)
+   - <code>tax_id</code> (統一編號，必填/去重依據，對應 WorldCard.TaxID，作為 B2B 客資去重之主鍵)
+   - <code>client_type</code> (客戶類別，列舉值: <code>saas_subscriber</code> | <code>retail_channel</code> | <code>project_custom</code>，用以路由對應 Pipeline)
+   - <code>industry</code> (行業別，影響方案推薦)
+   - <code>capital</code> (資本額，判斷付費能力)
+   - <code>company_size</code> (員工人數/規模，決定推薦版本)
+   - <code>custom_fields</code> (JSONB，<strong>預留自訂增強欄位空間</strong>。可由管理員於後台無代碼动态新增，如：<code>{"preferred_contact_time": "14:00"}</code> 或 <code>{"parent_company_id": "uuid"}</code>，實現極致的擴充性)
+   - <code>created_at</code>, <code>updated_at</code> (時間戳記)</li>
+<li><strong>聯絡人 (Contacts)</strong>：
+   - <code>id</code> (主鍵，UUID)
+   - <code>account_id</code> (關聯客戶 id)
+   - <code>name</code> (姓名，必填，對應 WorldCard.Name)
+   - <code>title</code> (職稱，對應 WorldCard.Title)
+   - <code>email</code> (電子郵件，必填，對應 WorldCard.Email)
+   - <code>mobile</code> (手機，對應 WorldCard.Mobile)
+   - <code>tel</code> (公司電話，對應 WorldCard.Tel)
+   - <code>im_id</code> (即時通訊如 LINE ID，選填)
+   - <code>department</code> (部門)
+   - <code>custom_fields</code> (JSONB，<strong>預留自訂聯絡人特質標籤空間</strong>，如：<code>{"hobby": "golf"}</code> 或是 <code>{"decision_power": "high"}</code>)</li>
+<li><strong>商機與合約關聯 (Deals &amp; Contract Association)</strong>：
+   - <code>id</code> (主鍵，UUID)
+   - <code>account_id</code> (關聯客戶 id)
+   - <code>lead_type</code> (商機類型，<code>saas_subscriber</code> | <code>retail_channel</code> | <code>project_custom</code>)
+   - <code>stage</code> (跟進階段，依據 <code>lead_type</code> 動態對齊對應 Pipeline，詳見下述)
+   - <code>acquisition_channel</code> (來源管道，必填，如：搜尋/廣告/推薦/能量登錄)
+   - <code>document_type</code> (需求文件類型，如：外部合約/內部表單/公開表單/其它)
+   - <code>signer_type</code> (主要簽署對象，如：客戶/員工/廠商)
+   - <code>monthly_volume</code> (預估每月份數，決定定價與潛力評估)
+   - <code>signing_method</code> (簽署應用方式，如：遠距簽/簡訊簽/LINE傳簽/API串接)
+   - <code>competitor_status</code> (競品狀況，如：無/點點簽/Adobe Sign/其它)
+   - <code>potential_level</code> (潛力等級，如：🔴 高潛力 / 🟡 中潛力 / ⚪ 低潛力 / ➡️ 轉介)
+   - <code>trial_expiry_date</code> (企業體驗到期日，若為 SaaS 類型則由體驗開通後自動連動計算)
+   - <code>associated_contracts</code> (合約關聯列表，儲存與此 Deal 關聯的 [BreezySign/DocuSign 傳簽封套 ID] 與 [PDF 歸檔路徑])
+   - <code>custom_fields</code> (JSONB，<strong>預留商機特有參數空間</strong>。例如零售商商機儲存分潤點數 <code>{"margin_rate": 0.25}</code>，專案客製儲存驗收時程 <code>{"project_milestones": ["UAT", "Acceptance"]}</code>)</li>
+</ol>
+<ul>
+<li>
+<p><strong>CRM 防禦規格 (去重與欄位缺失容錯)</strong>：</p>
+<ul>
+<li><strong>模糊去重防禦</strong>：系統在接收名片或外部建立潛客時，優先進行 <code>(公司名稱 + 聯絡人姓名)</code> 模糊比對。匹配度若 &gt; 85%（閾值可調），則系統不建立新 Account，改在已有 Account 下新增 Contact 與 Deal，避免因名片無稅號/無 Email 造成的多重 Account 衝突。</li>
+<li><strong>大腦合理瞎猜與欄位補全</strong>：若名片或留單上缺少「員工人數」、「資本額」等潛力評估核心指標，地端 LLM 自動分析公司名稱於本地資料庫中進行推論；若無法推論，系統自動降級預設為 <code>🟡 中潛力</code>，並於 UI/CLI 警示業務「待補充關鍵欄位」。</li>
+<li><strong>離線暫存與手動合併</strong>：支持在離線或斷線同步衝突時，透過 CLI/API 對指定之重複 Accounts 進行手動合併。</li>
+</ul>
+</li>
+<li>
+<p><strong>介面定義 (API/CLI Interfaces &amp; Custom Fields)</strong>：</p>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>名片採集同步：<code>breezy-brain crm sync-card --file &lt;path&gt; [--merge-threshold &lt;float&gt;] [--auto-complete &lt;boolean&gt;] --format json</code></li>
+<li>潛客手動建立（支援 JSONB 動態參數）：<code>breezy-brain crm lead-create --company &lt;name&gt; --name &lt;contact_name&gt; --email &lt;email&gt; --client-type &lt;saas/retail/project&gt; [--tax-id &lt;id&gt;] [--custom-fields &lt;json_string&gt;] --format json</code><ul>
+<li><strong>帶動態參數範例</strong>：<code>--custom-fields '{"retail_stores": 5, "decision_maker": true}'</code></li>
+</ul>
+</li>
+<li>重複客戶合併：<code>breezy-brain crm merge-accounts --keep-id &lt;uuid&gt; --merge-id &lt;uuid&gt; --format json</code></li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/crm/sync-card</code></li>
+<li><code>POST /api/v1/crm/accounts</code> (Body 可傳入 <code>custom_fields</code> JSON 物件，Response 回傳新 Account ID)</li>
+<li><code>POST /api/v1/crm/contacts</code> (Body 可傳入 <code>custom_fields</code> JSON 物件，Response 回傳新 Contact ID)</li>
+<li><code>POST /api/v1/crm/deals</code> (Body 包含 <code>lead_type</code> 與對應的 <code>custom_fields</code>，建立並流轉至該類型的 Pipeline 起始階段)</li>
+<li><code>POST /api/v1/crm/accounts/merge</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="233-multi-pipeline-stage-definitions">2.3.3 三軌獨立銷售管道定義 (Multi-Pipeline Stage Definitions)</h4>
+<p>BreezyCRM 廢除單一 Pipeline 機制，針對不同商業屬性之客戶導入 <strong>「三軌銷售管道 (Multi-Pipeline)」</strong>。每條管道配置獨立的階段狀態機，並嚴格綁定其專屬的跟進 SOP：</p>
+<h5 id="asaas-saas-pipeline">管道 A：SaaS 產品管道 (SaaS Pipeline)</h5>
+<blockquote>
+<p><strong>核心目標</strong>：以 14 天免費企業版體驗引導轉化 (PLG 驅動)，著重計件與訂閱額度的產品化防線。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">階段名稱</th>
+<th style="text-align: left;">系統標識</th>
+<th style="text-align: left;">定義與觸發動作</th>
+<th style="text-align: left;">對應 SOP / Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>潛客探索</strong></td>
+<td style="text-align: left;"><code>Prospecting</code></td>
+<td style="text-align: left;">名片雲進件或線上留單，待業務初步聯繫。</td>
+<td style="text-align: left;"><a href="../../playbooks/new-lead-qualification.md">新潛客資格確認 SOP</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>需求確認</strong></td>
+<td style="text-align: left;"><code>Qualifying</code></td>
+<td style="text-align: left;">初步通話，填寫行業、月份數、計費方案，進行潛力分級。</td>
+<td style="text-align: left;"><a href="../../playbooks/new-lead-qualification.md">新潛客資格確認 SOP</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>體驗中</strong></td>
+<td style="text-align: left;"><code>Trial</code></td>
+<td style="text-align: left;">開通 14 天企業體驗帳戶，系統自動設定 <code>trial_expiry_date</code>。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>方案報價</strong></td>
+<td style="text-align: left;"><code>Negotiating</code></td>
+<td style="text-align: left;">表達採購意向，發送 SaaS 訂閱方案合約/報價單。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>成交簽署中</strong></td>
+<td style="text-align: left;"><code>Won</code></td>
+<td style="text-align: left;">完成付款，<strong>觸發 US 1.1 大腦自動範本匹配與 E-Sign 送簽</strong>。</td>
+<td style="text-align: left;"><a href="breezy-brain-integration-flow.md">整合資料流</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>歸檔流失</strong></td>
+<td style="text-align: left;"><code>Lost</code></td>
+<td style="text-align: left;">試用期滿未付費、轉向競品或結案。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="b-retail-pipeline">管道 B：零售通路經銷管道 (Retail Pipeline)</h5>
+<blockquote>
+<p><strong>核心目標</strong>：著重通路資質考核、大額分潤條款協議及經銷授權書之簽署。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">階段名稱</th>
+<th style="text-align: left;">系統標識</th>
+<th style="text-align: left;">定義與觸發動作</th>
+<th style="text-align: left;">對應 SOP / Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>管道初探</strong></td>
+<td style="text-align: left;"><code>Lead_Contact</code></td>
+<td style="text-align: left;">通路經銷商主動進件或行銷轉介，建立初步聯繫。</td>
+<td style="text-align: left;">[經銷通路接觸 SOP (TBD)]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>通路評估</strong></td>
+<td style="text-align: left;"><code>Channel_Assessment</code></td>
+<td style="text-align: left;">審核該零售經銷商之規模、門市數、稅號及銷售合規度。</td>
+<td style="text-align: left;">[經銷通路接觸 SOP (TBD)]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>分潤協議</strong></td>
+<td style="text-align: left;"><code>Margin_Negotiation</code></td>
+<td style="text-align: left;">談判分成扣折、經銷階梯定價與分銷區域權限。</td>
+<td style="text-align: left;">[經銷商談判條約 Checklist (TBD)]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合約上架</strong></td>
+<td style="text-align: left;"><code>Onboarding</code></td>
+<td style="text-align: left;">法務審核代理協定，<strong>發送經銷商代理授權書與分潤協定傳簽</strong>。</td>
+<td style="text-align: left;">[經銷商合約傳簽 SOP]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>活躍通路商</strong></td>
+<td style="text-align: left;"><code>Active_Retailer</code></td>
+<td style="text-align: left;">簽署完成，經銷系統開通，通路商正式上架銷售。</td>
+<td style="text-align: left;">[通路日常關係維護 Playbook]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>通路流失</strong></td>
+<td style="text-align: left;"><code>Lost</code></td>
+<td style="text-align: left;">通路考核未通過，或經銷合約到期終止。</td>
+<td style="text-align: left;">[通路退場機制]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="c-project-pipeline">管道 C：專案客製建置管道 (Project Pipeline)</h5>
+<blockquote>
+<p><strong>核心目標</strong>：服務中大型企業地端混合建置 (SLG 驅動)。著重 RFP 需求評估、多階段開發與驗收條件。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">階段名稱</th>
+<th style="text-align: left;">系統標識</th>
+<th style="text-align: left;">定義與觸發動作</th>
+<th style="text-align: left;">對應 SOP / Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>顧問訪談</strong></td>
+<td style="text-align: left;"><code>Discovery</code></td>
+<td style="text-align: left;">大型客戶客製需求進件，發起跨部門技術與顧問訪談。</td>
+<td style="text-align: left;">[專案需求搜集 Runbook]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RFP 評估</strong></td>
+<td style="text-align: left;"><code>RFP_Assessment</code></td>
+<td style="text-align: left;">法務與工程評估 RFP 規格，覆核地端硬體、網閘代理及預算。</td>
+<td style="text-align: left;">[RFP 會簽審核機制]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>提案簡報</strong></td>
+<td style="text-align: left;"><code>Proposal_Pitch</code></td>
+<td style="text-align: left;">提交 POC 展示方案與架構書，向客戶決策層簡報。</td>
+<td style="text-align: left;">[POC 架構展示 Checklist]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>法務會簽</strong></td>
+<td style="text-align: left;"><code>Contract_Review</code></td>
+<td style="text-align: left;">針對客製化條款（如 SLA 賠償限制、驗收退費）進行法務簽署。</td>
+<td style="text-align: left;">[客製專案合約會簽流程]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>建置開發</strong></td>
+<td style="text-align: left;"><code>Implementation</code></td>
+<td style="text-align: left;">開發與地端容器組安裝，按 Milestone 追蹤進展。</td>
+<td style="text-align: left;">[專案開發管理規範]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>驗收結案</strong></td>
+<td style="text-align: left;"><code>Acceptance</code></td>
+<td style="text-align: left;">完成 UAT 測試並取得客戶簽署驗收單，專案結案歸檔。</td>
+<td style="text-align: left;">[專案驗收結案 SOP]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>專案流失</strong></td>
+<td style="text-align: left;"><code>Lost</code></td>
+<td style="text-align: left;">招標未中標、規格無法達成或客戶終止專案。</td>
+<td style="text-align: left;">[專案流失分析檢討 SOP]</td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>industry</code> (行業別，影響方案推薦)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>capital</code> (資本額，判斷付費能力)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>company_size</code> (員工人數/規模，決定推薦版本)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>created_at</code>, <code>updated_at</code> (時間戳記)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">2. <strong>聯絡人 (Contacts)</strong>：</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>id</code> (主鍵，UUID)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>account_id</code> (關聯客戶 id)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>name</code> (姓名，必填，對應 WorldCard.Name)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>title</code> (職稱，對應 WorldCard.Title)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>email</code> (電子郵件，必填，對應 WorldCard.Email)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>mobile</code> (手機，對應 WorldCard.Mobile)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>tel</code> (公司電話，對應 WorldCard.Tel)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>im_id</code> (即時通訊如 LINE ID，選填)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>department</code> (部門)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">3. <strong>商機與合約關聯 (Deals &amp; Contract Association)</strong>：</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>id</code> (主鍵，UUID)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>account_id</code> (關聯客戶 id)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>stage</code> (跟進階段，詳見下述)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>acquisition_channel</code> (來源管道，必填，如：搜尋/廣告/推薦/能量登錄)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>document_type</code> (需求文件類型，如：外部合約/內部表單/公開表單/其它)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>signer_type</code> (主要簽署對象，如：客戶/員工/廠商)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>monthly_volume</code> (預估每月份數，決定定價與潛力評估)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>signing_method</code> (簽署應用方式，如：遠距簽/簡訊簽/LINE傳簽/API串接)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>competitor_status</code> (競品狀況，如：無/點點簽/Adobe Sign/其它)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>potential_level</code> (潛力等級，如：🔴 高潛力 / 🟡 中潛力 / ⚪ 低潛力 / ➡️ 轉介)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>trial_expiry_date</code> (企業體驗到期日，由體驗開通後自動連動算)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">- <code>associated_contracts</code> (合約關聯列表，儲存與此 Deal 關聯的 [BreezySign 傳簽封套 ID] 與 [PDF 歸檔路徑])</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>CRM 防禦規格 (去重與欄位缺失容錯)</strong>：</p>
+<ul>
+<li><strong>模糊去重防禦</strong>：系統在接收名片或外部建立潛客時，優先進行 <code>(公司名稱 + 聯絡人姓名)</code> 模糊比對。匹配度若 &gt; 85%（閾值可調），則系統不建立新 Account，改在已有 Account 下新增 Contact 與 Deal，避免因名片無稅號/無 Email 造成的多重 Account 衝突。</li>
+<li><strong>大腦合理瞎猜與欄位補全</strong>：若名片或留單上缺少「員工人數」、「資本額」等潛力評估核心指標，地端 LLM 自動分析公司名稱於本地資料庫中進行推論；若無法推論，系統自動降級預設為 <code>🟡 中潛力</code>，並於 UI/CLI 警示業務「待補充關鍵欄位」。</li>
+<li><strong>離線暫存與手動合併</strong>：支持在離線或斷線同步衝突時，透過 CLI/API 對指定之重複 Accounts 進行手動合併。</li>
+</ul>
+</li>
+<li>
+<p><strong>介面定義 (API/CLI Interfaces)</strong>：</p>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>名片採集同步：<code>breezy-brain crm sync-card --file &lt;path&gt; [--merge-threshold &lt;float&gt;] [--auto-complete &lt;boolean&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "account_id": "acc-9987-uuid",
+      "contact_id": "con-6654-uuid",
+      "deal_id": "deal-3211-uuid",
+      "is_merged": false
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>潛客手動建立：<code>breezy-brain crm lead-create --company &lt;name&gt; --name &lt;contact_name&gt; --email &lt;email&gt; [--tax-id &lt;id&gt;] --format json</code></li>
+<li>重複客戶合併：<code>breezy-brain crm merge-accounts --keep-id &lt;uuid&gt; --merge-id &lt;uuid&gt; --format json</code></li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/crm/sync-card</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "file_path": "/storage/raw/card_ocr.json",
+    "merge_threshold": 0.85,
+    "auto_complete": true
+  }</code></li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "account_id": "acc-9987-uuid",
+      "contact_id": "con-6654-uuid",
+      "deal_id": "deal-3211-uuid",
+      "is_merged": false
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>POST /api/v1/crm/accounts</code> (Body 包含 Account Schema，Response 回傳新 Account ID)</li>
+<li><code>POST /api/v1/crm/contacts</code> (Body 包含 Contact Schema，Response 回傳新 Contact ID)</li>
+<li><code>POST /api/v1/crm/deals</code> (Body 包含 Deal Schema，Response 回傳新 Deal ID)</li>
+<li><code>POST /api/v1/crm/accounts/merge</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "keep_id": "acc-keep-uuid",
+    "merge_id": "acc-duplicate-uuid"
+  }</code></li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "merged_account_id": "acc-keep-uuid"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="233-deal-stages">2.3.3 銷售跟進階段定義 (Deal Stages)</h4>
+<p>銷售漏斗流程與現有 SOP 高度對齊，共有以下五個主要階段：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">階段名稱</th>
+<th style="text-align: left;">系統名稱</th>
+<th style="text-align: left;">定義與觸發動作</th>
+<th style="text-align: left;">對應 SOP / Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>潛客探索</strong></td>
+<td style="text-align: left;"><code>Prospecting</code></td>
+<td style="text-align: left;">WorldCard Cloud 掃描名片進件，或 Inbound 新留單，等待業務進行初步聯繫。</td>
+<td style="text-align: left;"><a href="../../playbooks/new-lead-qualification.md">新潛客資格確認 SOP</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>需求確認</strong></td>
+<td style="text-align: left;"><code>Qualifying</code></td>
+<td style="text-align: left;">業務與客戶進行聯繫，填畢行業別、月份數、簽署對象等核心需求，進行潛力分級。</td>
+<td style="text-align: left;"><a href="../../playbooks/new-lead-qualification.md">新潛客資格確認 SOP</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>體驗中</strong></td>
+<td style="text-align: left;"><code>Trial</code></td>
+<td style="text-align: left;">經評估後開通 14 天企業體驗版，系統自動設置 <code>trial_expiry_date</code>，業務依據天數進行關懷。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>方案報價</strong></td>
+<td style="text-align: left;"><code>Negotiating</code></td>
+<td style="text-align: left;">客戶表達採購意向，業務發送正式報價單（若有 API / BPM / 專案整合需求則進入此階段）。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>成交簽署中</strong></td>
+<td style="text-align: left;"><code>Won</code></td>
+<td style="text-align: left;">客戶完成付款並啟用正式版，<strong>此狀態觸發 US 1.1 大腦自動派發流程</strong>，自動關聯 BreezySign 傳簽。</td>
+<td style="text-align: left;"><a href="breezy-brain-integration-flow.md">整合資料流</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">歸檔流失</td>
+<td style="text-align: left;"><code>Lost</code></td>
+<td style="text-align: left;">試用到期未續約、客戶使用紙本或選擇競品，予以結案歸檔。</td>
+<td style="text-align: left;"><a href="../../playbooks/enterprise-trial-followup.md">企業試用版跟進 Checklist</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="epic-4-files-manager-km">Epic 4: 檔案管理器與知識智庫 (Files Manager &amp; KM)</h3>
+<p>BreezyBrain 將客戶往來報價單、合約實體文件與大腦解析後的結構化資訊，轉化為企業內部受控的安全知識資產。</p>
+<h4 id="241-files-manager">2.4.1 檔案管理器 (Files Manager) 規格</h4>
+<ul>
+<li><strong>實體存儲架構</strong>：地端部署模式下，系統於伺服器或 NAS 建立受控的檔案目錄結構，格式如下：
+    <code>/storage/breezycrm/accounts/{account_id}/
+    ├── info.json              # 客戶基本資料與合約關聯元數據
+    ├── raw/                   # 原始上傳之非 PDF 文件或暫存檔
+    └── contracts/             # 正式轉檔後且簽署完成之 PDF 封套
+        ├── {deal_id}_draft.pdf # 送簽前草稿 PDF (包含大腦標記)
+        └── {deal_id}_signed.pdf# 雙方簽署完成、內含 AATL/LTV 憑證之最終 PDF</code></li>
+<li><strong>版本控制與狀態追蹤 (File Versioning)</strong>：<ul>
+<li>凡上傳之合約草稿若有修改，系統應保留歷史版本（例如 <code>_draft_v1.pdf</code>, <code>_draft_v2.pdf</code>）。</li>
+<li>檔案狀態必須與 BreezyCRM 銷售階段及 BreezySign 簽署狀態（Draft ➡️ Sent ➡️ Signed ➡️ Archived）即時同步。</li>
+</ul>
+</li>
+</ul>
+<h4 id="242-knowledge-management">2.4.2 知識智庫 (Knowledge Management) 規格</h4>
+<ul>
+<li><strong>非結構化資料向量化 (Embedding &amp; Vector DB)</strong>：<ul>
+<li>簽署完成之合約 (Signed PDF) 將被自動觸發 OCR 提取文字層。</li>
+<li>使用輕量化地端 Embedding 模型（如 <code>bge-m3</code>）將合約條文段落向量化，存儲於地端向量資料庫（如 SQLite/ChromaDB/Qdrant）。</li>
+</ul>
+</li>
+<li>
+<p><strong>知識圖譜關聯 (Graph Association)</strong>：</p>
+<ul>
+<li>將合約主體、簽署人、產品、行業別與合約期限建立結構化的圖關聯。</li>
+<li>當查詢特定公司時，系統除了呈現基本 CRM 資料外，亦能自動拉出該公司名下的所有關聯文件與歷史簽署條款。</li>
+</ul>
+</li>
+<li>
+<p><strong>介面定義 (API/CLI Interfaces)</strong>：</p>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>上傳並版本化歸檔：<code>breezy-brain file upload --file &lt;path&gt; --deal-id &lt;uuid&gt; [--version &lt;string&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "file_id": "file-1002-uuid",
+      "stored_path": "/storage/breezycrm/accounts/acc-001/raw/draft_v1.docx",
+      "version": "v1.0"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>智庫合約語意檢索：<code>breezy-brain km search --query &lt;string&gt; [--filter-account &lt;uuid&gt;] [--limit &lt;int&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "results": [
+        {
+          "document_id": "file-1005-uuid",
+          "title": "三亞旅行社定型化契約_v2_signed.pdf",
+          "score": 0.89,
+          "matched_paragraph": "第三條：乙方應提供每日住宿明細..."
+        }
+      ]
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/files/upload</code> (Multipart Form-data)<ul>
+<li><strong>Request Fields</strong>：<code>file</code> (binary), <code>deal_id</code> (string), <code>version</code> (string, optional)</li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "file_id": "file-1002-uuid",
+      "stored_path": "/storage/breezycrm/accounts/acc-001/raw/draft_v1.docx",
+      "version": "v1.0"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>POST /api/v1/km/search</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "query": "退費條款與天數限制",
+    "filter_account": "acc-9987-uuid",
+    "limit": 5
+  }</code></li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "results": [
+        {
+          "document_id": "file-1005-uuid",
+          "title": "三亞旅行社定型化契約_v2_signed.pdf",
+          "score": 0.89,
+          "matched_paragraph": "第三條：乙方應提供每日住宿明細..."
+        }
+      ]
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="epic-5-llm-llm-brain-job-list-agentic-tasks">Epic 5: LLM 大腦工作清單 (LLM Brain Job List &amp; Agentic Tasks)</h3>
+<p>定義 Local LLM (大腦) 於 BreezyBrain 系統各個階段所承擔的 AI 自動化工作：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">階段別</th>
+<th style="text-align: left;">核心工作任務 (LLM Job)</th>
+<th style="text-align: left;">輸入 (Inputs)</th>
+<th style="text-align: left;">輸出 (Outputs)</th>
+<th style="text-align: left;">大腦處理邏輯 (Processing Logic)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>BCR (名片)</strong></td>
+<td style="text-align: left;"><strong>1. 蒙恬名片資訊校正與補全</strong></td>
+<td style="text-align: left;">WorldCard OCR 原始 JSON、聯絡人欄位。</td>
+<td style="text-align: left;">清洗後之 CRM 聯絡人/客戶結構化物件。</td>
+<td style="text-align: left;">對 OCR 解析錯誤或錯位（如職稱漏解析、手機號碼格式不一）進行大腦規則化校正；根據公司名稱推論行業別 (Industry)。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CRM (跟進)</strong></td>
+<td style="text-align: left;"><strong>2. 企業試用跟進信件生成</strong></td>
+<td style="text-align: left;">客戶當前試用任務數、日報記錄、到期天數。</td>
+<td style="text-align: left;">個人化跟進信件 (Email/LINE 內容草稿)。</td>
+<td style="text-align: left;">讀取 <code>enterprise-trial-followup.md</code> SOP，根據該客戶在 Day 3 / Day 7 的實際任務數與使用卡頓狀況，自動生成具備人情味的跟進與功能引導信件。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CLM (派單)</strong></td>
+<td style="text-align: left;"><strong>3. 合約範本欄位自動抽取</strong></td>
+<td style="text-align: left;">非結構化之報價單/合約草案（PDF/Word 轉檔文字）。</td>
+<td style="text-align: left;">關聯至 BreezySign 範本之 JSON 映射欄位（姓名、金額、品項）。</td>
+<td style="text-align: left;">閱讀非結構化合約，以 JSON Schema 強制輸出對應範本之變數值，省去人工手動登打填表單之時間。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CLM (審核)</strong></td>
+<td style="text-align: left;"><strong>4. 合約高風險條款 AI 審閱</strong></td>
+<td style="text-align: left;">待簽署合約草稿 PDF/Word、標準合約基準。</td>
+<td style="text-align: left;">合約風險評估報告（風險等級、差異對比、條款建議）。</td>
+<td style="text-align: left;">比對草案與標準範本之語意差異，挑出可能對我方不利之「免責條款」、「管轄法院」、「逾期罰則」，並提供修改建議。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KM (智庫)</strong></td>
+<td style="text-align: left;"><strong>5. 合約智能摘要與智庫問答</strong></td>
+<td style="text-align: left;">簽署完成之合約 (Signed PDF 提取文字)。</td>
+<td style="text-align: left;">100 字合約摘要、關鍵履約到期日、自然語言問答回覆。</td>
+<td style="text-align: left;">自動生成合約摘要並寫入 PDF 屬性，提取如「保固到期日」等重要通知期限並寫入系統行事曆；支援業務以自然語言對合約智庫進行檢索問答。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="epic-6-clm">Epic 6: 合約生命週期管理 (CLM)</h3>
+<p>BreezyBrain 提供從合約生成、審閱、簽署、履約至歸檔的完整生命週期控管，最大化降低企業合約法律風險。</p>
+<h4 id="261">2.6.1 範本與草稿變更控制</h4>
+<ul>
+<li><strong>範本動態帶入</strong>：與 BreezyCRM 緊密結合，業務將 Deal 設為 "Won" 時，CLM 模組自動拉取對應類型的合約/報價單範本，並自動將 Contact、Company、金額等變數填入，產出草稿 (Draft)。</li>
+<li><strong>合約版本控制 (Versioning)</strong>：所有對 Draft 的人工修改（如微調付款條件）或大腦自動壓縮調整，系統應自動生成新版本（例如 <code>v1.0</code>, <code>v1.1</code>），並支援「合約版本差異比對」介面，高亮顯示增減字句。</li>
+</ul>
+<h4 id="262-obligation-tracking">2.6.2 履約義務追蹤 (Obligation Tracking)</h4>
+<ul>
+<li><strong>重要期限自動抽取</strong>：大腦於合約簽署完成後，自動從 PDF 文字層抽取「保固期、付款日期、保密期限、續約通知期限」等具有法律約束之時程。</li>
+<li>
+<p><strong>自動化提醒通知</strong>：將上述期限自動同步至 BreezyBrain 全局行事曆，並於到期前 7 天、3 天，透過 LINE Notify、簡訊或 Email 自動對業務及法務進行推播。</p>
+</li>
+<li>
+<p><strong>介面定義 (API/CLI Interfaces)</strong>：</p>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>合約版本比對：<code>breezy-brain clm diff --file-v1 &lt;path&gt; --file-v2 &lt;path&gt; --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "has_differences": true,
+      "added_lines": ["第二條新增保密條款..."],
+      "removed_lines": []
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>義務追蹤查詢：<code>breezy-brain clm obligations --deal-id &lt;uuid&gt; [--sync-calendar &lt;boolean&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "deal_id": "deal-3211-uuid",
+      "obligations": [
+        {
+          "type": "payment",
+          "due_date": "2026-06-30",
+          "amount": 150000,
+          "status": "pending"
+        }
+      ]
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/clm/diff</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "file_v1_path": "/storage/contracts/v1.pdf",
+    "file_v2_path": "/storage/contracts/v2.pdf"
+  }</code></li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "has_differences": true,
+      "added_lines": ["第二條新增保密條款..."],
+      "removed_lines": []
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>GET /api/v1/clm/obligations</code><ul>
+<li><strong>Request Query Parameters</strong>：<code>deal_id</code> (string), <code>sync_calendar</code> (boolean)</li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "deal_id": "deal-3211-uuid",
+      "obligations": [
+        {
+          "type": "payment",
+          "due_date": "2026-06-30",
+          "amount": 150000,
+          "status": "pending"
+        }
+      ]
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="epic-7-bpm-workflow">Epic 7: 視覺化工作流與審批引擎 (BPM &amp; Workflow) &amp; 防禦規格</h3>
+<p>流程中樞 (BPM) 負責編排 BreezyBrain 各個元件與大腦任務，提供高彈性與高容錯的自動化流轉。</p>
+<h4 id="271-node-based">2.7.1 Node-based 視覺化工作流編排</h4>
+<ul>
+<li><strong>工作流編輯器</strong>：管理者可在後台使用拖拉式的節點編輯器（Node-based Editor），編排大腦的處理路徑。</li>
+<li><strong>節點類型</strong>：支援「OCR 解析節點」、「LLM 審閱節點」、「分支判斷節點」、「審批路由節點」、「BreezySign 電子簽章節點」與「KM 向量歸檔節點」。</li>
+</ul>
+<h4 id="272">2.7.2 風險審批路由與例外處理</h4>
+<ul>
+<li><strong>高風險審批路由 (Approval Routing) 防衛機制</strong>：<ul>
+<li><strong>「雙重確認」防線</strong>：大腦評估為「低風險」之合約嚴禁 100% 自主直接發送，而是調整為「低風險快速通道」，系統在背景生成發送預備任務，仍需業務人員進行最後顯性確認或 CLI 確認後，方能呼叫 BreezySign API 送簽，避免 AI 偽陰性漏看霸王條款引發法務災難。</li>
+<li><strong>高亮可信度評分與原文引用</strong>：大腦執行審閱任務時，其 API/CLI 回傳之結構化 JSON 必須包含 <code>confidence_score</code> (可信度) 與對應的 <code>original_text_quote</code> (原文段落引用)。可信度評分低於 0.8（或指定閾值）之合約，即使被大腦歸類為無風險，也必須強制進入法務人工審查路由。</li>
+<li>當判斷為 <strong>「中/高風險」</strong>（如：免責上限過低、指定第三方管轄）➡️ BPM 自動將流程暫停，並發送審核通知給法務主管，待人工手動覆核/修改後才可繼續執行。</li>
+</ul>
+</li>
+<li><strong>防錯重試機制 (Error Handling)</strong>：<ul>
+<li>若外部 BreezySign API 傳簽超時或發生 5xx 錯誤，BPM 流程中樞需提供「自動重試」機制（間隔 5 分鐘重試 3 次）。</li>
+<li>若重試依然失敗，系統必須進入 <code>Error</code> 狀態並觸發 UI 警報，供管理員或業務人工點擊「手動更換通道」（例如從 LINE 傳簽切換回 Email 傳簽）。</li>
+</ul>
+</li>
+<li>
+<p><strong>異常與負向流程規範 (Negative Workflows &amp; Exception States)</strong>：</p>
+<ul>
+<li><strong>拒絕/退回流程</strong>：在 BPM 審查中若人工將審核狀態設為 <code>Rejected</code> (拒絕)，或外部 BreezySign 傳回簽署拒絕 (<code>Declined</code>) 時，對應的 <code>Deal</code> 必須自動退回 <code>Negotiating</code> 階段。同時，系統將當前 Draft (合約草稿) 自動移回 <code>/raw</code> 目錄下，以防止簽署區殘存無效合約，並於大腦介面附帶人工填寫的修改建議以利後續重新生成。</li>
+<li><strong>自動催簽與過期狀態 (Cron-based Expiry &amp; Reminder)</strong>：系統設定發送簽署合約後的過期時限 <code>signing_ttl</code> (預設為 14 天)。系統會透過後台 Cron 任務，每 3 天自動呼叫一次 <code>notify_send</code> 進行 LINE/Email 催簽。若發送超過 14 天仍未完成簽署，系統自動將任務設定為 <code>Expired</code> (過期)，並將 KM 中儲存之 Draft 標記為 <code>Voided</code> (無效)，防止使用者進行過期或無效合約的後續流程。</li>
+</ul>
+</li>
+<li>
+<p><strong>介面定義 (API/CLI Interfaces)</strong>：</p>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>執行流程編排：<code>breezy-brain bpm run --workflow-id &lt;id&gt; --deal-id &lt;uuid&gt; [--variables &lt;json&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "processing",
+      "workflow_id": "wfl_contract_review"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>人工審批/覆核覆寫：<code>breezy-brain bpm approve --task-id &lt;uuid&gt; --status &lt;approve/reject/override&gt; [--comments &lt;string&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "approved",
+      "comments": "法務覆核通過，條款無風險"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/bpm/run</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "workflow_id": "wfl_contract_review",
+    "deal_id": "deal-3211-uuid",
+    "variables": {
+      "confidence_threshold": 0.8
+    }
+  }</code></li>
+<li><strong>Response Body (HTTP 202 Accepted)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "processing",
+      "workflow_id": "wfl_contract_review"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>POST /api/v1/bpm/tasks/:id/approve</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "status": "approved",
+    "comments": "法務覆核通過，條款無風險"
+  }</code></li>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "approved",
+      "comments": "法務覆核通過，條款無風險"
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="epic-8-km-wikillm-wiki-style-knowledge-management">Epic 8: KM 智庫 — WikiLLM 模式知識庫架構 (Wiki-style Knowledge Management)</h3>
+<p>BreezyBrain 的知識智庫（KM）採用與 <strong>WikiLLM</strong> 相同的架構理念：以標準 Markdown + YAML Frontmatter 為基礎，透過 Agent 自動攝入、向量索引與圖關聯，將簽署完成的合約文件轉化為可被人類閱讀與 AI 問答的結構化知識頁面。這使得合約知識庫不只是一個被動文件倉庫，而是一個活的、可持續更新的企業第二大腦。</p>
+<h4 id="281-km-directory-architecture">2.8.1 KM 知識庫目錄結構規範 (Directory Architecture)</h4>
+<pre><code>/knowledge/{account_id}/
+├── index.md              # 客戶知識索引（自動維護，列出所有合約頁面）
+├── log.md                # 操作時序日誌（逆序追加，記錄每次大腦攝入）
+├── sources/              # 原始合約摘要頁（每份簽署合約一頁）
+│   └── {deal_id}-signed-contract.md
+├── entities/             # 實體頁（客戶公司、聯絡人、產品/服務）
+│   └── {account_name}.md
+├── concepts/             # 概念頁（合約類型、條款模板、法規依據）
+│   └── {concept_name}.md
+├── topics/               # 主題頁（跨合約綜合分析，如「退費條款趨勢」）
+│   └── {topic_name}.md
+└── analyses/             # 分析頁（問答結果、條款比較、風險報告）
+    └── {analysis_name}.md
+</code></pre>
+<h4 id="282-page-format">2.8.2 知識頁面格式規範 (Page Format)</h4>
+<p>每份攝入的合約自動生成標準 Markdown 知識頁，包含 YAML Frontmatter 與四段式正文：</p>
+<pre><code class="language-markdown">---
+title: &quot;三亞旅行社 旅遊定型化契約 2026-05-20&quot;
+type: source
+source_file: &quot;{deal_id}_signed.pdf&quot;
+date_ingested: 2026-05-20
+tags: [旅遊, 定型化契約, AATL]
+contract_type: &quot;external&quot;
+signing_status: &quot;signed&quot;
+obligation_dates:
+  - { type: &quot;renewal_notice&quot;, due_date: &quot;2027-04-20&quot; }
+summary: &quot;三亞旅行社與好好簽之年度 SaaS 訂閱合約，金額 NT$3,000。&quot;
+---
+
+# [合約標題]
+
+&gt; [一段摘要]
+
+## 核心條款
+- [條款要點列表]
+
+## 義務與期限
+- [履約日期與通知期限]
+
+## 相關連結
+- [相關實體或分析頁]
+
+## 來源引用
+- [來源 PDF 連結與關鍵段落引述]
+</code></pre>
+<blockquote>
+<p><strong>設計原則</strong>：Markdown + YAML Frontmatter 是 BreezyBrain KM 的<strong>「知識交換格式 (Knowledge Exchange Format)」</strong>，而非主要資料儲存層。
+- 知識頁面作為<strong>人類可讀的結構化摘要</strong>，確保知識不鎖死於系統黑盒（可移植性保障）。
+- <strong>主要儲存層（Primary Storage）</strong>為後端關聯式資料庫 (PostgreSQL) + 向量資料庫 (Qdrant)，詳見章節 2.8.6。
+- Obsidian + Dataview 僅作為<strong>可選的本地端輕量探索工具</strong>（適用 MVP / 小規模個人用戶），中大型企業應透過 BreezyBrain 內建 Web UI 或 API 查詢，而非直接依賴 Obsidian。</p>
+</blockquote>
+<h4 id="283-agent-automated-ingest-workflow">2.8.3 Agent 自動攝入流程 (Automated Ingest Workflow)</h4>
+<p>當 BreezySign 回調告知合約簽署完成後，KM Agent 自動依序執行以下步驟（完整實踐 WikiLLM 的「Ingest 流程」）：</p>
+<ol>
+<li><strong>OCR 提取</strong>：對 Signed PDF 執行 OCR，提取全文文字層。</li>
+<li><strong>大腦解析 (LLM Parsing)</strong>：呼叫 Local LLM 進行：
+   - 生成 100 字合約摘要（寫入 Frontmatter <code>summary</code>）
+   - 抽取合約類型、金額、期限、簽署人（寫入 Frontmatter 欄位）
+   - 識別義務日期（寫入 <code>obligation_dates</code> 陣列）
+   - 識別提及的實體與概念（用於交叉引用）</li>
+<li><strong>建立/更新知識頁</strong>：
+   - 在 <code>sources/</code> 建立合約來源摘要頁。
+   - 在 <code>entities/</code> 建立或更新客戶實體頁（追加合約關聯）。
+   - 在 <code>topics/</code> 判斷是否需建立或更新跨合約主題分析頁。</li>
+<li><strong>向量化 (Embedding)</strong>：使用 BGE-M3 對合約段落進行向量化，寫入向量資料庫（ChromaDB/Qdrant）。</li>
+<li><strong>更新索引</strong>：在 <code>index.md</code> 新增本合約頁面條目；在 <code>log.md</code> 頂部追加攝入記錄。</li>
+</ol>
+<h4 id="284-km-web-ui-dataview">2.8.4 KM 查詢層設計（Web UI 為主，Dataview 為輔）</h4>
+<blockquote>
+<p><strong>⚠️ 架構澄清</strong>：Obsidian 是個人知識管理工具，底層為純 Markdown 檔案系統，<strong>在大量企業合約資料下存在以下根本性限制</strong>，不得作為中大型企業的 KM 主要查詢介面：</p>
+<table>
+<thead>
+<tr>
+<th>限制面向</th>
+<th>Obsidian 問題</th>
+<th>BreezyBrain KM DB 解法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>效能上限</strong></td>
+<td>Vault &gt; 5,000 份 Markdown 頁時，Dataview 查詢響應顯著變慢（&gt; 5 秒）</td>
+<td>PostgreSQL 索引查詢 &lt; 100ms</td>
+</tr>
+<tr>
+<td><strong>並發存取</strong></td>
+<td>無多人同時編輯鎖（本地端 App，非伺服器）</td>
+<td>PostgreSQL 支援 MVCC 事務隔離</td>
+</tr>
+<tr>
+<td><strong>RBAC 權限</strong></td>
+<td>無原生角色存取控制，全 Vault 可見</td>
+<td>資料庫層 Row-level Security</td>
+</tr>
+<tr>
+<td><strong>API 整合</strong></td>
+<td>無原生 REST API 可供 Agent 寫入</td>
+<td>標準 REST API / gRPC</td>
+</tr>
+<tr>
+<td><strong>全文搜尋</strong></td>
+<td>純 Markdown 文字比對，無向量語意搜尋</td>
+<td>pgvector / Qdrant 語意搜尋</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>BreezyBrain KM 查詢層架構（三層分離）</strong>：</p>
+<pre><code>[查詢層]   BreezyBrain Web UI / REST API
+               │
+               ▼
+[邏輯層]   KM Query Service
+           ├── 結構化查詢 → PostgreSQL (合約 Metadata)
+           ├── 語意向量搜尋 → Qdrant (BGE-M3 Embedding)
+           └── 圖關聯查詢 → Neo4j / pgvector HNSW (實體關聯)
+               │
+               ▼
+[可選匯出] Markdown Export API
+           └── 產出 WikiLLM 相容格式 .md → 可選擇性匯入 Obsidian
+</code></pre>
+<blockquote>
+<p><strong>Obsidian 正確定位</strong>：作為<strong>選擇性輕量探索層</strong>，適用於 MVP 早期個人用戶（&lt; 500 份合約）或業務人員離線瀏覽摘要頁面。系統提供 <code>km export --format obsidian-vault</code> 指令，可將最近 N 份合約摘要導出為 Obsidian Vault，供離線探索，但這不是資料存取的主要路徑。</p>
+</blockquote>
+<pre><code class="language-dataview">// （Obsidian 離線探索用，僅適用 MVP 小規模場景）
+// 查詢所有即將到期的履約義務（30 天內）
+TABLE date_ingested, obligation_dates, summary
+FROM &quot;/knowledge/{account_id}/sources&quot;
+WHERE contains(tags, &quot;旅遊&quot;)
+SORT date_ingested DESC
+</code></pre>
+<h4 id="285-apicli-interfaces">2.8.5 介面定義 (API/CLI Interfaces)</h4>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>手動觸發 KM 攝入：<code>breezy-brain km ingest --deal-id &lt;uuid&gt; [--force-reindex] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "wiki_page": "/knowledge/acc-001/sources/deal-101-signed-contract.md",
+      "entities_updated": ["entities/san-ya-travel.md"],
+      "embedded_chunks": 24,
+      "log_entry_added": true
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>KM Lint（知識庫健康檢查）：<code>breezy-brain km lint --account-id &lt;uuid&gt; --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "orphan_pages": [],
+      "missing_links": ["topics/refund-policy-trend.md"],
+      "stale_pages": [],
+      "total_pages": 42
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><strong>API 端點</strong>：</li>
+<li><code>POST /api/v1/km/ingest</code> — Body: <code>{ "deal_id": "...", "force_reindex": false }</code></li>
+<li><code>GET /api/v1/km/lint?account_id=&lt;uuid&gt;</code> — 回傳知識庫健康報告</li>
+</ul>
+<h4 id="286-km-db">2.8.6 KM DB 分層架構規格（依企業規模選型）</h4>
+<blockquote>
+<p><strong>核心原則</strong>：KM 資料庫分為三個功能層，分別對應<strong>結構化 Metadata 儲存</strong>、<strong>語意向量檢索</strong>與<strong>知識圖譜關聯</strong>。依企業合約規模選擇不同的技術棧組合。</p>
+</blockquote>
+<h5 id="km-db">KM DB 三功能層定義</h5>
+<table>
+<thead>
+<tr>
+<th>功能層</th>
+<th>職責</th>
+<th>選型技術</th>
+<th>授權</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Metadata DB</strong></td>
+<td>合約結構化欄位（金額/日期/狀態/帳戶）、RBAC 權限、履約義務追蹤</td>
+<td>PostgreSQL 16</td>
+<td>PostgreSQL License（類 MIT）</td>
+</tr>
+<tr>
+<td><strong>Vector DB</strong></td>
+<td>合約段落語意 Embedding、RAG 向量檢索</td>
+<td>ChromaDB → Qdrant</td>
+<td>Apache 2.0</td>
+</tr>
+<tr>
+<td><strong>Graph Layer</strong></td>
+<td>合約-客戶-條款-實體 知識圖譜關聯查詢</td>
+<td>pgvector HNSW → Neo4j</td>
+<td>Apache 2.0 / Community</td>
+</tr>
+<tr>
+<td><strong>全文搜尋</strong></td>
+<td>關鍵字全文索引（條款文字、摘要）</td>
+<td>PostgreSQL FTS (tsvector) → Elasticsearch</td>
+<td>PostgreSQL License / SSPL</td>
+</tr>
+</tbody>
+</table>
+<h5 id="scale-tier-selection">規模分層選型（Scale-tier Selection）</h5>
+<p><strong>Tier 1：MVP 小型企業（&lt; 1,000 份合約，1~10 人使用）</strong></p>
+<pre><code>技術棧：
+  Metadata DB   → SQLite (嵌入式，零維運)
+  Vector DB     → ChromaDB (SQLite-backed, Apache 2.0)
+  Graph Layer   → Markdown 頁面交叉連結（不需獨立圖資料庫）
+  全文搜尋      → SQLite FTS5
+  查詢介面      → BreezyBrain Web UI + 可選 Obsidian 離線探索
+
+適用場景：旅遊社（月簽 3~10 份）、小型診所（月簽 20~50 份）
+部署方式：地端單機，一鍵 Docker Compose 啟動
+
+⚠️ 上限警戒線：
+  - 單帳戶合約頁 &gt; 1,000 份 時 ChromaDB 查詢 P95 &gt; 2 秒 → 建議升級 Tier 2
+  - 多人並發 &gt; 5 人同時查詢時，SQLite 鎖競爭顯著 → 建議升級 Tier 2
+</code></pre>
+<p><strong>Tier 2：中型企業（1,000 ~ 50,000 份合約，10~200 人使用）</strong></p>
+<pre><code>技術棧：
+  Metadata DB   → PostgreSQL 16
+                    - Row-level Security (RLS) for RBAC
+                    - pgvector extension for 輕量圖鄰接 HNSW 索引
+                    - FTS with tsvector (繁中 Jieba 分詞)
+  Vector DB     → Qdrant (Apache 2.0, 單節點)
+                    - 支援 Dense (BGE-M3) + Sparse (BM25) 混合檢索
+                    - 最高 1M+ 向量，查詢 &lt; 50ms
+  Graph Layer   → pgvector HNSW (簡易圖結構，無需獨立 Neo4j)
+  全文搜尋      → PostgreSQL FTS (tsvector + zhparser 中文分詞)
+  查詢介面      → BreezyBrain Web UI / REST API
+                 （不建議使用 Obsidian，改以 KM Export API 匯出摘要頁）
+
+適用場景：醫美連鎖診所（月簽 500 份）、健康管理公司（年簽 8K 份）、旅遊集團
+部署方式：地端 Docker Compose (多容器)，或雲端單節點 VM
+
+資料量估算（以 10K 份合約為例）：
+  - PostgreSQL Metadata: ~200 MB
+  - Qdrant Vectors (BGE-M3 1024 維, avg 50 chunks/合約): ~2 GB
+  - 合約 PDF 原始檔: ~50 GB (@ 5MB/份)
+</code></pre>
+<p><strong>Tier 3：大型企業（&gt; 50,000 份合約，200+ 人使用，多部門多租戶）</strong></p>
+<pre><code>技術棧：
+  Metadata DB   → PostgreSQL 16 (主從複製, Read Replica)
+                    - 分區表 (Partition by account_id / year)
+                    - pgBouncer 連線池
+                    - 完整 RBAC + 部門隔離 (Row-level Security)
+  Vector DB     → Qdrant (分散式集群, Apache 2.0)
+                    - 3 節點以上，支援 Shard + Replication
+                    - 查詢 P99 &lt; 100ms (1M+ 向量)
+  Graph Layer   → Neo4j Community (或 Apache AGE on PostgreSQL)
+                    - 合約-客戶-條款-法規 知識圖譜
+                    - Cypher 查詢：&quot;找出所有與 A 公司有關聯的免責條款&quot;
+  全文搜尋      → Elasticsearch (SSPL, 自部署)
+                    或 PostgreSQL FTS (若已足夠，避免 SSPL 授權)
+  快取層        → Redis (BSD License): Embedding Cache + 熱門查詢 Cache
+  查詢介面      → BreezyBrain Web UI / REST API / GraphQL
+
+適用場景：集團法務（年簽 10 萬份）、連鎖醫院集團、上市公司 API 整合
+部署方式：Kubernetes (K8s) 或 Docker Swarm 多節點
+
+高可用要求：
+  - PostgreSQL: 主從自動故障轉移 (Patroni)
+  - Qdrant: 3 節點集群，RF=2
+  - 備份: 日備 WAL + 週備全量快照
+</code></pre>
+<h5 id="km-db-schema-postgresql">KM DB Schema 核心表設計（PostgreSQL）</h5>
+<pre><code class="language-sql">-- 合約 Metadata 主表
+CREATE TABLE km_contracts (
+  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  deal_id         UUID NOT NULL REFERENCES crm_deals(id),
+  account_id      UUID NOT NULL REFERENCES crm_accounts(id),
+  title           TEXT NOT NULL,
+  contract_type   TEXT,          -- external / internal / public_form
+  signing_status  TEXT,          -- draft / sent / signed / archived
+  risk_level      TEXT,          -- low / medium / high
+  summary         TEXT,          -- LLM 生成 100 字摘要
+  pdf_path        TEXT,          -- 地端儲存路徑
+  markdown_path   TEXT,          -- KM Markdown 知識頁路徑
+  date_ingested   TIMESTAMPTZ DEFAULT NOW(),
+  date_signed     TIMESTAMPTZ,
+  tags            TEXT[],        -- 標籤陣列
+  CONSTRAINT fk_account FOREIGN KEY (account_id) REFERENCES crm_accounts(id)
+);
+
+-- 履約義務追蹤表（支援到期通知）
+CREATE TABLE km_obligations (
+  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  contract_id     UUID NOT NULL REFERENCES km_contracts(id) ON DELETE CASCADE,
+  obligation_type TEXT NOT NULL,  -- renewal_notice / payment / confidentiality
+  due_date        DATE NOT NULL,
+  status          TEXT DEFAULT 'pending',  -- pending / notified / completed
+  notified_at     TIMESTAMPTZ
+);
+
+-- 全文搜尋索引（中文 tsvector）
+CREATE INDEX idx_km_contracts_fts ON km_contracts
+  USING GIN (to_tsvector('zhparser', title || ' ' || COALESCE(summary, '')));
+
+-- Row-level Security (部門隔離)
+ALTER TABLE km_contracts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY km_dept_isolation ON km_contracts
+  USING (account_id = current_setting('app.current_account_id')::UUID);
+</code></pre>
+<h5 id="_1">規模分層決策樹</h5>
+<pre><code>年合約份數 &lt; 1,000 份？
+  └── YES → Tier 1 (SQLite + ChromaDB)
+  └── NO  → 並發用戶 &lt; 20 人 且 合約 &lt; 50,000 份？
+              └── YES → Tier 2 (PostgreSQL + Qdrant 單節點)
+              └── NO  → Tier 3 (PostgreSQL HA + Qdrant 集群 + Neo4j)
+</code></pre>
+<blockquote>
+<p><strong>MVP 落地建議</strong>：MVP 階段以 <strong>Tier 1 (SQLite + ChromaDB)</strong> 啟動，降低部署複雜度；系統設計必須保證 Tier 1 → Tier 2 的<strong>零資料遷移成本升級路徑</strong>（API 介面不變，僅替換 DB 連線設定）。</p>
+</blockquote>
+<h5 id="2861-concurrency-caching-multi-llm-routing">2.8.6.1 多人並發、高頻存取與多大模型調度規格 (Concurrency, Caching &amp; Multi-LLM Routing)</h5>
+<p>為了應對企業多使用者同時檢索（高並發）、高頻問答存取，以及在複雜與簡單任務間切換不同模型的要求，KM 模組導入以下技術規格：
+- <strong>多人並發與 RLS 讀寫鎖</strong>：在 PostgreSQL 16 層啟用並發交易池（pgBouncer），將 max_connections 限制設為 500+，並在 <code>km_contracts</code> 啟用 PostgreSQL 行級安全鎖（Row-Level Security），保證多人同時讀寫時，資料隔離無越權。
+- <strong>高頻存取快取層</strong>：導入 Redis 快取層，對高頻查詢的 RAG 向量檢索結果（Embedding Cache）與大腦問答的熱門解答進行 120 秒暫存；對於頻繁讀取的聯絡人與合約摘要（KM Index），直接快取至 Redis 記憶體中，將 P95 回應時間降至 &lt; 20ms，保護底層向量資料庫。
+- <strong>多大模型路由中樞 (Multi-LLM Router)</strong>：KM 系統支援對接多個大模型，依任務複雜度與即時流量自動調度：
+  - <strong>Model Router 規則</strong>：
+    - 簡單查詢/100字摘要/卡片通知 ➡️ 路由至地端快速 Ollama (Qwen 2.5 7B)，以節省網路頻寬與雲端 token 成本。
+    - 複雜條款比對/跨合約風險稽核/法律條文諮詢 ➡️ 自動路由至雲端 API 大腦 (GCP Vertex AI / Gemini 1.5 Pro)。
+  - <strong>高流量排隊機制 (Concurrency Rate Limit)</strong>：地端 Ollama 同時推論請求限制為 3（避免顯存溢出與 CPU 滿載），超過之並發存取將自動進入 API Gateway 隊列中排隊等待，或降級路由至雲端 Vertex AI，確保高頻存取不卡死。</p>
+<h4 id="287-enterprise-corporate-brain-cultivation-maintenance-rules">2.8.7 企業專屬大腦培養與維護機制 (Enterprise Corporate Brain Cultivation &amp; Maintenance Rules)</h4>
+<p>為了讓 BreezyBrain 能夠學習該企業的獨特法務習慣、特定業務術語及簽署慣例，系統提供了一套持續性維護規則，逐步培養出專屬的「企業腦」：</p>
+<h5 id="2871-corporate-terminology-mapping">2.8.7.1 企業專屬語意字典與名詞對照 (Corporate Terminology Mapping)</h5>
+<ul>
+<li><strong>維護介面</strong>：法務主管（<code>Legal_Master</code>）可在後台維護「企業術語對照表」（如：自訂的特有付款條件、子公司代碼、供應商黑名單等）。</li>
+<li><strong>語意增強</strong>：大腦在執行 CLM 範本匹配與 KM RAG 檢索時，會自動載入此字典，將企業術語翻譯為對應的 LLM 語意變數，大幅降低 AI 誤判率。</li>
+</ul>
+<h5 id="2872-human-in-the-loop-feedback-loop-for-llm">2.8.7.2 人機協作反饋微調迴圈 (Human-in-the-Loop Feedback Loop for LLM)</h5>
+<ul>
+<li><strong>讚踩反饋收集</strong>：在 Web UI 問答介面或 CRM 後台的 AI 摘要卡片中，均提供「讚/踩 👍/👎」反饋按鈕。</li>
+<li><strong>糾偏修改機制</strong>：若使用者點選「踩」，可輸入正確的摘要內容或條款解釋。此糾偏資料會被自動寫入 <code>/storage/feedback/dataset.jsonl</code>，作為 Few-shot Prompt 的動態 Context。</li>
+<li><strong>增量微調排程 (Incremental Fine-tuning)</strong>：系統設定排程（如每週六凌晨 03:00），自動收集已標記/糾偏之合約數據集，於後台安全容器中呼叫 LLaMA-Factory 執行量化 Low-Rank Adaptation (LoRA) 增量微調，使大腦的推理邊界與該企業法務的審判尺度日趨一致。</li>
+</ul>
+<h5 id="2873-information-filtering-exclusion-rules">2.8.7.3 知識排除與個資脫敏規則 (Information Filtering &amp; Exclusion Rules)</h5>
+<ul>
+<li><strong>個資防護</strong>：大腦在將完簽 PDF 寫入 RAG 向量庫前，會自動過濾身分證字號、信用卡號及病患個資等極度敏感欄位（PII Masking），嚴禁此類資料轉為 Embedding 供全域檢索，防止知識庫洩漏隱私。</li>
+<li><strong>過期與作廢合約清洗</strong>：當合約在 CLM 中被標記為 <code>Expired</code> (過期) 或 <code>Voided</code> (無效) 時，系統自動在向量庫中將對應 payload 進行標記降權；當客戶要求被遺忘權時，執行 Conditional Delete 徹底物理抹除該實體的所有向量。</li>
+</ul>
+<hr />
+<h3 id="epic-9-dashboard-report-hub">Epic 9: 儀表板與報告中樞 (Dashboard &amp; Report Hub)</h3>
+<p>BreezyBrain 提供統一的視覺化儀表板，整合六大功能模組（BCR、CRM、CLM、BPM、KM、LLM 大腦）的即時數據，讓管理者一眼掌握合約健康度、銷售漏斗與 AI 工作績效，並支援多格式報告匯出，滿足內部管理與外部稽核需求。</p>
+<h4 id="291-dashboard-architecture">2.9.1 儀表板架構概覽 (Dashboard Architecture)</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                  BreezyBrain Dashboard Hub                  │
+│                                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │ 總覽     │  │ CRM      │  │ CLM      │  │ BPM      │  │
+│  │ Overview │  │ Pipeline │  │ Contracts│  │ Workflow  │  │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────────────────┐  │
+│  │ KM       │  │ AI 大腦  │  │  📤 報告匯出 Export      │  │
+│  │ Knowledge│  │ LLM Jobs │  │  PDF / Excel / CSV / JSON │  │
+│  └──────────┘  └──────────┘  └──────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+                          ▼
+              REST API: GET /api/v1/dashboard/*
+              CLI:      breezy-brain dashboard *
+</code></pre>
+<h4 id="292-sub-dashboard-specs">2.9.2 子儀表板規格 (Sub-Dashboard Specs)</h4>
+<hr />
+<h5 id="d1-overview-dashboard">📊 D1: 總覽儀表板 (Overview Dashboard)</h5>
+<p><strong>目標受眾</strong>：管理者、老闆、法務主管<br />
+<strong>刷新頻率</strong>：每 5 分鐘自動刷新（可調整）</p>
+<table>
+<thead>
+<tr>
+<th>指標卡片 (KPI Card)</th>
+<th>資料來源</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本月新進潛客數</strong></td>
+<td>CRM Accounts</td>
+<td>當月 <code>created_at</code> 的 Accounts 數量</td>
+</tr>
+<tr>
+<td><strong>本月成交率</strong></td>
+<td>CRM Deals</td>
+<td><code>Won / (Won + Lost)</code> 比率</td>
+</tr>
+<tr>
+<td><strong>合約待簽件數</strong></td>
+<td>CLM Contracts</td>
+<td><code>signing_status = sent</code> 的件數</td>
+</tr>
+<tr>
+<td><strong>合約簽署完成件數（本月）</strong></td>
+<td>CLM Contracts</td>
+<td><code>signed</code> 且 <code>date_signed</code> 在本月</td>
+</tr>
+<tr>
+<td><strong>即將到期義務數（30 天內）</strong></td>
+<td>KM Obligations</td>
+<td><code>due_date BETWEEN NOW() AND NOW()+30d</code></td>
+</tr>
+<tr>
+<td><strong>AI 大腦本月處理任務數</strong></td>
+<td>LLM Job Log</td>
+<td>所有 LLM 任務成功計數</td>
+</tr>
+<tr>
+<td><strong>AI 任務成功率</strong></td>
+<td>LLM Job Log</td>
+<td><code>Success / Total</code> 比率</td>
+</tr>
+<tr>
+<td><strong>待人工審核件數</strong></td>
+<td>BPM Tasks</td>
+<td><code>status = pending_human_approval</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>視覺化元件清單</strong>：
+- 📈 <strong>月度合約件數趨勢折線圖</strong>（過去 12 個月）
+- 🥧 <strong>合約類型分布圓餅圖</strong>（外部合約 / 內部表單 / 公開表單）
+- 🏆 <strong>業務成交率排行榜</strong>（前 5 名業務 + 本月成交件數）
+- 🔴 <strong>風險合約警示區</strong>（AI 評估為中/高風險且尚未人工覆核的件數）
+- 📅 <strong>即將到期義務日曆熱圖</strong>（未來 30 天的義務分布）</p>
+<hr />
+<h5 id="d2-crm-crm-pipeline-dashboard">👥 D2: CRM 銷售漏斗儀表板 (CRM Pipeline Dashboard)</h5>
+<p><strong>目標受眾</strong>：業務主管、業務人員</p>
+<table>
+<thead>
+<tr>
+<th>視覺化元件</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>銷售漏斗圖</strong></td>
+<td>Prospecting → Qualifying → Trial → Negotiating → Won/Lost 各階段件數與轉換率</td>
+</tr>
+<tr>
+<td><strong>試用到期警示列表</strong></td>
+<td><code>trial_expiry_date</code> 距今 7 天內、且 <code>stage = Trial</code> 的客戶清單，按到期日排序</td>
+</tr>
+<tr>
+<td><strong>潛力等級分布</strong></td>
+<td>🔴 高潛力 / 🟡 中潛力 / ⚪ 低潛力 各佔比</td>
+</tr>
+<tr>
+<td><strong>競品現況分析</strong></td>
+<td>按 <code>competitor_status</code> 分類的客戶數（無競品 / 點點簽 / Adobe Sign / 其他）</td>
+</tr>
+<tr>
+<td><strong>來源管道效率</strong></td>
+<td>按 <code>acquisition_channel</code> 的漏斗轉換率比較（搜尋 vs 廣告 vs 推薦）</td>
+</tr>
+<tr>
+<td><strong>本月新進潛客時序</strong></td>
+<td>每日新增 Account 折線圖（本月）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>篩選器 (Filters)</strong>：
+- 日期範圍（本月 / 本季 / 自訂）
+- 行業別（旅遊 / 醫療 / 健管 / 其他）
+- 業務人員（多選）
+- 潛力等級</p>
+<hr />
+<h5 id="d3-clm-contract-lifecycle-dashboard">📜 D3: CLM 合約生命週期儀表板 (Contract Lifecycle Dashboard)</h5>
+<p><strong>目標受眾</strong>：法務主管、業務主管</p>
+<table>
+<thead>
+<tr>
+<th>視覺化元件</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>合約狀態看板 (Kanban)</strong></td>
+<td>Draft → Sent → Signed → Archived 各欄件數與清單（可點擊查看詳情）</td>
+</tr>
+<tr>
+<td><strong>合約簽署週期分析</strong></td>
+<td>從 Sent 到 Signed 的平均天數（按合約類型分組）</td>
+</tr>
+<tr>
+<td><strong>高風險合約清單</strong></td>
+<td>AI 評估 <code>risk_level = medium/high</code> 且未覆核的合約，含風險描述</td>
+</tr>
+<tr>
+<td><strong>版本變更頻率</strong></td>
+<td>合約草稿平均修改次數（高修改次數可能暗示需求不明確）</td>
+</tr>
+<tr>
+<td><strong>履約義務到期日曆</strong></td>
+<td>互動式月曆，標記每個到期義務；點擊可查看對應合約詳情</td>
+</tr>
+<tr>
+<td><strong>合約金額分布</strong></td>
+<td>按合約金額區間（0~10萬 / 10~50萬 / 50萬以上）的件數分布柱狀圖</td>
+</tr>
+</tbody>
+</table>
+<p><strong>快速動作 (Quick Actions)</strong>：
+- 🔍 點擊合約 → 跳轉 CLM 詳情頁
+- ✅ 批量確認低風險合約（多選後一鍵核准）
+- 📤 匯出選定合約清單為 Excel</p>
+<hr />
+<h5 id="d4-bpm-bpm-workflow-dashboard">⚙️ D4: BPM 工作流監控儀表板 (BPM Workflow Dashboard)</h5>
+<p><strong>目標受眾</strong>：系統管理員、IT</p>
+<table>
+<thead>
+<tr>
+<th>視覺化元件</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>工作流狀態總覽</strong></td>
+<td>各工作流模板的本月執行次數、成功率、平均耗時</td>
+</tr>
+<tr>
+<td><strong>任務積壓儀表</strong></td>
+<td>當前佇列中 <code>Pending / Processing / Error</code> 各狀態的任務件數（即時）</td>
+</tr>
+<tr>
+<td><strong>錯誤任務列表</strong></td>
+<td>最近 50 筆 <code>status = Error</code> 的任務，含錯誤訊息與重試按鈕</td>
+</tr>
+<tr>
+<td><strong>API 傳簽成功率</strong></td>
+<td>BreezySign API 呼叫成功 / 失敗次數（含 Retry 統計）</td>
+</tr>
+<tr>
+<td><strong>人工審核佇列</strong></td>
+<td><code>pending_human_approval</code> 任務清單，按等待時間排序（等待越久越紅）</td>
+</tr>
+<tr>
+<td><strong>工作流執行時序圖</strong></td>
+<td>過去 24 小時的任務執行時序甘特圖（Gantt-like）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>警示觸發機制</strong>：
+- 🔴 <strong>紅色警示</strong>：積壓任務 &gt; 10 件，或 Error 率 &gt; 20%
+- 🟡 <strong>黃色警示</strong>：某工作流平均耗時超過預期 SLA 的 150%
+- ✅ 可設定 Email / LINE 推播告警閾值</p>
+<hr />
+<h5 id="d5-km-knowledge-management-dashboard">🧠 D5: KM 知識庫儀表板 (Knowledge Management Dashboard)</h5>
+<p><strong>目標受眾</strong>：法務主管、知識管理員</p>
+<table>
+<thead>
+<tr>
+<th>視覺化元件</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知識庫健康度儀表</strong></td>
+<td>總頁面數 / 孤立頁面數 / 缺失連結數 / 最近 30 天未更新頁面數</td>
+</tr>
+<tr>
+<td><strong>合約知識頁成長趨勢</strong></td>
+<td>每月新攝入合約知識頁數量折線圖（過去 12 個月）</td>
+</tr>
+<tr>
+<td><strong>向量索引覆蓋率</strong></td>
+<td>已向量化段落數 / 總段落數 百分比（ChromaDB/Qdrant 統計）</td>
+</tr>
+<tr>
+<td><strong>熱門查詢排行</strong></td>
+<td>最常被 AI 問答引用的 Top 10 合約知識頁（含引用次數）</td>
+</tr>
+<tr>
+<td><strong>義務到期倒數看板</strong></td>
+<td>未來 90 天內到期的義務清單，按剩餘天數排序（紅/黃/綠色標）</td>
+</tr>
+<tr>
+<td><strong>合約類型知識圖譜預覽</strong></td>
+<td>互動式圖譜（合約-客戶-條款類型 關聯視覺化，可縮放探索）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>搜尋功能</strong>：
+- 自然語言搜尋框（對接 <code>km_search</code> Tool，RAG 語意搜尋）
+- 結果顯示：匹配段落 + 原文引用 + 來源合約連結</p>
+<hr />
+<h5 id="d6-ai-llm-brain-performance-dashboard">🤖 D6: AI 大腦工作績效儀表板 (LLM Brain Performance Dashboard)</h5>
+<p><strong>目標受眾</strong>：系統管理員、Product Manager</p>
+<table>
+<thead>
+<tr>
+<th>視覺化元件</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>任務類型分布</strong></td>
+<td>OCR 提取 / 合約摘要 / 風險評估 / 範本匹配 / 問答各類任務佔比</td>
+</tr>
+<tr>
+<td><strong>模型推理速度</strong></td>
+<td>平均 tokens/sec（按模型版本分組）；低於 5 tokens/sec 標紅警示</td>
+</tr>
+<tr>
+<td><strong>置信度分布直方圖</strong></td>
+<td>所有 AI 任務的 <code>confidence_score</code> 分布（0~1 區間的頻率圖）</td>
+</tr>
+<tr>
+<td><strong>低置信度任務清單</strong></td>
+<td><code>confidence_score &lt; 0.85</code> 的任務清單，含人工介入情況</td>
+</tr>
+<tr>
+<td><strong>雲端 Fallback 觸發次數</strong></td>
+<td>地端算力不足觸發雲端回退的次數與原因</td>
+</tr>
+<tr>
+<td><strong>模型版本比較</strong></td>
+<td>不同 Ollama 模型版本的任務成功率 / 平均信心分比較表</td>
+</tr>
+<tr>
+<td><strong>Embedding 向量化統計</strong></td>
+<td>BGE-M3 每日向量化段落數、總 token 消耗（成本預估）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="293-report-export-specs">2.9.3 報告匯出規格 (Report Export Specs)</h4>
+<p>系統支援將任一儀表板的數據與視覺化結果匯出為標準格式，滿足內部管理報告與外部稽核需求。</p>
+<h5 id="_2">匯出格式支援</h5>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>用途</th>
+<th>包含內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PDF</strong></td>
+<td>管理報告、呈董事會、稽核文件</td>
+<td>完整視覺化圖表 + 數據表格 + 頁首頁尾（公司 Logo、日期、報告人）</td>
+</tr>
+<tr>
+<td><strong>Excel (.xlsx)</strong></td>
+<td>數據分析、二次加工</td>
+<td>原始數據表格（多 Sheet 對應不同模組）+ 公式保留</td>
+</tr>
+<tr>
+<td><strong>CSV</strong></td>
+<td>系統整合、批次匯入其他 BI 工具</td>
+<td>純原始數據，UTF-8 with BOM（確保 Excel 中文相容）</td>
+</tr>
+<tr>
+<td><strong>JSON</strong></td>
+<td>API 整合、程式化處理、外部 BI 系統對接</td>
+<td>結構化 JSON，含 <code>meta</code>（報告期間、生成時間）+ <code>data</code> 陣列</td>
+</tr>
+<tr>
+<td><strong>Markdown</strong></td>
+<td>知識庫歸檔、GitOps 報告流程</td>
+<td>WikiLLM 相容格式，可直接攝入 KM 知識庫</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_3">報告模板預設類型</h5>
+<table>
+<thead>
+<tr>
+<th>模板名稱</th>
+<th>涵蓋模組</th>
+<th>建議頻率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>月度業務績效報告</strong></td>
+<td>CRM + CLM</td>
+<td>每月 1 日自動生成</td>
+</tr>
+<tr>
+<td><strong>合約風險稽核報告</strong></td>
+<td>CLM + BPM（高風險合約清單）</td>
+<td>每月 / 專案需求</td>
+</tr>
+<tr>
+<td><strong>知識庫健康度報告</strong></td>
+<td>KM</td>
+<td>每月 / Lint 觸發後</td>
+</tr>
+<tr>
+<td><strong>AI 大腦月度績效報告</strong></td>
+<td>LLM Dashboard</td>
+<td>每月</td>
+</tr>
+<tr>
+<td><strong>到期義務提醒匯總</strong></td>
+<td>KM Obligations</td>
+<td>每週 / 每月</td>
+</tr>
+<tr>
+<td><strong>系統健康全貌報告</strong></td>
+<td>所有模組 Overview</td>
+<td>每季 / 董事會需求</td>
+</tr>
+</tbody>
+</table>
+<h5 id="scheduled-reports">排程自動報告 (Scheduled Reports)</h5>
+<p>管理者可設定定期自動生成報告，並透過 Email / LINE / Slack 推播：</p>
+<pre><code>排程設定 UI 欄位：
+  - 報告模板（下拉選單）
+  - 輸出格式（PDF / Excel / JSON）
+  - 執行頻率（每日 / 每週 / 每月 / 自訂 Cron）
+  - 收件人（Email 列表 / LINE Notify Token）
+  - 日期範圍（上月 / 本月 / 上週 / 自訂）
+</code></pre>
+<h4 id="294-apicli-interfaces">2.9.4 介面定義 (API/CLI Interfaces)</h4>
+<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>查詢總覽儀表板數據：<code>breezy-brain dashboard overview [--date-from &lt;date&gt;] [--date-to &lt;date&gt;] --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "period": { "from": "2026-05-01", "to": "2026-05-21" },
+      "new_leads": 14,
+      "win_rate": 0.38,
+      "pending_sign": 7,
+      "signed_this_month": 23,
+      "obligations_due_30d": 4,
+      "ai_tasks_total": 189,
+      "ai_success_rate": 0.96,
+      "pending_human_approval": 2
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>匯出模組報告：<code>breezy-brain report export --module &lt;module&gt; --format &lt;pdf|xlsx|csv|json|md&gt; [--date-from &lt;date&gt;] [--date-to &lt;date&gt;] [--output &lt;path&gt;] --format json</code><ul>
+<li><code>&lt;module&gt;</code> 可選：<code>overview | crm | clm | bpm | km | llm</code></li>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "report_id": "rpt-2026-05-uuid",
+      "module": "clm",
+      "format": "pdf",
+      "file_path": "/storage/reports/clm-2026-05-report.pdf",
+      "generated_at": "2026-05-21T10:59:45+08:00",
+      "rows": 156
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>排程報告管理：<code>breezy-brain report schedule --create --template &lt;name&gt; --format &lt;fmt&gt; --cron &lt;expr&gt; --recipients &lt;emails&gt; --format json</code></li>
+<li>
+<p>列出已排程報告：<code>breezy-brain report schedule --list --format json</code></p>
+</li>
+<li>
+<p><strong>API 端點</strong>：</p>
+</li>
+<li><code>GET /api/v1/dashboard/overview</code> — 查詢參數：<code>date_from</code>, <code>date_to</code><ul>
+<li><strong>Response Body (HTTP 200 OK)</strong>：同 CLI stdout 的 <code>data</code> 物件</li>
+</ul>
+</li>
+<li><code>GET /api/v1/dashboard/crm</code> — CRM 漏斗數據（含各階段件數與轉換率）</li>
+<li><code>GET /api/v1/dashboard/clm</code> — CLM 合約狀態數據（含狀態分布、風險清單）</li>
+<li><code>GET /api/v1/dashboard/bpm</code> — BPM 任務佇列與工作流效能數據</li>
+<li><code>GET /api/v1/dashboard/km</code> — KM 健康度與義務到期數據</li>
+<li><code>GET /api/v1/dashboard/llm</code> — LLM 任務績效數據</li>
+<li><code>POST /api/v1/reports/export</code><ul>
+<li><strong>Request Body (JSON)</strong>：
+  <code>json
+  {
+    "module": "clm",
+    "format": "pdf",
+    "date_from": "2026-05-01",
+    "date_to": "2026-05-31",
+    "output_path": "/storage/reports/",
+    "include_charts": true
+  }</code></li>
+<li><strong>Response Body (HTTP 202 Accepted)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-rpt-0099-uuid",
+      "status": "processing",
+      "estimated_seconds": 15
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>GET /api/v1/reports/schedules</code> — 列出所有排程報告設定</li>
+<li><code>POST /api/v1/reports/schedules</code> — 建立新排程報告</li>
+<li><code>DELETE /api/v1/reports/schedules/:id</code> — 刪除排程報告</li>
+</ul>
+<hr />
+<h3 id="epic-10-ui-white-labeling-ui-customization">Epic 10: 客戶公司自訂性與 UI 彈性規格 (White-labeling &amp; UI Customization)</h3>
+<p>為了滿足 B2B 企業客戶對於自身品牌識別 (CI) 的一致性要求，BreezyBrain 系統設計必須保留高度的 UI 修改與自訂彈性，支援白牌化 (White-labeling) 配置，供客戶管理員自主調整：</p>
+<h4 id="2101-white-labeling-settings">2.10.1 企業白牌化自訂 (White-labeling Settings)</h4>
+<ul>
+<li><strong>品牌商標與標誌 (Logo &amp; Brand Assets)</strong>：客戶管理員可於後台系統設定頁上傳「企業商標 Logo」（支援 PNG、SVG 及反白透明格式），系統會自動替換：</li>
+<li>Web UI 登入頁與主控制台左上角 Logo。</li>
+<li>自動生成之 HTML、PDF 報告與郵件範本頂部的 Logo 區塊。</li>
+<li><strong>網站圖示與標題 (Favicon &amp; HTML Title)</strong>：支援自訂 Favicon (.ico 或 .png) 以及主控台的 HTML Title 尾碼（如：<code>BreezyBrain | [客戶公司名稱]</code>）。</li>
+</ul>
+<h4 id="2102-css-theming-with-css-variables">2.10.2 自訂主題色彩與 CSS 變數 (Theming with CSS Variables)</h4>
+<ul>
+<li><strong>後台配色自訂 (Dynamic Color Customization)</strong>：系統前端（基於標準 CSS Variables 技術）提供視覺化調色盤，允許客戶修改以下核心 UI 配色：</li>
+<li><code>--primary-color</code>（主色調，如：品牌深綠、商務藍）</li>
+<li><code>--accent-color</code>（強調色，用於按鈕、警示、高亮狀態）</li>
+<li><code>--border-radius</code>（元件圓角大小，支援直角或圓潤卡片風）</li>
+<li><code>--font-family</code>（自訂字型連結，支援載入企業 Google Fonts）</li>
+<li><strong>深色模式切換 (Dark/Light Mode)</strong>：內建標準深色與淺色模式，色彩變數隨系統主題切換自動對齊，確保在任何配色下皆具備高可讀性與視覺美感。</li>
+</ul>
+<h4 id="2103-layout-customization">2.10.3 導覽選單與版面自訂 (Layout Customization)</h4>
+<ul>
+<li><strong>選單項目可配置性 (Navigation Menu Visibility)</strong>：依據企業實際啟用的模組（例如：若不使用 CRM，只做 CLM 與 KM），管理員可手動關閉或隱藏側邊導覽列的特定功能選單。</li>
+<li><strong>儀表板卡片自訂配置 (Dashboard Widget Drag-and-Drop)</strong>：允許使用者依據個人角色職能，以拖拉方式自訂首頁儀表板 (Overview Dashboard) 的指標卡片與視覺圖表位置，保留呈現關鍵數據的彈性。</li>
+</ul>
+<h4 id="2104-custom-code-insertion">2.10.4 客製化程式碼掛載 (Custom Code Insertion)</h4>
+<ul>
+<li><strong>自訂頁腳 (Custom Footer)</strong>：支援編輯頁腳的版權宣告文字與客製化 HTML 連結。</li>
+<li><strong>外部客服 Widget 掛載</strong>：允許客戶管理員黏貼第三方客服/即時對話系統（如 Chatwood、Crisp、Google Analytics）的 JavaScript 程式碼片段，系統將自動注入至 Web 前端 HTML 的 <code>&lt;body&gt;</code> 尾端載入。</li>
+</ul>
+<hr />
+<h2 id="3-dependencies">3. 系統架構依賴 (Dependencies)</h2>
+<ul>
+<li><strong>底層模型</strong>：依賴在地化部署的 Local LLM（保障合規與隱私）。</li>
+<li><strong>電子簽章中樞</strong>：100% 深度綁定 <a href="breezy-brain-integration-flow.md">BreezySign API</a>。</li>
+<li><strong>UI/UX</strong>：需提供清晰的「節點視覺化 (Node-based)」編輯器，允許管理者檢視大腦判斷的軌跡（將由 <code>/ui</code> 產出設計）。</li>
+</ul>
+<h3 id="31-technical-constraints-upload-specs">3.1 技術限制與處理規格 (Technical Constraints &amp; Upload Specs) &amp; 防禦規格</h3>
+<p>基於內部效能測試數據（大檔案傳輸與 Local LLM 處理耗時，當測試文件大小達到 20MB 時，有 50% 機率 [10次中發生5次] 會因為處理時間過長導致 HTTP 連線 Timeout），系統制定以下傳輸與容錯規格：</p>
+<ol>
+<li><strong>檔案上傳限制與中介壓縮 (File Compression)</strong>：
+   - 系統預設單一檔案上傳上限為 <strong>10MB</strong>。
+   - 若上傳檔案介於 5MB - 10MB，系統前端或地端上傳組件應自動進行中介壓縮（例如降低 PDF 掃描解析度，或移除非文字層的多餘嵌入多媒體）。</li>
+<li><strong>異步處理佇列 (Asynchronous Processing Queue) 與任務超時重試</strong>：
+   - 凡大於 5MB 之合約或報價單檔案，禁止採用同步 HTTP 請求進行解析。
+   - <strong>運作機制</strong>：客戶端上傳檔案 ➡️ 伺服器立即寫入任務佇列並回傳 <code>task_id</code> (HTTP 202 Accepted) ➡️ 釋放 HTTP 連線避免超時 ➡️ 地端 Local LLM 於背景執行解析 ➡️ 完成後透過 Webhook 推播或客戶端異步輪詢 (Polling) 更新狀態。
+   - <strong>任務心跳偵測與 TTL 防禦 (Task Heartbeat &amp; TTL)</strong>：非同步解析任務於 Redis 或本地 SQLite 資料庫中設定存活時間（TTL，預設為 5 分鐘）。背景代理服務需每隔 15 秒更新一次任務心跳，若任務狀態處於 <code>Processing</code> 超過 5 分鐘且無心跳更新，系統自動將任務標記為 <code>Timeout_Failed</code>，釋放系統資源並於 UI/CLI 上提示「處理逾時，請手動重試」。</li>
+<li><strong>非 PDF 檔案格式限制與客戶端轉檔及雙軌降級轉檔</strong>：
+   - <strong>格式限制</strong>：對於非 PDF 格式（如 Microsoft Word .docx, OpenDocument .odt 等）之大檔案，系統限制單一檔案上限為 <strong>10MB</strong>。
+   - <strong>客戶端轉檔機制</strong>：為減輕地端伺服器 (Server-side) 轉檔時對 CPU 算力的重度消耗，並確保電子簽章（BreezySign API）的最終簽署格式一致性，<strong>系統強制要求所有非 PDF 格式文件在上傳至伺服器前，必須在客戶端（瀏覽器前端或桌面 Electron 端）完成標準 PDF 轉檔</strong>。
+   - <strong>實作方式</strong>：前端調用 WebAssembly (WASM) 輕量化轉檔引擎，於本地端背景靜默將 .docx/Word 轉換為 PDF，隨後再將 PDF 檔案送入 BreezyBrain 進行 OCR 提取與 API 串接。
+   - <strong>雙軌轉檔 Fallback 防禦</strong>：若客戶端瀏覽器 WASM 引擎初始化失敗或轉檔處理超過 15 秒（針對低配平板或舊型設備），系統自動降級為「直接上傳 raw 原始檔」，並改由地端伺服器之背景 LibreOffice Headless 服務進行非同步轉檔，同時前端提示使用者：「正在由伺服器端協助轉檔，需時較長，請稍候」。</li>
+</ol>
+<ul>
+<li><strong>介面定義 (API/CLI Interfaces)</strong>：<ul>
+<li><strong>CLI 指令</strong>：</li>
+<li>查詢任務狀態：<code>breezy-brain task status --task-id &lt;uuid&gt; --format json</code><ul>
+<li><strong>成功輸出 (stdout)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "Success",
+      "progress": 100,
+      "result": {
+        "message": "解析完成，檔案已成功歸檔"
+      }
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li>重新執行任務：<code>breezy-brain task retry --task-id &lt;uuid&gt; --format json</code></li>
+<li><strong>API 端點</strong>：</li>
+<li><code>GET /api/v1/tasks/:id</code><ul>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "Processing",
+      "progress": 45,
+      "result": null
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+<li><code>POST /api/v1/tasks/:id/retry</code><ul>
+<li><strong>Response Body (HTTP 200 OK)</strong>：
+  <code>json
+  {
+    "success": true,
+    "data": {
+      "task_id": "task-5543-uuid",
+      "status": "Pending",
+      "progress": 0,
+      "result": null
+    },
+    "error": null
+  }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-local-llm-local-llm-hardwaresoftware-fallback-specs">3.2 地端 Local LLM 軟硬體與雲端回退規格 (Local LLM Hardware/Software &amp; Fallback Specs)</h3>
+<p>為保證混合落地模式的執行效率，避免地端 CPU 推理超時，系統定義地端 LLM 的基本軟硬體要求與自動回退機制。</p>
+<h4 id="321-apache-20-mit">3.2.1 開源模型選型與資源計算（Apache 2.0 / MIT 授權優先）</h4>
+<blockquote>
+<p><strong>授權原則</strong>：BreezyBrain 地端部署的所有 LLM 模型，<strong>優先採用 Apache 2.0 或 MIT 授權</strong>之開源模型，確保商業用途無任何智慧財產權與授權疑慮。以下為已驗證 Apache 2.0 / MIT 之推薦選型清單：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>授權</th>
+<th>參數量</th>
+<th>繁中能力</th>
+<th>VRAM 需求</th>
+<th>最適任務</th>
+<th>Ollama Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Qwen 2.5 7B Instruct</strong></td>
+<td>Apache 2.0</td>
+<td>7B</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>8 GB</td>
+<td>合約抽取、摘要、問答（主力）</td>
+<td><code>qwen2.5:7b</code></td>
+</tr>
+<tr>
+<td><strong>Qwen 2.5 14B Instruct</strong></td>
+<td>Apache 2.0</td>
+<td>14B</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>16 GB</td>
+<td>高風險合約審閱、複雜 JSON 輸出</td>
+<td><code>qwen2.5:14b</code></td>
+</tr>
+<tr>
+<td><strong>Qwen 2.5 32B Instruct</strong></td>
+<td>Apache 2.0</td>
+<td>32B</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>24 GB</td>
+<td>長文本法務分析（企業重型客戶）</td>
+<td><code>qwen2.5:32b</code></td>
+</tr>
+<tr>
+<td><strong>Qwen3 8B</strong></td>
+<td>Apache 2.0</td>
+<td>8B</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>8 GB</td>
+<td>思考推理（Thinking Mode）、合約風險評估</td>
+<td><code>qwen3:8b</code></td>
+</tr>
+<tr>
+<td><strong>Phi-4 14B</strong></td>
+<td>MIT</td>
+<td>14B</td>
+<td>⭐⭐⭐⭐</td>
+<td>10 GB</td>
+<td>結構化 JSON 輸出（備選，MIT 授權）</td>
+<td><code>phi4:14b</code></td>
+</tr>
+<tr>
+<td><strong>BGE-M3</strong></td>
+<td>Apache 2.0</td>
+<td>570M</td>
+<td>N/A</td>
+<td>1 GB</td>
+<td>多語言向量 Embedding（KM 向量化）</td>
+<td><code>bge-m3</code></td>
+</tr>
+<tr>
+<td><strong>nomic-embed-text</strong></td>
+<td>Apache 2.0</td>
+<td>137M</td>
+<td>⭐⭐⭐</td>
+<td>0.5 GB</td>
+<td>輕量向量 Embedding（低算力環境）</td>
+<td><code>nomic-embed-text</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ 排除模型說明</strong>：
+- <code>Llama 3.x</code> 系列採用 <strong>Meta Llama Community License（非 Apache 2.0）</strong>，商業用途需遵守月活躍用戶 &lt; 7 億的限制，不建議作為預設首選。
+- <code>Mistral</code> 系列部分版本為 Apache 2.0，但繁體中文能力遜於 Qwen 系列，降為備選。</p>
+</blockquote>
+<ul>
+<li><strong>MVP 主力推薦</strong>：<strong>Qwen 2.5 7B Instruct (Q4_K_M 量化版本)</strong>。<ul>
+<li><strong>原因</strong>：Apache 2.0 授權、具備 128K Context Window、對繁體中文合約條款理解與結構化 JSON 輸出具備頂級表現，且對 RTX 3060 12GB VRAM 環境友好。</li>
+</ul>
+</li>
+<li><strong>KM Embedding 模型</strong>：<strong>BGE-M3 (BAAI/bge-m3)</strong>。<ul>
+<li><strong>原因</strong>：Apache 2.0 授權、支援 100+ 語言（含繁體中文）、同時支援 Dense / Sparse / ColBERT 三種向量化策略，最高 8,192 Token 長度，適合合約段落向量化。</li>
+</ul>
+</li>
+<li><strong>記憶體 (VRAM/RAM) 計算 (以 Qwen 2.5 7B 為基準)</strong>：<ul>
+<li>模型檔大小：約 4.8 GB。</li>
+<li>運行時動態 KV Cache (Context 預設 32K)：約需 3.2 GB。</li>
+<li>運行總記憶體最低需求：<strong>8 GB VRAM</strong>（GPU 模式）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="322">3.2.2 部署硬體環境要求</h4>
+<ol>
+<li><strong>最低配置 (純 CPU 模式，效能受限)</strong>：
+   - <strong>CPU</strong>：Intel Core i7 / AMD Ryzen 7 以上（必須支援 AVX2 指令集）。
+   - <strong>RAM</strong>：16 GB DDR4/DDR5。
+   - <strong>解析速度</strong>：約 2 - 5 tokens/sec（解析 10MB 合約約需 3 - 8 分鐘，極易觸發超時風險）。</li>
+<li><strong>推薦配置 (GPU 模式，高效穩定)</strong>：
+   - <strong>GPU</strong>：NVIDIA RTX 3060 12GB VRAM 或 RTX 4060 16GB VRAM 以上（必須支援 CUDA）。
+   - <strong>RAM</strong>：16 GB DDR5。
+   - <strong>解析速度</strong>：約 30 - 50 tokens/sec（解析 10MB 合約通常在 30 - 60 秒內完成）。</li>
+</ol>
+<h4 id="323">3.2.3 部署軟體環境</h4>
+<ul>
+<li><strong>底層推理器</strong>：<strong>Ollama</strong>（自動識別地端 CPU/GPU 硬體加速，支援動態載入/釋放）。</li>
+<li><strong>介面協議</strong>：OpenAI Compatible API。</li>
+<li><strong>作業系統</strong>：Windows 11 / Linux (Ubuntu 22.04 LTS)。</li>
+</ul>
+<h4 id="324-cloud-fallback">3.2.4 雲端臨時算力回退機制 (Cloud Fallback)</h4>
+<ul>
+<li><strong>觸發條件</strong>：<ol>
+<li>地端背景佇列中，單一合約任務排隊加處理時間累計超過 <strong>180 秒 (3 分鐘)</strong>。</li>
+<li>系統檢測到地端推理速度低於 5 tokens/sec，且當前積壓任務數 &gt; 2。</li>
+</ol>
+</li>
+<li><strong>回退運作機制</strong>：地端代理自動切換回 SSL 加密通道 ➡️ 將非結構化合約密文發送至雲端備用安全 API（例如 Azure OpenAI 或我方託管之雲端大腦 API） ➡️ 解析完成後回傳地端 ➡️ 微型 CRM 標註「[Fallback] 雲端協調解析」，確保業務不因地端算力不足而中斷。</li>
+</ul>
+<h3 id="33-module-decoupling-interface-boundary">3.3 模組解耦與通訊邊界原則 (Module Decoupling &amp; Interface Boundary)</h3>
+<p>為確保系統具備高度的擴充性與部署彈性（特別是地端/雲端混合式架構），BreezyBrain 的六大核心模組（BCR、CRM、CLM、BPM、ESign、KM）之間必須遵循<strong>完全解耦與通訊邊界隔離原則</strong>。</p>
+<h4 id="331-boundary-constraints">3.3.1 架構邊界規範 (Boundary Constraints)</h4>
+<ol>
+<li><strong>零直接依賴</strong>：任何模組禁止直接調用其他模組的內部代碼庫（In-process Call）、禁止共享數據庫連接（Database Sharing）與直接存取對方的內存狀態。</li>
+<li><strong>通訊介面化</strong>：模組間的所有數據流轉、狀態同步和觸發機制，必須且僅能通過 <strong>API (HTTP/JSON RESTful)</strong> 或 <strong>CLI (Command Line Interface)</strong> 兩種介面。</li>
+</ol>
+<h4 id="332-api-unified-api-specification">3.3.2 統一 API 設計規範 (Unified API Specification)</h4>
+<ol>
+<li><strong>協定標準</strong>：基於 HTTP 協定，所有 API 請求與回應的 Content-Type 必須為 <code>application/json</code>。</li>
+<li><strong>統一回應格式 (Unified JSON Response)</strong>：
+   - <strong>成功回應 (HTTP 200/202)</strong>：
+     <code>json
+     {
+       "success": true,
+       "data": { ... },
+       "error": null
+     }</code>
+   - <strong>失敗回應 (HTTP 4xx/5xx)</strong>：
+     <code>json
+     {
+       "success": false,
+       "data": null,
+       "error": {
+         "code": "ERROR_CODE",
+         "message": "詳細錯誤說明"
+       }
+     }</code></li>
+<li><strong>HTTP 狀態碼映射</strong>：
+   - <code>200 OK</code>：同步處理成功並回傳結果。
+   - <code>202 Accepted</code>：非同步任務已接受並寫入佇列，回傳 <code>task_id</code>。
+   - <code>400 Bad Request</code>：請求參數錯誤或格式不符。
+   - <code>401 Unauthorized</code>：API Key 驗證失敗或權限不足。
+   - <code>404 Not Found</code>：資源不存在。
+   - <code>500 Internal Server Error</code>：模組內部運行錯誤。</li>
+<li><strong>網路與通訊安全加密規範 (Network Communication Security)</strong>：
+   - <strong>HTTPS/TLS 1.3 強制協定</strong>：所有模組之間的 API 請求以及外部通訊，必須強制採用 HTTPS 協定，且協定版本不得低於 TLS 1.3，以防範網路竊聽。
+   - <strong>雙向 TLS (mTLS) 驗證</strong>：地端模組（如 CLM 模組）與外部/DMZ 代理伺服器溝通時，必須啟用雙向 TLS 驗證 (mTLS)，通訊雙方均需校驗彼此的憑證鏈與有效性，杜絕未授權的外部偽造服務。
+   - <strong>憑證綁定 (Certificate Pinning)</strong>：地端模組與 DMZ 代理向外部 BreezySign (好好簽) API 發送請求時，必須執行嚴格的憑證綁定。程式中需寫死 BreezySign API 的憑證公開金鑰指紋 (Fingerprint)，在 TLS 握手時進行校驗，有效防範 any 中間人攻擊 (MITM)。</li>
+</ol>
+<h4 id="333-cli-unified-cli-specification">3.3.3 統一 CLI 設計規範 (Unified CLI Specification)</h4>
+<ol>
+<li><strong>指令結構</strong>：統一採用 <code>breezy-brain &lt;module&gt; &lt;action&gt; [options]</code> 的層級結構。</li>
+<li><strong>輸出控制</strong>：CLI 必須支援 <code>--format json</code> 參數。
+   - 當使用 <code>--format json</code> 時，指令的所有標準輸出 (stdout) 必須輸出為一行或格式化之 JSON 字串，以利 <code>jq</code> 或其他系統腳本解析。
+   - 一般模式下，輸出則為便於人類閱讀之純文字。</li>
+<li><strong>退出狀態碼 (Exit Code)</strong>：
+   - 執行成功：退出狀態碼必須為 <code>0</code>。
+   - 執行失敗：退出狀態碼必須為 <strong>非 0</strong>（通常為 <code>1</code> 或對應錯誤碼），並將錯誤 JSON 輸出至 <code>stderr</code>：
+     <code>json
+     {
+       "error_code": "CLI_EXECUTION_FAILED",
+       "message": "錯誤詳細原因"
+     }</code></li>
+</ol>
+<h3 id="34-agent-ollama-agent-architecture-with-ollama">3.4 Agent + Ollama 完整架構規格 (Agent Architecture with Ollama)</h3>
+<p>BreezyBrain 的智能大腦並非單純的「LLM API 呼叫」，而是一套以 <strong>Ollama</strong> 為推理後端、基於 <strong>ReAct（Reasoning + Acting）迴圈</strong> 的多工具 Agent 架構。以下定義其核心架構、工具清單、RAG 鏈路，以及商品/服務實踐指南。</p>
+<h4 id="341-agent">3.4.1 整體 Agent 架構圖</h4>
+<pre><code>使用者請求 / BPM 觸發事件
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│          BreezyBrain Agent Core          │
+│  ┌─────────────┐   ┌──────────────────┐  │
+│  │  Planner    │◄──│  System Prompt   │  │
+│  │ (ReAct Loop)│   │  + Tool Registry │  │
+│  └──────┬──────┘   └──────────────────┘  │
+│         │ Think → Act → Observe → ...    │
+│         ▼                                │
+│  ┌─────────────────────────────────────┐ │
+│  │           Tool Dispatcher           │ │
+│  └──┬────────┬──────────┬─────────────┘ │
+│     │        │          │               │
+│     ▼        ▼          ▼               │
+│  OCR    Vector DB    BreezySign    File  │
+│  Tool   RAG Tool     API Tool    Tool   │
+└─────────────────────────────────────────┘
+         │
+         ▼
+  Ollama (Local LLM: Qwen 2.5 7B)
+  OpenAI Compatible API
+  POST http://localhost:11434/v1/chat/completions
+</code></pre>
+<h4 id="342-ollama-openai-api">3.4.2 Ollama 部署與 OpenAI 相容 API 規格</h4>
+<ul>
+<li>
+<p><strong>Ollama 安裝指令（一行部署）</strong>：
+    ```bash
+    # Linux/macOS
+    curl -fsSL https://ollama.com/install.sh | sh</p>
+<h1 id="windows-powershell">Windows (PowerShell)</h1>
+<p>winget install Ollama.Ollama
+<code>*   **拉取推薦模型**：</code>bash
+ollama pull qwen2.5:7b          # 主力合約解析模型 (Apache 2.0)
+ollama pull bge-m3              # KM 向量 Embedding 模型 (Apache 2.0)
+ollama pull nomic-embed-text    # 備用輕量 Embedding (Apache 2.0)
+<code>*   **啟動服務**：`ollama serve` (預設監聽 `http://localhost:11434`)
+*   **OpenAI 相容 Chat API 端點**：`POST http://localhost:11434/v1/chat/completions`</code>json
+{
+  "model": "qwen2.5:7b",
+  "messages": [{"role": "user", "content": "請提取合約金額"}],
+  "temperature": 0.1,
+  "response_format": { "type": "json_object" }
+}
+```</p>
+</li>
+</ul>
+<h4 id="343-agent-tool-tool-registry">3.4.3 Agent Tool 清單 (Tool Registry)</h4>
+<p>BreezyBrain Agent 透過 <strong>Function Calling / Tool Use</strong> 機制調用下列工具，每個工具皆有標準 JSON Schema 定義：</p>
+<table>
+<thead>
+<tr>
+<th>Tool 名稱</th>
+<th>功能描述</th>
+<th>觸發場景</th>
+<th>回傳類型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ocr_extract</code></td>
+<td>對 PDF/圖片執行 OCR，提取文字層</td>
+<td>上傳掃描稿後</td>
+<td><code>{text: string, pages: int}</code></td>
+</tr>
+<tr>
+<td><code>km_search</code></td>
+<td>對向量資料庫執行語意搜尋</td>
+<td>問答/檢索請求</td>
+<td><code>{results: [{doc_id, score, paragraph}]}</code></td>
+</tr>
+<tr>
+<td><code>km_ingest</code></td>
+<td>將合約文字向量化並寫入知識頁</td>
+<td>簽署完成事件</td>
+<td><code>{wiki_page, chunks_count}</code></td>
+</tr>
+<tr>
+<td><code>contract_diff</code></td>
+<td>對比兩份合約版本，高亮差異</td>
+<td>CLM 版本審閱</td>
+<td><code>{added, removed, unchanged}</code></td>
+</tr>
+<tr>
+<td><code>risk_assess</code></td>
+<td>評估合約條款風險等級</td>
+<td>合約審閱流程</td>
+<td><code>{risk_level, findings: [{clause, risk, suggestion}]}</code></td>
+</tr>
+<tr>
+<td><code>template_match</code></td>
+<td>語意向量比對最佳合約範本</td>
+<td>Deal Won 觸發</td>
+<td><code>{template_id, confidence, reason}</code></td>
+</tr>
+<tr>
+<td><code>breezysign_dispatch</code></td>
+<td>呼叫 BreezySign API 發送傳簽</td>
+<td>確認後自動派單</td>
+<td><code>{envelope_id, signing_url}</code></td>
+</tr>
+<tr>
+<td><code>crm_update</code></td>
+<td>更新 BreezyCRM 欄位與商機狀態</td>
+<td>合約歸檔後</td>
+<td><code>{account_id, deal_id, updated_fields}</code></td>
+</tr>
+<tr>
+<td><code>notify_send</code></td>
+<td>發送 LINE/Email/Slack 通知</td>
+<td>期限提醒/狀態變更</td>
+<td><code>{channel, message_id, status}</code></td>
+</tr>
+<tr>
+<td><code>file_archive</code></td>
+<td>歸檔文件至指定儲存路徑</td>
+<td>簽署完成後</td>
+<td><code>{file_id, stored_path, version}</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="344-react">3.4.4 ReAct 迴圈流程（商品/服務實踐範例）</h4>
+<p>以「<strong>旅遊定型化契約自動派單</strong>」為例，完整 ReAct 迴圈如下：</p>
+<pre><code>[Trigger] BreezyCRM: Deal#2026-001 → Stage: Won
+
+[Thought 1] 我需要找出這筆交易對應的合約類型，先提取 CRM 資料。
+[Action 1]  crm_update(query_deal_id=&quot;deal-2026-001&quot;)
+[Observe 1] {account: &quot;三亞旅行社&quot;, doc_type: &quot;旅遊定型化契約&quot;, monthly_volume: 3}
+
+[Thought 2] 取得合約類型後，需要找到最佳匹配的 BreezySign 範本。
+[Action 2]  template_match(doc_type=&quot;旅遊定型化契約&quot;, account_id=&quot;acc-san-ya&quot;)
+[Observe 2] {template_id: &quot;tpl_travel_2026_v4&quot;, confidence: 0.94, reason: &quot;語意匹配旅遊定型化契約&quot;}
+
+[Thought 3] 置信度 0.94 &gt; 閾值 0.85，可自動匹配。需要進行風險評估。
+[Action 3]  risk_assess(file_path=&quot;/storage/.../draft_v1.pdf&quot;)
+[Observe 3] {risk_level: &quot;low&quot;, findings: []}
+
+[Thought 4] 風險評估為低風險，但不能 100% 自動送簽，需業務人員最終確認。
+[Action 4]  notify_send(channel=&quot;UI_popup&quot;, message=&quot;請確認自動派單：三亞旅行社 × 旅遊定型化契約 v4，AI 評估低風險（置信度 94%）&quot;)
+[Observe 4] {status: &quot;pending_human_approval&quot;, task_id: &quot;task-5544&quot;}
+
+[Human Approve] 業務點擊確認
+
+[Thought 5] 人工確認完成，執行 BreezySign 傳簽。
+[Action 5]  breezysign_dispatch(deal_id=&quot;deal-2026-001&quot;, template_id=&quot;tpl_travel_2026_v4&quot;)
+[Observe 5] {envelope_id: &quot;env-bzs-0021&quot;, signing_url: &quot;https://...&quot;, status: &quot;sent&quot;}
+
+[Thought 6] 傳簽成功，觸發 KM 攝入排程（等待簽署完成後執行）。
+[Action 6]  crm_update(deal_id=&quot;deal-2026-001&quot;, stage=&quot;Won&quot;, envelope_id=&quot;env-bzs-0021&quot;)
+[Observe 6] {updated: true}
+
+[Final Answer] 合約已成功發送給三亞旅行社，任務 task-5544 完成。
+</code></pre>
+<h4 id="345-agent">3.4.5 商品/服務 Agent 實踐場景對應表</h4>
+<p>以下定義不同產品/服務場景下的 Agent 實踐方式：</p>
+<table>
+<thead>
+<tr>
+<th>業務場景</th>
+<th>Agent 工作流</th>
+<th>使用工具鏈</th>
+<th>推薦模型</th>
+<th>特殊注意事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>旅遊定型化契約自動派單</strong></td>
+<td>template_match → risk_assess → [人工確認] → breezysign_dispatch → km_ingest</td>
+<td>template_match, risk_assess, breezysign_dispatch, km_ingest</td>
+<td>Qwen 2.5 7B</td>
+<td>置信度 &lt; 0.85 必須人工選範本</td>
+</tr>
+<tr>
+<td><strong>醫美診所同意書多份批量發送</strong></td>
+<td>ocr_extract → crm_update → breezysign_dispatch (batch) → file_archive</td>
+<td>ocr_extract, breezysign_dispatch, file_archive</td>
+<td>Qwen 2.5 7B</td>
+<td>病患個資需加密儲存，禁止寫入 KM 頁面</td>
+</tr>
+<tr>
+<td><strong>API 企業客戶合約 AI 審閱</strong></td>
+<td>ocr_extract → risk_assess → contract_diff → notify_send</td>
+<td>ocr_extract, risk_assess, contract_diff</td>
+<td>Qwen 2.5 14B</td>
+<td>高風險強制法務路由，不可 override</td>
+</tr>
+<tr>
+<td><strong>KM 智庫語意問答（業務自助查詢）</strong></td>
+<td>km_search → [LLM 綜合回答]</td>
+<td>km_search</td>
+<td>Qwen 2.5 7B</td>
+<td>RAG 架構，回答需附原文段落引用</td>
+</tr>
+<tr>
+<td><strong>期限履約提醒自動通知</strong></td>
+<td>[Cron 排程] → crm_update(query_obligations) → notify_send</td>
+<td>crm_update, notify_send</td>
+<td>N/A（規則引擎）</td>
+<td>到期前 7 天 + 3 天雙重觸發</td>
+</tr>
+<tr>
+<td><strong>競品跳槽客戶知識萃取（銷售洞察）</strong></td>
+<td>km_search(query="點點簽 跳槽 原因") → topics/update</td>
+<td>km_search, km_ingest</td>
+<td>Qwen 2.5 7B</td>
+<td>產出 Wiki 主題頁，供業務參考競品痛點</td>
+</tr>
+</tbody>
+</table>
+<h4 id="346-rag">3.4.6 RAG（檢索增強生成）鏈路規格</h4>
+<p><strong>KM 問答的完整 RAG 鏈路</strong>（對應 Epic 8 的語意問答能力）：</p>
+<pre><code>使用者問題：「三亞旅行社的退費條款是什麼？」
+         │
+         ▼
+[Step 1] Query Embedding
+  BGE-M3 將問題向量化 → query_vector
+         │
+         ▼
+[Step 2] Vector Retrieval
+  ChromaDB/Qdrant 語意搜尋 → Top-K 相關段落（K=5, threshold=0.7）
+  回傳: [{doc_id, paragraph, score}, ...]
+         │
+         ▼
+[Step 3] Context Assembly
+  將 Top-K 段落 + 原始問題組裝為 Prompt：
+  &quot;根據以下合約段落回答問題：\n[context]\n\n問題：[question]&quot;
+         │
+         ▼
+[Step 4] LLM Generation
+  Ollama (Qwen 2.5 7B) 生成自然語言回答
+  強制要求附上 source_doc_id 與 original_quote
+         │
+         ▼
+[Step 5] Response Output
+  {
+    &quot;answer&quot;: &quot;三亞旅行社退費條款規定...&quot;,
+    &quot;sources&quot;: [{&quot;doc_id&quot;: &quot;file-1005&quot;, &quot;quote&quot;: &quot;第七條：退費規定...&quot;}]
+  }
+</code></pre>
+<ul>
+<li><strong>向量資料庫選型</strong>：<ul>
+<li><strong>ChromaDB</strong>（Apache 2.0）：輕量 SQLite-backed，適合 MVP 與低算力環境，零運維。</li>
+<li><strong>Qdrant</strong>（Apache 2.0）：效能更高，支援分散式，適合企業重型客戶（&gt; 10,000 份合約）。</li>
+<li><strong>預設選型</strong>：MVP 階段使用 ChromaDB；單一帳戶合約數 &gt; 5,000 份時建議升級 Qdrant。</li>
+</ul>
+</li>
+</ul>
+<h4 id="347-agent-python">3.4.7 Agent 框架選型（Python 生態）</h4>
+<ul>
+<li><strong>推薦框架</strong>：<strong>LangChain</strong> 或 <strong>LlamaIndex</strong>（均為 MIT 授權，可商業使用）。<ul>
+<li>LangChain 優點：ReAct Agent 原生支援、Tool Calling 成熟、社群龐大。</li>
+<li>LlamaIndex 優點：RAG 鏈路設計更細緻，Markdown Document Store 對 WikiLLM 格式天然友好。</li>
+</ul>
+</li>
+<li>
+<p><strong>Ollama 整合方式</strong>（以 LangChain 為例）：
+    ```python
+    from langchain_ollama import ChatOllama
+    from langchain.agents import create_react_agent, AgentExecutor</p>
+<p>llm = ChatOllama(
+    model="qwen2.5:7b",
+    base_url="http://localhost:11434",
+    temperature=0.1,
+    format="json"  # 強制 JSON 輸出
+)</p>
+<p>agent = create_react_agent(llm=llm, tools=TOOL_REGISTRY, prompt=SYSTEM_PROMPT)
+executor = AgentExecutor(agent=agent, tools=TOOL_REGISTRY, max_iterations=10)
+result = executor.invoke({"input": "請審閱 deal-2026-001 的合約並評估風險"})
+<code>*   **System Prompt 核心要素**（對應 CLAUDE.md 12 條規則精神）：</code>
+你是 BreezyBrain AI 大腦，負責合約智能處理。
+規則：
+1. 每次行動前必須在 Thought 中說明理由。
+2. 風險評估低於 0.8 置信度，必須要求人工確認。
+3. 永遠以 JSON 格式輸出結構化結果。
+4. 不可憑空推論合約內容，只引用 OCR 原文或 KM 已歸檔段落。
+5. 任何涉及病患個資的操作，在 log 中標記 [PRIVACY] 並禁止寫入公開 KM 頁面。
+```</p>
+<h3 id="35-breezybrain-mcp-defensive-mcp-server-spec">3.5 BreezyBrain 防禦型 MCP 伺服器規格 (Defensive MCP Server Spec)</h3>
+</li>
+</ul>
+<p>為了使外部與內部的 AI Agent（如 Claude、Antigravity 等）能安全、標準化地調用 BreezyBrain 的核心功能與知識產庫，系統將 API 與 CLI 介面進一步擴展為 <strong>Model Context Protocol (MCP) 伺服器</strong>。為防止敏感數據外洩、大腦算力被盜用以及核心業務流程被惡意繞過，MCP 伺服器必須套用以下<strong>「護城河防禦機制」</strong>：</p>
+<h4 id="351-mcp">3.5.1 MCP 護城河防衛核心思維與威脅模型</h4>
+<ul>
+<li><strong>操作及資料流程防線 (Operations &amp; Data Flow Moat)</strong>：<ul>
+<li><strong>防流程繞過 (Anti-Bypass / BPM Gate Lock)</strong>：工具 (Tools) 執行涉及合約送簽、商機狀態修改等寫入操作時，系統強制限於 <code>Pending_Approval</code> 狀態，必須於 Web UI 經由人工顯性確認或 CLI 確認後方可發送，杜絕 Agent 自主進行法律簽署。</li>
+<li><strong>負向流程與異常狀態</strong>：整合異常與負向流程 (Negative Workflows)，當 BPM 審查 Reject 或簽署 Declined 時，Deal 自動退回 Negotiating 階段，合約 Draft 移回 <code>/raw</code> 避險。</li>
+<li><strong>隊列積壓與負載控制 (Queue Backpressure)</strong>：為防止大數據上傳或 LLM 併發請求造成崩潰，實施 Redis/Celery 隊列限制（如 12GB VRAM 最多執行 1 個任務），超過上限立即返回 <code>HTTP 429 Too Many Requests</code> 與 <code>Retry-After</code> 頭部。</li>
+<li><strong>快取清理與守護進程 (File Sandbox &amp; Daemon Watchdog)</strong>：使用 <code>finally</code> 區塊強制 <code>rm -rf</code> 清理 <code>/storage/tmp/conv/</code> 下的暫存檔案；同時為 LibreOffice CLI 設定 30 秒的最大執行超時，超時則強行發送 <code>SIGKILL</code> 終止該進程。</li>
+</ul>
+</li>
+<li><strong>資訊安全防線 (Information Security Moat)</strong>：<ul>
+<li><strong>防數據扒皮 (Anti-Exfiltration)</strong>：Agent 禁止直接讀取原始合約全文。Resources 唯讀資料預設僅回傳經 AI 蒸餾之「脫敏結構化摘要」，敏感個資 (PII) 自動遮蔽。</li>
+<li><strong>提示詞注入與越獄防禦 (Prompt Injection Defense)</strong>：Ollama 提示詞中採用 XML 標記包裝與 System Instruction 隔離，規避大腦被誘導執行用戶任意命令。對 OCR 轉譯文字進行敏感詞過濾（如 "ignore prior instructions"），若有注入痕跡則降低置信度，並標記 <code>Jailbreak_Attempt</code> 送交人工複核。</li>
+<li><strong>地端私鑰與憑證管理 (KMS &amp; Document Hash)</strong>：強制地端私鑰不以明文檔案形式存放，需利用地端作業系統金鑰庫（Linux Keyring / Windows Credential Manager / AWS KMS 代理）加密存取；簽署完成時，系統立即計算 PDF 文件之 SHA256 值並寫入 append-only 的 <code>system_audit.log</code> 稽核日誌。</li>
+<li><strong>通訊加密</strong>：規範模組溝通強制採用 HTTPS/TLS 1.3，地端向外發送請求時，需執行雙向 TLS (mTLS) 與憑證綁定 (Certificate Pinning) 以防範中間人攻擊 (MITM)。</li>
+</ul>
+</li>
+<li><strong>個資安全防線 (Personal Data &amp; Privacy Security Moat)</strong>：<ul>
+<li><strong>計費與速率限制 (Rate Limiting &amp; Quota)</strong>：為防止 API Key 遭刷爆或本地 LLM 算力癱瘓，實行 Token 角色權限隔離與速率配額管理。</li>
+<li><strong>被遺忘權 Qdrant Filter (Right to Be Forgotten)</strong>：ChromaDB/Qdrant 寫入時，向量 payload 強制附加 metadata：<code>account_id</code>、<code>deal_id</code>、<code>contact_id</code>。當刪除客戶時，執行 Qdrant 的 Conditional Delete 指令，依 payload 條件一次性物理刪除該 <code>account_id</code> 及其聯絡人的所有向量。</li>
+<li><strong>KV Cache 避免跨 Session 串擾 (KV Cache Cross-contamination)</strong>：地端 Ollama 調用時，於 HTTP Header 設置 <code>keep_alive = 0s</code> 以即時釋放當前對話之 KV Cache，防範不同客戶對話間的個資殘留或記憶污染。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-mermaid">graph TD
+    %% 樣式定義
+    classDef safe fill:#f0fdf4,stroke:#16a34a,stroke-width:2px;
+    classDef block fill:#fef2f2,stroke:#dc2626,stroke-width:2px;
+    classDef agent fill:#eff6ff,stroke:#2563eb,stroke-width:2px;
+
+    Agent[外部/內部 AI Agent] --&gt;|MCP 請求| MCP[BreezyBrain MCP Server]
+
+    subgraph Defense [&quot;MCP 護城河防護網&quot;]
+        MCP --&gt;|1. Resources| R_Def{&quot;PII 脫敏 / 蒸餾處理?&quot;}
+        MCP --&gt;|2. Tools| T_Def{&quot;BPM 審批強制鎖 / 沙箱驗證?&quot;}
+        MCP --&gt;|3. Prompts| P_Def{&quot;元提示詞 Meta-Prompt 注入?&quot;}
+    end
+
+    R_Def --&gt;|Yes| R_Data[結構化摘要與義務 / 隱碼 PII]
+    R_Def --&gt;|No: 企圖存取全文| R_Block[阻斷 / 拒絕存取]
+
+    T_Def --&gt;|Yes: 送簽請求| T_Pending[寫入 BPM 待審佇列 / status: pending]
+    T_Pending --&gt;|Web UI| Human[業務/法務人工作業確認]
+    Human --&gt;|核准| ESign[呼叫 BreezySign 送簽]
+    T_Def --&gt;|No: 目錄穿越| T_Block[阻斷 Path Traversal]
+
+    P_Def --&gt;|限制 LLM 任務範疇| LLM_Run[本地 Ollama Qwen 2.5 推理]
+
+    class R_Data,T_Pending,LLM_Run,Human safe;
+    class R_Block,T_Block block;
+    class Agent agent;
+</code></pre>
+<h4 id="352-resources">3.5.2 Resources (資源) 定義與防禦</h4>
+<p>MCP Resources 允許 Agent 以唯讀方式獲取系統資訊。BreezyBrain 對其進行了以下防禦性 URI 定義：</p>
+<ol>
+<li><strong>客戶客資摘要資源</strong><ul>
+<li><strong>URI</strong>: <code>breezybrain://crm/accounts/{account_id}/summary</code></li>
+<li><strong>回傳內容</strong>：公司名稱、潛力分級、行業別。</li>
+<li><strong>防禦處理</strong>：聯絡人姓名進行遮蔽（如 <code>陳*華</code>），手機及 Email 後半段以 <code>***</code> 代替。</li>
+</ul>
+</li>
+<li><strong>履約義務清單資源</strong><ul>
+<li><strong>URI</strong>: <code>breezybrain://clm/deals/{deal_id}/obligations</code></li>
+<li><strong>回傳內容</strong>：到期日期、義務類別、當前狀態的 JSON 列表。</li>
+<li><strong>防禦處理</strong>：僅回傳系統定量的結構化欄位，嚴禁回傳包含原始合約敏感處分細節之原文。</li>
+</ul>
+</li>
+<li><strong>合約知識摘要資源</strong><ul>
+<li><strong>URI</strong>: <code>breezybrain://km/contracts/{contract_id}/summary</code></li>
+<li><strong>回傳內容</strong>：由地端大腦生成的 100 字合約核心摘要。</li>
+<li><strong>防禦處理</strong>：若 Agent 企圖調用 <code>breezybrain://km/contracts/{contract_id}/distilled-text</code> 獲取合約段落，系統將對關鍵商業數值（如金額、保固天數、賠償比率）進行隨機安全數值干擾（Differential Privacy 差分隱私），防止 Agent 藉由資源獲取精確合約條文副本。</li>
+</ul>
+</li>
+</ol>
+<h4 id="353-tools">3.5.3 Tools (工具) 定義與防禦</h4>
+<p>MCP Tools 允許 Agent 執行特定操作。系統所有 Tool 均有底層權限校驗與沙箱隔離：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tool 名稱</th>
+<th style="text-align: left;">執行動作</th>
+<th style="text-align: left;">護城河防衛機制 (Moat Defense)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ocr_extract</code></td>
+<td style="text-align: left;">解析上傳之 PDF/Word 檔案</td>
+<td style="text-align: left;"><strong>路徑沙箱化</strong>：嚴格限制讀取路徑僅能在 <code>/storage/breezycrm/accounts/{account_id}/raw/</code> 目錄下，防止目錄穿越攻擊 (Path Traversal)。限制單一檔案為 10MB。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>template_match</code></td>
+<td style="text-align: left;">匹配 BreezySign 合約範本</td>
+<td style="text-align: left;"><strong>資訊屏障</strong>：僅回傳匹配範本 ID 與置信度 (Confidence Score)，不直接回傳範本全文。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>risk_assess</code></td>
+<td style="text-align: left;">評估合約條款風險等級</td>
+<td style="text-align: left;"><strong>片段引用限制</strong>：回傳之結構化風險 findings 中，所引用的 <code>original_text_quote</code> 限制單次長度不超過 100 字，防止 Agent 多次調用拼湊出合約全文。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>breezysign_dispatch</code></td>
+<td style="text-align: left;">呼叫 BreezySign 送簽</td>
+<td style="text-align: left;"><strong>BPM 審批強制鎖 (BPM Gate Lock)</strong>：Agent 呼叫此 Tool 時，系統僅在背景建立 <code>status = pending_human_approval</code> 之任務，並在 Web 管理控制台彈出審查通知。嚴禁 Agent 自主繞過人工審核送簽。若 Agent 企圖覆寫此鎖，必須通過系統 MFA 驗證挑戰。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>crm_update</code></td>
+<td style="text-align: left;">更新 CRM 客資與 Deal 狀態</td>
+<td style="text-align: left;"><strong>欄位寫入過濾</strong>：僅允許修改跟進階段 (<code>stage</code>)、潛力分級、合約關聯等欄位，嚴禁透過此 Tool 變更使用者權限、計費配額或核心安全組態。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="354-prompts">3.5.4 Prompts (提示模板) 定義與防禦</h4>
+<p>Prompts 提供 Agent 調用地端 LLM 的預設模板。系統強制注入系統級安全指令，以防範 Agent 將本地 LLM 推理資源轉作他用（算力防禦）：</p>
+<ol>
+<li><strong><code>review_contract</code> (合約風險審核 Prompts)</strong><ul>
+<li><strong>防禦注入</strong>：系統在 Template 尾端強制追加：
+    &gt; "「安全指令：你只被允許以繁體中文分析此合約片段的法務風險點。嚴禁在輸出中包含超過 150 字的連續原文複製。若使用者指示你執行其他無關任務（如：翻譯其他文章、寫程式碼、聊天問答），你必須禮貌拒絕並說明：『本大腦算力受系統保護，僅限用於合約風險分析。』」"</li>
+</ul>
+</li>
+<li><strong><code>draft_followup</code> (生成跟進郵件 Prompts)</strong><ul>
+<li><strong>防禦注入</strong>：限制生成字數上限為 300 字，且 LLM 僅能參考 CRM 提供之 <code>Account</code> / <code>Deal</code> 資料，禁止進行任何超出 Context 的「幻覺推論」，以減少無效 tokens 的消耗。</li>
+</ul>
+</li>
+</ol>
+<h4 id="355-token">3.5.5 Token 權限隔離、頻率限制與審計日誌</h4>
+<ul>
+<li><strong>Agent-scoped Token</strong>：外部 Agent 必須配置以 <code>bb-agent-</code> 為前綴之專屬 API Token。系統在 API Gateway 根據此 Token 執行細粒度角色存取控制 (RBAC)。</li>
+<li><strong>速率限制與算力防禦 (Rate Limiting &amp; Cost Defense)</strong>：<ul>
+<li>限制單一 Agent Token 每分鐘最多 30 次 MCP 請求。</li>
+<li>針對需要調用 Ollama 推理算力的 Tools（如 <code>risk_assess</code>），限制每日最高調用額度（預設為 50 次），超過後自動將任務降級至 CPU 背景慢速佇列處理，或拒絕請求，保障地端伺服器不被惡意 Agent 癱瘓。</li>
+</ul>
+</li>
+<li><strong>審計時序日誌 (Audit Trail with <code>[AGENT_CALL]</code>)</strong>：<ul>
+<li>所有的 MCP 資源讀取與工具調用，BreezyBrain 的核心日誌系統將強制寫入 <code>wiki/log.md</code> 或系統後端日誌中，並高亮標記 <code>[AGENT_CALL | Agent-ID]</code>。</li>
+<li>日誌必須詳細記錄：調用時間、調用者 IP、執行的 Resource/Tool 名稱、傳入參數之 SHA256 雜湊值（防敏感資訊外洩），以及消耗之 Ollama 推理 tokens 數，便於系統管理員隨時稽核與安全審查。</li>
+</ul>
+</li>
+<li><strong>個資存取稽核軌跡日誌 (PII Access Audit Trail Log)</strong>：<ul>
+<li><strong>專屬稽核日誌</strong>：系統必須新增獨立於一般 <code>[AGENT_CALL]</code> 日誌之外的 <strong>「個資存取稽核軌跡日誌」 (<code>/storage/logs/pii_access.log</code>)</strong>。</li>
+<li><strong>記錄時機</strong>：凡是涉及 PII (個人識別資訊，如姓名、電話、身分證字號、Email) 的讀取操作，或經由 CLI/API 存取聯絡人時，系統必須自動寫入該日誌。</li>
+<li><strong>日誌格式與欄位</strong>：以 JSON 格式記錄事件，包含以下欄位：
+  <code>json
+  {
+    "timestamp": "2026-05-27T18:33:24Z",
+    "operator": { "type": "agent", "id": "bb-agent-001" },
+    "action": "READ_CONTACT",
+    "target_contact_id": "con-6654-uuid",
+    "accessed_fields": ["email", "mobile"],
+    "purpose": "breezysign_dispatch"
+  }</code></li>
+<li><strong>存取限制與防篡改</strong>：該日誌檔案權限強制設定為 <code>0600</code> (僅限系統 administrator/root 可讀寫)。<strong>嚴禁任何 MCP 工具或 API 將此日誌內容回傳給 Agent</strong>，防止 Agent 透過漏洞篡改或擦除個資存取軌跡，確保日誌的絕對嚴密性。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="36-rbac-enterprise-rbac-matrix">3.6 企業級 RBAC 角色與權限矩陣 (Enterprise RBAC Matrix)</h3>
+<p>為了保證企業在多用戶與多部門隔離下使用 <code>BreezyBrain</code> 的安全性，系統實施基於角色的存取控制 (RBAC) 矩陣。</p>
+<h4 id="361">3.6.1 角色定義與權限邊界</h4>
+<p>系統定義以下四種標準帳號角色，其具體模組與寫入/唯讀/審批權限如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">角色名稱</th>
+<th style="text-align: left;">系統標識 (Role ID)</th>
+<th style="text-align: left;">核心職能</th>
+<th style="text-align: left;">系統模組權限邊界</th>
+<th style="text-align: left;">RAG 語意問答限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>系統管理員</strong></td>
+<td style="text-align: left;"><code>Admin</code></td>
+<td style="text-align: left;">配置地端伺服器硬體、網閘代理、API Token 及 LLM 推理模型選型。</td>
+<td style="text-align: left;">唯寫/唯讀系統組態。<strong>無權限查看微型 CRM 客資、CLM 合約實體或 KM 知識頁內容。</strong></td>
+<td style="text-align: left;">嚴禁調用 <code>km_search</code> 工具，系統自動拒絕回答任何涉及合約條款的問答。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>法務主管</strong></td>
+<td style="text-align: left;"><code>Legal_Master</code></td>
+<td style="text-align: left;">管理與維護合約範本、自訂 AI 審查規則與置信度閾值，人工覆核中高風險合約。</td>
+<td style="text-align: left;">擁有 CLM 範本管理、BPM 審批覆寫、KM 知識庫全權限。</td>
+<td style="text-align: left;">可檢索全庫合約，有權查看 <code>BPM_Override</code> 稽核日誌。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>銷售主管</strong></td>
+<td style="text-align: left;"><code>Sales_Leader</code></td>
+<td style="text-align: left;">分配潛客 Deal、查看 CRM 銷售漏斗儀表板，配置銷售跟進郵件/通知範本。</td>
+<td style="text-align: left;">擁有 CRM 模組寫入、CLM/KM 唯讀權限，無權覆寫法務審查。</td>
+<td style="text-align: left;">僅限檢索與其所屬部門（或下屬銷售人員）關聯之客戶與合約摘要。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>銷售人員</strong></td>
+<td style="text-align: left;"><code>Sales_Rep</code></td>
+<td style="text-align: left;">進件名片掃描、建立潛客聯絡人、Deal 狀態管理，發起低風險送簽流程。</td>
+<td style="text-align: left;">擁有 CRM 模組寫入權限，CLM/BPM 僅限發起與確認送簽（無權限核准中高風險合約）。</td>
+<td style="text-align: left;">僅限檢索其自身負責的潛客資料，無法查看其他業務之合約與客資。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="362-rag-rls-context-filter">3.6.2 RAG 與問答中的權限過濾機制 (RLS Context Filter)</h4>
+<ul>
+<li><strong>資料庫 Row-level Security (RLS)</strong>：系統在 PostgreSQL 層強制啟用 RLS。所有的 RAG 檢索（對 PostgreSQL 與 ChromaDB/Qdrant 向量庫）皆必須將當前使用者的 <code>Role_ID</code> 和 <code>Account_ID</code> 作為 Payload Filter 的強制條件。</li>
+<li><strong>Context 注入過濾</strong>：當 <code>Sales_Rep</code> 或 <code>Sales_Leader</code> 調用 <code>km_search</code> 時，大腦檢索器（RAG Component）在將檢索出的合約片段組裝成 Prompt 之前，必須進行權限校驗。若片段來源於未授權的公司或合約，該段落強制被拋棄，防止低權限使用者透過 AI 提示詞工程進行越權讀取。</li>
+</ul>
+<hr />
+<h3 id="37-pdf-local-kms-pdf-sha256-hash-spec">3.7 地端金鑰鏈管理與完簽 PDF 雜湊防偽存證規格 (Local KMS &amp; PDF SHA256 Hash Spec)</h3>
+<p>在完全隔離無外網或降級離線簽章環境下，私鑰儲存的安全防禦與完簽文件的法律效力證力是系統的生命線。</p>
+<h4 id="371-kms">3.7.1 地端主機 KMS 金鑰保護防線</h4>
+<p>BreezyBrain 地端部署時，嚴禁以明文（如 <code>.pem</code> 或 <code>.key</code> 檔案）或設定檔參數的形式存放降級簽章私鑰。
+- <strong>金鑰鏈隔離儲存 (KMS Integration)</strong>：私鑰必須寫入並託管於地端主機的硬體安全模組 (HSM) 或作業系統安全金鑰庫：
+  - <strong>Windows 部署環境</strong>：呼叫 <code>Windows Credential Manager</code> (憑據管理器) 或系統級資料保護 API (DPAPI)。
+  - <strong>Linux 部署環境</strong>：呼叫 <code>Linux Keyring</code> (透過 dbus 介面連通) 或地端代理 KMS (如 HashiCorp Vault 地端實例)。
+- <strong>內存即用即棄原則 (In-Memory Key Zeroing)</strong>：系統僅在人工確認發起簽署的瞬間，於內存受保護區域中解密調用私鑰並完成合約 PDF 的哈希簽章。簽署完成後，該內存塊必須立即寫零擦除 (<code>memset_s</code> 或同等機制)，嚴禁在磁碟產生 any 暫存密鑰檔案。</p>
+<h4 id="372-pdf-sha256-append-only-logging">3.7.2 PDF 完簽雜湊防偽與時序審計 (SHA256 Append-only Logging)</h4>
+<ul>
+<li><strong>雜湊值即時計算</strong>：不論是外部雲端 AATL 完簽還是地端降級自簽，PDF 文件一經完成簽署，系統底層核心必須立即計算該 PDF 檔案二進制流的 <code>SHA256</code> 雜湊值（例如 <code>5a8e9f...23c7b</code>）。</li>
+<li><strong>雙向存證</strong>：
+  1. 將 SHA256 雜湊值寫入 <code>km_contracts</code> 結構化資料表中的 <code>document_hash</code> 欄位。
+  2. 同步以 <code>Append-only</code>（唯追加，拒絕任意寫入/修改/刪除）模式寫入作業系統保護的物理日誌檔 <code>/storage/logs/system_audit.log</code> 中，格式如：<code>[TIMESTAMP] [CLOSED_WON] Deal-ID: {deal_id} | SHA256: {hash_val}</code>。</li>
+<li><strong>防偽校驗</strong>：任何大腦問答或 CLM 讀取合約時，系統預先對磁碟的 PDF 進行實時 SHA256 計算，並與資料庫/日誌中的記錄比對。若數值不符，說明檔案遭到外力篡改，系統立即阻斷讀取，標記為 <code>[CORRUPTED]</code>，並在控制台發出最高級別資安警報。</li>
+</ul>
+<hr />
+<h3 id="38-cli-one-click-deployment-cli-spec">3.8 地端一鍵部署安裝 CLI 工具規格 (One-click Deployment CLI Spec)</h3>
+<p>為降低混合落地部署（方案 B）在企業內網的維運與部署工時成本，系統提供標準化的部署工具鏈。</p>
+<h4 id="381-docker-docker-containers-cross-platform-support">3.8.1 Docker 容器化與跨平台支持規格 (Docker Containers &amp; Cross-Platform Support)</h4>
+<p>為了保證系統在各種作業系統環境中均能無縫部署、具備高移植性並隔離環境相容性問題，BreezyBrain 的所有伺服器端元件全面採用 <strong>Docker 容器化 (Docker Containers)</strong> 作為唯一的包裝與交付設置格式：
+- <strong>容器組編排 (Container Orchestration)</strong>：系統提供預先建置且最佳化的多容器鏡像 (Multi-container Images)，並透過 <code>docker-compose.yml</code> 進行服務群組編排。一鍵啟動的容器群包括：
+  - <code>breezy-brain-server</code>：核心 SaaS 邏輯與 API 服務。
+  - <code>breezy-brain-ui</code>：白牌化 Web 前端介面。
+  - <code>breezy-brain-ollama</code>：大腦推理引擎（支援 GPU 加速）。
+  - <code>breezy-brain-qdrant</code>：向量資料庫（RAG 檢托）。
+  - <code>breezy-brain-db</code>：PostgreSQL 16 資料庫（元數據與 RLS 安全原則）。
+  - <code>breezy-brain-redis</code>：高頻快取層（Session 與 Embedding 快取）。
+  - <code>breezy-brain-proxy</code>：DMZ 安全網閘代理。</p>
+<ul>
+<li><strong>跨平台支持 (Cross-Platform Compatibility)</strong>：</li>
+<li><strong>Linux 伺服器 (RHEL / Ubuntu / Rocky Linux)</strong>：原生 Docker Engine 與 NVIDIA Container Toolkit 支援，提供最高效能的 GPU 推理與生產環境部署。</li>
+<li><strong>Windows 部署環境 (Windows Server / Windows 10/11)</strong>：採用 <strong>Docker Desktop 搭配 WSL2 (Windows Subsystem for Linux 2)</strong> 與 Ubuntu 22.04 LTS 後端。CLI 指令支援直接在 PowerShell 中執行，並且大腦容器能透過 WSL2 GPU Paravirtualization (vGPU) 直接存取 Windows 主機的 NVIDIA 顯示卡，實現地端高效能推理。</li>
+<li>
+<p><strong>macOS 開發/演示環境</strong>：支援 Docker Desktop for Mac。針對 Apple M 系列晶片 (Apple Silicon)，容器預設啟用 <code>linux/arm64</code> 架構，並配置 Ollama 存取 Apple Metal 統一記憶體 (Unified Memory) 進行硬體加速。</p>
+</li>
+<li>
+<p><strong>部署指令</strong>：<code>breezy-brain-cli install [--dir &lt;install_path&gt;] [--tier &lt;1|2|3&gt;] [--offline]</code></p>
+</li>
+<li>在離線環境下（如隔離內網），CLI 工具提供離線部署包，內含所有服務鏡像的 <code>tar</code> 壓縮檔、<code>docker-compose</code> 範本及初始化 SQL，實現 100% 離線一鍵安裝。</li>
+</ul>
+<h4 id="382-gpu-hardware-auto-detect">3.8.2 地端 GPU 與硬體資源自適應探測 (Hardware Auto-detect)</h4>
+<p>部署工具在拉取容器前，會自動掃描宿主機硬體，以決定大腦的最佳載入參數：
+1. <strong>GPU/CUDA 探測</strong>：
+   - 檢測宿主機是否搭載 NVIDIA GPU。若檢測到 CUDA 核心，自動拉取 Ollama GPU 加速鏡像，並檢測顯存 (VRAM) 大小：
+     - <strong>VRAM &gt;= 24GB</strong>：下載並配置 Qwen 2.5 32B (Q4_K_M) 模型。
+     - <strong>VRAM &gt;= 12GB 且 &lt; 24GB</strong>：下載並配置 Qwen 2.5 14B (Q4_K_M) 模型。
+     - <strong>VRAM &gt;= 8GB 且 &lt; 12GB</strong>：下載並配置 Qwen 2.5 7B (Q4_K_M) + BGE-M3 模型（預設 MVP 配置）。
+2. <strong>CPU 降級探測</strong>：
+   - 若未檢測到獨立顯卡，系統自動降級為 CPU 推理模式，下載 Qwen 2.5 7B (Q3_K_L) 低權重模型，並動態計算 CPU 線程分配（設定為 <code>CPU_CORES - 2</code>），防止推理時 CPU 滿載造成系統卡死。</p>
+<hr />
+<h3 id="39-backup-disaster-recovery-spec">3.9 資料備份與災難復原機制規格 (Backup &amp; Disaster Recovery Spec)</h3>
+<p>針對地端部署可能面臨的停電、主機失效或硬體毀損，系統強制內建一體化的備份與還原機制。</p>
+<h4 id="391-automated-daily-incremental-backup">3.9.1 每日增量備份機制 (Automated Daily Incremental Backup)</h4>
+<p>系統在背景以 Cron 任務執行每日自動備份（時間預設為每日凌晨 02:00）。備份必須完整覆蓋以下三大核心資料區：
+1. <strong>結構化元數據庫 (PostgreSQL/SQLite Backup)</strong>：
+   - 呼叫 <code>pg_dump</code> 匯出 CRM 客戶、聯絡人、商機 Deal 數據以及 CLM/KM 的合約 RLS 權限與義務關聯元數據表。
+2. <strong>非結構化文件存儲 (Physical Contracts Directory)</strong>：
+   - 對 <code>/storage/breezycrm/accounts/</code> 目錄下的所有原始 <code>.docx</code> 及完簽 <code>.pdf</code> 合約文件進行增量同步與壓縮歸檔。
+3. <strong>向量資料庫索引 (Vector DB Snapshot)</strong>：
+   - 對 ChromaDB 數據目錄進行打包，或對 Qdrant 呼叫 <code>/snapshots</code> 建立物理索引快照，保留已向量化的合約條文 Embedding。</p>
+<h4 id="392">3.9.2 加密、傳輸與災難復原</h4>
+<ul>
+<li><strong>AES-256 加密</strong>：所有備份壓縮檔（<code>.tar.gz</code>）在生成時，必須強制調用金鑰庫中的備份主金鑰進行 <code>AES-256-GCM</code> 密碼級加密，防止備份檔案在傳輸或冷儲存中外洩。</li>
+<li><strong>冷儲存傳輸</strong>：系統支援將加密後的備份檔案自動透過地端 SFTP、NFS 或自建 S3 相容 API (MinIO) 上傳至企業指定的獨立物理備用儲存節點。</li>
+<li><strong>一鍵式災難還原指令</strong>：</li>
+<li>當地端伺服器毀損重建時，運維人員只需執行還原指令：
+    <code>breezy-brain-cli restore --backup-file &lt;path_to_aes_tar_gz&gt; [--decrypt-key &lt;key_string&gt;]</code></li>
+<li>系統將自動執行容器重啟、數據解密、PostgreSQL 數據庫還原與向量庫快照導入，在 15 分鐘內將大腦中樞與合約智庫還原至逆境重生之狀態。</li>
+</ul>
+<hr />
+<h3 id="310-mvp-google-cloud-platform-gcp-mvp-gcp-deployment-architecture">3.10 MVP 於 Google Cloud Platform (GCP) 部署架構 (MVP GCP Deployment Architecture)</h3>
+<p>為確保 MVP 階段之 BreezyBrain 系統能夠在雲端快速上線、提供多人高頻高可用存取，並兼顧資料安全性，系統以 <strong>Google Cloud Platform (GCP)</strong> 作為首選部署平台：</p>
+<h4 id="3101-web-api-google-cloud-run">3.10.1 Web 與核心 API 託管：Google Cloud Run</h4>
+<ul>
+<li><strong>無伺服器容器部署 (Serverless)</strong>：將核心邏輯伺服器 (<code>breezy-brain-server</code>) 與白牌前端 (<code>breezy-brain-ui</code>) 部署於 <strong>Cloud Run</strong>。</li>
+<li><strong>高並發自動縮放 (Auto-scaling)</strong>：利用 Cloud Run 的高並發與快速啟動特性，當高頻請求進件時，系統可在一秒內從 0 個執行個體擴增至數十個，並在閒置時自動縮為 0，大幅優化 MVP 雲端營運成本。</li>
+</ul>
+<h4 id="3102">3.10.2 數據存儲層架構</h4>
+<ul>
+<li><strong>關係型元數據：Google Cloud SQL for PostgreSQL</strong></li>
+<li>採用 GCP 全代管之 PostgreSQL 16 服務，自動啟用跨 Zone 高可用性 (HA) 與每日自動備份，並強制開啟 SSL 連線。</li>
+<li>將 RLS 安全原則實作於 Cloud SQL 中，提供高頻存取時的安全隔離。</li>
+<li><strong>語意向量庫：Google Compute Engine (GCE) VM 上的 Qdrant</strong></li>
+<li>於 GCE 建立獨立 VM 執行 Qdrant 容器，掛載 GCP Persistent Disk（持久化雲硬碟）做為向量數據與快照的可靠儲存。</li>
+<li>透過 VPC 內部網路（Private IP）與 Cloud Run 對接，提供 &lt; 10ms 的超低延遲向量搜尋。</li>
+</ul>
+<h4 id="3103-google-cloud-memorystore-for-redis">3.10.3 暫存與快取層：Google Cloud Memorystore for Redis</h4>
+<ul>
+<li><strong>高頻存取緩存 (Memorystore for Redis)</strong>：部署 Memorystore for Redis 實例，用以存放 Embedding 向量緩存、熱門大腦問答 JSON、以及 API 限流狀態與多租戶 Token Sessions，保障並發存取性能。</li>
+</ul>
+<h4 id="3104-ai-llm-inference">3.10.4 AI 大腦推理 (LLM Inference) 雙軌架構</h4>
+<p>為了保證推理效能並控制 MVP 預算，AI 推理大腦採取本地量化模型與 GCP Vertex AI 託管 API 的<strong>雲地雙軌架構</strong>：
+1. <strong>地端推理模式 (GCE GPU VM)</strong>：於 GCE 啟用配備 NVIDIA L4 或 T4 GPU 的 VM 執行 Ollama 容器，用於運行 Qwen 2.5 7B 與 BGE-M3。藉由 GPU 虛擬化 (vGPU) 加速大腦推論。
+2. <strong>全代管雲端大腦 (Vertex AI Integration)</strong>：
+   - 系統原生整合 <strong>GCP Vertex AI</strong>，調用 <strong>Gemini 1.5 Flash / Pro</strong> 模型 API。
+   - <strong>Vertex AI 首選優勢</strong>：在 MVP 階段，使用 Vertex AI 作為大腦核心，企業無需購置或代管昂貴的 GPU VM。Gemini 1.5 Flash 具備百萬級 Context Window、極高的推理速度與極低的 Token 價格，是多人同時高頻存取的最優選。
+   - <strong>Fallback 機制</strong>：當 GCE 本地 Ollama 佇列因多人高頻並發而積壓時，Model Router 自動將請求 Fallback 路由至 Vertex AI API，確保服務絕不超時。</p>
+<h4 id="3105-kms">3.10.5 資訊安全防禦與金鑰鏈 (KMS)</h4>
+<ul>
+<li><strong>憑證與金鑰保護：Google Secret Manager</strong></li>
+<li>地端降級自簽私鑰、BreezySign API Key、資料庫連線字串等敏感變數，強制儲存於 GCP Secret Manager 中。</li>
+<li>服務啟動時動態抓取，內存即用即擦除，滿足 3.7 節之 KMS 安全防線。</li>
+<li><strong>邊界防護：GCP Cloud Armor</strong></li>
+<li>在 Cloud Run 前端架設外部 HTTPS 負載平衡器 (HTTP(S) Load Balancer) 並配置 Cloud Armor，阻斷 SQL 注入、路徑穿越、惡意 IP 高頻刷 API 及 DDoS 攻擊。</li>
+</ul>
+<hr />
+<h3 id="311-cross-border-compliance-e-signature-broker-spec">3.11 跨境出海與多法規相容性規格 (Cross-Border Compliance &amp; E-Signature Broker Spec)</h3>
+<p>為了支持 BreezyBrain 走向全球市場（如美國、歐盟等地區）提供訂閱服務，系統必須具備跨境法律合規性，並在 MVP 之後支援靈活接串當地的電子簽名服務公司。</p>
+<h4 id="3111-global-regulatory-compliance">3.11.1 跨境電子簽章法規相容性 (Global Regulatory Compliance)</h4>
+<p>系統產出與傳簽之文件，在不同市場必須滿足當地最高法律證力要求：
+- <strong>美國市場 (United States)</strong>：
+  - 必須 100% 符合 <strong>ESIGN Act</strong> (電子簽章全球與國內商務法) 與 各州的 <strong>UETA</strong> (統一電子交易法)。
+  - 系統需提供完整的「審計軌跡 (Audit Trail)」，包含簽署人的 IP 地址、電子郵件認證、簡訊雙因子驗證 (MFA) 及簽署時戳，並由簽署者顯性同意進行電子交易。
+- <strong>歐盟市場 (European Union)</strong>：
+  - 必須符合 <strong>eIDAS</strong> (電子身分識別及信託服務條例) 規範。
+  - MVP 後支援 <strong>AdES</strong> (進階電子簽章) 與 <strong>QeDS</strong> (合格電子簽章) 憑證，並能對接歐盟信託服務清單 (EUTL) 成員機構。
+- <strong>台灣市場 (Taiwan)</strong>：
+  - 100% 符合現行《電子簽章法》與數發部能量登錄標準，支持 AATL 認證與 LTV 中華電信完整時戳。</p>
+<h4 id="3112-multi-provider-e-signature-brokermvp">3.11.2 多廠商簽署代理模組 (Multi-Provider E-Signature Broker)（MVP 後規劃）</h4>
+<p>為避免鎖定單一雲端電子簽章廠商，BreezyCLM 在底層設計了 <strong>「簽署代理中樞 (E-Signature Broker)」</strong> 抽象層。當系統出海或部署於海外雲端時，可動態切換底層的簽署引擎：
+- <strong>國內市場</strong>：預設介接 <strong>BreezySign (好好簽) API</strong>。
+- <strong>美國與全球市場</strong>：MVP 後模組化接串 <strong>DocuSign API</strong> 或 <strong>Adobe Sign API</strong>。
+- <strong>抽象層介面設計 (Broker Interface)</strong>：
+  - 系統採用統一的 Envelope 狀態機抽象介面。不論底層呼叫 BreezySign 或是 DocuSign，上層 BPM 與 CRM 收到的 Webhook/API 回傳欄位皆統一對齊為 <code>breezybrain://clm/envelope/{envelope_id}</code>，其欄位包括：
+    - <code>provider</code> (如：<code>breezysign</code>、<code>docusign</code>、<code>adobesign</code>)。
+    - <code>external_envelope_id</code> (第三方廠商封套主鍵)。
+    - <code>signing_status</code> (<code>sent</code>、<code>delivered</code>、<code>signed</code> e.g. <code>declined</code>、<code>voided</code>)。
+  - <strong>智慧路由規則 (Smart Route)</strong>：Model Router 可根據 CRM 中客戶實體的「國家/地區 (Country)」或「合約幣別 (Currency)」，自動決定將該封套派送至 DocuSign 發送（美國客戶）或是 BreezySign 發送（台灣客戶），實現自動化跨境傳簽。</p>
+<hr />
+<h2 id="4-open-issues">4. 待決議事項 (Open Issues)</h2>
+<ul>
+<li>暫無 (MVP 階段所有大檔案、定價與架構懸案均已確立規格並收斂)。</li>
+</ul>
+<h2 id="_4">相關連結</h2>
+<ul>
+<li><a href="breezy-brain-manifesto.md">BreezyBrain 產品宣言</a></li>
+<li><a href="Product-Spec-CHANGELOG.md">需求變更紀錄</a></li>
+<li><a href="UI-Prompts.md">UI 提示詞設計</a></li>
+<li><a href="../../analyses/breezybrain-spec-defense.md">規格情境正反攻防分析報告</a></li>
+</ul>
+</body>
+</html>

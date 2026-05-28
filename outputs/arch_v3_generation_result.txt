@@ -1,0 +1,2 @@
+HTML: outputs\20260528-1820-breezy-brain-architecture_v3.html
+PDF: outputs\20260528-1820-breezy-brain-architecture_v3.pdf

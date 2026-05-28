@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezySign 好好簽 ． 2026H2 跨部門執行計畫 (PLG + SLG 雙軌戰略)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #057857; /* BreezySign 品牌翠綠色 */
+            --primary-light: #ecfdf5;
+            --primary-border: #a7f3d0;
+            --secondary: #0284c7; /* Sky 輔助藍色 */
+            --secondary-light: #e0f2fe;
+            --dark-text: #0f172a;
+            --light-text: #475569;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            line-height: 1.7;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Subtle modern gradients */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: 5%;
+            left: -50px;
+            background: var(--primary-light);
+        }
+
+        body::after {
+            bottom: 15%;
+            right: -50px;
+            background: var(--secondary-light);
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 24px;
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            background: transparent;
+        }
+
+        .bzs-logo {
+            display: block;
+        }
+
+        .meta-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* Glass Cards with Shadow */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        /* Success & Executive Highlight Box */
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+            color: #064e3b;
+            font-size: 14.5px;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Two Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(5, 120, 87, 0.25);
+            background: rgba(5, 120, 87, 0.005);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+        }
+
+        /* HTML5 Outliner Tree UI */
+        .tree-container {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #1e293b;
+            line-height: 1.6;
+            margin: 20px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .tree-node { margin-bottom: 4px; }
+        .level-1 { font-weight: 700; color: #1e3b8b; }
+        .level-2 { margin-left: 24px; color: #047857; }
+        .level-3 { margin-left: 48px; color: #b45309; }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .badge-green { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary-border); }
+        .badge-blue { background: var(--secondary-light); color: var(--secondary); border: 1px solid rgba(2, 132, 199, 0.15); }
+
+        pre {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            color: #34d399;
+            margin-top: 12px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        /* Print Settings for PDF Generation */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 11px !important;
+            }
+
+            body::before, body::after {
+                display: none !important;
+            }
+
+            .glass-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 20px !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 16px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .tree-container {
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                page-break-inside: avoid !important;
+            }
+
+            pre {
+                border: 1px solid #cbd5e1 !important;
+                background: #f8fafc !important;
+                color: #0f172a !important;
+                page-break-inside: avoid !important;
+            }
+
+            th {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+            }
+
+            .badge {
+                border: 1px solid #94a3b8 !important;
+                background: transparent !important;
+                color: #000000 !important;
+            }
+
+            header {
+                margin-bottom: 20px !important;
+                page-break-after: avoid !important;
+            }
+
+            h1 {
+                font-size: 26px !important;
+            }
+
+            footer {
+                margin-top: 30px !important;
+                padding-top: 12px !important;
+                page-break-before: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <img class="bzs-logo" src="data:image/png;base64,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" width="220" height="44" style="display:block;" alt="BreezySign">
+        </div>
+        <div class="meta-tag">TECHNICAL REPORT & COMMERCIAL BRIEFING</div>
+        <h1>BreezySign 好好簽 ． 2026H2 跨部門執行計畫</h1>
+        <p class="subtitle">本計畫對齊 PLG 與 SLG 雙軌成長戰略，制定 H2 業務、行銷、產品規劃與技術工程 (RD) 可執行之行動方針與財務利潤邊際安全防線。</p>
+    </header><div class="glass-card">
+<p>本計畫結合好好簽當前的<strong>財務成本結構</strong>（年度固定成本約 NT$10,500,000 / 變動成本 NT$1.68/份）、<strong>行銷成效數據</strong>（LTV:CAC 窄口徑達 67 倍、Cold Start 高達 50%~60%），以及前線<strong>業務與客成最新進展</strong>（面臨點點簽大調漲與律果簽人頭計費的轉單潮），為好好簽 2026 年下半年（H2）制定業務銷售、行銷推廣、產品規劃與技術工程 (RD) 可落地的跨部門協同計畫。</p>
+<hr />
+</div>
+        <div class="glass-card">
+            <h2 class="section-title">核心戰略定位：PLG 與 SLG 雙軌並進 (Dual-Engine)</h2>
+            
+<p>好好簽在 2026H2 的首要任務是<strong>「搶佔競品流失份額，擴大市場邊界，並守護吃到飽方案之毛利防線」</strong>：</p>
+<ol>
+<li><strong>PLG (產品驅動成長) 戰術</strong>：</li>
+<li>鎖定中小企業與小微客群，引導自主體驗。</li>
+<li>產品端解決「冷啟動 (Cold Start)」痛點，透過 Onboarding 機制拯救高達 50%~60% 的不活躍用戶。</li>
+<li>將「大戶定價防線（個人專業方案限制 100 份/月 + 超額加購包）」與「Line 一鍵傳簽優化」規格化，降低客服與人力溝通成本，完成高毛利自助轉化。</li>
+<li><strong>SLG (銷售驅動成長) 戰術</strong>：</li>
+<li>鎖定每年簽署量 5,000 ~ 20,000 份以上的「高頻大量簽署大戶」（如福安管顧、太平洋旅行社）。</li>
+<li>業務與法務協同，以「固定人數區間吃到飽（如 40人 NT$60k/年，50人 NT$68k/年）」之壓倒性性價比截擊競品，並開立多年期預付款合約。</li>
+<li>CSM 深度介入（VIP Google Meet 線上教育訓練、後台配置 Unify 範本共用設定），提供尊榮級高客單價大戶收割與客製化 onboarding 服務。</li>
+</ol>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">一、 💼 業務銷售與客戶成功 (Sales &amp; CSM) 執行計畫</h2>
+            
+<h3>1. 2026H2 核心目標與 KPI</h3>
+<ul>
+<li><strong>付費公司家數增長</strong>：<ul>
+<li><strong>目前實績底數</strong>：截至 2026 年 5 月，好好簽實質付費客戶總數為 <strong>397 家</strong>（其中企業版 <strong>141 家</strong>、專業版 <strong>251 家</strong>、API 整合方案 <strong>5 家</strong>）。</li>
+<li><strong>H2 目標</strong>：朝 <strong>1,750 家</strong> 付費公司數的全面盈利與利潤淨爆發期衝刺。</li>
+<li><strong>增長幅度期待</strong>：相較於目前的 397 家，需淨增長 <strong>1,353 家</strong>，成長率為 <strong>340.8%</strong> (約增長 3.4 倍)。</li>
+</ul>
+</li>
+<li><strong>大戶流失轉單結案率</strong>：點點簽到期/流失大戶名單（如福安、奇恭）的銷售轉化率達 <strong>75%</strong> 以上。</li>
+<li><strong>舊客留存率 (Retention Rate)</strong>：續訂年約客戶留存率維持在 <strong>95%</strong> 以上。<ul>
+<li><em>佐證底數</em>：好好簽 1 月實收 NT$161,586 中，有高達 <strong>NT$68,486 (42.4%)</strong> 來自付費舊客的自動續訂金流，顯示舊客維護為穩定的營收雪球。</li>
+</ul>
+</li>
+</ul>
+<h3>2. 具體行動方案 (Action Items)</h3>
+<ul>
+<li><strong>實施「點點簽大戶無縫轉移特惠」專案</strong>：<ul>
+<li>主動鎖定 20~100 人規模、原點點簽合約高頻用量之客群，提供首年 <strong>8 折</strong> 優惠，或贈送前 3 個月免費體驗以加速簽約決策。</li>
+</ul>
+</li>
+<li><strong>福安管理顧問與大量簽署大戶專攻</strong>：<ul>
+<li><strong>API 報價與串接支援</strong>：為福安管顧年用量 20,000 份合約開立專屬企業 API 報價單（對標 50 人 NT$68,000 / 60 人 NT$76,000），防範單純低價吃到飽造成的毛利虧損，確保 <strong>50.5% 的高毛利防線</strong>。</li>
+<li><strong>專人輔導教育訓練</strong>：於 6/30 其點點簽合約到期前，為其預排 Google Meet 線上教育訓練，並允許客戶錄製成內部訓練教材以利其大規模推廣。</li>
+</ul>
+</li>
+<li><strong>舊客自動續訂與客成挽回 (CSM) 機制</strong>：<ul>
+<li><strong>48 小時黃金冷啟動拯救機制</strong>：目前後台數據顯示，有高達 <strong>50%~60%</strong> 的用戶註冊後處於從未發起過任務的「冷啟動 (Cold Start)」狀態。CSM 將在此狀態發生 48 小時內主動派單進行電訪關懷，提供「範本代製」與線上操作導覽服務，目標將 Cold Start 不活躍率降至 <strong>35% 以下</strong>。</li>
+<li><strong>退訂挽回電訪</strong>：針對退訂用戶，由 CS 於退訂 15 天內主動去電，提供「降轉免費版」或「低頻方案包 (如個人專業方案)」，避免品牌關聯斷裂。</li>
+<li><strong>小微客群高效分流</strong>：將如三亞旅行社（每月 3 份以內）等低頻用戶主動降轉為免費版，釋放 Sales 資源，專注於中大客戶 SLG 推廣。</li>
+</ul>
+</li>
+</ul>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">二、 📢 行銷推廣 (Marketing) 執行計畫</h2>
+            
+<div class="highlight-box">
+<p>[!NOTE]
+本計畫行銷推廣策略深度融合了 <a href="../../wiki/analyses/2026-h2-marketing-strategy-recommendations.md">2026-h2-marketing-strategy-recommendations.md</a> 報告的行銷實績數據與六大核心操作戰術。</p>
+</div>
+<h3>1. 2026H2 核心目標與 KPI</h3>
+<ul>
+<li><strong>行銷回本期 (CAC Payback)</strong>：維持在 <strong>12 個月內</strong>（2026 上半年行銷花費約 71 萬與實收 72.8 萬幾乎打平，第一年即回本）。</li>
+<li><strong>CPA 獲客成本控制</strong>：寬口徑 (含個人) CPA 控制在 <strong>NT$500 內</strong>（目前實績約 NT$465）；窄口徑 (B2B 企業潛客) CPA 穩定在 <strong>NT$1,800 內</strong>（目前實績約 NT$1,792）。</li>
+<li><strong>新客註冊增長</strong>：2026 上半年實際後台總註冊數達 <strong>1,620 次</strong>，下半年目標拉升 <strong>30%</strong> 至 <strong>2,100 次</strong> 以上。</li>
+<li><strong>AI 搜尋與自然流量轉化</strong>：實現 AI 搜尋 (AEO/GEO) 推薦流量破零，自然註冊進件比例提升 <strong>30%</strong>。</li>
+</ul>
+<h3>2. 具體行動方案 (Action Items)</h3>
+<ul>
+<li><strong>客群獲取管道優化與分散風險戰略 (引入歷年獲客管道數據)</strong>：<ul>
+<li><strong>目前獲客結構診斷</strong>：根據好好簽第一手業務日報統計，目前的獲客管道呈現<strong>極度集中與脆弱</strong>狀態——其中排行第一的 <strong>Google 自然搜尋 (SEO) 佔比高達 80%</strong>；其次為官網專人表單佔 <strong>10%</strong>；LINE 官方客服轉化佔 <strong>5%</strong>；口碑推薦與 B2B 通路策略合作偶發；新興的 <strong>AI 工具推薦 (如 ChatGPT 詢問) 僅有 3 筆明確記錄</strong>。</li>
+<li><strong>分散風險戰術</strong>：為了防範 Google 演算法調整或競品投放造成自然搜尋排名下滑的斷崖式風險，下半年必須開啟「搜尋 (SEO) 與生成式 AI 搜尋 (GEO) 雙軌防禦戰略」並將「口碑推薦」與「B2B 通路」制度化：</li>
+</ul>
+</li>
+<li><strong>落實「數發部能量登錄」E-E-A-T 首頁同步 (防禦 Google 演算法與 AI 爬蟲)</strong>：<ul>
+<li>協同 RD 儘速將 Staging 測試站上之「賀！通過數發部電子簽章解決方案服務能量登錄」與「台灣電子簽名第一品牌：蒙恬科技(5211)」雙重公信力文字聲明，同步發布至正式站 (Production) 首屏。</li>
+<li>撰寫配合新版《電子簽章法》上路的 PR 公關稿，高調強調好好簽的 100% 合法效力與資安認證，築起信任高牆。</li>
+<li><strong>GEO/AEO 結構化優化</strong>：在官網定價與首頁底部新增「電子簽章常見問答 FAQ」語意板塊，方便 ChatGPT、Perplexity、Gemini 爬蟲精確抓取並推薦好好簽，實現 AI 管道進件<strong>從 3 筆邁向 50 筆</strong>的突破。</li>
+</ul>
+</li>
+<li><strong>Google Ads 關鍵字三軌擴張與競品截擊</strong>：<ul>
+<li><strong>競品攔截 (預算比 40%)</strong>：大膽加碼「點點簽費用/替代方案」、「DottedSign price」等關鍵字（目前實績：1-5 月共花費約 $450 USD，帶來了 20 次以上的企業轉單，成效極佳）。廣告 Landing Page 核心訴求為：<strong>「不限件數、拒絕以件計費，年費 $15,000 吃到飽」</strong>。</li>
+<li><strong>國際與二線競品攔截 (預算比 20%)</strong>：精準攔截 DocuSign (CPA 僅 $14~18 USD) 與律果簽 (CPA 低至 $9.5 USD) 客群，主打「全中文在地客服、高人均性價比」。</li>
+<li><strong>Pmax 與產業探針 (預算比 40%)</strong>：繼續以 $300 USD/月為探針捕捉美容、借款、裝潢、租車等長尾需求，發現轉換立刻建立獨立 Search 廣告與 LP 行業打包頁。</li>
+</ul>
+</li>
+<li><strong>五大垂直產業 (Verticals) 定向行銷與口碑制度化 (Referral Program)</strong>：<ul>
+<li>針對<strong>觀光旅行業</strong>（定型化契約）、<strong>金融貸款業</strong>（Line傳簽）、<strong>建設租賃業</strong>（平板現場簽）、<strong>租車業</strong>（證件上傳）以及<strong>醫療健康</strong>，製作 5 份行業 LP 進行精準打擊。</li>
+<li>針對恆峰不動產等自然發生的口碑推薦，產品與行銷將正式推出 <strong>「舊客推薦送 1 個月免費或 AATL 額度」的推薦碼獎勵機制</strong>，將口碑推薦比例由偶發提升至新客來源的 <strong>5%</strong>。</li>
+</ul>
+</li>
+<li><strong>BPM 生態系合作與轉介顧問分潤 (擴張與防禦並行)</strong>：<ul>
+<li>由於好好簽目前尚無自建 BPM 功能，前線業務與行銷遇到有內部複雜表單簽核流程需求的企業客戶時，不硬銷 SaaS，主動轉介給合作夥伴百加資通（BPM產品為101plus，旗下產品包含101Form與101EIP），賺取穩定的轉介顧問費與分潤。並在官網建立「BPM 夥伴整合案例」專屬頁面，吸引更多系統整合 (SI) 廠商加入好好簽生態系。</li>
+</ul>
+</li>
+<li><strong>倍增「企業體驗版」申請量與 In-App Upsell (結合 PLG 漏斗優化)</strong>：<ul>
+<li>在 Google Ads 投放「API 串接 電子簽」、「BPM 簽核 整合」等企業專屬痛點關鍵字，並直接導流至「企業體驗申請表單」，跳過免費版註冊。</li>
+<li><strong>官網 CTA 改造</strong>：在官網定價頁與首頁，針對企業版設計高對比色的按鈕：「我是企業用戶，申請 14 天全功能 VIP 體驗 (附專人導入)」，給予企業戶尊榮感。</li>
+<li><strong>產品內促銷 (In-App Upsell)</strong>：當免費版或專業版用戶在系統內點擊「API 整合」或「自訂 Logo」等進階功能時，跳出 In-App Upsell 視窗引導開通 14 天 VIP 企業體驗版，配合 CSM 的 48 小時黃金冷啟動拯救機制引導轉化。</li>
+</ul>
+</li>
+<li><strong>打造「首篇客戶口碑實績」</strong>：<ul>
+<li>結束官網案例零篇的痛點。將「富友旅行社」及「太平洋旅行社」成功擺脫紙本遺失、無縫從點點簽跳槽至好好簽的實踐過程，撰寫成首篇 Case Study 部落格文，發布於官網以建立社群公信力。</li>
+</ul>
+</li>
+</ul>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">三、 📋 產品經理與專案管理 (Product &amp; PM) 規劃</h2>
+            
+<h3>1. 2026H2 核心目標與 KPI</h3>
+<ul>
+<li><strong>B2B 帳號防護與加購率</strong>：正式上線「大戶定價安全防線」，促使 10% 以上高頻個人用戶加購憑證或升級企業版。</li>
+<li><strong>產品 Cold Start 轉化率</strong>：Onboarding 體驗引導使註冊不活躍率從目前 50%~60% 降至 <strong>35% 以下</strong>。</li>
+</ul>
+<h3>2. 具體產品功能設計與演進</h3>
+<ul>
+<li><strong>落實「大戶定價防線」之產品規格化</strong>：<ul>
+<li>針對個人專業方案 (NT$3,000/年)，在 SaaS 產品內正式上線當月簽署額度 <strong>100 份 / 月</strong> 的軟性硬體限制（相較於先前規劃的 150 份，收緊額度以保護變動憑證成本）。</li>
+<li><strong>超額加購憑證包模組</strong>：當用戶當月簽署達 100 份上限時阻斷並引導加購，<strong>每份固定 NT$30</strong> (每次最少加購 5 份，共 NT$150)。此舉在常規混合場景下（MC $1.68）可創造高達 <strong>94.4%</strong> 的毛利率，使高頻大戶穩健轉化為好好簽的利潤引擎。</li>
+</ul>
+</li>
+<li><strong>重構「Unify 範本共用權限」架構</strong>：<ul>
+<li>改變目前範本全開或全關的粗放模式。改為「角色權限分層設定」，允許企業主帳號將「範本管理與共享」授權給指定「管理員角色」，同時允許「子帳號」在專屬共享範本夾之外，仍保留自建私有個人範本之權限（如太平洋旅行社需求）。</li>
+</ul>
+</li>
+<li><strong>優化「Line 傳簽」極簡流程</strong>：<ul>
+<li>移除目前 Line 傳簽需先「填入發起人手機號碼」之多餘流程。優化為<strong>「Line 傳簽一鍵生成連結並複製」</strong>之直覺按鈕，減少使用者在行動端的填寫摩擦，迎合金融貸款與旅行社客群。</li>
+</ul>
+</li>
+<li><strong>設計「大型公告非依序平行簽署 (平行廣播簽署)」</strong>：<ul>
+<li>滿足聖美麗健檢等 20 人全體簽署單一公告的需求。打破現有 5 階依序簽署流程，研擬多人可「平行、無次序、同時」進行簽署，並由系統最終無縫合併於單一完簽 PDF 中的全新簽署機制。</li>
+</ul>
+</li>
+<li><strong>PLG 冷啟動 Onboarding 郵件與 App 內推播自動化</strong>：<ul>
+<li>設計註冊後 48 小時「新手引導動畫 + 熱門產業範本推薦」之郵件 Pipeline。當用戶點擊進階功能（如自訂 Logo / API 串接）時，跳出 VIP 企業體驗版 14 天免費開通申請引導，實現 In-App Upsell。</li>
+</ul>
+</li>
+</ul>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">四、 💻 技術工程 (RD / Engineering) 執行計畫</h2>
+            
+<h3>1. 2026H2 核心目標與 KPI</h3>
+<ul>
+<li><strong>SEO/AEO 技術分數</strong>：完成首頁 DOM 重構，使正式站 Google PageSpeed 技術 SEO 分數攀升至 <strong>88 ~ 95 分</strong>。</li>
+<li><strong>API 部署與支援效率</strong>：API 測試帳號開通與沙盒部署工時降低 <strong>50%</strong>，無縫支援軟訊資訊與光曜町等客戶之串接。</li>
+</ul>
+<h3>2. 具體開發行動方案 (Action Items)</h3>
+<ul>
+<li><strong>正式站首頁 DOM Heading 標籤調整實施</strong>：<ul>
+<li>將 Staging 測試站已驗證之 DOM 大綱結構正式部署至生產環境。將前半部 4 大核心板塊主標題由 <code>&lt;h3&gt;</code> 改為 <code>&lt;h2&gt;</code>，子功能描述 <code>&lt;h4&gt;</code> 順延改為 <code>&lt;h3&gt;</code>，澄清扁平化線性大綱誤判，達成 HTML5 Outlining Algorithm 的 100% 完美巢狀從屬，以利爬蟲抓取。</li>
+</ul>
+</li>
+<li><strong>微格式 Schema 與 E-E-A-T 宣告代碼同步</strong>：<ul>
+<li>同步發布 <code>Organization</code> 與 <code>Product</code> JSON-LD 結構化資料，精確嵌入台幣價格區間（NT$3,000 ~ 15,000）與 <code>AggregateRating</code> 評價微標格式，提振 AI 搜尋與 Google 的價格格式化抓取精度。</li>
+</ul>
+</li>
+<li><strong>公開表單「附件高品質打包單獨下載」功能開發</strong>：<ul>
+<li>針對夢曦文化等客戶需求，重構公開表單附件機制。除了將身份證、授權書等附件合入 PDF 之外，在管理後台新增「一鍵單獨打包下載原始高品質圖片附件」的按鈕，保留高清晰原始證件以供存查。</li>
+</ul>
+</li>
+<li><strong>自動化 API 測試沙盒 (Sandbox) 部署</strong>：<ul>
+<li>建立標準 API 測試沙盒環境，實現客戶申請 API 後系統「自動開通測試金鑰、自動發送 API 指南與 Postman Collection」之閉環流程，大幅減少 RD 手動介入支援之重複工時。</li>
+</ul>
+</li>
+</ul>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">五、 ⚖️ 營運、行政與法務 (Ops &amp; Legal) 支援計畫</h2>
+            
+<h3>1. 2026H2 核心目標與 KPI</h3>
+<ul>
+<li><strong>請款與對帳自動化</strong>：電匯對帳延遲率降至 0%，解決月營收 5% 之常態口徑落差（目前 2026 前五個月累計營收已達 <strong>NT$728,700</strong>，超越 2025 全年營收 NT$1,263,480 的半數，營收動能極度強勁）。</li>
+<li><strong>合規防禦</strong>：完成新版電子簽章法條款更新，實現 100% 零法務糾紛。</li>
+</ul>
+<h3>2. 具體行政行動方案 (Action Items)</h3>
+<ul>
+<li><strong>多年期預收帳款會計認列流程標準化</strong>：<ul>
+<li>針對台中浸信會等預算有限但期望長約（如一次簽 3 年）的企業大戶，法務與財務共同制定「多年期預付款認列合約」，允許在行政上安全收受預付款，並按會計年度逐年遞延認列為年租 MRR 營收。</li>
+</ul>
+</li>
+<li><strong>因應新版《電子簽章法》更新服務條款 (四大合規漏洞診斷與具體更新要點)</strong>：<ul>
+<li>協同外部顧問，對好好簽之「用戶服務協議」及「隱私權宣告」進行法規審查更新，明確納入中華電信 AATL 憑證、聲明錄影簽人臉識別之法律效力宣告，確保與數發部能量登錄規範合規。</li>
+<li><strong>「用戶服務協議 (ToS)」具體更新指標</strong>：</li>
+<li><strong>數位簽章效力明確化</strong>：於協議中增設「技術規格與法律效力宣告」專章。明確宣告用戶若使用包含中華電信 AATL 或 TWCA 憑證方案時，依法構成新法第 6 條之「數位簽章」，具有「推定為本人親自簽名或蓋章」之效力，並清楚界定一般電子簽章（無憑證）之不可否認性舉證責任歸屬。</li>
+<li><strong>優化相對人同意機制</strong>：對齊新法第 5 條精神，刪除舊法強制事前明示書面同意條款，更新為「合理方式給予相對人反對機會，未明示反對且繼續進行簽署者即推定同意」之默示合意機制，降低 PLG 漏斗與傳簽摩擦。</li>
+<li><strong>LINE 傳簽合意保障</strong>：於行動端簽署介面與服務協議中增設專屬條款，約定使用者點擊「確認送出簽章」即視為獲得合理反對機會且未反對，同意以本平台之電子紀錄形式成立法律行為，防禦行動端法律效力瑕疵。</li>
+<li><strong>「隱私權宣告 (Privacy Policy)」具體更新指標</strong>：</li>
+<li><strong>生物特徵與影像安全專章</strong>：針對特色功能「聲明錄影簽」所採集之肖像與聲音（生物特徵敏感個資），增設「生物特徵個資保護專章」。明確宣告該影像僅供該筆合約當事人爭議核對之特定目的，平台絕不用於廣告、畫像分析或人臉辨識演算法訓練，並承諾傳輸與靜態加密（AES-256）及保存銷毀期限。</li>
+<li><strong>數位憑證個資內嵌揭露</strong>：明確向用戶揭露使用數位簽章時，為符合防偽與不可否認性要求，其特定個人識別資訊（姓名、經遮蔽之憑證代碼）將永久且不可逆地嵌入於完簽 PDF 文件中之技術特性，履行個資法告知義務。</li>
+<li><strong>表單附件個資責任釐清</strong>：明確約定公開表單填表人上傳之身分證圖片等附件，其個資蒐集主體為「發起表單之企業客戶」，好好簽平台僅提供加密傳輸與安全儲存技術，不承擔實質管理、利用與外洩之法律連帶責任，降低平台之法律性連帶風險。</li>
+</ul>
+</li>
+<li><strong>合作 SI 與經銷商轉介分潤管理優化</strong>：<ul>
+<li>針對百加資通 BPM（已成功結案麻古、松隆金屬等轉介顧問費）、統一數網等合作案，建立標準轉介分潤（SaaS 分利、SI 顧問費拆帳）之會計與行政月結報表，理順生態系分潤機制。</li>
+</ul>
+</li>
+</ul>
+<h3>3. 用戶服務協議與隱私權宣告之合規不妥診斷與升級建議明細</h3>
+<p>為使好好簽之官方服務條款具備無懈可擊之法律防禦力，法務與外部顧問應針對以下六大核心不妥之處進行修訂：</p>
+<h4>A. 用戶服務協議 (Terms of Service) 診斷與更新</h4>
+<ol>
+<li><strong>「電子簽章」與「數位簽章」效力宣告含混之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：舊條約對「電子簽章」與「數位簽章」定義混淆。新法修法後第 2 條及第 6 條明確規範，僅有使用「經主管機關許可之憑證機構簽發憑證（如 AATL）」的<strong>數位簽章</strong>，才具備「推定為本人親自簽名或蓋章」之法定推定效力，一般電子簽章（手繪簽名）僅具備電子平權效力。若條款宣告所有電子簽章皆具備推定親簽效力，將誤導客戶並增加平台法律風險。</li>
+<li><strong>升級建議</strong>：增設「技術規格與法律效力宣告」專章。明確界定：一般電子簽章符合同法第 4 條平權效力，若發生否認爭議，其不可否認性舉證責任由用戶自行承擔；唯有加購使用中華電信 AATL 憑證或 TWCA 憑證方案時，依法構成第 6 條之「數位簽章」，具有「推定本人親簽」之效果。</li>
+<li><strong>「相對人同意權」條款未對齊新法默示同意機制之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：舊版條款仍使用舊法時代「發起人於發送合約前，必須自行取得收件人之書面或明示同意」等規定，大幅增加 PLG 漏斗與 Line 一鍵傳簽之合規摩擦力。</li>
+<li><strong>升級建議</strong>：對齊新法第 5 條精神，刪除事前明示同意強制條款，更新為默示合意機制：當發起人透過平台發送通知且相對人未明示反對並繼續進行簽署流程時，即視為同意使用電子簽章；且平台於簽署端已以合理方式（介面醒目說明）告知相對人反對權利。</li>
+<li><strong>行動端 LINE 一鍵傳簽「反對權告知」瑕疵之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：新法要求反對權告知須以「合理方式」為之。若 LINE 傳簽為了簡化流程而在行動端簽署頁面缺乏明確的合意提示，相對人一旦發生司法糾紛，極易以「未以合理方式給予反對電子簽章之機會」為由主張簽章無效。</li>
+<li><strong>升級建議</strong>：於服務協議中增設行動端簽署之合意免責條款，明確約定「使用者透過 LINE 連結點擊進入簽署頁面並完成簽章，即視為已獲得合理反對機會且未表示反對，同意以電子紀錄形式與發起人成立法律行為，受好好簽服務協議之約束。」</li>
+</ol>
+<h4>B. 隱私權宣告 (Privacy Policy) 診斷與更新</h4>
+<ol>
+<li><strong>「聲明錄影簽」敏感生物個資未作特別安全專章宣告之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：錄影簽採集之肖像與聲音人臉影像，屬於個人資料保護法及國際規範中高度敏感的「生物識別特徵資料」。若隱私權宣告僅將其列為一般系統日誌，未獨立專章說明，將面臨極大違法裁罰風險。</li>
+<li><strong>升級建議</strong>：隱私權宣告必須新增「生物特徵個資保護專章」，明確告知肖像與聲音僅供該筆合約當事人防偽與司法存證核對之特定目的利用，平台絕不用於廣告、畫像分析或人臉辨識演算法訓練，並承諾靜態加密（AES-256）及自動銷毀期限。</li>
+<li><strong>AATL 憑證完簽時「個資永久內嵌 PDF」告知漏洞之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：使用 AATL 或 TWCA 憑證簽署時，簽署人姓名、經遮蔽之憑證代碼會永久且不可逆地嵌入完簽 PDF 文件之二進位結構中。任何人下載該 PDF 均可檢視，隱私權政策若未告知此技術特性，可能引發個資告知不全之投訴。</li>
+<li><strong>升級建議</strong>：於隱私權宣告中增加「數位憑證與資訊嵌入披露」說明，告知使用者為滿足法定不可否認性效力要求，使用數位簽章時其姓名與經遮蔽之憑證代碼將永久儲存於簽署完成之文件中，若不同意此嵌入技術請勿使用數位憑證方案。</li>
+<li><strong>公開表單上傳敏感附件個資之責任劃分模糊之不妥與修正</strong></li>
+<li><strong>不妥之處</strong>：用戶利用公開表單要求簽署人拍照上傳身分證、駕照等高敏感圖片作為附件，若隱私權宣告未劃分「平台」與「表單發起企業」之個資保密界線，一旦發生個資外洩，平台將面臨連帶責任。</li>
+<li><strong>升級建議</strong>：明確約定公開表單填表人主動上傳之身分證圖片附件，其個資蒐集主體為「發起表單之企業客戶」，好好簽僅提供安全傳輸與加密儲存技術，不承擔實質管理、利用與外洩之連帶法律責任。</li>
+</ol>
+<hr />
+
+        </div>
+        
+        <div class="glass-card">
+            <h2 class="section-title">📅 2026H2 時程表與里程碑 (Milestones)</h2>
+            
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">階段 / 時程</th>
+<th style="text-align: left;">核心里程碑目標</th>
+<th style="text-align: left;">協同部門</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Q3 啟動期 (7月-8月)</strong></td>
+<td style="text-align: left;">1. 正式站 DOM 調整與 E-E-A-T 文字聲明上線<br>2. 點點簽大戶攔截特惠與 5 大垂直 LP 上線<br>3. 福安管顧 API 串接教育訓練結案<br>4. Unify 範本權限重構更版上線</td>
+<td style="text-align: left;">RD, Marketing<br>Sales, CSM<br>RD, CSM<br>PM, RD</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q3 衝刺期 (9月)</strong></td>
+<td style="text-align: left;">1. 個人專業方案 100 份/月限制與超額加購憑證包上線<br>2. 新版《電子簽章法》合規條款與公關稿 PR 發布<br>3. 公開表單高品質附件單獨打包下載功能上線</td>
+<td style="text-align: left;">PM, RD<br>Legal, Marketing<br>RD</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q4 擴張期 (10月-11月)</strong></td>
+<td style="text-align: left;">1. 實現 1,750 家付費企業戶損益平衡點 (較當前 397 家成長 340.8%)<br>2. LINE 一鍵傳簽免手機號流程優化更版<br>3. API 自動化測試沙盒 (Sandbox) 部署上線</td>
+<td style="text-align: left;">Sales, CSM<br>PM, RD<br>RD</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q4 收官期 (12月)</strong></td>
+<td style="text-align: left;">1. 多年期預收款會計處置與轉介分潤報表制度化<br>2. 進行 2026 年終客成流失與 Cold Start 覆盤報告</td>
+<td style="text-align: left;">Ops, Legal, Finance<br>CSM, Ops</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><em>計畫擬定人：LLM Agent (Antigravity) | 好好簽 2026H2 跨部門執行計畫小組 | 日期：2026-05-27</em></p>
+        </div>
+        <footer>
+        <p>計畫編號: BZS-PLAN-20260527-02 | 蒙恬科技 (PenPower) 好好簽跨部門成果驗證小組 ． 2026H2 跨部門執行計畫 (討論稿)</p>
+    </footer>
+</div>
+
+</body>
+</html>

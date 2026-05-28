@@ -1,0 +1,120 @@
+Line   10: # 🧠 BreezyBrain (好好腦) 產品需求文件
+Line   15: ## 1. 產品定位與商業目標
+Line   17: ### 1.1 核心定義 (What is it?)
+Line   21: ### 1.2 目標受眾 (Target Audience)
+Line   26: ### 1.3 核心護城河 (Defensibility)
+Line   30: ### 1.4 定價策略與商業模式 (Pricing Strategy & Business Model)
+Line   33: #### 1.4.1 技術架構與落地考量
+Line   40: #### 1.4.2 計費方案
+Line   51: ### 1.5 產品核心架構圖 (Product Architecture Diagram)
+Line  135: ### 1.6 產品運行與技術框架 (Product Runtime & Technical Framework)
+Line  197: ## 2. MVP 核心功能需求 (User Stories)
+Line  199: ### Epic 1: 智能合約派發 (Smart Dispatch)
+Line  204: ### Epic 2: BCR 人脈與資料採集 (BCR & Data Ingestion)
+Line  208: ### Epic 3: 輕量企業級 BreezyCRM (BreezyCRM for Enterprise)
+Line  212: #### 2.3.2 BreezyCRM 核心資料欄位 (Data Schema) & 預留客製化增強規格
+Line  271: #### 2.3.3 三軌獨立銷售管道定義 (Multi-Pipeline Stage Definitions)
+Line  275: ##### 管道 A：SaaS 產品管道 (SaaS Pipeline)
+Line  287: ##### 管道 B：零售通路經銷管道 (Retail Pipeline)
+Line  299: ##### 管道 C：專案客製建置管道 (Project Pipeline)
+Line  407: #### 2.3.3 銷售跟進階段定義 (Deal Stages)
+Line  419: ### Epic 4: 檔案管理器與知識智庫 (Files Manager & KM)
+Line  422: #### 2.4.1 檔案管理器 (Files Manager) 規格
+Line  436: #### 2.4.2 知識智庫 (Knowledge Management) 規格
+Line  521: ### Epic 5: LLM 大腦工作清單 (LLM Brain Job List & Agentic Tasks)
+Line  532: ### Epic 6: 合約生命週期管理 (CLM)
+Line  535: #### 2.6.1 範本與草稿變更控制
+Line  539: #### 2.6.2 履約義務追蹤 (Obligation Tracking)
+Line  621: ### Epic 7: 視覺化工作流與審批引擎 (BPM & Workflow) & 防禦規格
+Line  624: #### 2.7.1 Node-based 視覺化工作流編排
+Line  628: #### 2.7.2 風險審批路由與例外處理
+Line  715: ### Epic 8: KM 智庫 — WikiLLM 模式知識庫架構 (Wiki-style Knowledge Management)
+Line  719: #### 2.8.1 KM 知識庫目錄結構規範 (Directory Architecture)
+Line  737: #### 2.8.2 知識頁面格式規範 (Page Format)
+Line  755: # [合約標題]
+Line  759: ## 核心條款
+Line  762: ## 義務與期限
+Line  765: ## 相關連結
+Line  768: ## 來源引用
+Line  777: #### 2.8.3 Agent 自動攝入流程 (Automated Ingest Workflow)
+Line  794: #### 2.8.4 KM 查詢層設計（Web UI 為主，Dataview 為輔）
+Line  833: #### 2.8.5 介面定義 (API/CLI Interfaces)
+Line  868: #### 2.8.6 KM DB 分層架構規格（依企業規模選型）
+Line  872: ##### KM DB 三功能層定義
+Line  881: ##### 規模分層選型（Scale-tier Selection）
+Line  954: ##### KM DB Schema 核心表設計（PostgreSQL）
+Line  995: ##### 規模分層決策樹
+Line 1007: ##### 2.8.6.1 多人並發、高頻存取與多大模型調度規格 (Concurrency, Caching & Multi-LLM Routing)
+Line 1018: #### 2.8.7 企業專屬大腦培養與維護機制 (Enterprise Corporate Brain Cultivation & Maintenance Rules)
+Line 1022: ##### 2.8.7.1 企業專屬語意字典與名詞對照 (Corporate Terminology Mapping)
+Line 1026: ##### 2.8.7.2 人機協作反饋微調迴圈 (Human-in-the-Loop Feedback Loop for LLM)
+Line 1031: ##### 2.8.7.3 知識排除與個資脫敏規則 (Information Filtering & Exclusion Rules)
+Line 1037: ### Epic 9: 儀表板與報告中樞 (Dashboard & Report Hub)
+Line 1041: #### 2.9.1 儀表板架構概覽 (Dashboard Architecture)
+Line 1061: #### 2.9.2 子儀表板規格 (Sub-Dashboard Specs)
+Line 1065: ##### 📊 D1: 總覽儀表板 (Overview Dashboard)
+Line 1090: ##### 👥 D2: CRM 銷售漏斗儀表板 (CRM Pipeline Dashboard)
+Line 1111: ##### 📜 D3: CLM 合約生命週期儀表板 (Contract Lifecycle Dashboard)
+Line 1131: ##### ⚙️ D4: BPM 工作流監控儀表板 (BPM Workflow Dashboard)
+Line 1151: ##### 🧠 D5: KM 知識庫儀表板 (Knowledge Management Dashboard)
+Line 1170: ##### 🤖 D6: AI 大腦工作績效儀表板 (LLM Brain Performance Dashboard)
+Line 1186: #### 2.9.3 報告匯出規格 (Report Export Specs)
+Line 1190: ##### 匯出格式支援
+Line 1200: ##### 報告模板預設類型
+Line 1211: ##### 排程自動報告 (Scheduled Reports)
+Line 1224: #### 2.9.4 介面定義 (API/CLI Interfaces)
+Line 1304: ### Epic 10: 客戶公司自訂性與 UI 彈性規格 (White-labeling & UI Customization)
+Line 1308: #### 2.10.1 企業白牌化自訂 (White-labeling Settings)
+Line 1314: #### 2.10.2 自訂主題色彩與 CSS 變數 (Theming with CSS Variables)
+Line 1322: #### 2.10.3 導覽選單與版面自訂 (Layout Customization)
+Line 1326: #### 2.10.4 客製化程式碼掛載 (Custom Code Insertion)
+Line 1332: ## 3. 系統架構依賴 (Dependencies)
+Line 1337: ### 3.1 技術限制與處理規格 (Technical Constraints & Upload Specs) & 防禦規格
+Line 1402: ### 3.2 地端 Local LLM 軟硬體與雲端回退規格 (Local LLM Hardware/Software & Fallback Specs)
+Line 1405: #### 3.2.1 開源模型選型與資源計算（Apache 2.0 / MIT 授權優先）
+Line 1432: #### 3.2.2 部署硬體環境要求
+Line 1442: #### 3.2.3 部署軟體環境
+Line 1447: #### 3.2.4 雲端臨時算力回退機制 (Cloud Fallback)
+Line 1453: ### 3.3 模組解耦與通訊邊界原則 (Module Decoupling & Interface Boundary)
+Line 1457: #### 3.3.1 架構邊界規範 (Boundary Constraints)
+Line 1461: #### 3.3.2 統一 API 設計規範 (Unified API Specification)
+Line 1495: #### 3.3.3 統一 CLI 設計規範 (Unified CLI Specification)
+Line 1510: ### 3.4 Agent + Ollama 完整架構規格 (Agent Architecture with Ollama)
+Line 1514: #### 3.4.1 整體 Agent 架構圖
+Line 1543: #### 3.4.2 Ollama 部署與 OpenAI 相容 API 規格
+Line 1547: # Linux/macOS
+Line 1550: # Windows (PowerShell)
+Line 1570: #### 3.4.3 Agent Tool 清單 (Tool Registry)
+Line 1587: #### 3.4.4 ReAct 迴圈流程（商品/服務實踐範例）
+Line 1623: #### 3.4.5 商品/服務 Agent 實踐場景對應表
+Line 1636: #### 3.4.6 RAG（檢索增強生成）鏈路規格
+Line 1675: #### 3.4.7 Agent 框架選型（Python 生態）
+Line 1706: ### 3.5 BreezyBrain 防禦型 MCP 伺服器規格 (Defensive MCP Server Spec)
+Line 1710: #### 3.5.1 MCP 護城河防衛核心思維與威脅模型
+Line 1757: #### 3.5.2 Resources (資源) 定義與防禦
+Line 1774: #### 3.5.3 Tools (工具) 定義與防禦
+Line 1786: #### 3.5.4 Prompts (提示模板) 定義與防禦
+Line 1796: #### 3.5.5 Token 權限隔離、頻率限制與審計日誌
+Line 1823: ### 3.6 企業級 RBAC 角色與權限矩陣 (Enterprise RBAC Matrix)
+Line 1827: #### 3.6.1 角色定義與權限邊界
+Line 1837: #### 3.6.2 RAG 與問答中的權限過濾機制 (RLS Context Filter)
+Line 1843: ### 3.7 地端金鑰鏈管理與完簽 PDF 雜湊防偽存證規格 (Local KMS & PDF SHA256 Hash Spec)
+Line 1847: #### 3.7.1 地端主機 KMS 金鑰保護防線
+Line 1854: #### 3.7.2 PDF 完簽雜湊防偽與時序審計 (SHA256 Append-only Logging)
+Line 1863: ### 3.8 地端一鍵部署安裝 CLI 工具規格 (One-click Deployment CLI Spec)
+Line 1867: #### 3.8.1 Docker 容器化與跨平台支持規格 (Docker Containers & Cross-Platform Support)
+Line 1887: #### 3.8.2 地端 GPU 與硬體資源自適應探測 (Hardware Auto-detect)
+Line 1899: ### 3.9 資料備份與災難復原機制規格 (Backup & Disaster Recovery Spec)
+Line 1903: #### 3.9.1 每日增量備份機制 (Automated Daily Incremental Backup)
+Line 1912: #### 3.9.2 加密、傳輸與災難復原
+Line 1922: ### 3.10 MVP 於 Google Cloud Platform (GCP) 部署架構 (MVP GCP Deployment Architecture)
+Line 1926: #### 3.10.1 Web 與核心 API 託管：Google Cloud Run
+Line 1930: #### 3.10.2 數據存儲層架構
+Line 1938: #### 3.10.3 暫存與快取層：Google Cloud Memorystore for Redis
+Line 1941: #### 3.10.4 AI 大腦推理 (LLM Inference) 雙軌架構
+Line 1949: #### 3.10.5 資訊安全防禦與金鑰鏈 (KMS)
+Line 1958: ### 3.11 跨境出海與多法規相容性規格 (Cross-Border Compliance & E-Signature Broker Spec)
+Line 1962: #### 3.11.1 跨境電子簽章法規相容性 (Global Regulatory Compliance)
+Line 1973: #### 3.11.2 多廠商簽署代理模組 (Multi-Provider E-Signature Broker)（MVP 後規劃）
+Line 1987: ## 4. 待決議事項 (Open Issues)
+Line 1990: ## 相關連結

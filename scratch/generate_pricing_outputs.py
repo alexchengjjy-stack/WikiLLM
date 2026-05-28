@@ -1,0 +1,587 @@
+# -*- coding: utf-8 -*-
+import os
+import subprocess
+import sys
+
+def main():
+    # 確保輸出目錄存在
+    workspace_dir = r"c:\Users\alexc\OneDrive\文件\WikiLLM"
+    outputs_dir = os.path.join(workspace_dir, "outputs")
+    if not os.path.exists(outputs_dir):
+        os.makedirs(outputs_dir)
+
+    html_path = os.path.join(outputs_dir, "bzs-pricing-cost-structure-analysis-20260525.html")
+    pdf_path = os.path.join(outputs_dir, "bzs-pricing-cost-structure-analysis-20260525.pdf")
+
+    # 定義「經典商務淺色風格」的 HTML 內容，完全使用繁體中文，移除了不穩定的 MathJax，改用原生 HTML 排版公式
+    html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好好簽 BreezySign 電子簽章定價成本結構與利潤邊際分析報告 (2026-05-25)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Light Theme CSS Variables */
+        :root {
+            --bg-color: #f8fafc;
+            --card-color: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --primary-blue: #0284c7;
+            --primary-dark: #0f172a;
+            --accent-purple: #7c3aed;
+            --accent-emerald: #16a34a;
+            --accent-rose: #dc2626;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(50, 50, 93, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            padding: 40px 20px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 45px;
+            position: relative;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        .badge-date {
+            display: inline-block;
+            background: rgba(2, 132, 199, 0.08);
+            border: 1px solid rgba(2, 132, 199, 0.25);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-blue);
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Classic Business Cards */
+        .business-card {
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px -2px var(--shadow-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .business-card:hover {
+            box-shadow: 0 8px 24px -2px rgba(50, 50, 93, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 12px;
+            font-weight: 700;
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 14.5px;
+            color: var(--text-color);
+        }
+
+        strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .highlight-text {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Business Callouts */
+        .callout {
+            background: #f0f9ff; /* Sky 50 */
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 4px;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #0369a1;
+        }
+
+        .callout-rose {
+            background: #fff1f2; /* Rose 50 */
+            border-left: 4px solid var(--accent-rose);
+            color: #be123c;
+        }
+
+        .callout-emerald {
+            background: #f0fdf4; /* Green 50 */
+            border-left: 4px solid var(--accent-emerald);
+            color: #15803d;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+            background: #ffffff;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* Currency Styling */
+        .currency {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+        }
+
+        /* High-Aesthetic HTML Formula box */
+        .formula-box {
+            background: #faf5ff; /* Purple 50 */
+            border: 1px dashed rgba(124, 58, 237, 0.25);
+            border-radius: 6px;
+            padding: 16px 20px;
+            text-align: center;
+            margin: 18px 0;
+            font-size: 15.5px;
+            color: var(--primary-dark);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+        }
+
+        .formula-box strong {
+            color: var(--accent-purple);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .formula-box .math-sign {
+            color: var(--text-muted);
+            margin: 0 8px;
+            font-weight: 400;
+        }
+
+        /* Print adaptions - Fixing blank page bug */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 0;
+                margin: 0;
+            }
+            .business-card {
+                background: #ffffff !important;
+                border: 1px solid #e2e8f0 !important;
+                box-shadow: none !important;
+                margin-bottom: 24px;
+                padding: 24px;
+                /* CRITICAL FIX: Allow natural page breaks inside cards to prevent massive blank spaces */
+                page-break-inside: auto !important; 
+            }
+            header {
+                border-bottom: 1px solid #cbd5e1 !important;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+            }
+            h1 {
+                color: #0f172a !important;
+            }
+            .formula-box {
+                background: #ffffff !important;
+                border: 1px solid #d8b4fe !important;
+                page-break-inside: avoid;
+            }
+            .callout {
+                background: #f8fafc !important;
+                border: 1px solid #e2e8f0 !important;
+                border-left: 4px solid var(--primary-blue) !important;
+                page-break-inside: avoid;
+            }
+            .callout-rose {
+                border-left: 4px solid var(--accent-rose) !important;
+            }
+            .callout-emerald {
+                border-left: 4px solid var(--accent-emerald) !important;
+            }
+            table {
+                page-break-inside: auto !important;
+            }
+            tr {
+                page-break-inside: avoid !important;
+                page-break-after: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge-date">決策財務報告 — 2026-05-25</div>
+            <h1>好好簽 電子簽章定價成本結構與利潤邊際分析</h1>
+            <div class="subtitle">
+                基於 AATL 憑證、簡訊通道、ISO 驗證維持、10 人人事管銷與每月 Google Ads 投放數據，深度剖析好好簽定價模型之毛利邊際與損益平衡點。
+            </div>
+        </header>
+
+        <!-- 一、 財務模型 -->
+        <div class="business-card">
+            <div class="section-title">一、 📊 財務模型：年度總成本結構分析 (Cost Structure)</div>
+            <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 14.5px;">
+                我們將好好簽的營運成本劃分為 <strong>變動成本 (Variable Costs)</strong> 與 <strong>固定管銷成本 (Fixed Operating Costs)</strong>，以建立真實的損益模型：
+            </p>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 18px 0 10px 0;">1. 變動成本 (Variable Cost per Transaction)</h3>
+            <p style="font-size: 14.5px; color: var(--text-color); margin-bottom: 10px;">變動成本直接與客戶的「簽署任務量」與「通道選擇」掛鉤：</p>
+            <ul>
+                <li><strong>AATL 憑證成本</strong>：向中華電信採購，每簽署一份文件需要加蓋 1 份 AATL 憑證，成本為 <strong class="currency">NT$1.5 / 份</strong> (完簽才計)。</li>
+                <li><strong>簡訊催簽與驗證成本</strong>：每則簡訊通道成本為 <strong class="currency">NT$0.85 / 則</strong>。
+                    <div class="callout">
+                        <em>註</em>：若客戶選擇「Email 傳簽」或「Line 傳簽」，簡訊成本為 <span class="currency">NT$0</span>；實務上 B2B 團隊約 50% 任務採用 Email 傳簽，B2C 旅行社約 70% 採用 LINE 傳簽，簡訊發送率約控制在 <strong>15%</strong> 左右。
+                    </div>
+                </li>
+                <li><strong>郵件發送與 GCP 平台分攤</strong>：GCP 伺服器運算與資料庫儲存，連同 Amazon SES 等郵件通道費，分攤至單一簽署任務，平均成本極低，約為 <strong class="currency">NT$0.05 / 份</strong>。</li>
+                <li><strong>單份合約平均變動成本 (MC) 試算</strong>：
+                    <ul>
+                        <li><span class="highlight-text">最優場景 (LINE/Email 完簽)</span>：<strong class="currency">NT$1.55 / 份</strong> (僅 AATL + 郵件)。</li>
+                        <li><span class="highlight-text">常規混合場景 (15% 簡訊發送率)</span>：1.55 + (0.85 × 15%) = <strong class="currency">NT$1.68 / 份</strong>。</li>
+                        <li><span class="highlight-text">高變動場景 (簡訊傳簽 + 簡訊 OTP 驗證)</span>：1.50 + 0.85 × 2 = <strong class="currency">NT$3.20 / 份</strong>。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 25px 0 10px 0;">2. 固定管銷成本 (Fixed Operating Costs)</h3>
+            <p style="font-size: 14.5px; color: var(--text-color); margin-bottom: 10px;">這是維持好好簽系統正常運作、合規背書、人事推廣的年度固定費用：</p>
+            <ul>
+                <li><strong>安全與驗證維持費 (Compliance & Audit)</strong>：
+                    <ul>
+                        <li>ISO 27001 (資訊安全管理系統) 驗證與外部年審維持費：約 <strong class="currency">NT$300,000 / 年</strong>。</li>
+                        <li>ISO 27701 (隱私資訊管理系統) 驗證與外部年審維持費：約 <strong class="currency">NT$300,000 / 年</strong>。</li>
+                        <li><em>小計</em>：<strong class="currency">NT$600,000 / 年</strong>。</li>
+                    </ul>
+                </li>
+                <li><strong>人事管銷費用 (Personnel SG&A - 以 10 人編制計)</strong>：
+                    <ul>
+                        <li>技術研發 (R&D)：3 人（平均年薪含勞健保分攤 $900k，共計 <span class="currency">NT$2,700,000</span>）。</li>
+                        <li>業務開發與客成 (Sales & CSM)：4 人（平均年薪 $700k，共計 <span class="currency">NT$2,800,000</span>）。</li>
+                        <li>行銷與運營 (Marketing & Ops)：2 人（平均年薪 $700k，共計 <span class="currency">NT$1,400,000</span>）。</li>
+                        <li>財務與管理 (HR & Finance)：1 人（年薪 $800k）。</li>
+                        <li><em>小計</em>：<strong class="currency">NT$7,700,000 / 年</strong> (每月人事管銷固定支出約 <span class="currency">NT$641,600</span>)。</li>
+                    </ul>
+                </li>
+                <li><strong>行銷與顧問推廣費用 (Marketing & Ads)</strong>：
+                    <ul>
+                        <li>行銷顧問年費：<strong class="currency">NT$360,000 / 年</strong> (每月 <span class="currency">NT$30,000</span>)。</li>
+                        <li>Google Ads (Search + Pmax) 廣告費：依 2026 上半年實際花費換算，全年度預算約 <strong class="currency">NT$1,440,000 / 年</strong> (每月 <span class="currency">NT$120,000</span>)。</li>
+                        <li><em>小計</em>：<strong class="currency">NT$1,800,000 / 年</strong>。</li>
+                    </ul>
+                </li>
+                <li><strong>GCP 伺服器基本租用費</strong>：約 <strong class="currency">NT$400,000 / 年</strong>。</li>
+            </ul>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 25px 0 10px 0;">3. 年度總固定成本 (Total Annual Fixed Costs)</h3>
+            <div class="formula-box" style="background: #f8fafc; border: 1px solid var(--border-color);">
+                <span class="highlight-text">TFC (年度總固定成本)</span>
+                <span class="math-sign">=</span>
+                <span class="currency">NT$600,000</span> (安全)
+                <span class="math-sign">+</span>
+                <span class="currency">NT$7,700,000</span> (人事)
+                <span class="math-sign">+</span>
+                <span class="currency">NT$1,800,000</span> (行銷)
+                <span class="math-sign">+</span>
+                <span class="currency">NT$400,000</span> (GCP)
+                <span class="math-sign">=</span>
+                <strong>NT$10,500,000 / 年</strong>
+                <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+                    (折合每月最低固定管銷開支約為 <span class="currency">NT$875,000</span>)
+                </div>
+            </div>
+        </div>
+
+        <!-- 二、 損益平衡與利潤邊際分析 -->
+        <div class="business-card">
+            <div class="section-title">二、 📈 損益平衡與利潤邊際分析 (Break-Even & Margin Defense)</div>
+            <p style="margin-bottom: 16px; color: var(--text-color); font-size: 14.5px;">
+                由於好好簽目前採取「吃到飽」的定價方案，變動成本（AATL 憑證 NT$1.5 與簡訊 NT$0.85）將會隨客戶簽署量膨脹而對「利潤邊際」產生稀釋風險。我們對主流付費方案進行<strong>毛利安全邊際分析</strong>：
+            </p>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 20px 0 10px 0;">1. 專業方案 (NT$3,000 / 年，單人版月上限限制與加購機制)</h3>
+            <ul>
+                <li><strong>平均變動成本 (混合場景)</strong>：<span class="currency">NT$1.68 / 份</span>。</li>
+                <li><strong>單一客戶年保本簽署上限</strong>：
+                    <div class="formula-box">
+                        <span class="highlight-text">年保本簽署上限</span> 
+                        <span class="math-sign">=</span> 
+                        <span class="currency">NT$3,000</span> (年租金) 
+                        <span class="math-sign">/</span> 
+                        <span class="currency">NT$1.68</span> (平均變動成本) 
+                        <span class="math-sign">=</span> 
+                        <strong>1,785 份 / 年</strong>
+                    </div>
+                </li>
+                <li><strong>大戶定價第一道防線：月上限與加購憑證包機制 (New!)</strong>：
+                    為了防範大量簽署大戶利用低成本的 NT$3,000 專業方案進行無限量簽署，對公司造成憑證成本倒貼風險，<strong>專業方案將訂定每月簽署上限，超過則提供憑證加購包，每次最少加購 5 份</strong>：
+                    <ul>
+                        <li><span class="highlight-text">每月簽署上限</span>：<strong>150 份 / 月</strong> (年額 1,800 份，精準卡在保本線邊緣，確保客戶絕不虧本)。</li>
+                        <li><span class="highlight-text">超額加購機制</span>：當月超出 150 份時，引導購買加購包，<strong>每次最少加購 5 份</strong>。</li>
+                        <li><span class="highlight-text">加購定價對照</span>：
+                            <ul>
+                                <li><strong>方案 A (每份 NT$15，每次加購 NT$75)</strong>：常規混合場景下，單份毛利 NT$13.32，<strong>毛利率 88.8%</strong>；極端簡訊 OTP 下仍有 <strong>78.7%</strong> 毛利率。</li>
+                                <li><strong>方案 B (每份 NT$30，每次加購 NT$150)</strong>：常規混合場景下，單份毛利 NT$28.32，<strong>毛利率 94.4%</strong>；極端簡訊 OTP 下仍有 <strong>89.3%</strong> 毛利率。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>現狀統計</strong>：對外正式官網的個人專業版客戶，每月實際用量多在 5 份至 20 份以內，遠低於 150 份上限，享受 <span class="highlight-text">88% ~ 97%</span> 的極高毛利率；高頻大戶則能以加購穩健貢獻毛利。</li>
+            </ul>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 25px 0 10px 0;">2. 企業方案 (NT$15,000 / 年，含 5 個帳號不限份數)</h3>
+            <ul>
+                <li><strong>平均變動成本 (混合場景)</strong>：<span class="currency">NT$1.68 / 份</span>。</li>
+                <li><strong>單一企業客戶保本簽署上限</strong>：
+                    <div class="formula-box">
+                        <span class="highlight-text">企業保本簽署上限</span> 
+                        <span class="math-sign">=</span> 
+                        <span class="currency">NT$15,000</span> (年租金) 
+                        <span class="math-sign">/</span> 
+                        <span class="currency">NT$1.68</span> (平均變動成本) 
+                        <span class="math-sign">=</span> 
+                        <strong>8,928 份 / 年</strong>
+                    </div>
+                </li>
+                <li><strong>解讀</strong>：當企業版客戶每年簽署量低於 8,928 份（平均每月低於 744 份）時，該帳戶為<strong>毛利貢獻者</strong>。</li>
+                <li><strong>現狀統計</strong>：好好簽絕大多數 5 人企業客戶，如麻吉行得通（年用量 500~600 份）、台灣奇恭 (GiGO)（年用量 80~100 份），其實際簽署量遠低於此門檻，毛利率高達 <span class="highlight-text">93% 以上</span>。</li>
+            </ul>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 25px 0 10px 0;">3. 大量簽署大戶之「客製化防線」 (High Volume Custom Defense)</h3>
+            <p style="font-size: 14.5px; color: var(--text-color); margin-bottom: 10px;">對於超大簽署量的移轉客戶，例如 <strong>福安管理顧問企業社</strong>（年用量高達 20,000 份）：</p>
+            <ul>
+                <li><strong>若直接套用 NT$15,000 企業版</strong>：我方變動成本將達 NT$33,600，會產生 <span style="color: var(--accent-rose); font-weight: 600;">-NT$18,600</span> 的毛利虧損。</li>
+                <li><strong>截擊定價戰術 (Custom Pricing)</strong>：對於此類大戶，必須啟動「大戶防線價格」，前線已精準報價 <strong>企業版 50 人 NT$68,000 / 60 人 NT$76,000</strong>。</li>
+                <li><strong>以 NT$68,000 方案計算毛利</strong>：
+                    <div class="formula-box" style="background: #f0fdf4; border: 1px solid rgba(22, 163, 74, 0.25);">
+                        <span style="color: var(--accent-emerald); font-weight: 600;">大戶專案毛利</span>
+                        <span class="math-sign">=</span>
+                        <span class="currency">NT$68,000</span> (合約價)
+                        <span class="math-sign">-</span>
+                        (<span class="currency">20,000 份</span> &times; <span class="currency">NT$1.68</span> 成本)
+                        <span class="math-sign">=</span>
+                        <strong>NT$34,400</strong> 
+                        <span style="color: var(--accent-emerald); font-size: 13.5px; margin-left: 10px;">(毛利率 <strong>50.5%</strong>)</span>
+                    </div>
+                </li>
+                <li>這既完美解決了點點簽開出十幾萬天價以份計費對福安產生的價格抗拒，又為好好簽穩穩守住 <span class="highlight-text">50.5% 的高毛利防線</span>，同時人均年費僅 NT$1,360，對比競品極具殺傷力。</li>
+            </ul>
+        </div>
+
+        <!-- 三、 競品定價劣勢分析 -->
+        <div class="business-card">
+            <div class="section-title">三、 ⚔️ 競品定價劣勢分析與好好簽包抄定位</div>
+            <p style="margin-bottom: 16px; color: var(--text-color); font-size: 14.5px;">
+                我們分析對手點點簽、律果簽與 FastSIGN 的定價抗性，並將其作為好好簽的截擊賣點：
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>競品品牌</th>
+                            <th>主要定價機制</th>
+                            <th>企業核心痛點</th>
+                            <th>好好簽包抄戰術</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>點點簽 (DottedSign)</strong></td>
+                            <td>改採「以合約份數」計費</td>
+                            <td>續約全面大漲 3-5 倍。超額份數費用極其昂貴，大量簽署客戶面臨天價溢價。</td>
+                            <td>提供 <span class="highlight-text">企業版吃到飽年約 NT$60,000 / 40人</span>，徹底消除客戶對超額份數的費用焦慮。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>律果簽 (LegalSign)</strong></td>
+                            <td>強制按人頭 (Per User) 收費</td>
+                            <td>企業版每人每年 NT$11,760。中大團隊累積年費暴增（如 40 人團隊年費高達 47 萬）。</td>
+                            <td>採取 <span class="highlight-text">區間人數吃到飽</span>，人均年成本僅對方的 10% ~ 25%，性價比極高。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>全景 FastSIGN</strong></td>
+                            <td>偏重地端買斷制部署</td>
+                            <td>初期建置費動輒數十萬起跳，且每年需額外付 15%~20% 維護費，對中小型企業門檻極高。</td>
+                            <td>以 <span class="highlight-text">最低 NT$3,000 起</span> 的輕量 SaaS 提供具備數發部能量登錄與 ISO 認證的法律效力保障。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 四、 定價優化與市場截擊建議 -->
+        <div class="business-card">
+            <div class="section-title">四、 🎯 定價優化與市場截擊建議</div>
+            <p style="margin-bottom: 16px; color: var(--text-color); font-size: 14.5px;">
+                為了在這波「點點簽漲價潮」中踩下油門擴張市佔率，同時守護好好簽的年度固定成本（1,050萬 NTD）以達成損益平衡，提出以下定價與行銷策略優化方針：
+            </p>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 20px 0 10px 0;">1. 建立「層級化」標準方案體系，守護吃到飽毛利</h3>
+            <p style="font-size: 14.5px; color: var(--text-color); margin-bottom: 10px;">為了防範極少數「無限簽署」的超高頻用量客戶稀釋毛利，無論個人或企業版吃到飽，均應附加合理的「軟性安全閥值」與超額加購機制：</p>
+            <ul>
+                <li><strong>個人專業方案 (NT$3,000 / 年，單人版)</strong>：適合個人或微企大戶，設定當月簽署額度 <strong>150 份 / 月</strong>。當月超出則引導購買加購憑證包，<strong>每份 NT$15 ~ NT$30</strong> (每次最少加購 5 份，共 NT$75 ~ NT$150)，築起大戶防線第一關。</li>
+                <li><strong>企業入門方案 (NT$15,000 / 年，含 5 帳號)</strong>：適合常規企業團隊，內含 AATL 憑證額度 5,000 份/年（已覆蓋 95% 客戶需求，毛利率達 50%）。超額按 AATL 憑證每份 NT$3.0 計收。</li>
+                <li><strong>企業商務方案 (NT$30,000 / 年，含 15 帳號)</strong>：內含 AATL 憑證額度 12,000 份/年。超額按每份 NT$2.5 計收。</li>
+                <li><strong>企業旗艦方案 (NT$60,000 / 年，含 40 帳號)</strong>：內含 AATL 憑證額度 25,000 份/年。超額按每份 NT$2.0 計收（如太平洋旅行社）。</li>
+            </ul>
+
+            <h3 style="color: var(--primary-blue); font-size: 16px; margin: 25px 0 10px 0;">2. 人事與行銷回本指標：損益平衡目標 (Break-Even Target)</h3>
+            <p style="font-size: 14.5px; color: var(--text-color); margin-bottom: 10px;">若以年度總固定成本 <strong>NT$10,500,000 / 年</strong>（含 10 人人事管銷、60 萬 ISO 維護年費與 180 萬行銷顧問/廣告費）計算：</p>
+            <ul>
+                <li>若好好簽付費客戶結構平均 ARPU 為 <span class="currency">NT$6,000 / 年</span>：
+                    <div class="formula-box" style="background: #f0f9ff; border: 1px solid rgba(2, 132, 199, 0.25);">
+                        <span style="color: var(--primary-blue); font-weight: 600;">損益平衡付費客戶數</span>
+                        <span class="math-sign">=</span>
+                        <span class="currency">NT$10,500,000</span> (年度總固定成本)
+                        <span class="math-sign">/</span>
+                        <span class="currency">NT$6,000</span> (平均企業年 ARPU)
+                        <span class="math-sign">=</span>
+                        <strong>1,750 家付費企業戶</strong>
+                    </div>
+                </li>
+                <li>目前我們月新增付費公司正以極高的 LTV:CAC 黃金比例 (258:1) 快速累計，當付費企業戶突破 1,750 家時，好好簽將迎來<strong>完全的淨利爆發期</strong>。</li>
+                <li><strong>行銷策略定調</strong>：基於 258:1 的健康比例，現在應<strong>維持每月 12 萬 NTD (每年 144 萬) 的 Google Ads/Pmax 行銷廣告預算</strong>。這筆預算可在 1 年內完全回本，是吃下點點簽漲價客戶的最佳推進燃料。</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; color: var(--text-muted); font-size: 12px; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+            研究員：LLM Agent (Antigravity) | 財務模型建立：好好簽市場優化與定價分析小組 | 日期：2026-05-25
+        </div>
+    </div>
+</body>
+</html>
+"""
+
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"[SUCCESS] HTML 看板已生成：{html_path}")
+
+    # Edge Headless PDF 轉檔處理
+    # chromium file:/// 接受 / 而非 \
+    html_url = "file:///" + os.path.abspath(html_path).replace("\\", "/")
+    print(f"準備使用 Edge 進行 PDF 轉檔...")
+    print(f"HTML 網址為：{html_url}")
+
+    # 本地端尋找 Edge 執行檔
+    edge_paths = [
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        os.path.expandvars(r"%LocalAppData%\Microsoft\Edge\Application\msedge.exe")
+    ]
+    edge_exe = None
+    for p in edge_paths:
+        if os.path.exists(p):
+            edge_exe = p
+            break
+
+    if not edge_exe:
+        print("[ERROR] 找不到 Microsoft Edge 執行路徑！請手動將 HTML 轉為 PDF，或是將 edge 路徑加入環境變數中。")
+        sys.exit(1)
+
+    print(f"找到 Edge 執行路徑：{edge_exe}")
+
+    cmd = [
+        edge_exe,
+        "--headless",
+        "--disable-gpu",
+        "--no-pdf-header-footer",
+        f"--print-to-pdf={pdf_path}",
+        html_url
+    ]
+
+    try:
+        # 執行 Edge headless
+        subprocess.run(cmd, check=True)
+        print(f"[SUCCESS] Clean PDF 報告已成功輸出：{pdf_path}")
+    except Exception as e:
+        print(f"[ERROR] Edge PDF 轉檔失敗：{e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

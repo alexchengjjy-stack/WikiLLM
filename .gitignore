@@ -1,0 +1,12 @@
+# Google Drive 同步暫存檔
+.tmp.driveupload/
+.tmp.drivedownload/
+
+# Python 虛擬環境
+.venv/
+__pycache__/
+*.pyc
+
+# 系統與其他暫存檔
+.DS_Store
+Thumbs.db

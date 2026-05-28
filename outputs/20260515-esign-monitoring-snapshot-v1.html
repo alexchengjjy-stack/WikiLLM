@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子簽章能量登錄競品情報普查快照 (2026/05)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@300;500;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --sidebar-bg: #ffffff;
+            --accent: #3b82f6;
+            --border: #e2e8f0;
+            --header-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Sidebar / TOC */
+        aside {
+            width: 280px;
+            background: var(--sidebar-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: sticky;
+            top: 2rem;
+            align-self: flex-start;
+            border: 1px solid var(--border);
+            position: sticky;
+        }
+
+        aside h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        aside ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        }
+
+        .article-content h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            background: #f1f5f9;
+            border-left: 4px solid #94a3b8;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #475569;
+        }
+
+        .article-content hr {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        /* Battle Cards */
+        .battle-card {
+            background: #fdf2f2;
+            border: 1px solid #fee2e2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .battle-card.vs-dotted {
+            background: #eff6ff;
+            border-color: #dbeafe;
+        }
+
+        .battle-card.vs-legal {
+            background: #f0fdf4;
+            border-color: #dcfce7;
+        }
+
+        .battle-card h4 {
+            color: #b91c1c;
+            margin-top: 0;
+        }
+        .battle-card.vs-dotted h4 { color: #1d4ed8; }
+        .battle-card.vs-legal h4 { color: #15803d; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #f1f5f9;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            aside {
+                width: 100%;
+                position: relative;
+                top: 0;
+            }
+            main {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>電子簽章能量登錄競品情報普查快照</h1>
+        <p>基準日期：2026-05-14 | 報告狀態：<span style="color: #4ade80;">發布</span></p>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h2>報告導覽</h2>
+            <ul>
+                <li><a href="#summary"><i class="fas fa-bullseye"></i> 執行摘要</a></li>
+                <li><a href="#dotted"><i class="fas fa-chart-line"></i> 點點簽深度解析</a></li>
+                <li><a href="#legal"><i class="fas fa-gavel"></i> 律果簽深度解析</a></li>
+                <li><a href="#changing"><i class="fas fa-server"></i> 全景軟體解析</a></li>
+                <li><a href="#breezy"><i class="fas fa-shield-alt"></i> 好好簽突圍方針</a></li>
+                <li><a href="#battlecards"><i class="fas fa-bolt"></i> 銷售對話指南</a></li>
+                <li><a href="#nextsteps"><i class="fas fa-forward"></i> 下一步行動</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="article-content" id="content">
+                <section id="summary">
+                    <h2>🌐 執行摘要與全局洞察</h2>
+                    <p>隨著數位發展部正式推動「電子簽章解決方案服務能量登錄」，國內電子簽章 SaaS 戰場已進入高度依賴<strong>合規信任背書</strong>與**深度生態系綁定**的成熟期。</p>
+                    <p>本期觀測總結三大產業集火趨勢：</p>
+                    <ol>
+                        <li><strong>身分驗證行動化</strong>：點點簽大力整合「行動自然人憑證 (TWFidO)」。</li>
+                        <li><strong>自動化流程串接 (Ecosystem Hooks)</strong>：積極串接外部平台覆蓋合約前後端生命週期。</li>
+                        <li><strong>法務科技雙棲人才戰</strong>：透過招募強化結合 AI 與法律實務的研發實力。</li>
+                    </ol>
+                </section>
+
+                <hr>
+
+                <section id="dotted">
+                    <h2>📊 核心競品實證解析</h2>
+                    <h3>1. 點點簽 (DottedSign) — 領跑者的全通路防禦</h3>
+                    <h4>🌐 官網與定價</h4>
+                    <ul>
+                        <li><strong>商務計費核心</strong>：以「簽署任務數 (Envelope Tasks)」作為核心計費單位。</li>
+                        <li><strong>GEO 範本</strong>：完美的單頁式 FAQ 部署，文字直出毫無隱藏，極度有利於 AI 抓取答案。</li>
+                    </ul>
+                    <h4>📝 部落格行銷</h4>
+                    <p>近期聚焦於 <strong>HR 數位轉型</strong> 與 <strong>ESG 效率實證</strong>（如 YONEX 案例）。</p>
+                    <h4>🔍 AI 滲透率</h4>
+                    <p>在 Perplexity 與 Gemini 詢問時具備極高的首位提及率。</p>
+                </section>
+
+                <section id="legal">
+                    <h3>2. 律果簽 (LegalSign.ai) — 垂直深耕的法遵護城河</h3>
+                    <h4>💰 定價策略</h4>
+                    <p>提供 NT$0 到 NT$980 的明確階梯方案。但 <strong>GEO 提取存在致命傷</strong>：FAQ 缺乏直接鋪展內容，增加 AI 爬蟲難度。</p>
+                    <h4>🔍 搜尋能見度</h4>
+                    <p>Title Tag 設定薄弱，但深耕 <code>CLM</code>、<code>定型化契約</code> 等專業長尾詞。</p>
+                </section>
+
+                <section id="changing">
+                    <h3>3. 全景軟體 (CHANGING) — 軟硬兼施</h3>
+                    <p>側重地端硬體載具、PKI 憑證模組與政府大型標案優勢。</p>
+                </section>
+
+                <hr>
+
+                <section id="breezy">
+                    <h2>🛡️ 好好簽 (BreezySign) — 我方基準與突圍方針</h2>
+                    <p><strong>優勢</strong>：已通過數發部能量登錄審查，具備合規護城河。</p>
+                    <p><strong>痛點</strong>：<strong>GEO 萃取靜默</strong>（定價頁無 FAQ）、<strong>SEO 標籤失誤</strong>（關鍵字覆蓋密度不足）。</p>
+                </section>
+
+                <section id="battlecards">
+                    <h2>🎯 銷售對話反駁指南 (Battle Cards)</h2>
+                    
+                    <div class="battle-card vs-dotted">
+                        <h4>🆚 對抗：點點簽 (DottedSign)</h4>
+                        <p><strong>客戶質疑</strong>：「點點簽市佔率很高，且串接系統很完整。」</p>
+                        <p><strong>話術反擊</strong>：「點點簽採次數計費，大批量時成本較高。好好簽同樣通過能量登錄，背靠 30 年蒙恬技術，提供更透明、彈性的授權結構。」</p>
+                    </div>
+
+                    <div class="battle-card vs-legal">
+                        <h4>🆚 對抗：律果簽 (LegalSign)</h4>
+                        <p><strong>客戶質疑</strong>：「律果簽有律師範本且定價清楚。」</p>
+                        <p><strong>話術反擊</strong>：「新創公司穩定度具挑戰性。好好簽結合蒙恬 OCR 與影像識別實力，提供國家級能量登錄資質的輕量無痛導入體驗。」</p>
+                    </div>
+                </section>
+
+                <section id="nextsteps">
+                    <h2>🚀 下一步行動與修復優先清單</h2>
+                    <ul>
+                        <li><strong>[行銷] 立即實作定價頁面 FAQ 模組</strong>：參照競品格式，解決 AI 抓取空白。</li>
+                        <li><strong>[SEO] 重構 Title Tag</strong>：注入「電子簽章」、「能量登錄」關鍵字。</li>
+                        <li><strong>[知識庫] 建立專用反駁小卡</strong>：擴充 <code>bzs-sales-battle-cards.md</code>。</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 WikiLLM Knowledge Repository | 分析者：LLM Agent (Antigravity)</p>
+        <p>此文件由 WikiLLM 自動生成，僅供內部商務參考。</p>
+    </footer>
+
+</body>
+</html>

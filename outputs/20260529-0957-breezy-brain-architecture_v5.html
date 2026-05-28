@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezyBrain Architecture (Eraser Neon Blueprint - v5)</title>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --grid-color: rgba(30, 58, 138, 0.12); /* 藍色網格線 */
+            
+            --blue-neon: #00d2ff;
+            --blue-glow: rgba(0, 210, 255, 0.25);
+            
+            --green-neon: #00ff87;
+            --green-glow: rgba(0, 255, 135, 0.25);
+            
+            --purple-neon: #b624ff;
+            --purple-glow: rgba(182, 36, 255, 0.25);
+            
+            --orange-neon: #ff6c00;
+            --orange-glow: rgba(255, 108, 0, 0.25);
+            
+            --text-main: #f1f5f9;
+            --text-sub: #64748b;
+            --card-bg: rgba(9, 15, 28, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 26px 26px;
+            color: var(--text-main);
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 60px 80px;
+        }
+
+        /* 標題樣式 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 16:9 總畫布容器 */
+        .architecture-container {
+            width: 1760px;
+            height: 800px;
+            position: relative;
+            display: grid;
+            grid-template-columns: 360px 420px 420px 360px;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        /* 大直欄容器 */
+        .column-wrapper {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            z-index: 30;
+        }
+
+        /* 四欄不同的發光霓虹邊框與陰影 */
+        .layer-presentation {
+            border: 2px solid var(--blue-neon);
+            box-shadow: 0 0 30px var(--blue-glow), inset 0 0 15px rgba(0, 210, 255, 0.05);
+        }
+        .layer-application {
+            border: 2px solid var(--green-neon);
+            box-shadow: 0 0 30px var(--green-glow), inset 0 0 15px rgba(0, 255, 135, 0.05);
+        }
+        .layer-brain {
+            border: 2px solid var(--purple-neon);
+            box-shadow: 0 0 30px var(--purple-glow), inset 0 0 15px rgba(182, 36, 255, 0.05);
+        }
+        .layer-security {
+            border: 2px solid var(--orange-neon);
+            box-shadow: 0 0 30px var(--orange-glow), inset 0 0 15px rgba(255, 108, 0, 0.05);
+        }
+
+        /* 欄位頂部標題 */
+        .layer-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .layer-presentation .layer-title { color: var(--blue-neon); text-shadow: 0 0 10px var(--blue-glow); }
+        .layer-application .layer-title { color: var(--green-neon); text-shadow: 0 0 10px var(--green-glow); }
+        .layer-brain .layer-title { color: var(--purple-neon); text-shadow: 0 0 10px var(--purple-glow); }
+        .layer-security .layer-title { color: var(--orange-neon); text-shadow: 0 0 10px var(--orange-glow); }
+
+        /* 卡片彈性排版容器 */
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 60px); /* 扣除標題部分 */
+        }
+
+        /* 模組小卡片 */
+        .node-card {
+            background: rgba(13, 22, 41, 0.85);
+            border: 1.5px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        /* 3卡片直欄高度與 4卡片直欄高度之適配調整 */
+        .layer-presentation .node-card,
+        .layer-security .node-card {
+            height: 170px;
+        }
+        
+        .layer-application .node-card,
+        .layer-brain .node-card {
+            height: 140px;
+        }
+
+        .node-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(18, 30, 56, 0.9);
+        }
+
+        /* 卡片左側發光垂直邊條 */
+        .layer-presentation .node-card { border-left: 5px solid var(--blue-neon); box-shadow: inset 3px 0 10px rgba(0, 210, 255, 0.03); }
+        .layer-application .node-card { border-left: 5px solid var(--green-neon); box-shadow: inset 3px 0 10px rgba(0, 255, 135, 0.03); }
+        .layer-brain .node-card { border-left: 5px solid var(--purple-neon); box-shadow: inset 3px 0 10px rgba(182, 36, 255, 0.03); }
+        .layer-security .node-card { border-left: 5px solid var(--orange-neon); box-shadow: inset 3px 0 10px rgba(255, 108, 0, 0.03); }
+
+        /* 圖示背板樣式 */
+        .node-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.015);
+        }
+        .layer-presentation .node-icon { color: var(--blue-neon); filter: drop-shadow(0 0 6px var(--blue-glow)); }
+        .layer-application .node-icon { color: var(--green-neon); filter: drop-shadow(0 0 6px var(--green-glow)); }
+        .layer-brain .node-icon { color: var(--purple-neon); filter: drop-shadow(0 0 6px var(--purple-glow)); }
+        .layer-security .node-icon { color: var(--orange-neon); filter: drop-shadow(0 0 6px var(--orange-glow)); }
+
+        .node-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .node-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* 覆蓋於背景上的 SVG 畫布，專門繪製霓虹發光連接線 */
+        .flow-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 1080px;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        /* 媒體列印樣式優化 */
+        @media print {
+            body {
+                background: #ffffff !important;
+                background-image: none !important;
+                color: #000000 !important;
+            }
+            .column-wrapper {
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+            }
+            .node-card {
+                background: #f8fafc !important;
+                border: 1.5px solid #cbd5e1 !important;
+            }
+            .node-title, h1 {
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BreezyBrain Architecture</h1>
+</header>
+
+<div class="architecture-container">
+
+    <!-- 1. Presentation Layer -->
+    <div class="column-wrapper layer-presentation">
+        <div class="layer-title">Presentation Layer</div>
+        <div class="cards-list">
+            <!-- Web Console -->
+            <div class="node-card" id="web-console">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <circle cx="6" cy="6.5" r="1" fill="currentColor"></circle>
+                        <circle cx="9" cy="6.5" r="1" fill="currentColor"></circle>
+                        <circle cx="12" cy="6.5" r="1" fill="currentColor"></circle>
+                        <polygon points="14 11 17 18 19 17 16 11" fill="currentColor"></polygon>
+                    </svg>
+                </div>
+                <div class="node-title">Web Console</div>
+            </div>
+            
+            <!-- CLI Tool -->
+            <div class="node-card" id="cli-tool">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                </div>
+                <div class="node-title">CLI Tool</div>
+            </div>
+            
+            <!-- APIs Gateway -->
+            <div class="node-card" id="apis-gateway">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                        <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                        <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                        <path d="M12 8v8M5 16v-5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"></path>
+                    </svg>
+                </div>
+                <div class="node-title">APIs Gateway</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Application Layer -->
+    <div class="column-wrapper layer-application">
+        <div class="layer-title">Application Layer</div>
+        <div class="cards-list">
+            <!-- BreezyCRM -->
+            <div class="node-card" id="breezy-crm">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="node-title">BreezyCRM</div>
+            </div>
+            
+            <!-- BCR -->
+            <div class="node-card" id="bcr">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                        <circle cx="9" cy="10" r="2"></circle>
+                        <path d="M14 9h4M14 13h4M7 16h10"></path>
+                    </svg>
+                </div>
+                <div class="node-title">BCR</div>
+                <div class="node-desc">(Business Card Ingestion)</div>
+            </div>
+            
+            <!-- BreezyCLM -->
+            <div class="node-card" id="breezy-clm">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="node-title">BreezyCLM</div>
+                <div class="node-desc">(E-Sign)</div>
+            </div>
+            
+            <!-- BreezyKM -->
+            <div class="node-card" id="breezy-km">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </div>
+                <div class="node-title">BreezyKM</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. AI Brain Core -->
+    <div class="column-wrapper layer-brain">
+        <div class="layer-title">AI Brain Core</div>
+        <div class="cards-list">
+            <!-- Ollama Router -->
+            <div class="node-card" id="ollama-router">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61C6.35 15.79 9 14.5 12 14.5s5.65 1.29 7.03 3.11C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path>
+                        <circle cx="9" cy="10" r="1.5" fill="currentColor"></circle>
+                        <circle cx="15" cy="10" r="1.5" fill="currentColor"></circle>
+                        <path d="M10 13a2 2 0 0 0 4 0"></path>
+                    </svg>
+                </div>
+                <div class="node-title">Ollama Router</div>
+            </div>
+            
+            <!-- Qwen LLM -->
+            <div class="node-card" id="qwen-llm">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-5.5s1-4 2.5-5.5S8 3 10 3s4.5 1 5.5 2.5M19.5 7.5c1.5 1.5 2.5 3.5 2.5 5.5s-1 4-2.5 5.5S16 21 14 21s-4.5-1-5.5-2.5"></path>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 8v8M8 12h8"></path>
+                    </svg>
+                </div>
+                <div class="node-title">Qwen LLM</div>
+                <div class="node-desc">(Local LLM)</div>
+            </div>
+            
+            <!-- Chroma Vector DB -->
+            <div class="node-card" id="chroma-db">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9.5" cy="12" r="6" fill="#00d2ff" fill-opacity="0.6" stroke="#00d2ff" stroke-width="2"></circle>
+                        <circle cx="14.5" cy="12" r="6" fill="#ffe600" fill-opacity="0.6" stroke="#ffe600" stroke-width="2"></circle>
+                    </svg>
+                </div>
+                <div class="node-title">Chroma Vector DB</div>
+            </div>
+            
+            <!-- Agent Loop & Gate -->
+            <div class="node-card" id="agent-loop">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                    </svg>
+                </div>
+                <div class="node-title">Agent Loop & Gate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Security & Boundary -->
+    <div class="column-wrapper layer-security">
+        <div class="layer-title">Security & Boundary</div>
+        <div class="cards-list">
+            <!-- DMZ Gateway -->
+            <div class="node-card" id="dmz-gateway">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="10" height="18" rx="1"></rect>
+                        <path d="M13 12h8M18 9l3 3-3 3"></path>
+                    </svg>
+                </div>
+                <div class="node-title">DMZ Gateway</div>
+            </div>
+            
+            <!-- BreezySign Cloud -->
+            <div class="node-card" id="breezy-cloud">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                </div>
+                <div class="node-title">BreezySign Cloud</div>
+            </div>
+            
+            <!-- Offline CA -->
+            <div class="node-card" id="offline-ca">
+                <div class="node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 22 7"></polygon>
+                        <rect x="3" y="18" width="18" height="3" rx="0.5"></rect>
+                        <line x1="6" y1="7" x2="6" y2="18"></line>
+                        <line x1="10" y1="7" x2="10" y2="18"></line>
+                        <line x1="14" y1="7" x2="14" y2="18"></line>
+                        <line x1="18" y1="7" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="node-title">Offline CA</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 絕對定位 SVG 發光數據流連線 -->
+<svg class="flow-canvas" id="canvas-lines"></svg>
+
+<script>
+function drawFlowLines() {
+    const canvas = document.getElementById('canvas-lines');
+    if (!canvas) return;
+    
+    let paths = '';
+    
+    // 輔助函數：取得 DOM 元素相對於 body 左上角的絕對座標中心點
+    function getConnectorPoints(id) {
+        const el = document.getElementById(id);
+        if (!el) return null;
+        const rect = el.getBoundingClientRect();
+        
+        return {
+            top: { x: rect.left + rect.width / 2, y: rect.top },
+            bottom: { x: rect.left + rect.width / 2, y: rect.top + rect.height },
+            left: { x: rect.left, y: rect.top + rect.height / 2 },
+            right: { x: rect.left + rect.width, y: rect.top + rect.height / 2 }
+        };
+    }
+    
+    // 1. Presentation Layer 內部連線: Web Console -> CLI Tool
+    const webConsole = getConnectorPoints('web-console');
+    const cliTool = getConnectorPoints('cli-tool');
+    if (webConsole && cliTool) {
+        paths += `<path d="M ${webConsole.bottom.x} ${webConsole.bottom.y} V ${cliTool.top.y}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)" />`;
+    }
+    
+    // 2. Presentation ➡️ Application 連線 (CLI Tool 與 APIs Gateway 右側匯合，分岔指向 CRM、BCR、CLM、KM)
+    const apisGateway = getConnectorPoints('apis-gateway');
+    const breezyCrm = getConnectorPoints('breezy-crm');
+    const bcr = getConnectorPoints('bcr');
+    const breezyClm = getConnectorPoints('breezy-clm');
+    const breezyKm = getConnectorPoints('breezy-km');
+    
+    if (cliTool && apisGateway && breezyCrm && bcr && breezyClm && breezyKm) {
+        const startX1 = cliTool.right.x;
+        const startY1 = cliTool.right.y;
+        const startX2 = apisGateway.right.x;
+        const startY2 = apisGateway.right.y;
+        
+        // 匯合點的 X 軸 (兩大欄位正中間位置)
+        const midX = startX1 + (breezyCrm.left.x - startX1) / 2;
+        
+        // 水平拉線至中間匯合 X 軸
+        paths += `<path d="M ${startX1} ${startY1} H ${midX}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" />`;
+        paths += `<path d="M ${startX2} ${startY2} H ${midX}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" />`;
+        
+        // 垂直匯合線
+        paths += `<path d="M ${midX} ${startY1} V ${startY2}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" />`;
+        
+        // 從匯合點分岔射出水平箭頭線指向 Application 的四個小卡片
+        paths += `<path d="M ${midX} ${breezyCrm.left.y} H ${breezyCrm.left.x}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)" />`;
+        paths += `<path d="M ${midX} ${bcr.left.y} H ${bcr.left.x}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)" />`;
+        paths += `<path d="M ${midX} ${breezyClm.left.y} H ${breezyClm.left.x}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)" />`;
+        paths += `<path d="M ${midX} ${breezyKm.left.y} H ${breezyKm.left.x}" stroke="var(--blue-neon)" stroke-width="2.5" fill="none" filter="url(#glow-blue)" marker-end="url(#arrow-blue)" />`;
+    }
+    
+    // 3. Application Layer 內部連線: BreezyCRM -> BCR
+    if (breezyCrm && bcr) {
+        paths += `<path d="M ${breezyCrm.bottom.x} ${breezyCrm.bottom.y} V ${bcr.top.y}" stroke="var(--green-neon)" stroke-width="2.5" fill="none" filter="url(#glow-green)" marker-end="url(#arrow-green)" />`;
+    }
+    
+    // 4. Application ➡️ AI Brain Core 連線 (BreezyKM 右側 -> Ollama Router 左側，做綠色雙折彎連線)
+    const ollamaRouter = getConnectorPoints('ollama-router');
+    if (breezyKm && ollamaRouter) {
+        const startX = breezyKm.right.x;
+        const startY = breezyKm.right.y;
+        const endX = ollamaRouter.left.x;
+        const endY = ollamaRouter.left.y;
+        
+        // 兩大欄位正中間的 X 軸
+        const midX2 = startX + (endX - startX) / 2;
+        
+        paths += `<path d="M ${startX} ${startY} H ${midX2} V ${endY} H ${endX}" stroke="var(--green-neon)" stroke-width="2.5" fill="none" filter="url(#glow-green)" marker-end="url(#arrow-green)" />`;
+    }
+    
+    // 5. AI Brain Core 內部連線: Ollama Router -> Qwen LLM -> Chroma Vector DB -> Agent Loop & Gate
+    const qwenLlm = getConnectorPoints('qwen-llm');
+    const chromaDb = getConnectorPoints('chroma-db');
+    const agentLoop = getConnectorPoints('agent-loop');
+    
+    if (ollamaRouter && qwenLlm) {
+        paths += `<path d="M ${ollamaRouter.bottom.x} ${ollamaRouter.bottom.y} V ${qwenLlm.top.y}" stroke="var(--purple-neon)" stroke-width="2.5" fill="none" filter="url(#glow-purple)" marker-end="url(#arrow-purple)" />`;
+    }
+    if (qwenLlm && chromaDb) {
+        paths += `<path d="M ${qwenLlm.bottom.x} ${qwenLlm.bottom.y} V ${chromaDb.top.y}" stroke="var(--purple-neon)" stroke-width="2.5" fill="none" filter="url(#glow-purple)" marker-end="url(#arrow-purple)" />`;
+    }
+    if (chromaDb && agentLoop) {
+        paths += `<path d="M ${chromaDb.bottom.x} ${chromaDb.bottom.y} V ${agentLoop.top.y}" stroke="var(--purple-neon)" stroke-width="2.5" fill="none" filter="url(#glow-purple)" marker-end="url(#arrow-purple)" />`;
+    }
+    
+    // 6. AI Brain Core ➡️ Security 連線 (Agent Loop 右側 -> DMZ Gateway 左側，做橘色雙折彎連線)
+    const dmzGateway = getConnectorPoints('dmz-gateway');
+    if (agentLoop && dmzGateway) {
+        const startX = agentLoop.right.x;
+        const startY = agentLoop.right.y;
+        const endX = dmzGateway.left.x;
+        const endY = dmzGateway.left.y;
+        
+        // 兩大欄位正中間的 X 軸
+        const midX3 = startX + (endX - startX) / 2;
+        
+        paths += `<path d="M ${startX} ${startY} H ${midX3} V ${endY} H ${endX}" stroke="var(--orange-neon)" stroke-width="2.5" fill="none" filter="url(#glow-orange)" marker-end="url(#arrow-orange)" />`;
+    }
+    
+    // 7. Security 內部連線: DMZ Gateway -> BreezySign Cloud
+    const breezyCloud = getConnectorPoints('breezy-cloud');
+    if (dmzGateway && breezyCloud) {
+        paths += `<path d="M ${dmzGateway.bottom.x} ${dmzGateway.bottom.y} V ${breezyCloud.top.y}" stroke="var(--orange-neon)" stroke-width="2.5" fill="none" filter="url(#glow-orange)" marker-end="url(#arrow-orange)" />`;
+    }
+    
+    // 寫入 SVG Canvas，內嵌 Gaussian Blur 發光濾鏡與箭頭定義
+    canvas.innerHTML = `
+        <defs>
+            <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--blue-neon)" />
+            </marker>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--green-neon)" />
+            </marker>
+            <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--purple-neon)" />
+            </marker>
+            <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--orange-neon)" />
+            </marker>
+        </defs>
+        \\${paths}
+    `;
+}
+
+// 延時確保 DOM 與卡片佈局計算穩定後再繪製連線，保證 Edge Headless 截圖無偏差
+window.onload = function() {
+    setTimeout(drawFlowLines, 200);
+};
+
+// 支援視窗大小調整自動重繪
+window.onresize = drawFlowLines;
+</script>
+
+</body>
+</html>
