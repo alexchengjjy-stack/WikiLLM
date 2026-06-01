@@ -39,7 +39,7 @@ summary: "在 AI 時代進行產品管理的能力，包含 AI 功能規劃、Ag
 ### MCP（Model Context Protocol）對業務的意義
 - 鼎新電腦宣告轉向「業務中台 + MCP 框架」：ISV 可自行開發上架
 - 對電子簽章廠商的啟示：API/SDK 必須達到 MCP 可串接的品質標準
-- 相關需求頁：[BZS 功能需求（MCP 中台化）](../analyses/bzs-feature-requirements.md)
+- 相關需求頁：[BZS 功能需求（MCP 中台化）](../analyses/bzs/bzs-feature-requirements.md)
 
 ## 產品規劃案例
 
@@ -65,9 +65,9 @@ summary: "在 AI 時代進行產品管理的能力，包含 AI 功能規劃、Ag
 
 ## 相關連結
 
-- [BZS 功能需求與痛點](../analyses/bzs-feature-requirements.md)
+- [BZS 功能需求與痛點](../analyses/bzs/bzs-feature-requirements.md)
 - [[ai-agent-prompting|AI Agent Prompting 技能]]
 - [[harness-engineering-practice|Harness Engineering 實踐]]
-- [[antigravity-aipm-framework|AIPM ANTIGRAVITY 規範]]
+- [[analyses/bzb/bzb-antigravity-aipm-framework|AIPM ANTIGRAVITY 規範]]
 - [[aipm-framework-4|Product Manager 4.0 系統架構]]
 - [[claude-rules-12-commandments|CLAUDE.md 12條黃金行為指令]]

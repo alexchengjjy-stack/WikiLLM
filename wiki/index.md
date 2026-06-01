@@ -2,28 +2,36 @@
 title: "WikiLLM 知識庫首頁"
 type: index
 date_created: 2026-04-18
-date_updated: 2026-05-29
+date_updated: 2026-06-01
 summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程實踐、個人技能、工作專案與產品規劃。"
 ---
 
 # 📚 WikiLLM 知識庫
 
-歡迎來到 WikiLLM！### 🎨 品牌專屬報告與簡報模板 (Outputs)
+歡迎來到 WikiLLM！
+
+### 🎨 品牌專屬報告與簡報模板 (Outputs)
 > 蒙恬科技 (PenPower) 好好簽 BreezySign 官方專用高階商務與技術報告模板，已內嵌正版高清 Logo 與色彩規範。
 
-* [BreezySign 官方報告 HTML 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-report-template.html) ── 整合完美官方 SVG 向量 Logo，支援響應式排版。
-* [BreezySign 官方報告 PDF 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-report-template.pdf) ── 經 Edge Headless 無損轉譯，具備 `@media print` 列印保護。
-* [BreezySign 官方簡報 PPTX 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-presentation-template.pptx) ── 16:9 比例，內嵌高保真透明 Logo 與五大關鍵商業/技術投影片。
-* [BreezySign 2026H2 跨部門執行計畫 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1228-bzs-2026h2-cross-department-plan.html) ── 100% 完美套用官方 HTML 品牌報告版型，包含動態 glass-card 卡片、Base64 Logo 及 table-responsive 響應式排版。
-* [BreezySign 2026H2 跨部門執行計畫 (PDF 商務討論稿)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1228-bzs-2026h2-cross-department-plan.pdf) ── 套用官方翠綠色視覺、帶有 `@media print` 列印保護之高品質無損 PDF 檔案。
-* [好好簽官網 SEO/GEO 深度分析報告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-bzs-website-seo-geo-analysis.html) ── 包含結構化資料上線、DOM 樹大綱重構與富友案例完工之最新分析。
-* [好好簽官網 SEO/GEO 深度分析報告 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-bzs-website-seo-geo-analysis.pdf) ── 完美套用官方商務報告版型之高保真 PDF 檔案。
-* [電子簽章 4 大官網第三次雙軌普查報告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-esign-competitor-seo-geo-analysis.html) ── 技術與 AI 能見度最新對比網頁。
-* [電子簽章 4 大官網第三次雙軌普查報告 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-esign-competitor-seo-geo-analysis.pdf) ── 完美套用翠綠主題 card、無損列印之高品質商務 PDF 檔案。
-* [新版電子簽章法用戶服務協議 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1558-bzs-terms-of-service.html) ── 針對中華電信 AATL 推定親簽效力與相對人默示同意機制之最新條款。
-* [新版電子簽章法用戶服務協議 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1558-bzs-terms-of-service.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證條款。
-* [新版電子簽章法隱私權宣告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1558-bzs-privacy-policy.html) ── 包含聲明錄影簽影像隨合約保管、被遺忘權與資安保護之最新公告。
-* [新版電子簽章法隱私權宣告 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260529-1558-bzs-privacy-policy.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證宣告。
+* [BreezySign 官方報告 HTML 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/templates/bzs-report-template.html) ── 整合完美官方 SVG 向量 Logo，支援響應式排版。
+* [BreezySign 官方報告 PDF 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/templates/bzs-report-template.pdf) ── 經 Edge Headless 無損轉譯，具備 `@media print` 列印保護。
+* [BreezySign 官方簡報 PPTX 模板](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/templates/bzs-presentation-template.pptx) ── 16:9 比例，內嵌高保真透明 Logo 與五大關鍵商業/技術投影片。
+* [BreezySign 2026H2 跨部門執行計畫 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1228-bzs-2026h2-cross-department-plan.html) ── 100% 完美套用官方 HTML 品牌報告版型，包含動態 glass-card 卡片、Base64 Logo 及 table-responsive 響應式排版。
+* [BreezySign 2026H2 跨部門執行計畫 (PDF 商務討論稿)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1228-bzs-2026h2-cross-department-plan.pdf) ── 套用官方翠綠色視覺、帶有 `@media print` 列印保護之高品質無損 PDF 檔案。
+* [好好簽官網 SEO/GEO 深度分析報告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1340-bzs-website-seo-geo-analysis.html) ── 包含結構化資料上線、DOM 樹大綱重構與富友案例完工之最新分析。
+* [好好簽官網 SEO/GEO 深度分析報告 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1340-bzs-website-seo-geo-analysis.pdf) ── 完美套用官方商務報告版型之高保真 PDF 檔案。
+* [電子簽章 4 大官網第三次雙軌普查報告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1340-esign-competitor-seo-geo-analysis.html) ── 技術與 AI 能見度最新對比網頁。
+* [電子簽章 4 大官網第三次雙軌普查報告 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260527-1340-esign-competitor-seo-geo-analysis.pdf) ── 完美套用翠綠主題 card、無損列印之高品質商務 PDF 檔案。
+* [新版電子簽章法用戶服務協議 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-terms-of-service.html) ── 針對中華電信 AATL 推定親簽效力與相對人默示同意機制之最新條款。
+* [新版電子簽章法用戶服務協議 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-terms-of-service.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證條款。
+* [新版電子簽章法隱私權宣告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-privacy-policy.html) ── 包含聲明錄影簽影像隨合約保管、被遺忘權與資安保護之最新公告。
+* [新版電子簽章法隱私權宣告 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-privacy-policy.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證宣告。
+* [好好簽 2026 年 5 月營運月報 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.html) ── 整合 SaaS $84K 與專案 API $281K 雙引擎營收、2025-10 至 2026-05 歷史實收 MoM 趨勢、新增註冊、Leads 漏斗及點點簽轉單與大檔案憑證婉拒深度分析網頁。
+* [好好簽 2026 年 5 月營運月報 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.pdf) ── 套用官方翠綠色視覺、帶有 `@media print` 列印保護之高品質無損 PDF 報告。
+* [好好簽 2026 年 5 月營運月報 (PPTX 演示簡報)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.pptx) ── 載入官方 bzs-presentation-template.pptx 製作之 5 頁營運匯報投影片。
+* [電子簽章 6 月競品普查快照 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.html) ── 包含點點簽大漲價、律果簽 AI 助理法樂多與全景零信任資安之最新分析。
+* [電子簽章 6 月競品普查快照 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pdf) ── 套用官方翠綠色視覺、無損列印之高品質商務 PDF 檔案。
+* [電子簽章 6 月競品普查快照 (PPTX 演示簡報)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pptx) ── 載入官方範本製作，包含四大普查矩陣、七大觀測通道深度解析與 Battle Cards 話術。
 
 ---
 
@@ -84,9 +92,12 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * 🔴 **[鼎新電腦 API 對接](projects/ding-xin-api-integration.md)** — API 技術對接，合約審核中；6/11 直播活動備備戰
 * 🔴 **[聖洋科技 API 串接](projects/cacafly-api-integration.md)** — 每年 8k-10k 份 API 對接，進行多品牌動態 Logo 規格規劃
 * 🔴 **[工研院跨境電子簽章計畫](projects/itri-cross-border-esign.md)** — ⚡ 5/15 截止提交亮點簡報
+* 🔴 **[太平洋旅行社 Onboarding](projects/pacific-travel-onboarding.md)** — 40人企業版方案 Onboarding 共享範本設定，正式合約 6/1 生效啟用
+* 🔴 **[得勝者 PACS 醫療影像電簽整合](projects/deshengzhe-pacs-integration.md)** — 6月測試 7月上線，包含旗下診所與商之器 PACS 影像 AI 平台電簽 API 串接
 * 🔴 **[鴻運聯邦 Onboarding](projects/hong-yun-onboarding.md)** — 現場平板簽署與證件上傳大用量需求，預備線上展示
 * 🟡 **[華杏出版 Onboarding](projects/huaxing-publishing-onboarding.md)** — 5/26 簡報會後升級專業體驗版，進行 3 個月試用監控與帳號共用防禦
 * 🟡 **[海沃管理顧問 Onboarding](projects/hai-wo-onboarding.md)** — 企業版體驗試用中，跟進點點簽轉單痛點，試用至 6/10
+* 🟡 **[麻吉行得通 Onboarding](projects/maji-mobility-onboarding.md)** — 500-600份年約轉單跟進，等待主管決策，7月初重啟聯繫
 * 🟡 **[恩主公醫院 AIO 院內平台](projects/enzhugong-hospital-aio.md)** — 護理單位提案，進入預算估算
 * 🟡 **[101 客戶 BPM 系統建置](projects/project-101-bpm-deployment.md)** — HiCloud+DMZ 轉介 Server 建置中
 * 🟡 **[百加資通 BPM 通路合作](projects/pai-plus-bpm-partnership.md)** — 精鈺金屬需求評估中；巨虹電子分潤已結算
@@ -104,32 +115,38 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * [SEO & GEO 健檢分析 Starter Kit 範本](playbooks/seo-geo-starter-kit/README.md)
 * [SEO & GEO 健檢分析 Starter Kit (Agent 提示詞)](playbooks/seo-geo-starter-kit/agent.md)
 * [電子簽章能量登錄競品週期性觀測機制](playbooks/esign-competitor-monitoring-mechanism.md)
+* [WikiLLM 工作項目分類與打標指南](playbooks/work-categorization-guideline.md) — 定義現有業務 (好好簽) 與下一代產品 (好好腦) 的分類範疇與打標規範。
+* [輸出檔案治理與 Skill 迭代規範 SOP](playbooks/output-file-governance-sop.md) — 規範 outputs 輸出檔案命名、物理子目錄分類與 Skill 增量更新機制。
 
 
 ---
 
 ### 🔬 核心領域研究
 **電子簽章服務分析**
-  * [國內外電子簽章服務全景分析](analyses/global-e-signature-comparison.md)
-  * [國內電子簽章服務競品比較](analyses/domestic-e-signature-comparison.md)
-  * [好好簽 BreezySign 電子簽章定價成本結構與利潤邊際分析報告 (2026-05-25)](analyses/bzs-pricing-cost-structure-analysis-20260525.md)
-  * [電子簽章 4 大官網第二次 SEO/GEO 雙軌普查與對比報告 (2026-05-25)](analyses/esign-competitor-seo-geo-analysis-20260525.md)
-  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
-  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
-  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式、數發部徽章與 FAQ 完整部署實現爆發式反超競品。
-  * [點點簽價格調漲與以份計費引發之轉單潮深度分析報告](analyses/dottedsign-price-hike-churn-analysis.md)
-  * [BZS 客戶畫像特徵](analyses/bzs-customer-personas.md)
-  * [BZS 功能需求與痛點](analyses/bzs-feature-requirements.md)
-  * [SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)](analyses/bzs-saas-ops-csm-reconciliation-202605.md) — 勾稽分析後台營收、PLG/SLG 漏斗與 Leads 跟進軌跡。
-  * [BreezySign 商業部門職務工作清單整理](analyses/bzs-bu-role-based-tasklist.md) ── 依銷售、行銷、產品、工程與營運職務梳理的「待進行、可優化、下一步工作建議」工作清單。
-  * [好好簽官網 Blog 行銷推廣系列文章 (2026-05)](analyses/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 案例、情境與數發部能量登錄里程碑文章。
-  * [BreezyBrain 完善度診斷與 MVP/Roadmap 規劃](analyses/breezybrain-mvp-roadmap.md) ── 針對 BreezyBrain 進行整體產品規格之完善度評估，列出四大隱性死角，並提煉三階段產品路線圖。
-  * [BreezyBrain 需求規格深度分析與規劃報告](analyses/breezybrain-spec-analysis-report.md) ── 針對 BreezyBrain 進行分層架構、順逆向流程管道、六大資安與個資防衛細節、及三階段產品 Roadmap 規劃的正式評估報告。
-  * [WikiLLM 知識庫健康檢查與 Lint 優化報告](analyses/kb-health-check-report.md) ── 針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。
+  * [國內外電子簽章服務全景分析](analyses/esign/esign-global-comparison.md)
+  * [國內電子簽章服務競品比較](analyses/esign/esign-domestic-comparison.md)
+  * [好好簽 BreezySign 電子簽章定價成本結構與利潤邊際分析報告 (2026-05-25)](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md)
+  * [電子簽章 4 大官網第二次 SEO/GEO 雙軌普查與對比報告 (2026-05-25)](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md)
+  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
+  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
+  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式、數發部徽章與 FAQ 完整部署實現爆發式反超競品。
+  * [點點簽價格調漲與以份計費引發之轉單潮深度分析報告](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
+  * [BZS 客戶畫像特徵](analyses/bzs/bzs-customer-personas.md)
+  * [BZS 功能需求與痛點](analyses/bzs/bzs-feature-requirements.md)
+  * [SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) — 勾稽分析後台營收、PLG/SLG 漏斗與 Leads 跟進軌跡。
+  * [BreezySign 商業部門職務工作清單整理](analyses/bzs/bzs-bu-role-based-tasklist.md) ── 依銷售、行銷、產品、工程與營運職務梳理的「待進行、可優化、下一步工作建議」工作清單。
+  * [好好簽官網 Blog 行銷推廣系列文章 (2026-05)](analyses/bzs/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 案例、情境與數發部能量登錄里程碑文章。
+  * [BreezyBrain 完善度診斷與 MVP/Roadmap 規劃](analyses/bzb/bzb-mvp-roadmap.md) ── 針對 BreezyBrain 進行整體產品規格之完善度評估，列出四大隱性死角，並提煉三階段產品路線圖。
+  * [BreezyBrain 需求規格深度分析與規劃報告](analyses/bzb/bzb-spec-analysis-report.md) ── 針對 BreezyBrain 進行分層架構、順逆向流程管道、六大資安與個資防衛細節、及三階段產品 Roadmap 規劃的正式評估報告。
+  * [WikiLLM 知識庫健康檢查與 Lint 優化報告](analyses/wikillm/wikillm-kb-health-check-report.md) ── 針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。
 
 ## 📄 來源摘要 (Sources)
+- [得勝者醫療資訊整合專案會議紀錄](./sources/deshengzhe-meeting-report-20260601.md) — 記錄 2026-06-01 專案會議，包含方鼎與商之器之座標完簽 API、混合雲時間戳記離線設計及體驗包行銷推廣策略。
+- [BreezySign 好好簽 20260529 專案與 API 業務日報](./sources/20260529-projects-daily.md) — 記錄 2026-05-29 業務與技術對接，包含大瀚 LP 正式上線準備、得勝者 PACS 影像整合、星鴻 Albert 高雄行及 101 地端原始碼安裝包交付。
+- [BreezySign 好好簽 20260529 SaaS 業務日報](./sources/20260529-saas-daily.md) — 記錄 2026-05-29 業務日報，聚焦「麻吉行得通」點點簽 8/3 到期轉換好好簽決策跟進。
+- [BreezySign 好好簽 2026-05-29 週報](./sources/bzs-weekly-report-20260529.md) — 記錄 2026-05-29 當週營運動態，包含太平洋旅行社正式簽約 (年費 NT60k)、台中浸信會延期開通、聖美麗憑證檔案大小限制等反饋。
 - [BreezySign 好好簽 20260527 業務日報](./sources/20260527-saas-daily.md) — 記錄 2026-05-27 業務日報進展，包含海沃管理顧問的點點簽轉單與鴻運聯邦現場平板簽署需求。
-- [BreezySign 好好簽 20260526 業務日報](./sources/bzs-daily-report-20260526.md) — 記錄 2026-05-26 業務日報進展，包含聖洋科技 API 串接大戶、屏東獅子鄉公所公部門詢問與華杏出版簡報升級。
+- [BreezySign 好好簽 20260526 業務日報](./sources/bzs-daily-report-20260526.md) — 記錄 2026-05-26 業務日報進展，包含聖洋科技 API 串接大戶，屏東獅子鄉公所公部門詢問與華杏出版簡報升級。
 - [BreezySign 好好簽 20260523-0525 三日日報](./sources/bzs-daily-reports-20260523-20260525.md) — 記錄 2026-05-23 至 05-25 的三日業務數據與客戶進展，包含神坊資訊與愛因斯坦量化科技的 API 需求，以及喜事來與人合國際的結案紀錄。
 - [BreezySign 好好簽 20260522 日報](./sources/bzs-daily-report-20260522.md) — 記錄 2026-05-22 當日業務進展，包含予時包租代管、瑞飛憑證介接與華杏出版預約展示。
 - [BreezySign 好好簽 20260522 週報](./sources/bzs-weekly-report-20260522.md) — 記錄 2026-05-22 當週營運指標與太平洋旅行社、台灣奇恭等點點簽轉單移轉進度。
@@ -137,26 +154,27 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 - [BZS 2026 行銷廣告報表 (Google Ads & Pmax)](./sources/bzs-marketing-ads-2026.md) — 2026年好好簽 Google Ads 廣告花費與轉換漏斗數據。
 - [BreezySign 搜尋字詞報表 (2026.01-05)](sources/bzs-search-terms-2026.md) — 分析了 2026 上半年的 Google Ads 關鍵字成效與競品攔截轉換率。
 - [BreezySign 好好簽實際案例和場景](sources/bzs-use-cases-and-clients.md) — 詳列各垂直產業（不動產、貸款、旅行、租車等）的客戶名單、應用文件與主推特色功能（錄影簽、Line傳簽等）。
-  * [BZS 獲客管道分析](analyses/bzs-acquisition-channels.md)
-  * [BZS SaaS 客戶提取清單](analyses/bzs-saas-customer-list.md)
+  * [BZS 獲客管道分析](analyses/bzs/bzs-acquisition-channels.md)
+  * [BZS SaaS 客戶提取清單](analyses/bzs/bzs-saas-customer-list.md)
   * [FastSIGN 買斷制定價](sources/fastsign-pricing.md)
-  * [BreezySign 好好簽官網 SEO/GEO 深度分析報告 (全新完工版)](analyses/bzs-website-seo-geo-analysis.md) ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度提升至 7.5，完全消滅薄內容並破局實體混淆。 ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度提升至 7.5，完全消滅薄內容並破局實體混淆。 ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度暴增至 9.2，完全消滅薄內容並破局實體混淆。
-  * [點點簽官網 SEO/GEO 分析](analyses/dottedsign-website-seo-geo-analysis.md)
-  * [律果簽官網 SEO/GEO 分析](analyses/legalsign-website-seo-geo-analysis.md)
-  * [實際 AI 搜尋測試與 GEO 實證報告](analyses/ai-search-geo-empirical-report.md)
-  * [電子簽章市場競品情報月度快照 (2026-05)](analyses/esign-monitoring-snapshot-202605.md)
-  * [BreezyBrain 規格情境正反攻防分析報告](analyses/breezybrain-spec-defense.md)
-  * [BZS SaaS 各方案銷售佔比對照分析](analyses/bzs-saas-plan-sales-comparison.md)
-  * [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](analyses/bzs-saas-funnel-ltv-cac-report.md)
-  * [2026 數位行銷操作具體建議與四大維度數據推估](analyses/2026-h2-marketing-strategy-recommendations.md)
-  * [BZS SaaS 實質付費客戶分類清單 (按方案)](analyses/bzs-saas-paid-subscribers-by-plan.md)
-  * [BreezySign 2026 行銷與營運策略全局綜合摘要](analyses/bzs-saas-marketing-synthesis-2026.md)
+  * [BreezySign 好好簽官網 SEO/GEO 深度分析報告 (全新完工版)](analyses/bzs/bzs-website-seo-geo-analysis.md) ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度提升至 7.5，完全消滅薄內容並破局實體混淆。 ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度提升至 7.5，完全消滅薄內容並破局實體混淆。 ── 官網重構上線後，技術 SEO 暴增至 9.5，GEO 能見度暴增至 9.2，完全消滅薄內容並破局實體混淆。
+  * [點點簽官網 SEO/GEO 分析](analyses/esign/esign-dottedsign-website-seo-geo-analysis.md)
+  * [律果簽官網 SEO/GEO 分析](analyses/esign/esign-legalsign-website-seo-geo-analysis.md)
+  * [實際 AI 搜尋測試與 GEO 實證報告](analyses/esign/esign-ai-search-geo-empirical-report.md)
+  * [電子簽章市場競品情報月度快照 (2026-05)](analyses/esign/esign-monitoring-snapshot-202605.md)
+  * [電子簽章能量登錄競品情報普查快照 (2026 年 6 月)](analyses/esign/esign-monitoring-snapshot-202606.md) ── 確實查找點點簽 4/21 漲價實施、叡揚 Vital BizForm 深度串接與 MCP 導入；律果簽主推 AI「法樂多」；全景軟體進軍零信任等之最新快照。
+  * [BreezyBrain 規格情境正反攻防分析報告](analyses/bzb/bzb-spec-defense.md)
+  * [BZS SaaS 各方案銷售佔比對照分析](analyses/bzs/bzs-saas-plan-sales-comparison.md)
+  * [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md)
+  * [2026 數位行銷操作具體建議與四大維度數據推估](analyses/bzs/bzs-h2-marketing-strategy-2026.md)
+  * [BZS SaaS 實質付費客戶分類清單 (按方案)](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md)
+  * [BreezySign 2026 行銷與營運策略全局綜合摘要](analyses/bzs/bzs-saas-marketing-synthesis-2026.md)
 
 
 **AI 工程化實踐**
   * [Harness Engineering 深度解析：AI 工程師的第三個維度](topics/harness-engineering.md)
   * [Karpathy AutoResearch：極簡 AI 研究自動化迴圈 (Karpathy Loop)](topics/karpathy-autoresearch.md)
-  * [Antigravity AIPM 開發框架：角色化運作與規範總覽](analyses/antigravity-aipm-framework.md)
+  * [Antigravity AIPM 開發框架：角色化運作與規範總覽](analyses/bzb/bzb-antigravity-aipm-framework.md)
   * [Agent 實戰技能：/pm 與 /dev 模式切換與指令指南](skills/antigravity-role-switching.md)
   * [Agent 進階技能：AI 研究員 Agent 的設計與配置指南](skills/ai-research-agent-design.md)
   * [實際 AI 搜尋測試與 GEO 實證方法](topics/ai-search-testing.md)
@@ -234,4 +252,4 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 
 ### 🏢 實體與品牌 (Entities)
 * 本土電子簽章：[點點簽](entities/dottedsign.md) | [律果簽](entities/legalsign.md) | [好好簽](entities/breezysign.md) | [FastSIGN](entities/fastsign.md)
-* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md)
+* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md)

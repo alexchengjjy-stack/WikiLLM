@@ -47,4 +47,4 @@ summary: "統整 2026 年 Google Search、Pmax 廣告與搜尋關鍵字報表，
 
 ## 相關連結
 - [好好簽 2026 業務銷售與專案日報摘要](../sources/bzs-sales-reports-2026.md)
-- [BZS SaaS 客戶提取清單](../analyses/bzs-saas-customer-list.md)
+- [BZS SaaS 客戶提取清單](../analyses/bzs/bzs-saas-customer-list.md)

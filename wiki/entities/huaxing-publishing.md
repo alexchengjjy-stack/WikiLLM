@@ -42,7 +42,7 @@ summary: "專營護理科學教科書的出版社，搜尋數發部「能量登�
 ## 相關連結
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md) — 來源日報。
 - [2026H2 跨部門執行計畫](../../outputs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 舊客維護與 Onboarding 冷啟動戰術。
-- [好好簽電子簽章定價成本結構與利潤邊際分析報告](../analyses/bzs-pricing-cost-structure-analysis-20260525.md) — 個人專業方案大戶限制與加購精算。
+- [好好簽電子簽章定價成本結構與利潤邊際分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 個人專業方案大戶限制與加購精算。
 
 ## 來源引用
 - [20260526日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260526日報.md) ── 客戶進展原始記錄。

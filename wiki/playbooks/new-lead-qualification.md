@@ -134,4 +134,4 @@ summary: "處理 SaaS Inbound 新潛客的標準資格確認流程，確保每�
 
 - [SaaS 業務開發技能](../skills/saas-sales-development.md)
 - [企業試用跟進 Checklist](enterprise-trial-followup.md)
-- [BZS 獲客管道分析](../analyses/bzs-acquisition-channels.md)
+- [BZS 獲客管道分析](../analyses/bzs/bzs-acquisition-channels.md)

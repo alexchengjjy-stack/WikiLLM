@@ -6,7 +6,7 @@ tags: [BreezyBrain, 架構規劃, 流程防錯, 安全防範, 產品Roadmap]
 date_created: 2026-05-29
 date_updated: 2026-05-29
 source_count: 3
-sources: ["../products/breezy-brain/Product-Spec.md", "breezybrain-spec-defense.md", "breezybrain-mvp-roadmap.md"]
+sources: ["../products/breezy-brain/Product-Spec.md", "bzb-spec-defense.md", "bzb-mvp-roadmap.md"]
 summary: "針對 BreezyBrain 進行分層架構、順逆向流程管道、安全性防護規格與三階段路線圖規劃的正式評估報告。"
 ---
 
@@ -14,7 +14,7 @@ summary: "針對 BreezyBrain 進行分層架構、順逆向流程管道、安全
 
 > **文件類型**：技術評估與架構分析報告
 > **語言**：繁體中文
-> **關聯文件**：[Product-Spec.md](../products/breezy-brain/Product-Spec.md) | [breezybrain-spec-defense.md](breezybrain-spec-defense.md) | [breezybrain-mvp-roadmap.md](breezybrain-mvp-roadmap.md)
+> **關聯文件**：[Product-Spec.md](../products/breezy-brain/Product-Spec.md) | [bzb-spec-defense.md](bzb-spec-defense.md) | [bzb-mvp-roadmap.md](bzb-mvp-roadmap.md)
 
 本報告基於 WikiLLM 知識庫內部的正式報告與正反攻防討論，針對自研產品 **BreezyBrain (好好腦)** 進行全局性的架構拆解、智能業務流程整理、關鍵安全防禦剖析以及三階段產品路線圖 (Roadmap) 規劃。
 

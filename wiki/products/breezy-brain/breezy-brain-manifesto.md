@@ -75,10 +75,10 @@ BreezyBrain 將企業內碎片化的軟體（SaaS）無縫融合成一個有機�
 
 ## 🔗 三、 雙向連結與項目關聯
 
-- **市場可行性研析**：[[breezy-brain-concept-market-analysis|BreezyBrain 產品概念與市場可行性極致研析報告]]
+- **市場可行性研析**：[[analyses/bzb/bzb-concept-market-analysis|BreezyBrain 產品概念與市場可行性極致研析報告]]
 - **自動化數據流定義**：[[breezy-brain-integration-flow|BreezyBrain 跨系統自動化數據流與 API 規格]]
 - **研發落地路線圖**：[[breezy-brain-roadmap|BreezyBrain 四階段產品落地路線圖]]
-- **ESign 底座核心**：[[esign-pricing-feature-comparison|國內三大電子簽章官網方案與功能極致對比表]]
+- **ESign 底座核心**：[[analyses/esign/esign-pricing-feature-comparison|國內三大電子簽章官網方案與功能極致對比表]]
 - **CRM 跟進範本**：[[enterprise-trial-followup|企業試用期與 BreezyCRM 階段追蹤 SOP]]
 
 ---

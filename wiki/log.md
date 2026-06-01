@@ -1,14 +1,121 @@
 ---
 title: "操作日誌"
-type: log
-date_updated: 2026-05-29
+date_updated: 2026-06-01
 ---
+## [2026-06-01 18:45] update | 產出 2026 年 6 月電子簽章競品普查快照 PDF 與 PPTX
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **編寫並執行 PDF 生成器**: [generate_competitor_snapshot_pdf.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_competitor_snapshot_pdf.py) ── 自動解析 6 月普查 Markdown 快照，渲染為翠綠 CIS 設計的 [bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.html)，並調用 Headless Edge 轉譯出 [bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pdf)。
+  - **編寫並執行 PPTX 生成器**: [generate_competitor_snapshot_pptx.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_competitor_snapshot_pptx.py) ── 載入官方 PPTX 簡報模板，動態渲染四大矩陣表格、情報深度解析、對決 Battle Cards 話術等，產出 [bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pptx](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pptx)。
+  - **同步首頁索引**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 登錄上述最新的 6 月競品快照三種 Outputs 連結。
+  - **物理去重清理**: 物理刪除位於 `Obsidian/WikiLLM/raw/暫時存放/outputs` 的舊版重複未整理 outputs 目錄，確保全庫只保留工作區根目錄下已分類整理好的唯一 `outputs/` 目錄。
+- **關鍵調整**:
+  - **落實隔離與版控**: 新產出的 HTML、PDF、PPTX 均精準輸出至 `outputs/bzs/` 子資料夾，且套用精確時間戳版控檔名，完全防範版本混淆。
+
+## [2026-06-01 18:30] update | 分析報告資料夾 (analyses/) 分類正名與子目錄物理重構
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **更新文件 SOP**: [output-file-governance-sop.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/playbooks/output-file-governance-sop.md) ── 擴充「第三階段：分析報告命名與分類」，明定四大主題子目錄（`bzs/`, `bzb/`, `esign/`, `wikillm/`）物理分類與三大報告類型命名標準、YAML metadata 的 `analysis_type` 與 `tags` 規範及歷史版本更新策略。
+  - **更新操作指南**: [AGENTS.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/AGENTS.md) ── 同步更新分析頁面 YAML 規範、知識庫目錄結構與注意事項。
+  - **更新檢驗工具**: [wiki_linter.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/wiki_linter.py) ── 將檢查報告輸出路徑修復至規範路徑，並調整報告內相對連結的跳出層級，防止自動化工具污染根目錄。
+  - **物理搬移與連結修復**: [organize_analyses.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/organize_analyses.py) ── 建立主題子資料夾，將 `wiki/analyses/` 下現有 33 個分析報告物理搬移至主題子目錄中，並自動化全域掃描修正所有 Markdown 引用連結與 Obsidian 雙鏈。
+  - **修改首頁索引**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 對應更新 analyses 報告的所有子目錄連結路徑。
+- **關鍵調整**:
+  - **物理歸檔與結構化**: 將 analyses 資料夾混亂根目錄成功清空，全面隔離為四大前綴主題子目錄，為日後分析報告擴增預留清晰的擴充空間。
+  - **全域零斷鏈防禦**: 自動化修復了全庫 48 個 Markdown 檔案中的相對連結引用，並在 `wiki_linter.py` 全面測試中通過（0 broken links），生成合規的 [wikillm-kb-health-check-report.md](analyses/wikillm/wikillm-kb-health-check-report.md)。
+
+## [2026-06-01 18:00] update | 產出 2026 年 6 月電子簽章能量登錄競品情報普查快照
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創分析報告**: [esign-monitoring-snapshot-202606.md](analyses/esign/esign-monitoring-snapshot-202606.md) ── 100% 實地查找與對比點點簽、律果簽及全景軟體官網，記錄競品最新技術、產品生態及計費異動。
+  - **修改首頁索引**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊最新的 6 月競品快照分析報告。
+- **關鍵發現**:
+  - **點點簽大刀落地**: 官網公告於 2026-04-21 正式終止舊企業方案續約，強制升級至 Envelope Tasks 次數計費，提供我方業務精確轉單攔截的日期證據。另新增 Vital BizForm 整合與 MCP 大模型語意流程控制支援。
+  - **律果簽 AI 助理法樂多**: 律果簽發布 AI 法務助理，主打 30 秒自動審約以建構法遵門檻。
+  - **全景 IDExpert Cloud 零信任**: 全景大舉發布 IDExpert Cloud 零信任產品，完成三階段驗證，且主打後量子密碼學 PQC 製造業遷移。
+  - **勘誤修正**: 修正了原先將「雲想科技」標記為點點簽的錯誤，釐清雲想科技為 SelfieSign，點點簽母公司為凱鈿行動科技之事實。
+
+## [2026-06-01 17:50] update | 好好腦與好好簽輸出文件治理與目錄重構
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創流程劇本**: [output-file-governance-sop.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/playbooks/output-file-governance-sop.md) ── 制定輸出檔案命名規則、四大子目錄物理隔離（bzs/、bzb/、assets/、templates/）與個人技能 (Skill) 增量更新規範。
+  - **新創整理腳本**: [organize_outputs.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/organize_outputs.py) ── 自動化建立子目錄，將 160 個輸出檔案進行歸類移動，並清理冗餘的臨時除錯文字檔。
+  - **更新生成腳本**: [generate_ops_report_html.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_ops_report_html.py)、[generate_ops_report_pptx.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_ops_report_pptx.py)、[generate_ops_report_pdf.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_ops_report_pdf.py)、[generate_bzs_templates.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_bzs_templates.py) ── 修改靜態 Logo 與 PPTX 模板引用路徑，並重定向輸出目錄至對應之 `outputs/bzs/` 與 `outputs/templates/`。
+  - **修改首頁索引**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 重定向所有 Outputs 下的檔案連結至隔離後的子目錄，註冊新文件治理 SOP，並將營運月報連結更新至最新測試生成的 v3 版。
+- **關鍵調整**:
+  - **落實命名一致性**: 廢除所有無日期/Master 版本之交付件，一律使用帶有時間戳的唯一版本。好好腦簡稱統一修訂為 `bzb`（配合好好簽 `bzs`），實現雙系統對稱。
+  - **物理隔離與去噪**: 將 `outputs/` 混亂狀態重組，物理隔離了業務報告、產品 Spec、品牌 Logo 與簡報模板，並清除 8 個臨時產生的除錯 `.txt`，成功消除 FileNotFoundError 風險。
+
+## [2026-06-01 17:18] update | 建立核心工作項分類與打標指南並更新總覽
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創流程劇本**: [work-categorization-guideline.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/playbooks/work-categorization-guideline.md) ── 制定現役業務（第一大項：BreezySign Business/CSM/Marketing/PM/Competitor）與下一代產品（第二大項：BreezyBrain 全生命週期）的工作分類對照與標籤規範。
+  - **修改總覽**: [overview.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/overview.md) ── 更新統計快照與修改日期，並嵌入核心工作項分類架構以提供清晰的全局指引。
+  - **修改目錄**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
+- **關鍵調整**:
+  - **因應交錯指示防錯**: 為避免新加入文件與跨部門指示混淆，正式於知識庫確立「現役好好簽現有業務」與「下一代好好腦大腦產品」的兩大項劃分，使後續 AI Agent 能自動依此框架引導攝入與專案更新。
+
+## [2026-06-01 16:55] ingest | 得勝者醫療資訊整合專案經理會議紀錄攝入
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創來源摘要**: [deshengzhe-meeting-report-20260601.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/deshengzhe-meeting-report-20260601.md)
+  - **修改專案**: [deshengzhe-pacs-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/deshengzhe-pacs-integration.md) ── 標記 6/1 會議完成，並在待辦中新增「混合雲離線時間戳記設計」與「醫療無紙化推廣策略」追蹤。
+  - **修改實體**: [deshengzhe.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/deshengzhe.md) ── 更新來源引用與合作背景，將商之器合作細節進行同步。
+  - **修改目錄**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
+- **關鍵發現**:
+  - **座標+API 與自動轉 DICOM**: 確立「地端提供簽名座標、雲端據以產生簽名框」的技術對接。完簽後由商之器系統將 PDF 自動轉換為 Dicom 格式並回寫 PACS/HIS。
+  - **離線暫存與 NTP 校時合規性**: 規劃地端中繼程式於斷線時暫存簽章，在 3 天內與中華電信時間伺服器校時上傳，以符合電子病歷法規。
+  - **無期限體驗包商業模式**: 推出 50-100 份無期限體驗包（約 NT 1,000~2,000）以降低醫師的導入門檻，並與方鼎、商之器三方打包，預計 8 月共同舉辦醫療 Seminar 推廣。
+  - **愛立美資安餘波**: 稽核加嚴提升了醫美與自費診所對電子存證、時間戳記與合規電子病歷的需求。
+
+## [2026-06-01 15:35] update | 好好簽 BreezySign 2026 年 5 月營運月報（新增歷史趨勢 v2 版）
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創 HTML 報告**: [20260601-1535-bzs-202605-ops-report.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1535-bzs-202605-ops-report.html)
+  - **新創 PDF 報告**: [20260601-1535-bzs-202605-ops-report.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1535-bzs-202605-ops-report.pdf)
+  - **新創 PPTX 簡報**: [20260601-1535-bzs-202605-ops-report.pptx](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1535-bzs-202605-ops-report.pptx)
+  - **修改目錄**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
+  - **更新生成腳本**: [generate_ops_report_html.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_ops_report_html.py) ── 插入 2025-10 至 2026-05 SaaS 月度實收趨勢與 MoM 增減表格，並配置純 CSS 柱狀圖進行美觀數據視覺化。
+  - **更新簡報腳本**: [generate_ops_report_pptx.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/generate_ops_report_pptx.py) ── 新增 Slide 3 表格化呈現「SaaS 歷年實收與 MoM 趨勢」，使簡報規格擴展為 5 頁滿版投影。
+- **關鍵調整**:
+  - **回應使用者回饋**: 依據使用者「請加入 1, 2025~2026年各月營運數字,才能看出MoM, 及各月增減」的意見，精準勾稽歷史分析報告，彙整出完整的 8 個月實收數據，並在月報與簡報中完成雙重呈現。
+  - **增強商業洞見**: 揭示 2026-05 當月 SaaS 實收因大單合約扣款時間差造成的技術性 MoM 衰退（-56.83%），但若併計專案實收，則總體實收營收 MoM 其實為 +87.49% 的強勁增長。
+
+## [2026-06-01 15:00] update | 好好簽 BreezySign 2026 年 5 月營運月報產出
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創 HTML 報告**: [20260601-1457-bzs-202605-ops-report.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1457-bzs-202605-ops-report.html)
+  - **新創 PDF 報告**: [20260601-1457-bzs-202605-ops-report.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1457-bzs-202605-ops-report.pdf)
+  - **新創 PPTX 簡報**: [20260601-1457-bzs-202605-ops-report.pptx](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260601-1457-bzs-202605-ops-report.pptx)
+  - **修改目錄**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
+- **關鍵發現**:
+  - **財務營收雙引擎**: 當月實收總營收 NT$365,202（SaaS $84,080 + 專案/API $281,122）。新購業績達 $73,200（含太平洋旅行社 $60K 大單，9家新客新購 $13.2K）。
+  - **新增獲客漏斗**: 月新增註冊 312 家，電訪跟進 30 家，高意願客戶佔 15 家 (高轉換 50%)，19 家測試輔導中。
+  - **轉單與檔案憑證限制**: 點點簽以件計費（$45-50/份）導致大量客戶續約抗性並流失至我方。聖美麗因健康文件超過 10MB，嵌入 AATL 數位憑證易失敗而予以婉拒，客戶續約點點簽。
+  - **重大專案進展**: 鼎新 API 串接完成並調優 (連結時效調整為 15 分鐘)，聯合線上 API 進入測試，福安職安 API 報價 12 萬簽約中。
+
+## [2026-06-01 10:00] ingest | 2026-05-29 專案日報、SaaS 日報與週報攝入
+- **操作人員**: LLM Agent (Antigravity)
+- **產出與變更**:
+  - **新創來源摘要**: [20260529-projects-daily.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260529-projects-daily.md), [20260529-saas-daily.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260529-saas-daily.md), [bzs-weekly-report-20260529.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/bzs-weekly-report-20260529.md)
+  - **新創實體**: [deshengzhe.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/deshengzhe.md), [pacific-travel.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/pacific-travel.md), [maji-mobility.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/maji-mobility.md)
+  - **新創專案**: [deshengzhe-pacs-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/deshengzhe-pacs-integration.md), [pacific-travel-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/pacific-travel-onboarding.md), [maji-mobility-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/maji-mobility-onboarding.md)
+  - **修改專案**: [project-101-bpm-deployment.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/project-101-bpm-deployment.md), [sing-hung-kaohsiung-housing.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/sing-hung-kaohsiung-housing.md), [hong-yun-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/hong-yun-onboarding.md), [hai-wo-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/hai-wo-onboarding.md)
+  - **修改實體與分析**: [hai-wo-management.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/hai-wo-management.md), [dottedsign.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/dottedsign.md), [esign-dottedsign-price-hike-churn-analysis.md](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
+  - **修改目錄**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
+- **關鍵發現**:
+  - **101 BPM 地端安裝代碼交付**: 已交付地端安裝文件與原始碼，開通技術窗口憑證，並對異常寫回及 API 異常檢測提供兩套方案。
+  - **太平洋旅行社匯款付款**: 已於 5/26 電匯匯款 NT$60,000，於 6/1 正式啟用 40 人年約，並完成後台切換為 UNIFY 共享範本權限。
+  - **醫療 AI 影像 (PACS) 電簽**: 得勝者眼科診所 7 月上線，並與商之器合作串接醫院 PACS 後台 AI 影像引擎 mAIn。
+  - **麻吉行得通 7 月決策**: 點點簽 8/3 到期，好好簽已測試完成，承辦人等待主管最終決策，預計 7 月初開始處理轉換。
+  - **聖美麗大檔案憑證限制婉拒**: 因為上傳文件多超過 10MB 憑證限制我方予以婉拒，客戶選擇於 8/1 續約點點簽。
+
 ## [2026-05-29 16:40] lint | Wiki 知識庫全局健康檢查與編碼/連結修復
 - **操作人員**: LLM Agent (Antigravity)
 - **產出與變更**:
   - **修復文件編碼**: [breezy-brain-integration-flow.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/products/breezy-brain/breezy-brain-integration-flow.md) ── 偵測並剔除了第 8769 位元組處干擾 RAG 解碼之無效二進位字元 `\x8b`，使全庫回歸 100% 正確的 UTF-8 編碼。
   - **修復失效連結**: [log.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/log.md) ── 將第 1088 行已不存在之相對連結 `[lint_report.md](lint_report.md)` 替換成行內代碼文字，使全庫內部 Markdown 連結達成 ✅ 無失效內部連結。
-  - **產出健康檢查報告**: [kb-health-check-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/kb-health-check-report.md) ── 彙整 170 個頁面的 YAML Frontmatter 缺失、孤立與未註冊流失頁面，並分析產品規格書中對個資稽核日誌（pii_access.log）的潛在法規合規矛盾。
+  - **產出健康檢查報告**: [wikillm-kb-health-check-report.md](analyses/wikillm/wikillm-kb-health-check-report.md) ── 彙整 170 個頁面的 YAML Frontmatter 缺失、孤立與未註冊流失頁面，並分析產品規格書中對個資稽核日誌（pii_access.log）的潛在法規合規矛盾。
   - **更新首頁索引**: [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 於核心領域研究分析列表中註冊新增之健康優化報告。
   - **優化輔助工具**: [wiki_linter.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/wiki_linter.py) ── 優化 Linter 腳本正則表達式，相容 Windows 換行符（CRLF）及 UTF-8 BOM 標頭，並將報告直接寫入 analyses 專用目錄。
   - **清除暫存檔案**: 刪除未規範的 `wiki/lint_report.md` 暫存檔以維護目錄整潔。
@@ -314,7 +421,7 @@ date_updated: 2026-05-29
   - **新建檔案 (Projects)**：
     - [wiki/projects/hai-wo-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/hai-wo-onboarding.md) ── 海沃管理顧問體驗與試用跟進專案。
     - [wiki/projects/hong-yun-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/hong-yun-onboarding.md) ── 鴻運聯邦體驗與 Demo 展示專案。
-  - **修改檔案 (Analyses)**：[wiki/analyses/dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/dottedsign-price-hike-churn-analysis.md) ── 增補海沃管理顧問作為點點簽轉單移轉的最新案例。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-dottedsign-price-hike-churn-analysis.md](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 增補海沃管理顧問作為點點簽轉單移轉的最新案例。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊以上新創來源、實體、專案至導覽首頁。
 - **關鍵發現與成果**：
   - **點點簽份數計費引發移轉**：海沃管理顧問（年簽 200~300 份）因點點簽新方案份數計費高昂（300份年費 USD 510）而主動接洽好好簽。顯示出以份計費對中等用量客戶的抗性，目前開通企業體驗版至 6/10 供其功能與備份測試。
@@ -324,10 +431,10 @@ date_updated: 2026-05-29
 ## [2026-05-27 18:45] update | 整合三大安全原則與負向流程規格至 Product-Spec.md 並修復損壞之 MVP 路線圖
 - **操作者**: LLM Agent (Antigravity)
 - **變更與修復檔案**：
-  - **修復分析文件**：[wiki/analyses/breezybrain-mvp-roadmap.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/breezybrain-mvp-roadmap.md) — 補齊第二章 4-Phase 產品路線圖演進，移除第三章重複簡陋的大綱，保留並梳理完整的安全性死角與改善建議。
+  - **修復分析文件**：[wiki/analyses/bzb-mvp-roadmap.md](analyses/bzb/bzb-mvp-roadmap.md) — 補齊第二章 4-Phase 產品路線圖演進，移除第三章重複簡陋的大綱，保留並梳理完整的安全性死角與改善建議。
   - **實質整合規格書**：[wiki/products/breezy-brain/Product-Spec.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/products/breezy-brain/Product-Spec.md) — 將三大安全性原則（1. 操作及資料流程、2. 資訊安全性、3. 個資安全性）防線實質整合至 3.5.1、3.5.5、3.3.2 以及 Epic 7 業務工作流中（包括 Rejected 退回機制、mTLS/Pinning 加密通訊、Qdrant Payload Filter、pii_access.log 個資存取軌跡等）。
 - **關鍵發現**：
-  - 原規格書的 3.5.1 標題為「MCP 護城河防衛核心思維與威脅模型」，原 `breezybrain-mvp-roadmap.md` 中的安全分析與之呼應。已順利將安全性評估所提出的具體修補措施合規寫入規格書本體。
+  - 原規格書的 3.5.1 標題為「MCP 護城河防衛核心思維與威脅模型」，原 `bzb-mvp-roadmap.md` 中的安全分析與之呼應。已順利將安全性評估所提出的具體修補措施合規寫入規格書本體。
 
 
 # 📋 操作日誌
@@ -335,7 +442,7 @@ date_updated: 2026-05-29
 ## [2026-05-27 18:21] analyze | breezybrain-mvp-roadmap ── BreezyBrain 完善度診斷、三維度安全評估與 MVP/Roadmap 規劃
 - **操作者**: LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **新建並擴展分析文件**：[wiki/analyses/breezybrain-mvp-roadmap.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/breezybrain-mvp-roadmap.md) ── 彙整 4 大落地死角，規劃 Phase 1 至 Phase 3 的 Roadmap，並增量寫入操作流程、資訊安全、個資安全三大維度之深度規格評估。
+  - **新建並擴展分析文件**：[wiki/analyses/bzb-mvp-roadmap.md](analyses/bzb/bzb-mvp-roadmap.md) ── 彙整 4 大落地死角，規劃 Phase 1 至 Phase 3 的 Roadmap，並增量寫入操作流程、資訊安全、個資安全三大維度之深度規格評估。
   - **修改首頁索引**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 在核心領域研究板塊中註冊此分析文檔。
 - **關鍵發現與成果**：
   - **補齊四大落地死角**：指出混合部署模式下，必須補齊 RBAC 權限矩陣、地端 KMS/完簽 PDF 雜湊存證、一鍵部署 CLI 工具與備份復原機制等規格。
@@ -386,9 +493,9 @@ date_updated: 2026-05-29
 - **操作者**: LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **更新分析原始檔 (Analyses)**：
-    - [bzs-website-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-website-seo-geo-analysis.md) ── 修正我方好好簽官網正式站首頁 Title 為實測之 `台灣電子簽名系統第一品牌 | BreezySign 好好簽`，並對齊 Organization / Product Schema 100% 同步部署至 Production 的真實代碼事實。
-    - [esign-competitor-seo-geo-analysis-20260527.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 補齊「全景 FastSIGN」詳細診斷段落，落實其專屬獨立網域目前無效、產品入口託管於母公司官網 `changingtec.com` 子頁的真實探測發現，消除前後資訊斷層與自相矛盾。
-    - [esign-monitoring-snapshot-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-monitoring-snapshot-202605.md) ── 追加 2026-05-27 四大官網實地爬取二次覆核，正式寫入《普查與情報快照實測規範》為基準依據，並將好好簽首頁「數發部登錄聲明正式同步上線 Production」的最新狀態進行增量對齊與更新。
+    - [bzs-website-seo-geo-analysis.md](analyses/bzs/bzs-website-seo-geo-analysis.md) ── 修正我方好好簽官網正式站首頁 Title 為實測之 `台灣電子簽名系統第一品牌 | BreezySign 好好簽`，並對齊 Organization / Product Schema 100% 同步部署至 Production 的真實代碼事實。
+    - [esign-competitor-seo-geo-analysis-20260527.md](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 補齊「全景 FastSIGN」詳細診斷段落，落實其專屬獨立網域目前無效、產品入口託管於母公司官網 `changingtec.com` 子頁的真實探測發現，消除前後資訊斷層與自相矛盾。
+    - [esign-monitoring-snapshot-202605.md](analyses/esign/esign-monitoring-snapshot-202605.md) ── 追加 2026-05-27 四大官網實地爬取二次覆核，正式寫入《普查與情報快照實測規範》為基準依據，並將好好簽首頁「數發部登錄聲明正式同步上線 Production」的最新狀態進行增量對齊與更新。
   - **編譯產出 (Outputs - 版控版與無時間戳預設版雙重同步更新)**：
     - [outputs/20260527-1419-bzs-website-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1419-bzs-website-seo-geo-analysis.html) 與 [outputs/20260527-1419-bzs-website-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1419-bzs-website-seo-geo-analysis.pdf) ── 融合 100% 官網實測真實數據且套用品牌報告模板的高質感報告。
     - [outputs/20260527-1419-esign-competitor-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1419-esign-competitor-seo-geo-analysis.html) 與 [outputs/20260527-1419-esign-competitor-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1419-esign-competitor-seo-geo-analysis.pdf) ── 四強實測對照之 1419 版次 HTML 與 PDF 報告。
@@ -404,8 +511,8 @@ date_updated: 2026-05-29
 - **操作者**: LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **更新分析原始檔 (Analyses)**：
-    - [bzs-website-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-website-seo-geo-analysis.md) ── 糾偏重寫好好簽深度分析報告。明確將「客戶口碑部落格案例」與「橫向競品對照 Landing Page」修正為「內部已就緒、在 Staging 站驗證通過預備上架」狀態（正式 Production 官網案例暫時為零篇，待近期發布）。正式站 GEO 得分合理糾偏為 **7.5 / 10**（因 Schema、FAQ 展開、數發部宣告皆已上線，AI 推薦流量成功破零）。
-    - [esign-competitor-seo-geo-analysis-20260527.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 同步對比報告中好好簽的指標數據（E-E-A-T 權威性與 GEO 能見度）。
+    - [bzs-website-seo-geo-analysis.md](analyses/bzs/bzs-website-seo-geo-analysis.md) ── 糾偏重寫好好簽深度分析報告。明確將「客戶口碑部落格案例」與「橫向競品對照 Landing Page」修正為「內部已就緒、在 Staging 站驗證通過預備上架」狀態（正式 Production 官網案例暫時為零篇，待近期發布）。正式站 GEO 得分合理糾偏為 **7.5 / 10**（因 Schema、FAQ 展開、數發部宣告皆已上線，AI 推薦流量成功破零）。
+    - [esign-competitor-seo-geo-analysis-20260527.md](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 同步對比報告中好好簽的指標數據（E-E-A-T 權威性與 GEO 能見度）。
   - **更新產出 (Outputs - 版控版與無時間戳預設版雙重同步更新)**：
     - [outputs/20260527-1340-bzs-website-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-bzs-website-seo-geo-analysis.html) 與 [outputs/20260527-1340-bzs-website-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-bzs-website-seo-geo-analysis.pdf) ── 糾偏完工正式站版之 HTML 與高保真 PDF 檔案。
     - [outputs/20260527-1340-esign-competitor-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-esign-competitor-seo-geo-analysis.html) 與 [outputs/20260527-1340-esign-competitor-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1340-esign-competitor-seo-geo-analysis.pdf) ── 糾偏完工正式站對比版之 HTML 與高品質 PDF 檔案。
@@ -418,8 +525,8 @@ date_updated: 2026-05-29
 - **操作者**: LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **更新分析原始檔 (Analyses)**：
-    - [bzs-website-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-website-seo-geo-analysis.md) ── 重寫好好簽官網單獨的深度分析，將技術 SEO (5.5➡️9.5) 與 GEO 能見度 (2.5➡️9.2) 的爆發式反超完工實績寫入。
-    - [esign-competitor-seo-geo-analysis-20260527.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260527.md) ── 新增第三次雙軌普查對比報告，對比點點簽（受到漲價負面輿情在 GEO 空間發酵，評分跌至 5.5/10）、律果簽（首頁無關鍵字且無 Schema，5.0/10）、全景 FastSIGN（無 H1 大綱斷層，1.0/10），展示好好簽優化完工後的領先格局。
+    - [bzs-website-seo-geo-analysis.md](analyses/bzs/bzs-website-seo-geo-analysis.md) ── 重寫好好簽官網單獨的深度分析，將技術 SEO (5.5➡️9.5) 與 GEO 能見度 (2.5➡️9.2) 的爆發式反超完工實績寫入。
+    - [esign-competitor-seo-geo-analysis-20260527.md](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 新增第三次雙軌普查對比報告，對比點點簽（受到漲價負面輿情在 GEO 空間發酵，評分跌至 5.5/10）、律果簽（首頁無關鍵字且無 Schema，5.0/10）、全景 FastSIGN（無 H1 大綱斷層，1.0/10），展示好好簽優化完工後的領先格局。
   - **更新產出 (Outputs)**：
     - [outputs/20260527-1250-bzs-website-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1250-bzs-website-seo-geo-analysis.html) 與 [outputs/20260527-1250-bzs-website-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1250-bzs-website-seo-geo-analysis.pdf) ── 好好簽單獨分析報告之官方 HTML 網頁與 PDF 討論稿。
     - [outputs/20260527-1250-esign-competitor-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1250-esign-competitor-seo-geo-analysis.html) 與 [outputs/20260527-1250-esign-competitor-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1250-esign-competitor-seo-geo-analysis.pdf) ── 4 大官網第三次雙軌普查對比報告之官方 HTML 網頁與 PDF 討論稿。
@@ -452,7 +559,7 @@ date_updated: 2026-05-29
 ## [2026-05-27 12:12] update | 修正跨部門計畫筆誤、深度融合行銷策略並編譯新版次 HTML/PDF
 - **操作者**: LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **更新計畫原始檔 (Artifacts)**：[implementation_plan.md](file:///C:/Users/alexc/.gemini/antigravity-ide/brain/b7a0975d-f1ab-44cd-b1df-cf79e79423d6/implementation_plan.md) ── 修正行銷推廣大標題之多餘中括號 `[[` / `]]` 錯字、將 `## 五、 ⚖️ 營營` 更正為 `營運`；並深度融入 [2026-h2-marketing-strategy-recommendations.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/2026-h2-marketing-strategy-recommendations.md) 報告的行銷實績數據與 BPM 夥伴轉介分潤、企業體驗 VIP Onboarding 等核心操作戰術。
+  - **更新計畫原始檔 (Artifacts)**：[implementation_plan.md](file:///C:/Users/alexc/.gemini/antigravity-ide/brain/b7a0975d-f1ab-44cd-b1df-cf79e79423d6/implementation_plan.md) ── 修正行銷推廣大標題之多餘中括號 `[[` / `]]` 錯字、將 `## 五、 ⚖️ 營營` 更正為 `營運`；並深度融入 [bzs-h2-marketing-strategy-2026.md](analyses/bzs/bzs-h2-marketing-strategy-2026.md) 報告的行銷實績數據與 BPM 夥伴轉介分潤、企業體驗 VIP Onboarding 等核心操作戰術。
   - **更新轉檔腳本 (Scratch)**：[scratch/export_2026h2_plan_to_pdf.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/export_2026h2_plan_to_pdf.py) ── 升級支援動態時間戳記檔名與 `_v1`, `_v2` 衝突版次遞增機制，防範覆蓋歷史紀錄。
   - **更新產出 (Outputs)**：
     - [outputs/20260527-1211-bzs-2026h2-cross-department-plan.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260527-1211-bzs-2026h2-cross-department-plan.html) ── 完美套用品牌版型的網頁。
@@ -522,7 +629,7 @@ date_updated: 2026-05-29
   - **新建檔案 (Entities)**：[wiki/entities/shizi-township-office.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/shizi-township-office.md) ── 屏東縣獅子鄉公所公部門詢問實體。
   - **新建檔案 (Projects)**：[wiki/projects/cacafly-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/cacafly-api-integration.md) ── 聖洋科技 API 集團自訂品牌對接專案。
   - **新建檔案 (Projects)**：[wiki/projects/huaxing-publishing-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/huaxing-publishing-onboarding.md) ── 華杏出版體驗與試用期轉化專案。
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-saas-customer-list.md) ── 增量寫入聖洋科技、華杏出版、獅子鄉公所、三益海棠等客戶。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md) ── 增量寫入聖洋科技、華杏出版、獅子鄉公所、三益海棠等客戶。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊以上新創來源、實體、專案至導覽首頁。
 - **關鍵發現與成果**：
   - **收割點點簽流失大戶**：聖洋科技（一年用量達 8,000~10,000 份 API 串接）之進件再次說明點點簽漲價與以件計費造成的流失效應。對其「多子公司品牌識別 Logo 隔離」痛點進行了技術規劃，並確立 Kelly 專屬大戶高毛利 (50.5%) 防線報價方案，避開吃到飽虧損。
@@ -591,7 +698,7 @@ date_updated: 2026-05-29
 ## [2026-05-26 13:06] update | 好好簽官網單獨 SEO/GEO 分析報告輸出 PDF 與技術糾偏備忘同步
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-website-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-website-seo-geo-analysis.md) ── 更新修改日期，並在 DOM 大綱小節頂部增量植入 HTML5 Outliner 技術糾偏覆核說明。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-website-seo-geo-analysis.md](analyses/bzs/bzs-website-seo-geo-analysis.md) ── 更新修改日期，並在 DOM 大綱小節頂部增量植入 HTML5 Outliner 技術糾偏覆核說明。
   - **新建檔案 (Outputs)**：[outputs/bzs-website-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-website-seo-geo-analysis.html) ── 新建高端 Emerald 綠商務淺色卡片風格之 HTML 分析報告。
   - **新建檔案 (Scratch)**：[scratch/export_bzs_seo_pdf.py](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/scratch/export_bzs_seo_pdf.py) ── 配置 30 秒安全超時與防禦參數的 BZS 專屬 PDF 轉檔腳本。
   - **重新編譯 (Outputs)**：[outputs/bzs-website-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-website-seo-geo-analysis.pdf) ── 經 Edge Headless 完美編譯生成高品質 PDF。
@@ -602,7 +709,7 @@ date_updated: 2026-05-29
 ## [2026-05-26 12:57] update | 電子簽章 4 大官網第二次普查報告以 HTML5 Outliner 新技能重新編譯與交付
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md) ── 新增 4 大官網 HTML5 Outliner 深度普查專題。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md) ── 新增 4 大官網 HTML5 Outliner 深度普查專題。
   - **修改檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis-20260525.html) ── 同步更新表格欄位與大綱共識，置入深度普查新網頁卡片。
   - **修改檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis.html) ── 同步更新通用版 HTML 中大綱普查新網頁卡片。
   - **重新編譯 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis-20260525.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis-20260525.pdf) 與通用版 PDF ── 透過加裝超時防禦的腳本以 Edge Headless 重新編譯生成高品質 PDF。
@@ -623,7 +730,7 @@ date_updated: 2026-05-29
 - **核心產出與更動檔案**：
   - **修改檔案 (Outputs)**：[outputs/esign-heading-optimization-report.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-heading-optimization-report.html) ── 覆核更正為《BreezySign 好好簽首頁 DOM 標題階層語意 100% 合規驗證與覆核報告》，澄清線性誤判。
   - **修改檔案 (Outputs)**：[outputs/esign-heading-optimization-report.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-heading-optimization-report.pdf) ── 重新編譯生成、包含最新合規驗證的 PDF 報告。
-  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md) ── 同步糾正 DOM 大綱階層的診斷描述，由階層錯亂修正為 100% 樹狀合規，前端免重構。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md) ── 同步糾正 DOM 大綱階層的診斷描述，由階層錯亂修正為 100% 樹狀合規，前端免重構。
 - **關鍵調整與技術糾偏**：
   - **感謝使用者精準指正**：使用 "HTML5 Outliner" 進行大綱驗證。確認先前報告採用的扁平化線性遍歷視角產生了過度診斷與技術誤判。
   - **樹狀大綱合規確立**：首頁的四個 H3 標題在 DOM 樹上完美歸屬於 H2 (一站式...) 的子分類，而後半部 H2 (為何選擇...) 為正常的主題回歸，大綱樹 100% 合規。
@@ -678,7 +785,7 @@ date_updated: 2026-05-29
   - **新建檔案 (Sources)**：[wiki/sources/bzs-daily-reports-20260523-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/bzs-daily-reports-20260523-20260525.md) ── 週末至週一的三日日報關鍵情報摘要。
   - **新建檔案 (Entities)**：[wiki/entities/symphox-information.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/symphox-information.md) ── 國泰集團旗下大戶「神坊資訊」實體情報頁面。
   - **新建檔案 (Entities)**：[wiki/entities/einstein-quantitative-tech.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/einstein-quantitative-tech.md) ── 金融培訓大戶「愛因斯坦量化科技」實體情報頁面。
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-saas-customer-list.md) ── 將神坊資訊、愛因斯坦量化科技、乘風少年、香港商喜事來及人合國際增量更新至客戶名單。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md) ── 將神坊資訊、愛因斯坦量化科技、乘風少年、香港商喜事來及人合國際增量更新至客戶名單。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立的 Sources 與 Entities。
 - **關鍵發現與成果**：
   - 完整攝入週末與週一的業務情報。識別出神坊資訊（101~500人，資訊業）之條款同意 API 合規需求，以及愛因斯坦量化科技之線上購課 -> API -> LINE 傳簽 100% 自動化核心需求。
@@ -688,7 +795,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 17:35] analyze | 好好簽官網 Blog 行銷系列文章與討論 PDF 發布
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **新建檔案 (Analyses)**：[wiki/analyses/bzs-blog-marketing-posts-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 文章，包含標題、描述、關鍵字、Slug、標籤、作者及富文本 HTML 內容。
+  - **新建檔案 (Analyses)**：[wiki/analyses/bzs-blog-marketing-posts-202605.md](analyses/bzs/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 文章，包含標題、描述、關鍵字、Slug、標籤、作者及富文本 HTML 內容。
   - **新建檔案 (Outputs)**：[outputs/bzs-blog-marketing-posts-202605.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-blog-marketing-posts-202605.html) ── 專門用於內部討論與審核的高端淺色 HTML 部落格推廣文章彙編。
   - **新建檔案 (Outputs)**：[outputs/bzs-blog-marketing-posts-202605.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-blog-marketing-posts-202605.pdf) ── 經 Edge Headless 編譯生成之專用 PDF 內部討論稿。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 將最新 Blog 行銷推廣系列文章納入導航目錄中。
@@ -700,7 +807,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 15:55] analyze | 好好簽商業部門職務工作清單整理與發布
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **新建檔案 (Analyses)**：[wiki/analyses/bzs-bu-role-based-tasklist.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-bu-role-based-tasklist.md) ── 依據 2026 年 5 月最新業務週報與專案進展，依據銷售、行銷、產品、技術與營運五大職務分類的「待進行、可優化、下一步工作建議」工作清單。
+  - **新建檔案 (Analyses)**：[wiki/analyses/bzs-bu-role-based-tasklist.md](analyses/bzs/bzs-bu-role-based-tasklist.md) ── 依據 2026 年 5 月最新業務週報與專案進展，依據銷售、行銷、產品、技術與營運五大職務分類的「待進行、可優化、下一步工作建議」工作清單。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 將最新工作清單分析文件納入導航目錄中。
 - **關鍵發現與成果**：
   - 成功定位大量因點點簽（DottedSign）漲價而流入好好簽的客戶（如福安管顧、太平洋旅行社、台中浸信會、麻吉行得通），並針對銷售、行銷與產品提出具體的防禦與大戶收割方案。
@@ -727,7 +834,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 14:30] update | 好好簽 Staging 測試站實地普查與數據雙軌併入
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md) ── 於報告中新增我方 staging 測試站 (test.breezysign.com) 的檢測成果。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md) ── 於報告中新增我方 staging 測試站 (test.breezysign.com) 的檢測成果。
   - **更動檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis.html) ── 於通用報告 HTML 中雙軌併入測試站量化數據與技術剖析。
   - **更動檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis-20260525.html) ── 於日期版報告 HTML 中雙軌併入測試站量化數據與技術剖析。
   - **更動檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis.pdf) ── 經 Edge Headless 重新渲染出的通用版最新 PDF 報告。
@@ -753,7 +860,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 12:45] update | 整合 Gemini 外部 SEO 診斷異同對比與重構高質感淺色 HTML 報告
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md) ── 完美整合外部 Gemini SEO 診斷與我方先前報告的異同對比。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md) ── 完美整合外部 Gemini SEO 診斷與我方先前報告的異同對比。
   - **修改檔案 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis-20260525.html) ── 重構為精美、高端的淺色商務版型，完美整合對比數據，並深度優化 PDF 列印樣式防大片空白。
 - **關鍵調整與決策落實**：
   - **雙軌普查與外部 SEO 的共識收束**：高度共識好好簽（BreezySign）首頁 DOM H 標籤錯亂（多個 H1，H3 置於 H2 前方）、定價 FAQ 無效收摺答案及 `Organization` Schema 缺失等技術痛點。
@@ -779,9 +886,9 @@ date_updated: 2026-05-29
 ## [2026-05-25 11:41] update | 行銷獲客成本 CPA 雙軌口徑化與漏斗分析看板重新交付
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/2026-h2-marketing-strategy-recommendations.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/2026-h2-marketing-strategy-recommendations.md) ── 拆分 CPA 為寬窄雙軌，並重算 LTV:CAC 效益。
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-marketing-synthesis-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-saas-marketing-synthesis-2026.md) ── 同步全局摘要中的 CAC 及 LTV:CAC 為雙軌口徑。
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-saas-funnel-ltv-cac-report.md) ── 拆分價值演進中的 CAC 為雙軌，並更新中底漏斗 CPA 描述。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-h2-marketing-strategy-2026.md](analyses/bzs/bzs-h2-marketing-strategy-2026.md) ── 拆分 CPA 為寬窄雙軌，並重算 LTV:CAC 效益。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-marketing-synthesis-2026.md](analyses/bzs/bzs-saas-marketing-synthesis-2026.md) ── 同步全局摘要中的 CAC 及 LTV:CAC 為雙軌口徑。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 拆分價值演進中的 CAC 為雙軌，並更新中底漏斗 CPA 描述。
   - **更動檔案 (Outputs)**：[outputs/bzs-2026-marketing-strategy-and-funnel.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-2026-marketing-strategy-and-funnel.html) ── 淺色版行銷與漏斗分析看板數據完成雙軌化更新。
   - **更動檔案 (Outputs)**：[outputs/bzs-2026-marketing-strategy-and-funnel.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-2026-marketing-strategy-and-funnel.pdf) ── 重新以 Edge 渲染輸出的最新淺色無損 PDF 報告。
 - **關鍵發現與成果**：
@@ -795,7 +902,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 11:22] update | 修正 ISO 維審費與專業方案 AATL 加購階梯財務模型更新
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md) ── ISO 年費增至每項各 NT$300,000 / 年；TFC 調增至 NT$10,500,000 / 年；專業方案 AATL 加購單價調增為每份 NT$15 ~ NT$30。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) ── ISO 年費增至每項各 NT$300,000 / 年；TFC 調增至 NT$10,500,000 / 年；專業方案 AATL 加購單價調增為每份 NT$15 ~ NT$30。
   - **更動檔案 (Outputs)**：[outputs/bzs-pricing-cost-structure-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-pricing-cost-structure-analysis-20260525.html) ── 重新生成修復無損的高美感財務 HTML 看板。
   - **更動檔案 (Outputs)**：[outputs/bzs-pricing-cost-structure-analysis-20260525.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-pricing-cost-structure-analysis-20260525.pdf) ── 經 Edge Headless 重新渲染的高保真商業 PDF 財務報告。
 - **關鍵調整與決策落實**：
@@ -807,8 +914,8 @@ date_updated: 2026-05-29
 ## [2026-05-25 11:06] update | 全局中文繁體化重整與高美感 HTML/PDF 財務看板交付
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md) ── 修正「业务」為「業務」，「常规」為「常規」。
-  - **修改檔案 (Analyses)**：[wiki/analyses/dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/dottedsign-price-hike-churn-analysis.md) ── 修正第 47 行重複贅字「吃到飽吃到飽」為「吃到飽」。
+  - **修改檔案 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) ── 修正「业务」為「業務」，「常规」為「常規」。
+  - **修改檔案 (Analyses)**：[wiki/analyses/esign-dottedsign-price-hike-churn-analysis.md](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 修正第 47 行重複贅字「吃到飽吃到飽」為「吃到飽」。
   - **修改檔案 (Index)**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 修正第 182 行「产品經理」為「產品經理」。
   - **全新生成交付物 (Outputs)**：[outputs/bzs-pricing-cost-structure-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-pricing-cost-structure-analysis-20260525.html) ── 帶有深太空藍背景、霓虹光暈與毛玻璃卡片的 HTML 動態財務看板。
   - **全新生成交付物 (Outputs)**：[outputs/bzs-pricing-cost-structure-analysis-20260525.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-pricing-cost-structure-analysis-20260525.pdf) ── 經 Edge Headless 完美編譯，去除頁首頁尾的高保真商業 PDF 財務報告。
@@ -819,7 +926,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 11:00] analyze | 好好簽電子簽章定價成本結構與利潤邊際分析報告
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **新創產出 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md)
+  - **新創產出 (Analyses)**：[wiki/analyses/bzs-pricing-cost-structure-analysis-20260525.md](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md)
   - **修改檔案**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
 - **關鍵發現**：
   1. **變動成本精算**：確認單份合約 AATL 憑證成本為 NT$1.5 (向中華電信採購)，簡訊通道費每則 NT$0.85，單份合約在混合場景下的平均變動成本約為 NT$1.68 / 份。
@@ -832,7 +939,7 @@ date_updated: 2026-05-29
 ## [2026-05-25 09:58] analyze | 第二次電子簽章四大官網雙軌普查與對比看板輸出
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **新創產出 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md)
+  - **新創產出 (Analyses)**：[wiki/analyses/esign-competitor-seo-geo-analysis-20260525.md](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md)
   - **新創產出 (Outputs)**：[outputs/esign-competitor-seo-geo-analysis-20260525.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/esign-competitor-seo-geo-analysis-20260525.html)
   - **修改檔案**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
 - **關鍵發現**：
@@ -847,7 +954,7 @@ date_updated: 2026-05-29
 - **核心產出與更動檔案**：
   - **新創產出 (Sources)**：[wiki/sources/bzs-daily-report-20260522.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/bzs-daily-report-20260522.md)
   - **新創產出 (Sources)**：[wiki/sources/bzs-weekly-report-20260522.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/bzs-weekly-report-20260522.md)
-  - **新創產出 (Analyses)**：[wiki/analyses/dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/dottedsign-price-hike-churn-analysis.md)
+  - **新創產出 (Analyses)**：[wiki/analyses/esign-dottedsign-price-hike-churn-analysis.md](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
   - **修改檔案**：[wiki/entities/dottedsign.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/dottedsign.md)
   - **修改檔案**：[wiki/index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md)
 - **關鍵發現**：
@@ -861,8 +968,8 @@ date_updated: 2026-05-29
 ## [2026-05-22 16:35] update | 行銷策略與成長漏斗報告數據更新
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
-  - **修改檔案**：[wiki/analyses/bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs-saas-funnel-ltv-cac-report.md)
-  - **修改檔案**：[wiki/analyses/2026-h2-marketing-strategy-recommendations.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/2026-h2-marketing-strategy-recommendations.md)
+  - **修改檔案**：[wiki/analyses/bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md)
+  - **修改檔案**：[wiki/analyses/bzs-h2-marketing-strategy-2026.md](analyses/bzs/bzs-h2-marketing-strategy-2026.md)
   - **重新生成**：[outputs/bzs-2026-marketing-strategy-and-funnel.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-2026-marketing-strategy-and-funnel.html)
   - **重新生成**：[outputs/bzs-2026-marketing-strategy-and-funnel.pdf](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-2026-marketing-strategy-and-funnel.pdf)
 - **關鍵發現與更新內容**：
@@ -904,7 +1011,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - 更新專案頁面：`wiki/projects/pai-plus-bpm-partnership.md`
-  - 更新策略頁面：`wiki/analyses/2026-h2-marketing-strategy-recommendations.md`
+  - 更新策略頁面：`wiki/analyses/bzs-h2-marketing-strategy-2026.md`
   - 更新名單：`wiki/analyses/bzs-saas-paid-subscribers-by-plan.md`
 - **關鍵更新**：明確寫入「因 BreezySign 尚無 BPM 功能，遇表單流程需求時轉介給百加資通，收取顧問費/分潤」的戰術思維。
 
@@ -934,7 +1041,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/SaaS/bzs-use-cases-and-clients.txt`
 - **核心產出與更動檔案**：
   - **新增頁面 (Sources)**：`wiki/sources/bzs-use-cases-and-clients.md`
-  - **更新頁面 (Analyses)**：`wiki/analyses/2026-h2-marketing-strategy-recommendations.md`
+  - **更新頁面 (Analyses)**：`wiki/analyses/bzs-h2-marketing-strategy-2026.md`
 - **關鍵發現**：盤點出好好簽五大重點垂直產業（不動產、貸款代辦、旅行業、租車、醫療）。發現不同產業對電子簽的依賴不在於「簽名」本身，而在於特定的交付方式（Line傳簽）與防偽手段（聲明錄影簽、證件上傳）。
 
 ---
@@ -943,7 +1050,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **分析來源**：金流訂單原始 CSV (`steps/53/content.md`)
 - **核心產出與更動檔案**：
-  - **新建分析頁面 (Analyses)**：建立 [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs-saas-paid-subscribers-by-plan.md)，從數千筆紀錄中提煉出確實產生過金流的企業，並分為「企業、商務、專業」三大類。
+  - **新建分析頁面 (Analyses)**：建立 [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md)，從數千筆紀錄中提煉出確實產生過金流的企業，並分為「企業、商務、專業」三大類。
   - **索引更新**：在 `index.md` 核心領域研究加入此份清單。
 - **當前狀態**：成功將潛在與實質付費名單分離，提供更準確的產品適配度與客戶輪廓參考。
 
@@ -963,7 +1070,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **分析來源**：基於前述 SaaS 四大維度漏斗報告與行銷廣告報表。
 - **核心產出與更動檔案**：
-  - **新建分析頁面 (Analyses)**：建立 [2026-h2-marketing-strategy-recommendations.md](analyses/2026-h2-marketing-strategy-recommendations.md)，詳細列出下半年具體加碼的關鍵字預算、攔截策略與 BPM 生態系佈局。
+  - **新建分析頁面 (Analyses)**：建立 [bzs-h2-marketing-strategy-2026.md](analyses/bzs/bzs-h2-marketing-strategy-2026.md)，詳細列出下半年具體加碼的關鍵字預算、攔截策略與 BPM 生態系佈局。
   - **索引更新**：在 `index.md` 核心領域研究加入此份策略建議。
 - **當前狀態**：已產出具體可執行的商業預算決策報告。
 
@@ -983,7 +1090,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **分析來源**：整合 2026 上半年訂單金流 CSV、PipeDrive 每日統計 CSV、Google Search、Pmax 及關鍵字廣告 CSV 數據。
 - **核心產出與更動檔案**：
-  - **新建分析頁面 (Analyses)**：建立 [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs-saas-funnel-ltv-cac-report.md)，詳細計算了行銷 CPA、預估 LTV，並得出 LTV:CAC 健康比例。
+  - **新建分析頁面 (Analyses)**：建立 [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md)，詳細計算了行銷 CPA、預估 LTV，並得出 LTV:CAC 健康比例。
   - **索引更新**：在 `index.md` 核心領域研究加入此份深度分析報告。
 - **當前狀態**：SaaS 成長飛輪數據鏈建立完成，已可作為未來行銷預算擴張之決策依據。
 
@@ -1010,7 +1117,7 @@ date_updated: 2026-05-29
   - `raw/營業計畫書/創投事業『營業計畫書』參考內容.md`
 - **核心產出與更動檔案**：
   - **日報彙整 (Sources)**：更新 [bzs-sales-reports-2026.md](sources/bzs-sales-reports-2026.md)。新增 5/21 日報，紀錄太平洋旅行社決定跳槽訂閱好好簽 40 人版企業方案（年費 NT$60,000）。
-  - **客戶清單 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs-saas-customer-list.md)。新增 SNOW FACTORY 雪坊志業與太平洋旅行社。
+  - **客戶清單 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)。新增 SNOW FACTORY 雪坊志業與太平洋旅行社。
   - **實體情報 (Entities)**：更新 [dottedsign.md](entities/dottedsign.md)。新增太平洋旅行社為大量簽署流失案例，印證點點簽因缺乏好用的 Line 傳簽功能及價格調漲，導致中大型客戶流失。
   - **新建來源文件 (Sources)**：
     - 建立 [dreamrich-business-plan-guide.md](sources/dreamrich-business-plan-guide.md)：提煉夢想智賦商業計畫書 7 大必備元素指南。
@@ -1058,7 +1165,7 @@ date_updated: 2026-05-29
     - 重大商機：台灣奇恭 GiGO 從 DocuSign 回流，體驗版用至 6/30 到期，主動要求報價單，主管確認續用好好簽。
     - 小型商機：方睿科技（房地產科技，資本 2 億）需求外部合約簽署，10 份/月。
     - Projects 日報重點：鼎新新對接帳號建立；Hank 持續協助鼎新技術對接；福安管理顧問 API 報價 12 萬（8000份 AATL）；聯合線上專案調降為 3 萬（1500份 AATL）；恩主公正式婉拒，計東策結案。
-  - **客戶清單更新 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs-saas-customer-list.md)。
+  - **客戶清單更新 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)。
     - 新增：拉拉企業社、牧容貿易有限公司 2 筆新進件。
     - 更新：台灣奇恭 GiGO、方睿科技補充 5/20 日報來源。
   - **專案檔案 (Projects)**：
@@ -1078,7 +1185,7 @@ date_updated: 2026-05-29
     - 重大商機：台灣奇恭 GiGO 從 DocuSign 回流，體驗版用至 6/30 到期，主動要求報價單，主管確認續用好好簽。
     - 小型商機：方睿科技（房地產科技，資本 2 億）需求外部合約簽署，10 份/月。
     - Projects 日報重點：鼎新新對接帳號建立；Hank 持續協助鼎新技術對接；福安管理顧問 API 報價 12 萬（8000份 AATL）；聯合線上專案調降為 3 萬（1500份 AATL）；恩主公正式婉拒，計東策結案。
-  - **客戶清單更新 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs-saas-customer-list.md)。
+  - **客戶清單更新 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)。
     - 新增：拉拉企業社、牧容貿易有限公司 2 筆新進件。
     - 更新：台灣奇恭 GiGO、方睿科技補充 5/20 日報來源。
   - **專案檔案 (Projects)**：
@@ -1092,11 +1199,11 @@ date_updated: 2026-05-29
 ## [2026-05-20 16:45] lint | WikiLLM 連結修復與首頁產品索引建立
 - **操作者**：LLM Agent (Antigravity - Gemini 3.5 Flash)
 - **執行操作**：
-  - 執行全庫連結 Lint 檢測，修復 `breezybrain-spec-defense.md`、`Product-Spec.md` 與 `log.md` 共 10 處失效相對連結。
+  - 執行全庫連結 Lint 檢測，修復 `bzb-spec-defense.md`、`Product-Spec.md` 與 `log.md` 共 10 處失效相對連結。
   - 首頁 `index.md` 新增 `### 📦 產品規劃 (Products)` 區塊以索引 BreezyBrain 專案 6 份核心文件，解決孤立頁面問題。
   - 更新 `overview.md` 的統計數據與 2026-05-20 時間軸，並更新 `lint_report.md` 為最新狀態。
 - **核心產出與更動檔案**：
-  - 修改：[index.md](index.md)、[overview.md](overview.md)、[log.md](log.md)、[breezybrain-spec-defense.md](analyses/breezybrain-spec-defense.md)、[Product-Spec.md](products/breezy-brain/Product-Spec.md)。
+  - 修改：[index.md](index.md)、[overview.md](overview.md)、[log.md](log.md)、[bzb-spec-defense.md](analyses/bzb/bzb-spec-defense.md)、[Product-Spec.md](products/breezy-brain/Product-Spec.md)。
   - 覆寫：`lint_report.md`。
 - **當前狀態**：全庫連結健康度 100%（除範例與 base64 外），產品規劃檔案已完美鏈結閉環。
 
@@ -1117,7 +1224,7 @@ date_updated: 2026-05-29
 - **執行操作**：
   - 針對自建 CRM、非同步佇列轉檔、地端 LLM 隱私與大腦 AI 審查偽陰性等四大關鍵情境進行正反面極端情境攻防論證。
 - **核心產出與更動檔案**：
-  - 建立新分析頁 [BreezyBrain 規格情境正反攻防分析報告](analyses/breezybrain-spec-defense.md)。
+  - 建立新分析頁 [BreezyBrain 規格情境正反攻防分析報告](analyses/bzb/bzb-spec-defense.md)。
   - 更新 `Product-Spec.md` 的「相關連結」區塊與首頁 `index.md` 索引。
 - **當前狀態**：所有系統邊界極端情境之防禦對策均已確立，規格進入最嚴密之論證狀態，等待使用者最後覆核。
 
@@ -1234,7 +1341,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/BZSdata/SaaS/20260519日報.md`
 - **核心產出與更動檔案**：
   - **日報彙整 (Sources)**：更新 [bzs-sales-reports-2026.md](sources/bzs-sales-reports-2026.md)。提煉 15 家進件摘要，包含美科實業 (銷售分潤合約)、三亞旅行社 (Adobe Sign 轉換) 以及福安管理顧問 (點點簽因 2 萬份報價過高而尋求跳槽) 等關鍵商機。
-  - **客戶清單 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs-saas-customer-list.md)。以 Unicode 排序完美插入 4 筆最新客戶（三亞旅行社、方睿科技、美科實業、福安管理顧問）。
+  - **客戶清單 (Analyses)**：更新 [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)。以 Unicode 排序完美插入 4 筆最新客戶（三亞旅行社、方睿科技、美科實業、福安管理顧問）。
   - **實體情報 (Entities)**：更新 [dottedsign.md](entities/dottedsign.md)。於定價策略中新增大量簽署 (High Volume) 客戶流失案例，印證點點簽「合約數計費」於極端用量下產生的定價抗性。
 - **當前狀態**：最新前線商機已全數萃取並建立多維度雙鏈連結，知識庫對於競品定價痛點的掌握更趨完善。
 
@@ -1281,9 +1388,9 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **電子簽章分析 (Analyses)**：
-    - 更新 [wiki/analyses/bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-saas-customer-list.md)：使用自製 Python 腳本對 2025H2-2 客戶名單進行高精度清洗過濾，剔除無關長句，將 50 家真正新客戶與現有清單合併並依 Unicode 重新排序，有效客戶數從 283 家提升至 325 家。
-    - 更新 [wiki/analyses/bzs-feature-requirements.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-feature-requirements.md)：增量寫入 2025H2 業務日報中關於 600 dpi 掃描檔上傳 timeout 處置、舊注音搜尋選字 bug 修正、兩階層簽署 Webform/現場簽決策、核取方塊呈現樣式修復、公開表單寄送副本自訂設定等最新實務。
-    - 更新 [wiki/analyses/bzs-battle-cards.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-battle-cards.md)：增量補強點點簽重複點開未簽署即扣費的規格缺陷、卡頓穩定度對比、API TCO (總持有成本) 防守話術，並追加 Teams 內建簽核對抗好好簽 AATL 法律合規性之戰鬥卡。
+    - 更新 [wiki/analyses/bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)：使用自製 Python 腳本對 2025H2-2 客戶名單進行高精度清洗過濾，剔除無關長句，將 50 家真正新客戶與現有清單合併並依 Unicode 重新排序，有效客戶數從 283 家提升至 325 家。
+    - 更新 [wiki/analyses/bzs-feature-requirements.md](analyses/bzs/bzs-feature-requirements.md)：增量寫入 2025H2 業務日報中關於 600 dpi 掃描檔上傳 timeout 處置、舊注音搜尋選字 bug 修正、兩階層簽署 Webform/現場簽決策、核取方塊呈現樣式修復、公開表單寄送副本自訂設定等最新實務。
+    - 更新 [wiki/analyses/bzs-battle-cards.md](analyses/bzs/bzs-battle-cards.md)：增量補強點點簽重複點開未簽署即扣費的規格缺陷、卡頓穩定度對比、API TCO (總持有成本) 防守話術，並追加 Teams 內建簽核對抗好好簽 AATL 法律合規性之戰鬥卡。
   - **暫存工作區 (Scratch)**：
     - 建立 `scratch/clean_customer_names.py`：客戶名稱清洗腳本。
     - 建立 `scratch/merge_and_sort_customers.py`：新舊客戶合併與自動 Unicode 排序腳本。
@@ -1296,9 +1403,9 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **電子簽章分析 (Analyses)**：
-    - 更新 [wiki/analyses/bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-saas-customer-list.md)：增量納入理成財經顧問、欣廸國際、視界數位整合、卡稻農、白雪公主旅行社、季灃健康服務、不鑰科技、有錢人興業、歲悅、國立臺灣海洋大學、聖美麗健康管理顧問等 20+ 家 2025H2-2 最新 SaaS 客戶與試用反饋。
-    - 更新 [wiki/analyses/bzs-feature-requirements.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-feature-requirements.md)：新增印章等比例縮放、自我簽署編輯器 Bug 修正、Cookie 權限自動登出修復、第三方信件伺服器維護延遲因應、企業方案範本主帳號統一管理、發起任務 PDF 數量限制放寬至 5 份等 2025H2 新增洞察。
-    - 更新 [wiki/analyses/bzs-battle-cards.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-battle-cards.md)：新增「假想敵點點簽 (DottedSign)」對抗卡，鎖定其調漲價格改採『以份計費』的隱形成本以及『缺乏 LINE 傳簽』導致催簽不易之痛點，為我方業務團隊提供明確的防禦與轉換話術。
+    - 更新 [wiki/analyses/bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)：增量納入理成財經顧問、欣廸國際、視界數位整合、卡稻農、白雪公主旅行社、季灃健康服務、不鑰科技、有錢人興業、歲悅、國立臺灣海洋大學、聖美麗健康管理顧問等 20+ 家 2025H2-2 最新 SaaS 客戶與試用反饋。
+    - 更新 [wiki/analyses/bzs-feature-requirements.md](analyses/bzs/bzs-feature-requirements.md)：新增印章等比例縮放、自我簽署編輯器 Bug 修正、Cookie 權限自動登出修復、第三方信件伺服器維護延遲因應、企業方案範本主帳號統一管理、發起任務 PDF 數量限制放寬至 5 份等 2025H2 新增洞察。
+    - 更新 [wiki/analyses/bzs-battle-cards.md](analyses/bzs/bzs-battle-cards.md)：新增「假想敵點點簽 (DottedSign)」對抗卡，鎖定其調漲價格改採『以份計費』的隱形成本以及『缺乏 LINE 傳簽』導致催簽不易之痛點，為我方業務團隊提供明確的防禦與轉換話術。
 - **當前狀態**：2025H2-2 業務情報已 100% 成功解析並增量整合至核心 Wiki 檔案中，全庫連結健康度 100%。
 
 ---
@@ -1444,7 +1551,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **新建分析文獻 (Analyses)**：
-    - 新建 [breezy-brain-concept-market-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/breezy-brain-concept-market-analysis.md)：深度剖析 BreezyBrain (好好腦) 下一代產品核心願景、企業痛點、市場空間、同質產品對比以及「大腦與手腳串聯」之獨家護城河。
+    - 新建 [bzb-concept-market-analysis.md](analyses/bzb/bzb-concept-market-analysis.md)：深度剖析 BreezyBrain (好好腦) 下一代產品核心願景、企業痛點、市場空間、同質產品對比以及「大腦與手腳串聯」之獨家護城河。
   - **既存產品項目更新 (Products)**：
     - 更新 [breezy-brain-manifesto.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/products/breezy-brain/breezy-brain-manifesto.md)：於項目關聯中補入本市場研析報告的雙鏈連結，完成知識閉環。
 - **當前狀態**：下一代產品市場可行性評估已正式成文，完美打通雙鏈，全庫連結健康度 100%。
@@ -1489,9 +1596,9 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **新建分析文獻 (Analyses)**：
-    - 新建 [esign-pricing-feature-comparison.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/esign-pricing-feature-comparison.md)：收錄點點簽 (DottedSign)、律果簽 (LegalSign) 與我方好好簽 (BreezySign) 官網價格與核心功能矩陣（簽署、安全合規、企業管理、API 系統整合）的極致對比。
+    - 新建 [esign-pricing-feature-comparison.md](analyses/esign/esign-pricing-feature-comparison.md)：收錄點點簽 (DottedSign)、律果簽 (LegalSign) 與我方好好簽 (BreezySign) 官網價格與核心功能矩陣（簽署、安全合規、企業管理、API 系統整合）的極致對比。
   - **既存文獻升級 (Analyses)**：
-    - 更新 [esign-competitor-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis.md)：於著陸頁生成策略開頭補入新定價對比表的雙鏈導引。
+    - 更新 [esign-competitor-seo-geo-analysis.md](analyses/esign/esign-competitor-seo-geo-analysis.md)：於著陸頁生成策略開頭補入新定價對比表的雙鏈導引。
 - **當前狀態**：三大廠商方案與功能矩陣對比檔案已 100% 正式成文並完成雙向關聯，全庫連結健康度 100%。
 
 ---
@@ -1521,10 +1628,10 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity)
 - **核心產出與更動檔案**：
   - **新建分析文獻 (Analyses)**：
-    - 新建 [esign-competitor-seo-geo-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/esign-competitor-seo-geo-analysis.md)：使用 Claude SEO 的 `/seo competitor-pages` 競品比較與 `/seo audit` 進行 4 大官網模擬普查。剖析 LCP/INP 技術指標、H標籤錯亂、SPA 爬蟲盲區與 Schema 標記缺陷，並設計對比 Feature Matrix 比較著陸頁及 Product JSON-LD。
+    - 新建 [esign-competitor-seo-geo-analysis.md](analyses/esign/esign-competitor-seo-geo-analysis.md)：使用 Claude SEO 的 `/seo competitor-pages` 競品比較與 `/seo audit` 進行 4 大官網模擬普查。剖析 LCP/INP 技術指標、H標籤錯亂、SPA 爬蟲盲區與 Schema 標記缺陷，並設計對比 Feature Matrix 比較著陸頁及 Product JSON-LD。
   - **既存文獻升級 (Analyses)**：
-    - 更新 [esign-monitoring-snapshot-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/esign-monitoring-snapshot-202605.md)：在情報快照結尾補強全新的「4大官網 Claude SEO 競品比較與技術普查」大章節與關聯連結，健全多維度情報。
-    - 更新 [domestic-e-signature-comparison.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/domestic-e-signature-comparison.md)：於尾部增量新增「相關連結與技術普查」專章，連結最新官網 SEO 技術審計，實現雙向雙鏈閉環。
+    - 更新 [esign-monitoring-snapshot-202605.md](analyses/esign/esign-monitoring-snapshot-202605.md)：在情報快照結尾補強全新的「4大官網 Claude SEO 競品比較與技術普查」大章節與關聯連結，健全多維度情報。
+    - 更新 [esign-domestic-comparison.md](analyses/esign/esign-domestic-comparison.md)：於尾部增量新增「相關連結與技術普查」專章，連結最新官網 SEO 技術審計，實現雙向雙鏈閉環。
 - **當前狀態**：國內四家電子簽章網站的 SEO 與 GEO 技術普查已 100% 正式成文並完成全鏈整合，全庫 Obsidian 連結掃描 100% 健全無損。
 
 ---
@@ -1570,7 +1677,7 @@ date_updated: 2026-05-29
   - **既存文獻升級 (Concepts & Skills & Analyses)**：
     - 更新 [vibe-coding-paradigm.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/concepts/vibe-coding-paradigm.md)：新增專章探討 CLAUDE.md 12 條規則如何為 Vibe Coding 提供可靠性防護，剖析情境隔離注意力預算與「抽象規則優於 Few-shot 範例」的理論與實踐。
     - 更新 [ai-product-management.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/skills/ai-product-management.md)：將 AIPM 4.0 三層實踐與 AI-First 動態容器界面哲學無縫融入 AI PM 技能體系。
-    - 更新活動分析文件 [antigravity-aipm-framework.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/antigravity-aipm-framework.md)：將原有的四大核心角色升級映射至最新的 AIPM 4.0 8大 Skills，並深度寫入執行層 Subagent 隔離、雙層 Hooks 兜底與 4 層進化機制的技術落地架構。
+    - 更新活動分析文件 [bzb-antigravity-aipm-framework.md](analyses/bzb/bzb-antigravity-aipm-framework.md)：將原有的四大核心角色升級映射至最新的 AIPM 4.0 8大 Skills，並深度寫入執行層 Subagent 隔離、雙層 Hooks 兜底與 4 層進化機制的技術落地架構。
 - **當前狀態**：所有 AI 程式助手與 AIPM 前沿工程知識已 100% 正式攝入並與既存庫建立完美的 Obsidian 雙向連結，全庫健檢百分之百健康。
 
 ---
@@ -1581,7 +1688,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/BZSdata/SaaS/20260516日報.md`
 - **核心產出與更動檔案**：
   - **電子簽章分析**：更新 [bzs-sales-reports-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/sources/bzs-sales-reports-2026.md)。提煉並新增 2026/05/16 至 05/18 三日 SaaS 業務日報精華摘要，包含耐斯旅行社（企業版試用，公開表單與 Line 傳簽）商機推進，以及小微企業對點點簽與好好簽品牌名稱混淆（鼎偉實業社誤購點點簽）等競品轉換情報。
-  - **客戶清單更新**：更新 [bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/WikiLLM/wiki/analyses/bzs-saas-customer-list.md)。在嚴格遵守 Unicode 排序規範的前提下，於對應區塊精確補入 `日嶼有限公司`、`耐斯旅行社有限公司` 與 `鼎偉實業社` 三筆最新 SaaS 客戶，確保知識庫關聯索引之完美健全。
+  - **客戶清單更新**：更新 [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md)。在嚴格遵守 Unicode 排序規範的前提下，於對應區塊精確補入 `日嶼有限公司`、`耐斯旅行社有限公司` 與 `鼎偉實業社` 三筆最新 SaaS 客戶，確保知識庫關聯索引之完美健全。
 - **當前狀態**：日報攝入及分析庫同步更新完畢，Wiki 索引完美契合最新前線商戰數據。
 
 ---
@@ -1697,7 +1804,7 @@ date_updated: 2026-05-29
   - **自動化健檢工具**：建立並執行了專業的 WikiLLM 全域健檢腳本 [lint_wikillm.ps1](file:///C:/Users/alexc/.gemini/antigravity/brain/7485e3d0-8658-4546-9959-ca20a9c6c887/scratch/lint_wikillm.ps1)，深度掃描了 106 份 Markdown 文件的連結有效性與 `index.md` 索引完整度。
   - **精準治癒 14 個核心斷連結**：
     - 修正了 `sources/` 目錄下多個文件因相對路徑層級錯誤（多寫 `../../`）導致跳出 wiki 目錄的 9 個 Broken Links。
-    - 修正了 `skills/` 與 `topics/` 中因歷史檔案改名與整合（如 `vibe-coding.md` 改名為 `vibe-coding-paradigm.md`，`aipm-antigravity.md` 整合為 `antigravity-aipm-framework.md`）造成的 5 個過期 Broken Links。
+    - 修正了 `skills/` 與 `topics/` 中因歷史檔案改名與整合（如 `vibe-coding.md` 改名為 `vibe-coding-paradigm.md`，`aipm-antigravity.md` 整合為 `bzb-antigravity-aipm-framework.md`）造成的 5 個過期 Broken Links。
     - 建立並運行了純英文的批次修補腳本 [fix_links.ps1](file:///C:/Users/alexc/.gemini/antigravity/brain/7485e3d0-8658-4546-9959-ca20a9c6c887/scratch/fix_links.ps1)，全自動完成了這 14 個核心斷連結的 100% 無損修補。
   - **覆測成果**：重新執行健檢，確認核心知識庫所有正式文件之連結健康度已正式達標 **100% 滿分（零 Broken Link）**！
 - **當前狀態**：全庫健康狀態極佳，所有核心連結與大綱導覽均流暢無阻，具備高度穩定的知識檢索品質。
@@ -1795,7 +1902,7 @@ date_updated: 2026-05-29
 - **執行操作**：
   - **精確度校正**：將「競品觀測基礎數據基準線」中好好簽的成功案例數更正為 **「官網無正式案例 (0篇)」**。
   - **重要釐清**：明確標註好好簽的 8-12 篇案例並非官網公開的 Case Studies 行銷文章（對手點點簽、律果簽皆為公開可抓取篇數），而是**內部業務日報所累積的跨產業實績**（如富友旅行社、富爾達健康等 10+ 家 SaaS 轉型）。
-  - **同步修復檔案**：更新了 `wiki/analyses/domestic-e-signature-comparison.md` 與 `wiki/analyses/esign-monitoring-snapshot-202605.md` 中的基準表格。
+  - **同步修復檔案**：更新了 `wiki/analyses/esign-domestic-comparison.md` 與 `wiki/analyses/esign-monitoring-snapshot-202605.md` 中的基準表格。
 - **當前狀態**：數據已修正，防止混淆官網行銷資產與內部業務實績，突顯了我方官網在「成功案例」內容產出上的實質盲點。
 
 ---
@@ -1804,7 +1911,7 @@ date_updated: 2026-05-29
 
 - **操作者**：LLM Agent (Antigravity)
 - **執行操作**：
-  - **基準數據盤點**：在 `wiki/analyses/domestic-e-signature-comparison.md` 與 5 月月報底稿中正式建立競品觀測的「基礎數據基準線」。
+  - **基準數據盤點**：在 `wiki/analyses/esign-domestic-comparison.md` 與 5 月月報底稿中正式建立競品觀測的「基礎數據基準線」。
   - **涵蓋指標**：
     - **營運規模**：凱鈿行動科技（全球 200-230人）、律果科技（精實 12-20人）、蒙恬好好簽團隊（總部 90人）、全景軟體（170人）。
     - **目前方案價格**：對齊點點簽（美金/任務包計費）、律果簽（精細人頭/CLM制）、好好簽（無限簽/在地 Line 傳簽）、全景軟體（雲端訂閱與稀有的地端永久買斷制）。
@@ -1902,7 +2009,7 @@ date_updated: 2026-05-29
 - **操作者**：LLM Agent (Antigravity / Gemini 3 Flash)
 - **來源**：`raw/AIPM/` (Agent.md, project.md)
 - **核心產出**：
-  - **框架報告**：`wiki/analyses/antigravity-aipm-framework.md` (解析角色化模式與任務拆解邏輯)。
+  - **框架報告**：`wiki/analyses/bzb-antigravity-aipm-framework.md` (解析角色化模式與任務拆解邏輯)。
   - **技能指南**：`wiki/skills/antigravity-role-switching.md` (定義 /pm, /dev 等指令規範)。
 - **關鍵點**：
   - **模式化開發**：引入了 `/pm` (需求), `/ui` (設計), `/dev` (實作), `/test` (QA) 的角色切換機制。
@@ -2134,7 +2241,7 @@ date_updated: 2026-05-29
 - **觸發原因**：使用者要求運用既定測試框架進行即時 AI 搜尋實證並產出量化洞察報告
 - **檢索介接**：Google Grounding Engine / Vertex AI Search API
 - **新建頁面**：
-  - `wiki/analyses/ai-search-geo-empirical-report.md`（實際 AI 搜尋測試與 GEO 實證報告）
+  - `wiki/analyses/esign-ai-search-geo-empirical-report.md`（實際 AI 搜尋測試與 GEO 實證報告）
 - **修改頁面**：
   - `wiki/index.md`（新增實測報告連結）
   - `wiki/log.md`
@@ -2203,7 +2310,7 @@ date_updated: 2026-05-29
 - **觸發原因**：使用者要求爬取律果簽官網並以相同標準進行 SEO/GEO 評分
 - **爬取目標**：`https://legalsign.ai/`（含價格頁、問答頁、產品頁）
 - **新建頁面**：
-  - `wiki/analyses/legalsign-website-seo-geo-analysis.md`（律果簽官網 SEO/GEO 分析報告）
+  - `wiki/analyses/esign-legalsign-website-seo-geo-analysis.md`（律果簽官網 SEO/GEO 分析報告）
 - **修改頁面**：
   - `wiki/index.md`（新增律果簽分析報告連結）
   - `wiki/log.md`
@@ -2221,7 +2328,7 @@ date_updated: 2026-05-29
 - **觸發原因**：使用者要求爬取點點簽官網並以相同標準進行 SEO/GEO 評分
 - **爬取目標**：`https://www.dottedsign.com/zh-tw/`（含定價頁、部落格）
 - **新建頁面**：
-  - `wiki/analyses/dottedsign-website-seo-geo-analysis.md`（點點簽官網 SEO/GEO 分析報告）
+  - `wiki/analyses/esign-dottedsign-website-seo-geo-analysis.md`（點點簽官網 SEO/GEO 分析報告）
 - **修改頁面**：
   - `wiki/index.md`（新增點點簽分析報告連結）
   - `wiki/log.md`
@@ -2453,7 +2560,7 @@ date_updated: 2026-05-29
 - **修改頁面**：
   - `wiki/sources/bzs-sales-reports-2026.md`
   - `wiki/analyses/bzs-feature-requirements.md`
-  - `wiki/analyses/domestic-e-signature-comparison.md`
+  - `wiki/analyses/esign-domestic-comparison.md`
 - **關鍵發現**：
   - **點點簽漲價發酵加劇**：點點簽以份計費引發的逃難潮持續（如麻吉行得通、聖美麗健康顧問），即使合約尚未到期，客戶也已積極申請試用替代方案以利後續轉換。
   - **傳統企業 BPM 的進階需求**：堃霖冷凍機械等傳統製造業在尋求電子簽章與 T100 ERP 對接時，強烈要求 BPM 必須具備 SLA (Service Level Agreement) 監控機制與逾時催辦提醒。
@@ -2471,7 +2578,7 @@ date_updated: 2026-05-29
   - `raw/BZSdata/Projects/20260505日報.md`
 - **修改頁面**：
   - `wiki/sources/bzs-sales-reports-2026.md`
-  - `wiki/analyses/domestic-e-signature-comparison.md`
+  - `wiki/analyses/esign-domestic-comparison.md`
   - `wiki/analyses/bzs-feature-requirements.md`
 - **關鍵發現**：
   - **點點簽方案應對策略**：雖然點點簽新版商務方案漲價（500份約USD850），導致如富友旅行社流失至好好簽；但有企業（言果學習）選擇由 5 位業務共用一個不限合約份數的點點簽專業版（USD96/年）帳號來規避限制，並反饋好好簽系統確實較順暢。
@@ -2488,7 +2595,7 @@ date_updated: 2026-05-29
   - `raw/BZSdata/SaaS/` 4 份四月份週報 (0410, 0417, 0424, 0430)
 - **修改頁面**：
   - `wiki/sources/bzs-sales-reports-2026.md`
-  - `wiki/analyses/domestic-e-signature-comparison.md`
+  - `wiki/analyses/esign-domestic-comparison.md`
   - `wiki/analyses/bzs-feature-requirements.md`
 - **關鍵發現**：
   - **競品轉換潮與效能瓶頸**：點點簽全面改以件計費（約 NT$45/份）並面臨嚴重系統卡頓，導致中小企業流失；律果簽亦在處理 3.5 萬份超大合約時出現網頁載入達數十分鐘的效能問題。Docusign 與 Dropboxsign 分別因試用戰術與連續漲價退潮。
@@ -2548,8 +2655,8 @@ date_updated: 2026-05-29
   - `wiki/sources/fastsign-pricing.md`
   - `wiki/entities/fastsign.md`
 - **修改頁面**：
-  - `wiki/analyses/domestic-e-signature-comparison.md` (重構表格加入第四間廠商)
-  - `wiki/analyses/global-e-signature-comparison.md` (在全球分析中加入買斷制決策樹)
+  - `wiki/analyses/esign-domestic-comparison.md` (重構表格加入第四間廠商)
+  - `wiki/analyses/esign-global-comparison.md` (在全球分析中加入買斷制決策樹)
   - `wiki/analyses/bzs-feature-requirements.md` (在企業功能需求中指出地端整合的威脅)
   - `wiki/index.md`
 - **關鍵發現**：
@@ -2563,7 +2670,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/BZSdata/eSign/` 下的 3 份能量登錄相關文件
 - **新建頁面**：`wiki/sources/moda-esignature-energy-registration.md`
 - **修改頁面**：
-  - `wiki/analyses/domestic-e-signature-comparison.md` (國內競品比較)
+  - `wiki/analyses/esign-domestic-comparison.md` (國內競品比較)
   - `wiki/entities/breezysign.md`, `dottedsign.md`, `legalsign.md` (品牌實體頁)
   - `wiki/sources/taiwan-e-signature-law-2024.md`
   - `wiki/index.md`
@@ -2740,7 +2847,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/價格與方案 ，經濟實惠  BreezySign 好好簽 1.md` (發現有變動更新)
 - **更新頁面**：
   - `wiki/sources/breezysign-pricing.md`
-  - `wiki/analyses/domestic-e-signature-comparison.md`
+  - `wiki/analyses/esign-domestic-comparison.md`
 - **關鍵發現**：
   - 從更新後的文件中確認到好好簽提供極具競爭力的「年繳優惠」。
   - 專業版：原先推算年費為 3,600，實際年繳只要 NT$3,000。
@@ -2754,7 +2861,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/價格與方案 ，經濟實惠  BreezySign 好好簽 1.md`
 - **更新頁面**：
   - `wiki/sources/breezysign-pricing.md`
-  - `wiki/analyses/domestic-e-signature-comparison.md`
+  - `wiki/analyses/esign-domestic-comparison.md`
 - **關鍵發現**：
   - 填補了原先的價格空白：專業版為 NT$300/月（單人）；企業版為 NT$1,500/月（內含 5 人帳號）。
   - 加購服務：雲端憑證（AATL）為 NT$80/份，簡訊簽署為 NT$2/點。
@@ -2768,7 +2875,7 @@ date_updated: 2026-05-29
 - **來源文件**：`raw/BZSdata/ProJects/*.md` 與 `raw/BZSdata/SaaS/*.md` (共 53 份)
 - **新建頁面**（1 頁）：
   - `wiki/sources/bzs-sales-reports-2026.md` (綜合摘要萃取)
-- **更新頁面**：index.md、overview.md、breezysign.md、domestic-e-signature-comparison.md
+- **更新頁面**：index.md、overview.md、breezysign.md、esign-domestic-comparison.md
 - **關鍵發現**：
   - 揭露 API (1.5萬~15萬) 與 大量 AATL 憑證採購 (~$20-$30/張) 的企業專案定價。
   - 「鼎新電腦」與「方鼎/得勝者」為其關鍵通路整合夥伴，前者採 3:7 拆帳。
@@ -2788,7 +2895,7 @@ date_updated: 2026-05-29
   - `wiki/sources/taiwan-e-signature-law-2024.md`
   - `wiki/sources/e-signature-tech-overview.md`
   - `wiki/sources/acrobat-enterprise-pricing.md`
-- **更新頁面**：index.md、log.md、analyses/domestic-e-signature-comparison.md
+- **更新頁面**：index.md、log.md、analyses/esign-domestic-comparison.md
 - **關鍵發現**：
   - 2024 修法確立「數位簽章」具法律推定效力。
   - 行政機關 3 年落日條款將強制無紙化。

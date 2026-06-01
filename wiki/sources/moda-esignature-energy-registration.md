@@ -43,4 +43,4 @@ summary: "數發部用以盤點國內電子簽章技術服務、建構產業地�
 
 ## 相關連結
 - [2024 台灣電子簽章法](taiwan-e-signature-law-2024.md)
-- [國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
+- [國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)

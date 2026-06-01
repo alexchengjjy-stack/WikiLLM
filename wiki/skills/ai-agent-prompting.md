@@ -50,4 +50,4 @@ summary: "設計有效 LLM 提示詞、建構 Agent 指令系統與 Context Engi
 
 - [Harness Engineering 主題](../topics/harness-engineering.md)
 - [LLM 知識庫管理技能](llm-wiki-management.md)
-- [ANTIGRAVITY Agent 主控規範](../analyses/antigravity-aipm-framework.md)
+- [ANTIGRAVITY Agent 主控規範](../analyses/bzb/bzb-antigravity-aipm-framework.md)

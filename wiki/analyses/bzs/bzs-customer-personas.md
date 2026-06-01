@@ -56,5 +56,5 @@ related:
 
 ## 相關分析
 
-- [BZS 客戶獲取管道分析](./bzs-acquisition-channels.md)：詳細說明上述各畫像客戶如何「找到」好好簽（Google 搜尋、AI 推薦、合作夥伴通路等）。
-- [BZS 功能需求清單](./bzs-feature-requirements.md)：各畫像客戶的具體功能訴求彙整。
+- [BZS 客戶獲取管道分析](bzs-acquisition-channels.md)：詳細說明上述各畫像客戶如何「找到」好好簽（Google 搜尋、AI 推薦、合作夥伴通路等）。
+- [BZS 功能需求清單](bzs-feature-requirements.md)：各畫像客戶的具體功能訴求彙整。

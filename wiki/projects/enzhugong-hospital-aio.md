@@ -66,5 +66,5 @@ summary: "恩主公醫院一樓大廳設置整合型 AIO 簽署平台提案，�
 ## 相關文件
 
 - [BZS 業務日報摘要](../sources/bzs-sales-reports-2026.md)
-- [BZS 功能需求（醫療場景）](../analyses/bzs-feature-requirements.md)
+- [BZS 功能需求（醫療場景）](../analyses/bzs/bzs-feature-requirements.md)
 - [電子簽章顧問技能](../skills/electronic-signature-consulting.md)

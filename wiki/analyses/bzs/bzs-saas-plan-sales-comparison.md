@@ -39,5 +39,5 @@ summary: "比對 PipeDrive 報表與金流訂單明細，解析專業版、商�
 專業版雖然件數佔了近 7 成，但由於客單價較低，其實際貢獻的總營收可能遠不及那 3 成的企業客戶（例如太平洋旅行社單筆年費高達 6 萬 NTD，抵過數十個專業版用戶）。這也解釋了為何在 2026 上半年，我們能憑藉不到兩千的總註冊量，就創造了破 72 萬 NTD 的當期實收。
 
 ## 相關連結
-- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](../analyses/bzs-saas-funnel-ltv-cac-report.md)
-- [BZS SaaS 實質付費客戶分類清單 (2024-2026)](../analyses/bzs-saas-paid-subscribers-by-plan.md)
+- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](bzs-saas-funnel-ltv-cac-report.md)
+- [BZS SaaS 實質付費客戶分類清單 (2024-2026)](bzs-saas-paid-subscribers-by-plan.md)

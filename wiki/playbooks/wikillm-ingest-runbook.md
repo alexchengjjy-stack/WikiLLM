@@ -61,7 +61,7 @@ summary: "使用者說「有新文件加入」時，LLM Agent 執行新文件攝
 | SaaS 業務日報 | `sources/bzs-sales-reports-2026.md` | `projects/` 相關專案頁 |
 | Projects 業務日報 | `sources/bzs-sales-reports-2026.md` | `projects/` 相關專案頁 |
 | AI 知識文章 | `sources/` 新建來源頁 | `topics/harness-engineering.md` |
-| 市場競品資料 | `sources/` 新建來源頁 | `analyses/domestic-e-signature-comparison.md` |
+| 市場競品資料 | `sources/` 新建來源頁 | `analyses/esign-domestic-comparison.md` |
 | 法規文件 | `sources/` 新建來源頁 | `analyses/bzs-feature-requirements.md` |
 
 ### 步驟 4：萃取關鍵情報

@@ -44,7 +44,7 @@ summary: "國泰集團旗下大中型資訊服務公司，其電商平台「小�
 - [神坊小樹購電簽專案](../projects/symphox-xiaoshugou-onboarding.md) — 進行中的對接專案
 - [BreezySign 好好簽 20260523-0525 三日日報](../sources/bzs-daily-reports-20260523-20260525.md) — 進件來源日報
 - [2026-05-28 專案與 API 業務日報](../sources/20260528-projects-daily.md) — 最新進展來源日報
-- [好好簽定價與利潤分析報告](../analyses/bzs-pricing-cost-structure-analysis-20260525.md) — 企業方案 API 定價參考
+- [好好簽定價與利潤分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 企業方案 API 定價參考
 
 ## 來源引用
 - [20260523日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260523日報.md) ── 聯絡專人進件原始記錄

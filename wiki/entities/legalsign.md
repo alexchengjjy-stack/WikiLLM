@@ -15,7 +15,7 @@ summary: "全台少數內建完整合約生命週期管理（CLM）且主打法�
 
 ## 關鍵特色與定位
 
-參考[國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)，律果簽與市面上的簽章工具有著不同的產品靈魂：
+參考[國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)，律果簽與市面上的簽章工具有著不同的產品靈魂：
 
 1. **內建完整 CLM**：是目前國內唯一把簽章作為 [合約生命週期管理 (CLM)](../concepts/contract-lifecycle-management.md) 一部分的雲端服務。涵蓋從草擬、審查、簽署、歸檔到履約提醒的一站式作業。
 2. **法顧資源優勢**：有著背後的律師資源做支撐，高階方案中甚至會贈送諮詢時數或法代服務，適合沒有內部法務部但也希望規避合約風險的中小企業。

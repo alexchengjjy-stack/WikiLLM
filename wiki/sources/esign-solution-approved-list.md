@@ -63,5 +63,5 @@ summary: "數位發展部數位產業署公告的電子簽章解決方案服務�
 
 - [數發部電子簽章能量登錄說明頁](moda-esignature-energy-registration.md)
 - [律果簽能量登錄公告](legalsign-esign-approval-announcement.md)
-- [競品分析 — 國內電子簽章](../analyses/domestic-e-signature-comparison.md)
+- [競品分析 — 國內電子簽章](../analyses/esign/esign-domestic-comparison.md)
 - [電子簽章顧問技能](../skills/electronic-signature-consulting.md)

@@ -186,7 +186,7 @@ LLM 使用**向量嵌入（Vector Embedding）** 理解實體。「BreezySign」
 
 - [Google 官方：生成式 AI 搜尋優化指南](../sources/google-ai-optimization-guide.md)
 - [AI Overviews 優化怎麼做？（數位時代整理版）](../sources/google-ai-overviews-bnext-guide.md)
-- [好好簽官網 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽官網 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 - [SEO 優化技能](../skills/seo-optimization.md)
 - [GEO 優化技能](../skills/geo-optimization.md)
 - [AI Agent Prompting 技能](../skills/ai-agent-prompting.md)

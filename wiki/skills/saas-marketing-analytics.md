@@ -42,6 +42,6 @@ summary: "具備統合 Google Ads、PipeDrive 與訂單金流，計算精確 LTV
 - 具備撰寫 Python 腳本能力，能清洗高雜訊的原始金流 CSV 檔，去除測試與單次交易數據，提煉出包含備註、企業名稱與方案資訊的高純度實質名單。
 
 ## 相關實戰紀錄與報告
-- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](../analyses/bzs-saas-funnel-ltv-cac-report.md)
-- [2026 數位行銷操作具體建議與四大維度數據推估](../analyses/2026-h2-marketing-strategy-recommendations.md)
+- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](../analyses/bzs/bzs-saas-funnel-ltv-cac-report.md)
+- [2026 數位行銷操作具體建議與四大維度數據推估](../analyses/bzs/bzs-h2-marketing-strategy-2026.md)
 - [BZS 2026 行銷廣告報表 (Google Ads & Pmax)](../sources/bzs-marketing-ads-2026.md)

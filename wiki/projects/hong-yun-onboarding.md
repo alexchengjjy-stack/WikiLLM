@@ -5,7 +5,7 @@ status: active
 priority: high
 tags: [lead_followup, onsite_signing, trial_monitoring]
 date_started: 2026-05-28
-date_updated: 2026-05-28
+date_updated: 2026-06-01
 related_entities: ["hong-yun-federal.md"]
 related_skills: ["electronic-signature-consulting.md", "saas-sales-development.md"]
 summary: "追蹤鴻運聯邦企業體驗版試用進展，聚焦現場平板簽署、個資與證件上傳，並安排線上展示。"
@@ -18,7 +18,7 @@ summary: "追蹤鴻運聯邦企業體驗版試用進展，聚焦現場平板簽�
 ## 目前狀態
 - `[ ]` 跟進承辦人（Fion Liang）註冊與試用企業方案體驗版的進展。
 - `[ ]` 安排並進行線上展示（Online Demo），向承辦人展示範本製作、Google Drive 備份及平板簽署流程。
-- `[ ]` 協助承辦人準備向主管提案的簡報或比較資料，爭取高用量付費訂閱。
+- `[ ]` 協助承辦人準備向主管提案的簡報或比較資料，爭取高用量付費訂閱（因本案目前是由承辦人自行評估尋找，試用無誤後才跟主管提案）。
 - `[x]` 2026-05-27 提供體驗版註冊與相關試用參考資料。
 - `[x]` 2026-05-27 業務接洽，完成現場簽、遠距簽等功能介紹。
 
@@ -29,6 +29,8 @@ summary: "追蹤鴻運聯邦企業體驗版試用進展，聚焦現場平板簽�
 ## 相關連結
 - [鴻運聯邦企業有限公司](../entities/hong-yun-federal.md) — 實體資訊
 - [BreezySign 好好簽 20260527 業務日報](../sources/20260527-saas-daily.md) — 來源日報
+- [BreezySign 好好簽 2026-05-29 週報](../sources/bzs-weekly-report-20260529.md) — 來源週報
 
 ## 來源引用
-- [20260527-saas-daily.md](../sources/20260527-saas-daily.md) — 來源摘要
+- [20260527-saas-daily.md](../sources/20260527-saas-daily.md) — 來源日報
+- [bzs-weekly-report-20260529.md](../sources/bzs-weekly-report-20260529.md) — 來源週報

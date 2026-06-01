@@ -48,8 +48,8 @@ summary: "台灣電子簽章市場的產品顧問能力，涵蓋法規解釋、�
 
 ## 市場競品知識
 
-- [國內電子簽章比較](../analyses/domestic-e-signature-comparison.md)
-- [全球電子簽章比較](../analyses/global-e-signature-comparison.md)
+- [國內電子簽章比較](../analyses/esign/esign-domestic-comparison.md)
+- [全球電子簽章比較](../analyses/esign/esign-global-comparison.md)
 - [[dottedsign-pricing|點點簽定價與方案對比]]：掌握國際化 B2B 計量計費（Business 任務包）與 API 原生整合特色。
 - 了解 eIDAS 2.0 歐盟框架對台灣出海廠商的意義
 

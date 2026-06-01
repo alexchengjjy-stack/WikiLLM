@@ -231,7 +231,7 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 本期普查特別調用 [[claude-seo-universal-tool|Claude SEO]] 技術對比子代理，針對國內 4 大電子簽章官網在技術 SEO、DOM H標籤層級、Schema 標記及 AI 搜尋能見度 (GEO) 進行了全量剖析。
 
 詳細剖析與完整 Feature Matrix 比較頁規劃請參閱專屬報告：
-👉 **[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]**
+👉 **[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]**
 
 ### 核心發現與戰術包抄要點：
 1. **點點簽的 INP 弱點與 GEO 漂移**：點點簽由於過度加載國際化 HubSpot/Hotjar 腳本，Core Web Vitals INP (260ms) 表現不佳。且其近期漲價客訴引發了嚴重的 **AI 引用負面漂移 (AEO Drift)**，這是我方搶客的絕佳時機。
@@ -256,8 +256,8 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 ## 🔗 關聯報告與追蹤機制
 
 - **觀測機制 SOP**：[電子簽章能量登錄競品週期性觀測機制](../playbooks/esign-competitor-monitoring-mechanism.md)
-- **本土競品總分析**：[國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
+- **本土競品總分析**：[國內電子簽章服務競品比較](esign-domestic-comparison.md)
 - **能量登錄許可名單**：[電子簽章解決方案服務能量登錄許可名單](../sources/esign-solution-approved-list.md)
-- **官網技術 SEO 普查**：[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
+- **官網技術 SEO 普查**：[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
 
 

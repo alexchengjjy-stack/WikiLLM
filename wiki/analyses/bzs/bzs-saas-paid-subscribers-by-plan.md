@@ -425,5 +425,5 @@ summary: "由歷史訂閱金流紀錄中，自動萃取並歸類的『真正有�
 
 
 ## 相關連結
-- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](../analyses/bzs-saas-funnel-ltv-cac-report.md)
-- [BZS SaaS 客戶提取清單 (含潛在客戶)](../analyses/bzs-saas-customer-list.md)
+- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](bzs-saas-funnel-ltv-cac-report.md)
+- [BZS SaaS 客戶提取清單 (含潛在客戶)](bzs-saas-customer-list.md)

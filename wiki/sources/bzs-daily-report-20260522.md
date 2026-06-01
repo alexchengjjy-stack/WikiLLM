@@ -50,8 +50,8 @@ summary: "記錄 2026-05-22 當日業務進展，包含予時有限公司的包�
 ---
 
 ## 相關連結
-- [國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
-- [BZS 客戶畫像特徵](../analyses/bzs-customer-personas.md)
+- [國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)
+- [BZS 客戶畫像特徵](../analyses/bzs/bzs-customer-personas.md)
 - [BreezySign 好好簽實際案例和場景](../sources/bzs-use-cases-and-clients.md)
 
 ## 來源引用

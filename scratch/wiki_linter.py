@@ -3,14 +3,14 @@ import re
 import yaml
 
 WIKI_DIR = r"c:\Users\alexc\OneDrive\文件\WikiLLM\wiki"
-REPORT_PATH = os.path.join(WIKI_DIR, "analyses", "kb-health-check-report.md")
+REPORT_PATH = os.path.join(WIKI_DIR, "analyses", "wikillm", "wikillm-kb-health-check-report.md")
 
 def scan_wiki_files(base_dir):
     md_files = {}
     for root, _, files in os.walk(base_dir):
         for file in files:
             # 排除報告檔案以防自檢干擾
-            if file.endswith('.md') and file not in ['lint_report.md', 'kb-health-check-report.md']:
+            if file.endswith('.md') and file not in ['lint_report.md', 'kb-health-check-report.md', 'wikillm-kb-health-check-report.md']:
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, base_dir).replace('\\', '/')
                 md_files[rel_path] = full_path
@@ -111,9 +111,9 @@ def lint_knowledge_base():
         f.write("title: \"WikiLLM 知識庫健康檢查與 Lint 優化報告\"\n")
         f.write("type: analysis\n")
         f.write("analysis_type: synthesis\n")
-        f.write("tags: [Lint, 健康檢查, 知識庫管理, 合規審查]\n")
+        f.write("tags: [知識庫維護, Lint, 健康檢查, 知識庫管理, 合規審查]\n")
         f.write("date_created: 2026-05-29\n")
-        f.write("date_updated: 2026-05-29\n")
+        f.write("date_updated: 2026-06-01\n")
         f.write("source_count: 0\n")
         f.write("sources: []\n")
         f.write("summary: \"針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。\"\n")
@@ -126,11 +126,11 @@ def lint_knowledge_base():
         f.write("## 1. 編碼錯誤 (Encoding Errors) ── 已修復\n\n")
         if encoding_errors:
             for file, err in encoding_errors:
-                f.write(f"- **[{file}](../{file})**: `{err}`\n")
+                f.write(f"- **[{file}](../../{file})**: `{err}`\n")
         else:
             f.write("✅ 所有檔案皆為正確的 UTF-8 編碼。\n\n")
             f.write("在健康檢查初始階段，曾偵測到 **1 個** 核心文件存在非 UTF-8 二進位無效字元：\n")
-            f.write("- **[breezy-brain-integration-flow.md](../products/breezy-brain/breezy-brain-integration-flow.md)**: 於第 8769 位元組位置含有無效的二進位字元 `\x8b`。該字元目前已成功剔除，檔案已恢復 100% 正確編碼。\n")
+            f.write("- **[breezy-brain-integration-flow.md](../../products/breezy-brain/breezy-brain-integration-flow.md)**: 於第 8769 位元組位置含有無效的二進位字元 `\x8b`。該字元目前已成功剔除，檔案已恢復 100% 正確編碼。\n")
         f.write("\n")
         
         f.write("## 2. YAML Frontmatter 格式缺失\n\n")
@@ -146,7 +146,7 @@ def lint_knowledge_base():
             for d, items in by_dir.items():
                 f.write(f"### 目錄: `{d}/`\n")
                 for file, issue in items:
-                    f.write(f"- **[{os.path.basename(file)}](../{file})**: {issue}\n")
+                    f.write(f"- **[{os.path.basename(file)}](../../{file})**: {issue}\n")
         else:
             f.write("✅ 所有頁面 Frontmatter 符合基本規範。\n")
         f.write("\n")
@@ -154,7 +154,7 @@ def lint_knowledge_base():
         f.write("## 3. 失效內部連結 / 缺失頁面 (Broken Links & Missing Pages)\n\n")
         if missing_pages:
             for src, label, target, resolved in missing_pages:
-                f.write(f"- 檔案 **[{src}](../{src})** 中的連結 `[{label}]({target})` (解析為 `{resolved}`) 指向不存在的檔案。\n")
+                f.write(f"- 檔案 **[{src}](../../{src})** 中的連結 `[{label}]({target})` (解析為 `{resolved}`) 指向不存在的檔案。\n")
         else:
             f.write("✅ 無失效內部連結。\n")
         f.write("\n")
@@ -176,12 +176,12 @@ def lint_knowledge_base():
             
             f.write("#### 4.1.1 已在首頁註冊但無其他 Wiki 內頁交叉連結 (共 {0} 個):\n".format(len(registered_orphans)))
             for file in registered_orphans:
-                f.write(f"- **[{file}](../{file})**\n")
+                f.write(f"- **[{file}](../../{file})**\n")
             f.write("\n")
             
             f.write("#### 4.1.2 完全未在首頁註冊且無其他 Wiki 內頁連結 (流失頁面，共 {0} 個):\n".format(len(unregistered_orphans)))
             for file in unregistered_orphans:
-                f.write(f"- **[{file}](../{file})**\n")
+                f.write(f"- **[{file}](../../{file})**\n")
         else:
             f.write("✅ 所有頁面皆有至少一個外部 Wiki 交叉連結。\n")
         f.write("\n")
@@ -191,7 +191,7 @@ def lint_knowledge_base():
         f.write("> [!WARNING]\n")
         f.write("> **個資存取日誌矛盾 (`pii_access.log`)**\n")
         f.write("> - **現狀政策**：在 2026-05-29 修改的隱私權政策中，已明文**移除**了「pii_access.log 獨立個資存取日誌」的宣告。\n")
-        f.write("> - **規格書規格**：然而，[Product-Spec.md](../products/breezy-brain/Product-Spec.md) 第 1837 行的安全規範中，仍要求「*系統必須新增獨立於一般 [AGENT_CALL] 日誌之外的『個資存取稽核軌跡日誌』 (/storage/logs/pii_access.log)*」。\n")
+        f.write("> - **規格書規格**：然而，[Product-Spec.md](../../products/breezy-brain/Product-Spec.md) 第 1837 行的安全規範中，仍要求「*系統必須新增獨立於一般 [AGENT_CALL] 日誌之外的『個資存取稽核軌跡日誌』 (/storage/logs/pii_access.log)*」。\n")
         f.write("> - **建議**：這兩者在技術實施與對外合規宣告上存在衝突。若隱私權政策不再宣告此日誌，產品規格書應評估是否需將該功能拿掉，或者隱私權政策中應予補回以維持誠信。\n\n")
         f.write("> [!NOTE]\n")
         f.write("> **180 天錄影銷毀一致性**\n")
@@ -200,17 +200,17 @@ def lint_knowledge_base():
         f.write("## 6. 具體改善 Action Items\n\n")
         f.write("1. **修正 Frontmatter**：批次補齊 `skills/`、`playbooks/` 及 `sources/` 漏缺的 `type`、`title` 與 `source_file` 欄位。\n")
         f.write("2. **清除或登錄流失頁面**：\n")
-        f.write("   - 將 `bzs-battle-cards.md` 等有價值的分析登錄於 [index.md](../index.md)。\n")
+        f.write("   - 將 `bzs-battle-cards.md` 等有價值的分析登錄於 [index.md](../../index.md)。\n")
         f.write("   - 移除無用的舊日報草稿以保持目錄清潔。\n")
         f.write("3. **對齊規格書與合規條款**：\n")
-        f.write("   - 決議是否保留 `pii_access.log` 功能。若移除，需修改 [Product-Spec.md](../products/breezy-brain/Product-Spec.md) 第 1837 行的文字；若保留，需評估隱私權宣告的揭露方式。\n\n")
+        f.write("   - 決議是否保留 `pii_access.log` 功能。若移除，需修改 [Product-Spec.md](../../products/breezy-brain/Product-Spec.md) 第 1837 行的文字；若保留，需評估隱私權宣告的揭露方式。\n\n")
         f.write("---\n")
         f.write("## 相關連結\n")
-        f.write("- [內容索引首頁](../index.md)\n")
-        f.write("- [BreezyBrain 產品需求文件 (Product Spec)](../products/breezy-brain/Product-Spec.md)\n")
-        f.write("- [操作日誌](../log.md)\n")
+        f.write("- [內容索引首頁](../../index.md)\n")
+        f.write("- [BreezyBrain 產品需求文件 (Product Spec)](../../products/breezy-brain/Product-Spec.md)\n")
+        f.write("- [操作日誌](../../log.md)\n")
 
-    print("Lint report generated successfully directly at wiki/analyses/kb-health-check-report.md")
+    print("Lint report generated successfully directly at wiki/analyses/wikillm/wikillm-kb-health-check-report.md")
 
 if __name__ == "__main__":
     lint_knowledge_base()

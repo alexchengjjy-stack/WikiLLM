@@ -87,8 +87,8 @@ summary: "記錄 2026-05-22 當週業務進展，包含太平洋旅行社正式�
 
 ## 相關連結
 - [點點簽](../entities/dottedsign.md) — 競爭廠商實體頁面
-- [點點簽調漲價格與改採以份計費引發之轉單態勢與移轉案例深度分析報告](../analyses/dottedsign-price-hike-churn-analysis.md)
-- [BZS SaaS 付費客戶分類清單](../analyses/bzs-saas-paid-subscribers-by-plan.md)
+- [點點簽調漲價格與改採以份計費引發之轉單態勢與移轉案例深度分析報告](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
+- [BZS SaaS 付費客戶分類清單](../analyses/bzs/bzs-saas-paid-subscribers-by-plan.md)
 
 ## 來源引用
 - [BreezySign 20260522 週報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/BreezySign 20260522 週報.md) — 原始週報與完整客戶推進紀錄。

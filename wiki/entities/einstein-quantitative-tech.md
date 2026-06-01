@@ -40,7 +40,7 @@ summary: "金融培訓與教學課程公司，主動諮詢「線上購買 -> API
 
 ## 相關連結
 - [BreezySign 好好簽 20260523-0525 三日日報](../sources/bzs-daily-reports-20260523-20260525.md) — 進件來源日報。
-- [點點簽價格調漲與以份計費轉單分析](../analyses/dottedsign-price-hike-churn-analysis.md) — 說明以件計費與吃到飽的定價防線。
+- [點點簽價格調漲與以份計費轉單分析](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) — 說明以件計費與吃到飽的定價防線。
 
 ## 來源引用
 - [20260523日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260523日報.md) ── 聯絡專人進件原始記錄。

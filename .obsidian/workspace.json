@@ -11,14 +11,12 @@
             "id": "e6def6a3b5321495",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "wiki/products/breezy-brain/Product-Spec-CHANGELOG.md",
-                "mode": "source",
-                "source": false
+                "file": "outputs/bzs/20260527-1155-bzs-2026h2-cross-department-plan.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Product-Spec-CHANGELOG"
+              "icon": "lucide-file-text",
+              "title": "20260527-1155-bzs-2026h2-cross-department-plan"
             }
           }
         ]
@@ -53,7 +51,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "breezy_brain_framework",
+                "query": "esign-monitoring-snapshot-",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +76,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 371.5086555480957
+    "width": 430.5086555480957
   },
   "right": {
     "id": "488a8e7b45b523ad",
@@ -94,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/products/breezy-brain/Product-Spec-CHANGELOG.md",
+                "file": "wiki/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Product-Spec-CHANGELOG 的反向連結"
+              "title": "index 的反向連結"
             }
           },
           {
@@ -186,51 +184,51 @@
   },
   "active": "e6def6a3b5321495",
   "lastOpenFiles": [
-    "wiki/lint_report.md",
+    "outputs/bzs/20260527-1429-esign-competitor-seo-geo-analysis.pdf",
+    "outputs/bzs/20260515-si-blog-post-v2.html",
+    "outputs/bzs/20260527-1211-bzs-2026h2-cross-department-plan.pdf",
+    "outputs/bzs/20260527-1419-esign-monitoring-snapshot-202605.pdf",
+    "outputs/bzs/20260515-si-article-landing-page.html",
+    "outputs/bzs/20260515-si-blog-post.html",
+    "outputs/bzs/20260515-si-blog-post-v3.html",
+    "outputs/bzs/20260527-1155-bzs-2026h2-cross-department-plan.html",
+    "outputs/bzs/20260527-1429-esign-monitoring-snapshot-202605.pdf",
+    "outputs/bzs/20260527-1357-bzs-website-seo-geo-analysis.pdf",
+    "outputs/bzs/20260527-1340-esign-competitor-seo-geo-analysis.pdf",
+    "outputs/bzs/20260529-1054-breezysign-architecture.png",
+    "outputs/bzs/20260529-1114-breezysign-architecture.png",
+    "outputs/bzb/breezy_brain_framework.png",
+    "outputs/bzb/20260528-1807-breezy-brain-architecture.png",
+    "outputs/bzs/breezysign-case-study-fuyou-travel.md",
+    "outputs/bzs/20260529-1155-breezysign-architecture.png",
+    "outputs/bzs/20260529-1140-breezysign-architecture.png",
+    "outputs/bzs/20260529-1133-breezysign-architecture.png",
+    "outputs/README.md",
+    "outputs/bzb/wikillm_agent_framework.png",
+    "outputs/bzb/20260529-1139-breezy-brain-architecture_v6.png",
+    "outputs/bzb/20260529-1133-breezy-brain-architecture_v6.png",
+    "wiki/analyses/esign/esign-monitoring-snapshot-202606.md",
+    "Obsidian/WikiLLM/raw/暫時存放/outputs/README.md",
+    "wiki/analyses/wikillm-kb-health-check-report.md",
+    "wiki/analyses/bzb/bzb-spec-defense.md",
+    "wiki/analyses/bzb/bzb-spec-analysis-report.md",
+    "wiki/analyses/bzb/bzb-mvp-roadmap.md",
+    "wiki/analyses/bzb/bzb-concept-market-analysis.md",
+    "wiki/analyses/bzb/bzb-antigravity-aipm-framework.md",
+    "wiki/analyses/esign-ai-search-geo-empirical-report.md",
     "wiki/analyses/kb-health-check-report.md",
-    "scratch/fix_encoding.py",
-    "wiki/products/breezy-brain/Product-Spec.md",
-    "scratch/wiki_linter.py",
-    "outputs/20260528-1820-breezy-brain-architecture_v3.png",
-    "outputs/20260528-1820-breezy-brain-architecture_v3.pdf",
-    "outputs/20260528-1820-breezy-brain-architecture_v3.html",
-    "outputs/20260528-1815-breezy-brain-architecture_v2.html",
-    "outputs/20260528-1815-breezy-brain-architecture_v2.png",
-    "outputs/20260528-1815-breezy-brain-architecture_v2.pdf",
-    "outputs/20260528-1807-breezy-brain-architecture.png",
-    "outputs/20260528-1802-breezy-brain-architecture.html",
-    "outputs/20260528-1802-breezy-brain-architecture.pdf",
-    "wiki/skills/saas-marketing-analytics.md",
-    "wiki/skills/saas-sales-development.md",
-    "wiki/skills/seo-optimization.md",
-    "wiki/skills/llm-wiki-management.md",
-    "wiki/skills/geo-optimization.md",
-    "wiki/skills/eraser-io.md",
-    "wiki/skills/electronic-signature-consulting.md",
-    "wiki/skills/document-output-formats.md",
-    "wiki/playbooks/api-proposal-flow.md",
-    "wiki/playbooks/bzs-enterprise-trial-sop.md",
-    "wiki/playbooks/enterprise-trial-followup.md",
-    "wiki/playbooks/esign-competitor-monitoring-mechanism.md",
-    "wiki/playbooks/new-lead-qualification.md",
-    "wiki/playbooks/success-story-interview-playbook.md",
-    "wiki/playbooks/wikillm-ingest-runbook.md",
-    "wiki/topics/karpathy-autoresearch.md",
-    "wiki/topics/harness-engineering.md",
-    "wiki/topics/ai-search-testing.md",
-    "wiki/skills/ai-agent-prompting.md",
-    "wiki/products/breezy-brain/Product-Spec-CHANGELOG.md",
-    "outputs/generation_result.txt",
-    "outputs/20260529-1558-bzs-privacy-policy.pdf",
-    "outputs/temp-bzs-privacy-policy.md",
-    "outputs/temp-bzs-terms-of-service.md",
-    "wiki/analyses/breezybrain-spec-analysis-report.md",
-    "outputs/20260529-1155-breezysign-architecture.png",
-    "outputs/20260529-1140-breezysign-architecture.png",
-    "outputs/breezy_brain_framework.png",
-    "outputs/20260529-1139-breezy-brain-architecture_v6.png",
-    "outputs/20260529-1133-breezysign-architecture.png",
-    "outputs/20260529-1133-breezy-brain-architecture_v6.png",
-    "outputs/20260529-1114-breezysign-architecture.png"
+    "wiki/analyses/wikillm/wikillm-kb-health-check-report.md",
+    "wiki/analyses/esign/esign-pricing-feature-comparison.md",
+    "wiki/analyses/esign/esign-legalsign-website-seo-geo-analysis.md",
+    "wiki/analyses/esign/esign-global-comparison.md",
+    "wiki/analyses/esign/esign-dottedsign-website-seo-geo-analysis.md",
+    "wiki/analyses/esign/esign-monitoring-snapshot-202605.md",
+    "wiki/analyses/esign/esign-competitor-seo-geo-analysis-20260527.md",
+    "wiki/analyses/esign/esign-dottedsign-price-hike-churn-analysis.md",
+    "wiki/analyses/esign/esign-domestic-comparison.md",
+    "wiki/analyses/esign/esign-competitor-seo-geo-analysis.md",
+    "wiki/analyses/esign/esign-competitor-seo-geo-analysis-20260525.md",
+    "wiki/analyses/esign/esign-ai-search-geo-empirical-report.md",
+    "wiki/analyses/bzs/bzs-website-seo-geo-analysis.md"
   ]
 }

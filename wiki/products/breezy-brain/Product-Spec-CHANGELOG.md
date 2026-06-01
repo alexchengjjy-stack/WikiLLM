@@ -133,7 +133,7 @@ date_updated: 2026-05-28
   - 將地端 LLM 算力不足回退時的「顯性授權」防禦、動態網路探測鎖定收斂入規格書 3.2.4 節。
   - 將 AI 審核大腦偽陰性漏洞的「雙重確認」與「高亮可信度與原文引用」收斂入規格書 Epic 7。
   - 修改 `breezy-brain-integration-flow.md`，以 API/CLI 呼叫重新定義 5 階段自動化流程，並附上 Bash 工作流編排範例。
-  - 在 `breezybrain-spec-defense.md` 中將所有防護狀態 Checkbox 勾選為已完成。
+  - 在 `bzb-spec-defense.md` 中將所有防護狀態 Checkbox 勾選為已完成。
 
 ## [2026-05-20] | PM | 變更 | 完善 CRM 稅號、範本語意匹配與地端無外網簽署規格
 - **背景**：進行最後產品規格 Lint Check，發現三個關鍵死角：B2B 去重缺失統一編號、大腦自動填表單缺少範本匹配規則、地端無外網環境無法串接中華電信 LTV 時戳。

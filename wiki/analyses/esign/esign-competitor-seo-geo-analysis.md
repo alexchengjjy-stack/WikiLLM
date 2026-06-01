@@ -85,7 +85,7 @@ tags:
 
 > 💡 **超詳細功能對比與價格分析指引**：
 > 關於這三家（好好簽、點點簽、律果簽）最完整的官網方案層級限制與四維度（簽署、合規、管理、API）功能對比，請檢閱專題文獻：
-> 👉 **[[esign-pricing-feature-comparison|國內三大電子簽章官網方案與功能極致對比表]]**
+> 👉 **[[analyses/esign/esign-pricing-feature-comparison|國內三大電子簽章官網方案與功能極致對比表]]**
 
 ### 1. 頁面 H 標籤語意結構 (DOM Layout)
 * **`<h1>`**：`台灣 3 大電子簽章系統全方位對比：好好簽 vs 點點簽 vs 律果簽` (精確鎖定比較意圖關鍵字)
@@ -165,8 +165,8 @@ tags:
 ---
 
 **關聯文獻**：
-- [[domestic-e-signature-comparison|國內電子簽章服務競品比較]]
-- [[esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照]]
+- [[analyses/esign/esign-domestic-comparison|國內電子簽章服務競品比較]]
+- [[analyses/esign/esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照]]
 - [[claude-seo-universal-tool|Claude SEO 系統架構與實施指南]]
 - [[geo-optimization|GEO 生成式引擎優化技能]]
 - [[seo-optimization|SEO 搜尋引擎優化技能]]

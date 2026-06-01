@@ -75,5 +75,5 @@ summary: "律果簽於 2025/02 公告取得數發部電子簽章解決方案服�
 
 - [電子簽章解決方案服務能量登錄許可名單](esign-solution-approved-list.md)
 - [律果簽實體頁](../entities/legalsign.md)
-- [國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
+- [國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)
 - [SaaS 業務開發技能](../skills/saas-sales-development.md)

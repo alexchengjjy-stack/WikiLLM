@@ -58,7 +58,7 @@ summary: "記錄2026-05-26的業務日報，包含聖洋科技 API 串接大戶�
 - [聖洋科技](../entities/cacafly-marketing.md) — 廣告顧問大量 API 串接 SQL 頁面。
 - [華杏出版](../entities/huaxing-publishing.md) — 書籍出版體驗升級與帳號共用 Lead 頁面。
 - [屏東縣獅子鄉公所](../entities/shizi-township-office.md) — 公部門進件頁面。
-- [SaaS 客戶提取清單](../analyses/bzs-saas-customer-list.md) — 已同步更新 Leads 至客戶列表。
+- [SaaS 客戶提取清單](../analyses/bzs/bzs-saas-customer-list.md) — 已同步更新 Leads 至客戶列表。
 - [index.md](../index.md) — 導航首頁。
 
 ## 來源引用

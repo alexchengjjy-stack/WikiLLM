@@ -137,4 +137,4 @@ summary: "處理企業級 API 整合方案詢價的標準流程，從需求確�
 - [電子簽章顧問技能](../skills/electronic-signature-consulting.md)
 - [SaaS 業務開發技能](../skills/saas-sales-development.md)
 - [鼎新 API 對接專案](../projects/ding-xin-api-integration.md)
-- [BZS 功能需求與痛點](../analyses/bzs-feature-requirements.md)
+- [BZS 功能需求與痛點](../analyses/bzs/bzs-feature-requirements.md)

@@ -22,7 +22,7 @@ tags:
 
 ## 01. 🌀 系統核心架構
 
-Claude SEO 採用高密度的「主編排器 + 子技能自動加載 + 子代理協同」之三層架構，完美對齊了 [[antigravity-aipm-framework|AIPM 4.0]] 的 Orchestrate First（先編排，再開發）哲學：
+Claude SEO 採用高密度的「主編排器 + 子技能自動加載 + 子代理協同」之三層架構，完美對齊了 [[analyses/bzb/bzb-antigravity-aipm-framework|AIPM 4.0]] 的 Orchestrate First（先編排，再開發）哲學：
 
 ```mermaid
 graph TD
@@ -112,5 +112,5 @@ graph TD
 - [[geo-optimization|GEO 生成式引擎優化技能]]
 - [[seo-optimization|SEO 搜尋引擎優化技能]]
 - [[vibe-coding-paradigm|Vibe Coding 編程範式革命]]
-- [[antigravity-aipm-framework|Antigravity AIPM 框架分析報告]]
+- [[analyses/bzb/bzb-antigravity-aipm-framework|Antigravity AIPM 框架分析報告]]
 - [[aipm-framework-4|Product Manager 4.0 系統架構]]

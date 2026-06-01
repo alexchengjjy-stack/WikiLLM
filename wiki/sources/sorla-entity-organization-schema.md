@@ -51,4 +51,4 @@ summary: "本來源探討在 AI 搜尋時代，如何透過 Organization Schema 
 ---
 ## 相關連結
 - [GEO 實施能力頁面](../skills/geo-optimization.md)
-- [好好簽官網 SEO/GEO 分析報告](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽官網 SEO/GEO 分析報告](../analyses/bzs/bzs-website-seo-geo-analysis.md)

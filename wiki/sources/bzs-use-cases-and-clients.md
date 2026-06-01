@@ -62,5 +62,5 @@ summary: "詳細列舉好好簽在不動產、貸款代辦、旅行社、醫療�
   - **身分證上傳**：簽署勞報單時一併要求員工/接案者拍照上傳證件。
 
 ## 相關連結
-- [2026 下半年行銷策略操作建議](../analyses/2026-h2-marketing-strategy-recommendations.md)
-- [BZS SaaS 實質付費客戶分類清單](../analyses/bzs-saas-paid-subscribers-by-plan.md)
+- [2026 下半年行銷策略操作建議](../analyses/bzs/bzs-h2-marketing-strategy-2026.md)
+- [BZS SaaS 實質付費客戶分類清單](../analyses/bzs/bzs-saas-paid-subscribers-by-plan.md)

@@ -44,4 +44,4 @@ author: "數位發展部數位產業署 (moda)"
 
 ## 相關知識與後續推動
 - [數位發展部電子簽章解決方案服務能量登錄](moda-esignature-energy-registration.md)
-- [國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
+- [國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)

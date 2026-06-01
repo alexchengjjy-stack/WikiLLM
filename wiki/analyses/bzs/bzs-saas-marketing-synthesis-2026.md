@@ -16,7 +16,7 @@ summary: "統合 2024-2026 年 BreezySign SaaS 業務報表與廣告數據，產
 
 ## 一、 來源資料庫盤點 (Sources)
 本次討論與分析建立在以下堅實的原始資料之上：
-1. **[BZS SaaS 客戶提取清單 (按方案)](../analyses/bzs-saas-paid-subscribers-by-plan.md)**：從數千筆金流紀錄中洗出的近 400 家實質付費名單（包含企業版 141 家、專業版 251 家、API 5 家）。
+1. **[BZS SaaS 客戶提取清單 (按方案)](bzs-saas-paid-subscribers-by-plan.md)**：從數千筆金流紀錄中洗出的近 400 家實質付費名單（包含企業版 141 家、專業版 251 家、API 5 家）。
 2. **[2026 行銷廣告報表 (Google Ads & Pmax)](../sources/bzs-marketing-ads-2026.md)**：涵蓋 2026 上半年的 CPC、CPA 與轉換成效。
 3. **[BZS PM 數據分析報表彙整 (2025.10-2026.05)](../sources/pm-breezysign-analytics-reports.md)**：PipeDrive 上的 Leads 註冊數、發起任務家數等中層漏斗指標。
 4. **[好好簽實際案例和場景](../sources/bzs-use-cases-and-clients.md)**：來自第一線業務的垂直產業應用痛點與愛用功能報告。
@@ -40,7 +40,7 @@ summary: "統合 2024-2026 年 BreezySign SaaS 業務報表與廣告數據，產
 * **商務版的隱藏籌碼防禦**：針對覺得企業版太貴、專業版不夠用的客戶，保留了未公開的「商務版」作為降級防守 (Down-selling) 籌碼，成功攔截預算有限但不願流失的團隊客戶。預估此策略可將整體 Churn Rate 穩穩壓制在 5% 以內。
 
 ## 四、 數位行銷操作具體建議與四大維度推估
-依據數據推估，我們制定了 **[2026 下半年具體行銷戰術](../analyses/2026-h2-marketing-strategy-recommendations.md)**，包含：
+依據數據推估，我們制定了 **[2026 下半年具體行銷戰術](bzs-h2-marketing-strategy-2026.md)**，包含：
 1. **加大 Search 廣告油門**：無上限擴張預算，重點攔截競品字（如點點簽）與高意圖的 API/BPM 長尾字，允許 CPA 提升至 $20-50 USD，換取高客單價的企業客戶。
 2. **Pmax 探針邊界擴張**：維持每月 $300 USD 的預算找尋極度長尾的搜尋破口（如租車合約、裝潢合約）。
 3. **官網 CTA 優化**：針對企業客戶設計「我是企業用戶，申請 14 天全功能 VIP 體驗 (附專人導入)」的高對比專屬入口，並輔以 **[業務引導 SOP](../playbooks/bzs-enterprise-trial-sop.md)**。

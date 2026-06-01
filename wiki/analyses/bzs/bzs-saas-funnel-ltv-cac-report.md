@@ -54,5 +54,5 @@ summary: "基於 2024 至 2026 年上半年的訂單金流、PipeDrive 客成與
 
 ## 相關連結
 - [BZS 2026 行銷廣告報表 (Google Ads & Pmax)](../sources/bzs-marketing-ads-2026.md)
-- [BZS SaaS 客戶提取清單](../analyses/bzs-saas-customer-list.md)
+- [BZS SaaS 客戶提取清單](bzs-saas-customer-list.md)
 

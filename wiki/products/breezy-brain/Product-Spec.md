@@ -2022,4 +2022,4 @@ BreezyBrain 地端部署時，嚴禁以明文（如 `.pem` 或 `.key` 檔案）�
 - [BreezyBrain 產品宣言](breezy-brain-manifesto.md)
 - [需求變更紀錄](Product-Spec-CHANGELOG.md)
 - [UI 提示詞設計](UI-Prompts.md)
-- [規格情境正反攻防分析報告](../../analyses/breezybrain-spec-defense.md)
+- [規格情境正反攻防分析報告](../../analyses/bzb/bzb-spec-defense.md)

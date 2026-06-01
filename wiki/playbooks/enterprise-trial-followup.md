@@ -115,4 +115,4 @@ summary: "企業版體驗版從開通到付費轉換的完整跟進 Checklist，
 
 - [新潛客資格確認 SOP](new-lead-qualification.md)
 - [客戶成功管理技能](../skills/customer-success-management.md)
-- [BZS 客戶畫像](../analyses/bzs-customer-personas.md)
+- [BZS 客戶畫像](../analyses/bzs/bzs-customer-personas.md)

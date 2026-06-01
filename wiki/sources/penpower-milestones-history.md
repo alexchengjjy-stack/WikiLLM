@@ -35,4 +35,4 @@ summary: "蒙恬科技官方網站記載的大事紀紀錄，明確標註 Breezy
 
 - [數位發展部電子簽章解決方案服務能量登錄](moda-esignature-energy-registration.md)
 - [電子簽章解決方案服務能量登錄許可名單（2026/01）](esign-solution-approved-list.md)
-- [好好簽官網 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽官網 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)

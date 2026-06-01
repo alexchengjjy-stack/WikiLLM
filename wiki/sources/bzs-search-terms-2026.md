@@ -25,4 +25,4 @@ summary: "2026年1月至5月的實際廣告搜尋字詞成效，揭露了品牌�
    - 「電子簽名」、「電子簽章」、「電子合約」等通用字詞，雖然點擊率稍低，但仍穩定貢獻轉換。例如「電子 簽名」CPA 約 $8.77 USD，效率出奇地好。
 
 ## 相關連結
-- [2026 數位行銷操作具體建議與四大維度數據推估](../analyses/2026-h2-marketing-strategy-recommendations.md)
+- [2026 數位行銷操作具體建議與四大維度數據推估](../analyses/bzs/bzs-h2-marketing-strategy-2026.md)

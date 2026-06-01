@@ -45,7 +45,7 @@ summary: "大型廣告顧問公司，尋求年約 8,000~10,000 份之 API 串接
 ## 相關連結
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md) — 來源日報。
 - [2026H2 跨部門執行計畫](../../outputs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 針對大量簽署大戶之銷售與防護戰略。
-- [好好簽電子簽章定價成本結構與利潤邊際分析報告](../analyses/bzs-pricing-cost-structure-analysis-20260525.md) — 大戶定價安全防線精算。
+- [好好簽電子簽章定價成本結構與利潤邊際分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 大戶定價安全防線精算。
 
 ## 來源引用
 - [20260526日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260526日報.md) ── 聯絡專人進件原始記錄。

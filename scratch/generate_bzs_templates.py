@@ -9,9 +9,9 @@ from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
 
 # 1. 定義路徑
-HTML_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\bzs-report-template.html"
-PDF_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\bzs-report-template.pdf"
-PPTX_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\bzs-presentation-template.pptx"
+HTML_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\templates\bzs-report-template.html"
+PDF_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\templates\bzs-report-template.pdf"
+PPTX_FILE = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\templates\bzs-presentation-template.pptx"
 
 # 2. 品牌色彩系統 (BreezySign CIS Colors)
 C_PRIMARY = RGBColor(5, 120, 87)       # 翠綠 (Primary Emerald)
@@ -33,8 +33,8 @@ def generate_logo_pngs():
     outputs_dir = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs"
     
     src_png = os.path.join(scratch_dir, "breezysign_logo.png")
-    png_green = os.path.join(outputs_dir, "bzs-logo-green.png")
-    png_white = os.path.join(outputs_dir, "bzs-logo-white.png")
+    png_green = os.path.join(outputs_dir, "assets", "bzs-logo-green.png")
+    png_white = os.path.join(outputs_dir, "assets", "bzs-logo-white.png")
 
     # 1. 若本地原始 PNG 不存在，優先從 brain 歷史目錄複製正確新版 Logo 圖片，防止聯網下載到官網舊資產
     if not os.path.exists(src_png):
@@ -182,7 +182,7 @@ def create_pptx_template():
         p.font.color.rgb = C_PRIMARY
 
         # 右上角置入官方 Logo 圖片 (白底綠字 Logo，維持完美的 5.02:1 官方長寬比)
-        logo_green_path = os.path.join(os.path.dirname(PPTX_FILE), "bzs-logo-green.png")
+        logo_green_path = os.path.join(os.path.dirname(os.path.dirname(PPTX_FILE)), "assets", "bzs-logo-green.png")
         if os.path.exists(logo_green_path):
             slide.shapes.add_picture(logo_green_path, Inches(10.5), Inches(0.38), width=Inches(2.0), height=Inches(0.4))
         return title_box
@@ -197,7 +197,7 @@ def create_pptx_template():
     add_rect(slide_cover, Inches(0), Inches(0), Inches(13.33), Inches(0.2), C_SECONDARY)
 
     # 3. 插入官方高保真反白 Logo 圖片 (綠底白字 Logo，維持完美的 5.02:1 官方長寬比)
-    logo_white_path = os.path.join(os.path.dirname(PPTX_FILE), "bzs-logo-white.png")
+    logo_white_path = os.path.join(os.path.dirname(os.path.dirname(PPTX_FILE)), "assets", "bzs-logo-white.png")
     if os.path.exists(logo_white_path):
         slide_cover.shapes.add_picture(logo_white_path, Inches(1.2), Inches(1.8), width=Inches(2.61), height=Inches(0.52))
 
@@ -466,8 +466,8 @@ def create_pptx_template():
 def update_html_logo():
     import base64
     import re
-    html_path = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\bzs-report-template.html"
-    png_path = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\bzs-logo-green.png"
+    html_path = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\templates\bzs-report-template.html"
+    png_path = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs\assets\bzs-logo-green.png"
     
     if not os.path.exists(html_path) or not os.path.exists(png_path):
         print(f"[ERROR] Cannot update HTML logo: files missing.")

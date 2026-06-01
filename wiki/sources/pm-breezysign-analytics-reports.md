@@ -29,9 +29,9 @@ summary: "產品經理 (PM) 的每月營運儀表板，包含公司整體數據�
 
 ## 知識庫聯動與應用價值
 
-- **視覺化輔助**：這些報表提供了我們在 [SaaS 漏斗綜合分析報告](../analyses/bzs-saas-funnel-ltv-cac-report.md) 中計算出的 CAC 與 MRR 數據的視覺化左證。
+- **視覺化輔助**：這些報表提供了我們在 [SaaS 漏斗綜合分析報告](../analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) 中計算出的 CAC 與 MRR 數據的視覺化左證。
 - **歷史回溯**：由於 Notion 記錄了歷年的 PDF 附件，未來若需要回溯特定月份的營收分布，可直接至這些 Raw Data 中提取對應月份的 PDF 檔案。
 
 ## 相關連結
-- [SaaS 漏斗轉換率與 LTV:CAC 綜合分析報告 (2026)](../analyses/bzs-saas-funnel-ltv-cac-report.md)
+- [SaaS 漏斗轉換率與 LTV:CAC 綜合分析報告 (2026)](../analyses/bzs/bzs-saas-funnel-ltv-cac-report.md)
 - [BZS 業務日報與週報彙整 (2026)](bzs-sales-reports-2026.md)

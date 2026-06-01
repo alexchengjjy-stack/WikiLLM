@@ -63,7 +63,7 @@ summary: "掌握傳統搜尋引擎優化（SEO）的技術、內容與結構評�
 ### 已執行的 SEO 分析
 
 - **好好簽官網（2026/05/14）**：發現 H 標籤層級錯亂（H3 在 H2 前）、定價頁 FAQ 無內容、品牌名稱三種混用、功能頁薄內容
-  → 完整報告：[bzs-website-seo-geo-analysis.md](../analyses/bzs-website-seo-geo-analysis.md)
+  → 完整報告：[bzs-website-seo-geo-analysis.md](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 
 ---
 
@@ -93,5 +93,5 @@ summary: "掌握傳統搜尋引擎優化（SEO）的技術、內容與結構評�
 
 - [[geo-optimization|GEO 生成式引擎優化技能]]
 - [[seo-geo-optimization|SEO/GEO 概念與評分標準]]
-- [好好簽 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 - [[claude-seo-universal-tool|Claude SEO 系統架構與實施指南]]

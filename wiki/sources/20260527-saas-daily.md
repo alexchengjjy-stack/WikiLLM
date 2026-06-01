@@ -49,7 +49,7 @@ summary: "記錄 2026-05-27 業務日報進展，包含海沃管理顧問的點�
 - [云行銷企業社](../entities/yun-marketing.md) — 新增實體頁面
 - [海沃管理顧問 Onboarding 專案](../projects/hai-wo-onboarding.md) — 新增專案頁面
 - [鴻運聯邦 Onboarding 專案](../projects/hong-yun-onboarding.md) — 新增專案頁面
-- [點點簽轉單潮深度分析報告](../analyses/dottedsign-price-hike-churn-analysis.md) — 增補案例分析
+- [點點簽轉單潮深度分析報告](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) — 增補案例分析
 
 ## 來源引用
 - [raw/BZSdata/SaaS/20260527日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260527日報.md) — 原始日報檔案

@@ -55,9 +55,9 @@ summary: "SaaS 產品的業務開發能力，涵蓋潛客資格確認、試用�
 
 ## 相關連結
 
-- [BZS 客戶畫像特徵](../analyses/bzs-customer-personas.md)
-- [BZS 功能需求與痛點](../analyses/bzs-feature-requirements.md)
-- [BZS 獲客管道分析](../analyses/bzs-acquisition-channels.md)
+- [BZS 客戶畫像特徵](../analyses/bzs/bzs-customer-personas.md)
+- [BZS 功能需求與痛點](../analyses/bzs/bzs-feature-requirements.md)
+- [BZS 獲客管道分析](../analyses/bzs/bzs-acquisition-channels.md)
 - [[dottedsign-pricing|點點簽定價與方案]]
 - [新潛客資格確認 SOP](../playbooks/new-lead-qualification.md)
 - [企業試用跟進 Checklist](../playbooks/enterprise-trial-followup.md)

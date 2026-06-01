@@ -47,4 +47,4 @@ AI 模型評估露出的標準，已從過往單純比拚反向連結數量與�
 
 - [GEO 生成式引擎優化技能](../skills/geo-optimization.md)
 - [SEO 搜尋引擎優化技能](../skills/seo-optimization.md)
-- [好好簽官網 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽官網 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)

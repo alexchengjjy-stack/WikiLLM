@@ -58,4 +58,4 @@ Google 推出的 **NotebookLM** 具備以指定來源進行強聚焦 RAG 分析�
 
 - [GEO 生成式引擎優化技能](../skills/geo-optimization.md)
 - [SEO 搜尋引擎優化技能](../skills/seo-optimization.md)
-- [好好簽官網 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽官網 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)

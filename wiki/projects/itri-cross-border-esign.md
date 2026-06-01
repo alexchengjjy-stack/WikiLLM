@@ -69,5 +69,5 @@ summary: "受工研院邀請參與「電子簽章國際接軌子計畫」，每�
 
 - [eIDAS 2.0 歐盟框架](../sources/eidas2-overview.md)
 - [數發部電子簽章能量登錄](../sources/moda-esignature-energy-registration.md)
-- [BZS 功能需求（政府跨境合規）](../analyses/bzs-feature-requirements.md)
+- [BZS 功能需求（政府跨境合規）](../analyses/bzs/bzs-feature-requirements.md)
 - [電子簽章顧問技能](../skills/electronic-signature-consulting.md)

@@ -62,4 +62,4 @@ summary: "聖洋科技 (cacafly) 年約 8,000~10,000 份之 API 串接專案，�
 ## 相關文件
 - [聖洋科技 (cacafly) 實體頁面](../entities/cacafly-marketing.md)
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md)
-- [好好簽定價成本結構與利潤邊際分析報告](../analyses/bzs-pricing-cost-structure-analysis-20260525.md)
+- [好好簽定價成本結構與利潤邊際分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md)

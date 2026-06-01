@@ -54,4 +54,4 @@ summary: "國泰集團旗下神坊資訊之電商平台「小樹購」規劃導�
 - [2026-05-28 專案與 API 業務日報](../sources/20260528-projects-daily.md) — 專案進展與價格反饋來源
 - [BreezySign 好好簽 20260523-0525 三日日報](../sources/bzs-daily-reports-20260523-20260525.md) — 進件諮詢來源
 - [神坊資訊](../entities/symphox-information.md) — 合作實體介紹
-- [好好簽定價與利潤分析報告](../analyses/bzs-pricing-cost-structure-analysis-20260525.md) — 價格制定與毛利參考
+- [好好簽定價與利潤分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 價格制定與毛利參考

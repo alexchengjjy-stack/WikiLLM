@@ -60,5 +60,5 @@ summary: "SaaS 客戶成功管理能力：從企業試用導入、問題排解�
 
 - [SaaS 業務開發](saas-sales-development.md)
 - [企業試用跟進 Checklist](../playbooks/enterprise-trial-followup.md)
-- [BZS 客戶畫像](../analyses/bzs-customer-personas.md)
-- [BZS 功能需求與痛點](../analyses/bzs-feature-requirements.md)
+- [BZS 客戶畫像](../analyses/bzs/bzs-customer-personas.md)
+- [BZS 功能需求與痛點](../analyses/bzs/bzs-feature-requirements.md)

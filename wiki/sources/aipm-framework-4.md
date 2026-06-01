@@ -126,4 +126,4 @@ AIPM 4.0 嚴厲拒絕「看到 Error Log 就憑直覺修改程式碼」的碰運
 - [[claude-rules-12-commandments|CLAUDE.md 12條黃金行為指令規範]]
 - [[vibe-coding-paradigm|Vibe Coding 編程範式革命]]
 - [[harness-engineering|Harness Engineering 系統防護機制]]
-- [[antigravity-aipm-framework|Antigravity AIPM 框架分析報告]]
+- [[analyses/bzb/bzb-antigravity-aipm-framework|Antigravity AIPM 框架分析報告]]

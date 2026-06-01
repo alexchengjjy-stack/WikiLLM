@@ -20,7 +20,8 @@ summary: "針對已通過數位發展部電子簽章解決方案服務能量登�
 
 ## 🎯 觀測目的與戰略意圖
 
-隨著電子簽章法修法與數位發展部推動「服務能量登錄」，合規資格已成為企業與公部門採購的硬性門檻。透過對已登錄競品進行七大維度的常態性監控，能及早識破對手的产品迭代方向、定價策略調整、技術佈局（透過招募職缺反推）與獲客重心，進而動態校準 BreezySign 好好簽的銷售論述與 GEO 攻防策略。
+隨著電子簽章法修法與數位發展部推動「服務能量登錄」，合規資格已成為企業與公部門採購的硬性門檻。透過對已登錄競品進行七大維度的常態性監控，能及早識破對手之產品迭代方向、定價策略調整、技術佈局（透過招募職缺反推）與獲客重心，進而動態校準 BreezySign 好好簽的銷售論述與 GEO 攻防策略。
+⚠️ **重要規範**：在比較基準上，競品數據與我方好好簽數據均必須以對外公開之正式站（Production）為唯一基準，**嚴禁使用或加入我方好好簽之預備測試站（Staging）作為對照**，以求數據的絕對嚴謹性與實事求是。
 
 ---
 
@@ -115,19 +116,19 @@ summary: "針對已通過數位發展部電子簽章解決方案服務能量登�
 每次執行完畢後，請於下方表格（或專用追蹤頁）建立或更新該月的觀測快照連結。
 
 ### [2026-05] 月度觀測報告
-- **詳細報告**：[2026-05 競品情報月度快照](../analyses/esign-monitoring-snapshot-202605.md)
+- **詳細報告**：[2026-05 競品情報月度快照](../analyses/esign/esign-monitoring-snapshot-202605.md)
 - **核心情報摘要**：
     - **凱鈿 (DottedSign)**：招募通路轉向 Yourator，擴張 AI 團隊，從工具轉向 AI 顧問。
     - **律果簽 (LegalSign)**：確立「法律垂直 AI」定位，強化法律專屬 LLM 研發。
     - **我方 (BreezySign)**：AI 引用能見度受益於 Schema 優化，上升至約 40%。
-    - **技術審計**：完成國內四家電簽官網 [[esign-competitor-seo-geo-analysis|Claude SEO 競品技術普查]]，指出點點簽 INP 與 AEO 漂移缺陷、律果 SPA 盲區，並為我方設計 Product JSON-LD 比較頁。
+    - **技術審計**：完成國內四家電簽官網 [[analyses/esign/esign-competitor-seo-geo-analysis|Claude SEO 競品技術普查]]，指出點點簽 INP 與 AEO 漂移缺陷、律果 SPA 盲區，並為我方設計 Product JSON-LD 比較頁。
 - **動作建議**：強化「ERP 生態系整合」優勢，並啟動 BreezySign 競品對比著陸頁部署，包抄競品流失流量。
 
 ---
 
 ## 🔗 關聯指引與情報庫
 
-- [國內電子簽章服務競品比較](../analyses/domestic-e-signature-comparison.md)
-- [官網技術 SEO 普查](../analyses/esign-competitor-seo-geo-analysis.md)
+- [國內電子簽章服務競品比較](../analyses/esign/esign-domestic-comparison.md)
+- [官網技術 SEO 普查](../analyses/esign/esign-competitor-seo-geo-analysis.md)
 - [能量登錄官方許可名單](../sources/esign-solution-approved-list.md)
 - [實際 AI 搜尋測試 SOP](../topics/ai-search-testing.md)

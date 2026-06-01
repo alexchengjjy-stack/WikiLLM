@@ -94,4 +94,4 @@ summary: "基於 2026 上半年極度健康的 LTV:CAC 比例，提出下半年�
 2. **CPA (每次獲取成本)**：Pmax 維持 $12 USD 以下；Search 品牌/競品詞維持 $15 USD 以下；企業 API 詞允許拉高至 $50 USD，但要求高 ROAS。
 
 ## 相關連結
-- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](../analyses/bzs-saas-funnel-ltv-cac-report.md)
+- [SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)](bzs-saas-funnel-ltv-cac-report.md)

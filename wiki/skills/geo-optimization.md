@@ -87,7 +87,7 @@ summary: "掌握生成式引擎優化（GEO）的評估與實施能力：讓 Cha
 - **好好簽官網（2026/05/14）** — GEO 評分 2.5/10（嚴重不足）
   - 問題：定價頁 FAQ 無答案、品牌三種名稱混用、未聲明數發部能量登錄資格、功能頁無說明文字
   - 改善優先項：補 FAQ 答案、統一品牌名稱、加入 Schema Markup
-  → 完整報告：[bzs-website-seo-geo-analysis.md](../analyses/bzs-website-seo-geo-analysis.md)
+  → 完整報告：[bzs-website-seo-geo-analysis.md](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 
 ---
 
@@ -137,7 +137,7 @@ GEO 和 SEO 不是競爭關係，而是**互補策略**：
 
 - [[seo-optimization|SEO 搜尋引擎優化技能]]
 - [[seo-geo-optimization|SEO/GEO 概念與評分標準]]
-- [好好簽 SEO/GEO 分析](../analyses/bzs-website-seo-geo-analysis.md)
+- [好好簽 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 - [[ai-agent-prompting|AI Agent Prompting 技能]]
 - [[claude-seo-universal-tool|Claude SEO 系統架構與實施指南]]
 - **[Sorla 行銷實戰系列]**

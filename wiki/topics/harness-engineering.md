@@ -226,6 +226,6 @@ AI 面對複雜問題會本能地選擇「最乾淨的解法」，但對生產�
 - [深度解析](../sources/he-deep-analysis.md) — Meta/知乎
 - [AI 作業系統架構](../sources/he-ai-os-architecture.md) — Jason Chuang
 - [學習指南](../sources/he-learning-guide.md) — deusyu/GitHub
-- [ANTIGRAVITY Agent 主控規範](../analyses/antigravity-aipm-framework.md) — Antigravity IDE
-- [AI 專案目錄結構設計 (AIPM)](../analyses/antigravity-aipm-framework.md) — Antigravity IDE
+- [ANTIGRAVITY Agent 主控規範](../analyses/bzb/bzb-antigravity-aipm-framework.md) — Antigravity IDE
+- [AI 專案目錄結構設計 (AIPM)](../analyses/bzb/bzb-antigravity-aipm-framework.md) — Antigravity IDE
 - [人類掌舵、Agent 執行](../sources/he-human-steer-agent-execute.md) — 李元魁 (轉載 Ryan Lopopolo)
