@@ -1,3 +1,0 @@
-HTML: outputs\20260529-1140-breezysign-architecture.html
-PDF: outputs\20260529-1140-breezysign-architecture.pdf
-PNG: outputs\20260529-1140-breezysign-architecture.png

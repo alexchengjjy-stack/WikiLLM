@@ -1,4 +1,0 @@
-TOS_HTML: outputs/20260529-1558-bzs-terms-of-service.html
-TOS_PDF: outputs/20260529-1558-bzs-terms-of-service.pdf
-PRIVACY_HTML: outputs/20260529-1558-bzs-privacy-policy.html
-PRIVACY_PDF: outputs/20260529-1558-bzs-privacy-policy.pdf
