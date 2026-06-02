@@ -1,7 +1,104 @@
 ---
 title: "操作日誌"
-date_updated: 2026-06-01
+date_updated: 2026-06-02
 ---
+
+## [2026-06-02 18:04] update | 好好簽 (BZS) 付費客戶方案結構對照分析順序調整
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改分析報告**:
+    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 依據閱讀體驗調整內容順序，將「銷售方案佔比與客戶結構對照分析」移至最前方，詳細付費客戶名單降為二級標題移至後方。
+- **關鍵發現**:
+  - **結構層級優化**: 讓決策者在開啟付費清單分析時，優先閱讀宏觀的銷售金額佔比與客戶數量結構分析（企業方案佔營收比重 83.2% 的核心啟示），再進入微觀明細列表，提升報告可讀性。
+
+## [2026-06-02 17:49] analyze | 好好簽 (BZS) 5月完整營運數據對帳、方案銷售對照與執行報告產出
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改分析報告**:
+    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 新增「BZS SaaS 各方案銷售佔比與客戶結構對照分析」，定量拆分 5 月份 SaaS 實收金額中企業方案與專業方案的銷售營收比重（企業方案佔 83.2% 主導增長，專業方案家數佔 63.1% 提供 ARR 留存底座）。
+    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 新增「行銷與營運策略全局綜合摘要」，對四大維度、漏斗演進、CPA 雙軌及客成服務邊界進行全局策略提煉，並定調下半年加碼競品攔截的戰略。
+  - **新創產出 (Outputs)**:
+    - [bzs-202605-operations-complete-report.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-202605-operations-complete-report.html) ── 依據對齊 SOP 成功生成截至 5 月底 Production 實績之「完整營運數據分析及執行報告」網頁看板，整合全局摘要、四大維度演進、各管道成效矩陣與各方案對照分析。
+- **關鍵發現**:
+  - **大客營收飛輪**: 企業方案以 35.7% 的付費家數貢獻了 SaaS 月實收的 83.2%（如太平洋旅行社 60k 大單），客單拉動效益顯著；專業方案以 63.1% 家數貢獻了主要的 ARR 舊客續期底座，定位為高流量漏斗承接器。
+  - **全局戰略建議**: 窄口徑 LTV:CAC 達 67 倍且回本週期小於一年，財務指標證明行銷回本極快，下半年應放開 Ads 預算無上限加碼點點簽競品攔截（建議配比 40%），並以 API 無程式碼元件嵌入生態通路。
+
+## [2026-06-02 17:35] analyze | 好好簽 (BZS) 2026 年 5 月底營運數據整體對齊與分析實作
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創產出 (Outputs)**:
+    - [bzs-202605-operations-dashboard.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs-202605-operations-dashboard.html) ── 依據對齊 SOP 成功生成截至 5 月底 Production 實績之深色科技風營運對帳與漏斗分析網頁看板。
+- **關鍵發現**:
+  - **完成 5 月整體數據對齊**: 根據 SOP 完成基礎名冊對齊、對帳勾稽（SaaS實收與CSM落差為0）、重新核算成長漏斗與雙軌 LTV:CAC 比值（窄口徑 LTV:CAC 達 67:1）、並提煉三大客戶畫像實績（太平洋成交、恩主公醫院及聖美麗大檔案限制防禦邊界婉拒結案），成果全數落實於 wiki 報告中，數據基準嚴密。
+
+## [2026-06-02 17:32] analyze | 好好簽 (BZS) 營運分析順序重構與月度對齊 SOP 建立
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創 Playbook**:
+    - [bzs-monthly-operations-reconciliation-sop.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/playbooks/bzs-monthly-operations-reconciliation-sop.md) ── 制定「SaaS 月度營運數據對齊與整體分析流程 SOP」，將分析步驟標準化為：「底層客戶名單與勾稽對帳 ➡️ 中層漏斗與渠道 CPA ➡️ 深層畫像與痛點 ➡️ 頂層策略決策」。
+  - **修改規範文件**:
+    - [AGENTS.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/AGENTS.md) ── 於工作流程中新增「月度營運更新 (Monthly Operations Update)」規則，規範對齊順序、正式站唯一基準與資料落差處理。
+  - **修改目錄**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立的月度營運對齊 SOP。
+- **關鍵發現**:
+  - **確立數據對齊鏈條**: 將數據對齊與分析步驟建立邏輯依賴順序，避免因底層數據未對齊（如跨月扣款、專案實收等）即直接進行上層 LTV:CAC 或渠道 CPA 分析，確保商業決策數據鏈的絕對嚴謹性。
+
+## [2026-06-02 17:21] analyze | 好好簽 (BZS) SaaS 營運後台與客成數據深度勾稽分析
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改分析報告**:
+    - [bzs-saas-ops-csm-reconciliation-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 增量更新 2026 年 5 月全月實績，定量分析 5 月份營收口徑落差，剖析太平洋旅行社成交、恩主公醫院及聖美麗大檔案限制主動婉拒之結案歷程。
+- **關鍵發現**:
+  - **5月營收口徑契合**: 5 月 SaaS 後台實收 NT$84,080 與 CSM 登記之新購業績 NT$73,200（含太平洋大單 NT$60k）及續訂 ARR NT$10,880 完美契合，口徑落差為 0。專案與 API 實收 NT$281,122 獨立拆分核算。
+  - **客成商機跟進結案**: 太平洋旅行社已付款並於 6/1 生效；恩主公醫院因預算已滿婉拒結案；聖美麗因 10MB 與 AATL 數位憑證效能瓶頸已主動婉拒結案，確立技術防禦邊界。
+
+## [2026-06-02 17:17] analyze | 好好簽 (BZS) 2026 下半年行銷策略分析
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改分析報告**:
+    - [bzs-h2-marketing-strategy-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-h2-marketing-strategy-2026.md) ── 重構並更新 2026 下半年行銷操作建議與四大維度推估。依據 Production 正式站實績進行分析，嚴格排除測試站（Staging）、測試官網及進行中/未正式生效之客戶合作項目（如大瀚環球 LP、和仕集團、福安 API 等），確保數據基準嚴謹。
+- **關鍵發現**:
+  - **行銷實績依據**: 僅以對外公開之正式站 1,620 次註冊與當期營收 NT$728,700 作為四大維度推估（寬/窄 CPA 獲客與 LTV:CAC）的財務科學佐證。
+  - **排除未上線項目**: 將尚未正式生效或仍在 Staging 測試的項目完全移出行銷實績範例，建設與不動產範例僅保留陸府建設與拓點商用不動產等已導入的 Production 客戶。
+
+## [2026-06-02 17:15] analyze | 好好簽 (BZS) 企業客戶畫像分析
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改分析報告**:
+    - [bzs-customer-personas.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-customer-personas.md) ── 重構企業客戶畫像結構，增量整合醫療 HIS/PACS 系統 API 對接、混合雲離線時間戳記合規、競品調漲轉單大客（如太平洋旅行社、福安管理顧問等）以及大檔案憑證限制防禦邊界（如聖美麗）等最新實戰案例與技術特徵。
+  - **修改目錄**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 更新客戶畫像分析之標題與詳細描述。
+- **關鍵發現**:
+  - **醫療 API 整合合規**: 整合座標 API、Dicom 自動轉存，並設計診所地端中繼程式離線暫存與 NTP 校時（3 天內校正），滿足電子病歷與電子簽章法規要求。
+  - **大戶轉單抗性**: 點點簽按件計費導致大量簽署客群成本倍增，我方以「吃到飽方案」與 UNIFY 共享範本權限管理精準攔截。
+  - **技術防禦邊界**: 確立 10MB 單檔憑證限制防禦邊界，主動婉拒大檔案客戶（如聖美麗），降低高維護成本案件侵蝕利潤。
+
+## [2026-06-02 16:40] ingest | BreezySign分析報表 2026.06.02
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **修改規範文件**:
+    - [AGENTS.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/AGENTS.md) ── 於內容品質準則中新增「資料來源一致性與落差處理」工作規則。
+  - **修改來源摘要**:
+    - [pm-breezysign-analytics-reports.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/pm-breezysign-analytics-reports.md) ── 增量寫入 2026.06.02 最新報表之財務營收、獲客漏斗與競品轉單指標數據。
+  - **修改分析報告**:
+    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 增量更新 2026 年 5 月底財務與 Leads 漏斗實績，並加入聖美麗憑證大檔案限制之防禦決策分析。
+    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 企業方案中新增太平洋旅行社，並將計數更新至 142 家以對齊最新數據。
+    - [bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-customer-list.md) ── 增量更新太平洋旅行社、自強基金會、豐盛富足、富友、耐斯、福安與聯合線上的日報引用，並新增「透明房訊」與「自強基金會」。
+    - [bzs-acquisition-channels.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-acquisition-channels.md) ── 重構獲客管道與成效矩陣，整合最新 5 月底廣告支出、Leads 漏斗、GEO/AIO 攔截與高佔比 SI/ISV 通路實績。
+  - **新創專案**:
+    - [fuan-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/fuan-api-integration.md) ── 福安健康與職安 API 專案 (12 萬報價簽約中)。
+    - [udn-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/udn-api-integration.md) ── 聯合線上 API 對接與公開表單專案 (3 萬成交測試中)。
+  - **修改專案**:
+    - [ding-xin-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/ding-xin-api-integration.md) ── 更新 API 串接完成與連結時效優化里程碑。
+    - [pacific-travel-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/pacific-travel-onboarding.md) ── 更新 40 人企業正式版方案於 6/1 順利開通啟用。
+  - **修改目錄**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新專案並修正 PM 分析報表之標題。
+- **關鍵發現**:
+  - **實收總營收**: 5 月實收達 NT$365,202（SaaS $84,080 + 專案 $281,122）。新購業績達 $73,200（含太平洋旅行社大單 $60K）。前五個月累計實收已達 NT$728,700。
+  - **獲客漏斗**: 當月新增註冊公司數 312 家。電訪 30 家，其中 15 家有興趣（高意願 9 家）。技術輔導中客戶達 19 家。
+  - **競品轉單效應**: 點點簽（DottedSign）漲價及份數計費效應發酵，推動福安與太平洋旅行社等大戶轉單至我方吃到飽方案。
+  - **聖美麗防線**: 因單檔 10MB 與 AATL 數位憑證效能限制，本月正式婉拒其年約，完成售後成本防線劃定。
+
 ## [2026-06-01 18:45] update | 產出 2026 年 6 月電子簽章競品普查快照 PDF 與 PPTX
 - **操作人員**: LLM Agent (Antigravity)
 - **產出與變更**:

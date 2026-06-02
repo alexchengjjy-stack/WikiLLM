@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子簽章能量登錄競品情報普查快照 (2026 年 6 月)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #057857; /* BreezySign 品牌翠綠色 */
+            --primary-light: #ecfdf5;
+            --primary-border: #a7f3d0;
+            --secondary: #0284c7; /* Sky 輔助藍色 */
+            --secondary-light: #e0f2fe;
+            --dark-text: #0f172a;
+            --light-text: #475569;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            line-height: 1.75;
+            padding: 40px 30px;
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 24px;
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: transparent;
+        }
+
+        .meta-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--light-text);
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Markdown body styling */
+        h2 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: var(--dark-text);
+            margin-top: 35px;
+            margin-bottom: 18px;
+            border-left: 5px solid var(--primary);
+            padding-left: 12px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 16px;
+            color: var(--secondary);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            font-size: 14.5px;
+        }
+
+        /* Strong style */
+        strong {
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Quote boxes / blockquotes */
+        blockquote {
+            border-left: 4px solid var(--primary);
+            background-color: var(--primary-light);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #064e3b;
+        }
+        
+        blockquote p {
+            margin-bottom: 0;
+            font-size: 13.5px;
+        }
+        
+        /* Alerts within blockquote style */
+        blockquote strong {
+            color: var(--primary);
+        }
+
+        /* Tables (Optimized for PDF) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--dark-text);
+            font-weight: 700;
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            color: var(--light-text);
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 30px 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 11px;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        /* Print formatting */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 12px !important;
+            }
+            h2, h3, table, blockquote {
+                page-break-inside: avoid !important;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <img class='bzs-logo' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwUAAACaCAYAAAD4veRyAAAuC0lEQVR4nO2dTYhcVdrHn3Or2s0sOkn3mCELeUWQVgISZ9yE7hCMaDRbHZKMYRQ7Ygh0EBIGkk02EQYDg4EhYjLoSzJG5s02H8okiB2yUSMDQRthcMgijJpO7MUsxq665+U5p6u7utNVdc/n/fr/IGOm01V1636c83z+HyIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABApRB5H0ApeH3iSaL2qP4/jTuUNO7Su5/+K+/DAgAAAAAAwAdwClYa/yltJ6KNRLSeiDaREGt7nj0p75GQ35MUXxHRTUraX1Aj+ZxOXrvn5eoAAAAAAAAQgXo7BfvG19K82EFELxDR9r4OgBHpDElxhpqND5FRAAAAAAAARaeeTsEbW/+HWumbJGgq+GdJeY6S9gf03vVPgn8WAAAAAAAAFtTLKYjpDNxHOkMiPQDnAAAAAAAAFI36OAWTE4eJ6KC/EiFLpLxKCR2i96Zv5HocAAAAAAAA1MYpUNmB9l9IiKepSHBZ0ZDcj6ZkAAAAAACQN9V2CiYnXiaiE7lnB/qpFyX0DLIGAAAAAAAgT0SFVYXOFy470NMxaO9ErwEAAAAAAMiLhKroELToeikcAoazGLL58ULPAwAAAAAAANERlXQIKBmjMiLpBJ3+7EDehwEAAAAAAOpFdZyCsjsEHaTcQ6enz+Z9GAAAAAAAoD5UwymoikPQQbSeQ48BAAAAAACIRTV6CqrkEDDcY/D6xJN5HwYAAAAAAKgH5XcKVINuhRyCDin9Xc1YAAAAAAAAIDDldgo4mi7EsTgfls6oacT6v/eiqBK1W5eCfw4AAAAAAKg95e4p2Dv+TZgsARv+ySeUtC5Q8sC39O6n/1r11ziSn/78KKXNHURyT5AhaWg8BgAAAAAAgRGlLhvynSXgTEBCh4wmDL/0+AP0f1//vDAwbR8RHfTqHHBWYkg+Qievhc9OAAAAAACAWlJmp+CuP+M7nSGRHvCi+BPCOcD8AgAAAAAAEJByOgU+swRSnqMhud97JF47B+e9TFbmbMHc7K9URgIAAAAAAADPlLPRWMg9Huv1dwcpzeH3PD29TTkdrnDGYXjkt16OCwAAAAAAgNI7BZMTL3tpLo7VwMtOhxfHQB7xcjwAAAAAAACU3inwYRxLeSSKQ7DcMbjq9ibJGAaaAQAAAACAEJTLKeA6fdcsARvnp6ffotgMyRed5xuk4vfejgcAAAAAAIDSOQUs/Tkvdri9STqjjPM80H0LU07vIWhKnQcAAAAAAABq6RRo5Z0XnN6DZUfz1PvnkiXXMiI0HAMAAAAAgNpKknKEfM3of+3fIJ2hU9ceo7x5ffOzJJsfe5++TPJzajau9Zy+DAAAAAAAQOmdAldjOpbaUBb2jn/jRUFpNXTfwmUiuklD8iQmIQMAAAAAgOqUD7kP//obFSXjIcWZYO/PMw2E2KWGu7WSuzQ5cUXJuKombQAAAAAAAOrqFBB9VZhpwHwciYrkx4EnKgtxZsFB+FA5CGhWBgAAAAAApSsfYiN25MEN1E6/K33pUIwSomwlRsdzkWYFAAAAygbbIVro4wUSchNJsV4FHEncpKR1gd67/knehwhAPZwCF0Nalw79qjCZgg6TW95REqO5ks4oRSYsZgAAAMDqvD7xJEn51772h5TnaEjuRx8fKDPlKh+yqsUXZwrnEDAcWcidZEw1b3PfAS96AAAAQB4UtaxViZyILwcGJLmXb178E/17oMyUK1PAzbItup49W5DOUJM2F9Zzn5y4qxqDi4KUR1BSVNINrIiOLwAAdO/f7fQpSps7iOQviWg9CblBleF074Oc3Rfye5LiNhF9TyR+JJLfE9Gt6LLbxjbHQsbg9PTuoMcFQCDK5RQwb2z9H2q3Lg1+SAvuEDDc+MvRhSLBw9Wajdcw7yDmrAkPLN9IabHO9d5Pn8JhAADkEjhZu2arcgJE+qy3Hrol2e2LwZ0E2zLfIvYxAlBJp6Djvc+LfUR0cNVIu6QTNJQeLbRDUFTjsrPoJu2d6DUo2XXrhZ6i/b6S5UVGAQAQY38Wck8cMY2FAZ7N5E/eHQTbbD6yBaCklNMpWK4GcLDrJ/HTi2VWIRoEO1enPzuQ92EUjrI5Bcs2T3EMzgEAIIwzkBwlkntyK4tlYzyh4/Te9A0/VQmWioe81p669pjzMQAQmXI7BVWA5wbwHIEiR5nnZp9HhLkKTkGHdIYazedL5TwDAIq9JqaNjwrTI+fDOXDdm5vpusJXKwBQavWhKsJ1h7yAFRUefjY8cgmKClUiGaNW+4bayAEAwCU7wHX3HCQpikPAcK8eKwaxsh5H/G1I2j84leDCIQAlBE5BEWClAm5M0g1UxXQMWIGBNwBQDXgD13K0L+d9KACAEtJR5sl93s6gvcsyANJIPnf45K8cXgtAbqB8qCi9EZ0GUJ2GfZCIHlr6BTU5kRZl3DSb4kdmSqDoFIPSlw+tQLSeQ1M5AMCwmfi8MrrLAvfIzd05ZFQKa9vzh348UFLgFJQZHjiW0uNq7DrR9jhOAurRK+cUcIaq2XgSPQYAgIwCH5dK5RDYSm7brPW8ng7JR2ofPAOlBOVDZYabqLgngcuPTk+vUxHf4P0JyZiaE2FbpwmKBzuTrfZbeR8GAKAEDI++XUqHgOHj5v0r6/DJ965/oqL+ZkzBIQBlBU5BleAFjB0EVj3g6cTBehQWHIOiTfUFbo15nHkCAIBe8BpR5B6CLIj0gFEJEZccZQ228b6LoWWgxMApqCJc8396+i2VwgzmHCRjKmIEqkNKuJ4AgNXhIJCUfy316eGoPwfPTGAHgoNtnInn8tlV31depUbysNp3ASgx6Cmo01CZEBGeOjapVq2noBtoawMAYszU4WCVkN+TFLeJ6PuFn64nITeQFOu998j5mrnDpbPpz49S2vgNJe0vlEoRB+K6BUMAKClwCuqW+lWRHo8TlOvYVOXiFHDmhjeSDqw0tVIPO8vPlhSqNpKQm7xdU5bGRfobAOBLief+qepnaEieHLhnsJG9ds1WSps7SKTPOn02xBQAyEQz26+ByjQmv/T4EzQ88oGqIfcBR3Pm6TwRbfPyflUnocv03vUb90WVOv0ZWX62Mhql1UB+S0QnPETXWMnqrON7AACqBEfH26mbUc4NuHN3/5Y5mq5/j7PQn3TJoO4goleNG52T9k56dxoT3AEYADIFdcSvEdndYFWPekqXTIGQv1bOWaiNu9X+i5sySDpDp6495vOwAAAlZ3LiMAlxrDBlpnqezx8yrXV12psAcASNxnVEN06dpYSe8diEfBATj3OGtbcTOuR0TbmWFwAAlmOfCWaj3HffmVba26aCLP2UgbiPAA4BAJmBU1Bn7s3e9OYYqDKi5KiX4wL26CzEcafrCKlZAMByNlmfEO4fCLnezc2+onqhVu5jut/txWCfDUAFQU9BndE1mzfo9c07KW185F5KJPfQvvGjtWo6LiLNxofUTu1T/aPrfkFExVPR4JritniYqD0aRfGKnaORBzdQ2l6nPnOpufuWbvpu3KGG/K6093uW75c07tLsD7ehqlJj+D6x3hvSmeDPh97HztLrE1+TTJeENLiP4OT1cj6bxmpIPZ7h5IFvSbTmSrtGeVvjlFpU59zQsjUuVDlvSYFTAHQqlh0DV5lNlS0QnC04gNOacxnR5MQ96438zt3/GP2+GnrWHjV6zb2fPh1oaOoeid0kOAoo1lOr830S1goP0/egapW71E7a6ULrVXN5B5ZcWDpbgmjvFlooYbhIQ/JCoTdgvlYpbVflIGq664Dvx/++ZpRryq8S0RXlcPL9FYqO3GNR6chPuh7vyvcJQUe9x4Zup5uNKnWfWCDFV5SHkAbRTTrlIXBgew5DBi2WGq5ZFGI7tdO1PZ9hdd2SzvP7/sD1SQVe0qfMDsjCsLZ5btjBGbT2LCpWNV5R54b3QHUOVpyb7jWO90qiy6VYvyMApwAsLWKTW044zzLg1yNbUAR4MzZvOOaUu6nWtpK5bZopk4w8+DDR1//q00T4CrXTXSR4JRdhJRG0oXxQbSJSrNWfZVhZqdW8diknobMBz81mV1oJiXKu0jeVoyPFmNW51A2d7EQco73j2WUlTVFOYNM+yxWaNg+wWlDDYdiwsQmmzNOJ4METFpPg62SKdnC7viNHoa0fwLg9Svp52+3t/Thr2koMr28aJmihgyRvUUvsMr4cnee3sz5x79lqhjw7BKb3M/dtmPacqPWoaWZrtNp7iOhfvddw8XtVrbC4hmdEB8/0+j1P92hy4niQta0koKcArBznzg+4G+gtyB8eAGT3us4Qofjwwj45cUVtSr4kcwdtspMTH5IUX6rP86XExRswD3las+4fysHJC476TW55h9rpd9rZ9zWfJBlTSjTz4p9KlaZOPSi6BGF5xsuqJ0vuiXDeXrV6VbKiJ4lL5OzZpJ4z4Ok59rAu8vrEa97KZ7eMz7E6N501nKac13DBDsXC2qYy4PWj+k4BX1jemFf+wUK1epSl2XjNufFYZwv8TqME2VGLu6UBKJNPcjle3qC0ce4gp5rTJtuTZEw5OOzoxNxgOueTN7YQU8xXbqB5Oz8xWTlUUEemj1udO9vSnqz3uNWzlM7cF0HmiKntnsDfk6PbZTQ4i6Dgxs9VqOd48dldWJuKkNU0nbCtzk2ANVyItQuO08tUM6rrFPDF5AmMfGF5Y175hw2CvVvk0p/xb5ShUHeUrGV7p/P76JpHkAdrRzbav1h+TjFh44U3JhcNdBN4AwxtLK+EjbOU/h7FcObzOTxySZ1PX5mP7M7PYaoj3Gdhg657DsO82Gf1OtnjOXTJILLRxvdkXQJFvrKtbMPorGnA85aM6bWpRFFxnR24orKxodc4Ic7UJuCRW0+Brhf+jeO73FI6+/0+Q9VSmhSWcUqcxmjv+LO1H96k+gsmzjl64Jy6xmTcPEjpbasSYC3hd4FiLu4tuu6vrCXL2kMeVLZsI0/KcN7Td+1yrjlusUMQ53yuhB2RyYmNSiKybFFH2/Khpcb+q8aReV5f943vD1K7zM35potAv+dfittqf7Q+HvE0zROXmx0P3qxehUyB67A407UplewYPEPUpkLT2TNirnFp4yN6Y+uTlb5nc3MKlOfL3p3j++i6994bq0wcIv7JmHog6z7wpNk4rBo9XTYBNlJq8iAVBn7G7EtwjkdrruLmRUmXojkEujzpWO4z3DnyNDnxkPf1hR2eVvsjEkm+0VgdFV5P+8ZfrGSj3sryoaWf/5Fk82nLiL7ne2HiSdVQbow4Qyene1wzcdNKuGDZWyhn/JhqVs+qhlPHTIFew+M223ccA2ocz32N7M1DUYNIK0vgfDawF5h45UPa8zVXQlid3g+d6hVwvGlUlKXmsDHfb1JkViUREA9d/8iqJuZwlHBu1n7omSmcso7pEMTeZAdH1A/7NQJDlxmYRoXFn6lOWDccO0wK7oVSYbEgkf9r9W8uzfit5K4qBeHSXXZsq9B74JIp0GU8dmu4rx6hoqKOLbJD0B3sqEkfahKt6S3WzeZF4zqnG6+I2QIX4FzFSafyZupeYzkVteQjlgHL56aIGx0fk486Xr7+ysEqGLyJVrHHYLXyIbeG46e91nMro9omqLVKg3E3/G8+lOl6Ogg0pRzbNaP/Lb2TYJsp4O/K8s5Fce7B/TKqNSB8+dDw6NtRm/qAP3StrENvQTKGEqJV6v0nJ/hvvHGsd/gvs0kP9EocdfzTGTp9rXr9H1rX+yN/6XClP64jgT42bjYA9o1vti6fYCNiXpz3ZkRwpJsNGl/fTzs+lys1MbRX+ZDLJHEd2b/hbTaBzbXr1WC8nPedS4hMNPVlc2rZ4Lyk/UWmoYdlzRSwrUQOfRsgLIIHWlafsE4B68cKNRTCM+JH/+8JenBxYbCHSwlRvfszuokhuWlEOkNN2kxVgw3mNjfdOtTYd6YUNxvX7uuNUZMzRzaq6cAqI2aTXUzGaF5ymc1uh4CL/f2kI796SvHsD7fvM7a0UzWuRANs71tXx6dIsNPUeODbnv9u23CsZxYc8mTsvmpZOvi3gb/Hv7Nm3ZEcaro7TgI7PTxc6qso07VjZgp0Ay2Cp4UmGVPXqQprWXSngDdMHjUeYwDRaund4jbKlA/eCIZHTjhEDh3kMUFQ2Cgcomo2hA6PHCSyVahIZ0ikB+jU9d4zG7QBd2Phz1ta8YwFDgwNJl4jX9/8gVL8Mu4jsDQidO371EAVJG1w8Z+zC1Of3zY3eJXj47+ZNg8SemagEWrTcLw0s8BtRogyLG2cN3Emk0PCv/P6xO9I0peUF3ofWpqu3ckiFGkCrU2mgBvOfdgt+tm+rIIZCX1NSeMuidYcyeawKq3W5W/2Tn5R6QQ4WJmSvzcP3Fv+nV/wYo+206ecn9PaOQXaIbiU4033kPM7uA7vqhK8EUxO8CJj90AJucn7MQF3OApeWOnIdEaplHG5ADXuqAW+s+Gz4dMWD/d9ua5DPmh9XoZoP528brYGsFH/0uNPWAVD0sYfjDcaW9lZlRlqPm8cYdUlQNss+8MO0kuPH890r3Gz++i6k+Qbbnx2MQqkPEKnMpRBcXkLR7NNgyh6ZoGbsWFrWJo0EfN9wLK6/kRD/GQRWqp5/5zqg8s7e2CaKXBZr5bbLMcXnSN+z+XPG/+skw08q9ZRrXx1sLQ9DOo7izPUTP7U45rzOen8/Cy9sfWwUhFyWQdSJacPpyAz+kY7H94h8DQcpDecngQdkvYHJJv2fQX3L1AgX4P7WDCtfNdNTZUEfNZ7U9fOwb2BWQKrump5xEkqVN/ju1XPiMnG02k2zVp7ryUnn7ZzBO+6OYJ8fiYnbhkZhXwtVOYmQ7ZAH5vftUJLPLo4BOcy3xc6iMINx8eizyywm01wNZOz0w2vHZNbnipcryCfQ5bRzts5MM0U2PaB9HP0V3vGu3+m77O3aN/4SZonN4c5FyyCG/p3d9Pklh8Ld+9WUn1oaahEtdJSQEe/cpuwC7wY3JJOkGg9pwbzFc4hoBM0JB9RhpfrRq6npppH3dg48jU7YEjuN842pgbHzFkCU/Rgqv1enHO+f0yVaNhgzUNJxlniMZ1RGbUYE45tpxAvfk+rWn9uHjbn9GcHlBNdRLRz8F1u6lfmPQXmfSAd+DnknjDbdZOdg9PTu0mWSIad94uf7j5h/Z3n7hxaFI0wRrgPpquFU6Aa0nIYKgHioAwJ24dIGTHbvR4PsNCfTp+ltLmjUOPstdrNr5WB4aseWJVQGEbd+DiajdfIF/q7TAXRwebrZxd4mfJac218vpIxFRGNCTuILhKPqrG4+byxI6VnvFyNOrPAZjZB1gbjXrATzYGGopbb6nkgVxYCBcXMFGhH2bLENp2hIemnJ0w7+ntK4RDwfuES3ODXCvE7ywP4JVUcd6dA1fi24k0mBfkghUtJFTIFuZOMaS1w8aVSBcvbOWBDghs3/ctV2hhWx72XGthE07XSj38HW5e/+M0OacPXNFL8AsWES1ld9qWkvdP6vuCG41gzC6xnE2RsMB7US8NZPtdBl2EH6f1TCQEUMVPAWXRbp5UNW5+Ovl6zipn9WVzHPjvg5b3UvuMQ6KwwiZeSofgOwS3Lf8tK6J6FMsJj7u1As3Gx4Ki0dg7yGy7FBpdvh4CNI5soeqhJzuaG4QtBnB7uCQoBNzWaES9jqBuiXeRajxgrQvmYcGwT8betSfc1pbhTgsJZvyI6B3xu0sZH0QIhJpkC2yw6BxxCzP9Q4g6Flkf3h0wq3TCcj1PgGokJwZC84CGd6ffmqwKJkjmLP/YdhE6vf5hLrXfSR+/dFi3raL65hmqCN/+O2wcGYUwNXV4LXXuCeqGilAbRNjbOspRIucD3susUa5PG4l7YTjjWMwseiDCbwL9Rye/X7RwUqayI7z09M2NtwXoK7ErGEjpEMSd2V5LggjU1cwpcIzGh4I2Ko5C2C1KIVHsVYL1jUM2sAUsI5+EY+IZ7JsxhbeswqNITj0bzvLD5fl8FVf4yLSvMUiLlwsiDG1RU2BpVp73fy7HYNBwvzSzIho2j6NJgbOIczM3+StWp2/VXBIBnZojzwdc6kyCYkBvM31/eCzYlvN/E7urho6qkctjNKeCNy2ace6wblyNja0eeoVQe1KUrGbMZWgXlqKejrBY8AMXWhyyrDnJdYKOC9fVtJ+sWAV1XvdFYkpEJWW+citskaMzQaO5Rxy54cI4p3wf+fj9alEiFCbqoclaHKdaqz4XrtKf9RLhtJxybzCywmU3g2mCclY4mfkcXnwc/sePOogd5VRjotY4b3s8WIlPADoT5kmWfte9HFQJDICenoNX+C4kCjw1emja6e1WNfFVb2B5d9jOX+tE6cOfuf2jN8lMGLNBRM19pS45IbfLidNlO1i0KWh/eXMWDy0xkmMHu+v2NX/BUb4OFlS+ERf+I7YyRLO9v/IpwpYR6QJmLsTnlPQJrN+E4+8wCm9kEPhqMTdHfhdeWT7pmGu1Q93tsJ0GoZtqzuWcKdA/U2sKUN6uJ1ZupNnBwOeTaX1LMzwhHnWwG5+TFaotfqNRbleHzuHeL/esxwGypFtT3/deJwsnkHafNlcsu9o0/4lXRIiaVyEj1lbwrf2+OTblE9nLWXW5ShwHKRm0nHOtSsbMZhtiZP+88ATZv9BqjswjRnYRkTNkxoQIgWTMFo+t+Qa2ClfhwT0GB471eqdN3NcC8HkQZHnmSzlAj+TzfYwCgQPAGyxscDyZj1RTbfho2XFwGKOVJbC3yKhnUMQkhOuDeWHxVDzQKgG3DsY5mh5hNcDW3Sb+DFYzOKslJXscaycML/QhhGpZ1iVa+97hsDtt9QOMOhaJePQXA2Smwn5rocbQ1bS5tJLPOcFQEhIdVU7jR3p6Dpast5eO13mALx/pKq3ix4+nz/uL+NvfG4heDltNYTTjmaHYfCU3r2QQBG4x9wo6LchKmdy/MQfDbsMxZpVDrXNZMQdpeVyjRj7Kt+67AAfLgFNhEJrwBhyBXXKUEuScBxIGzBlwOYWu0xZ486wobdLYbbNGoQjYgi0KQLyNG97fZZ4l8D4DyOeG4335rM5sgVoNxsCzC9DavsxB83YexnfdQa13sPpO8qZX8arDyoZzGYPOC+tPdJ5AhyBGnhSidqd2CkzdD6VGHtHvcybM+qIpkbj+Dwkz/vLj4MmqGR992HFC2J1p/mc2E4/4zC8xnE+TRYBxK7pSvnSvpz49SCLI+pw35nd0HrBBJ8QkM5dqT3SngVGYejXyq3nP2+dIvZmUnpcetXyvFba/HAgajo59mGvJ5TJ71xewPuMfqxOTEyyRoqnCNxT4nHPeaWWA7m6AIDca+4GsnWs8V0gDOmimwzZ6HNNzrVFJTp+8aRH2Ix3HH7tTmNOHc7Ct9HQI1M6F1afFB7PbSl4zRhZ91NLUXf+fWshuEG5jRr9CLhxyuZDUinKVD3CQic+OhM0SriA2J/SVJzVVeygQPCjOZeVBVtOrOGcdAU5jG4v73JzccH3OeWWA3m6CYDcauZZKTE+fsVaf6yf9GyBRYr1mBjrtuPQVQH3KWJN1IMdGThXcP3Bxa7b+rYTWLi2TXA9ZzA11lRWW92raKPJRTpz04TnWSbJyC6MjPrYZ5LaXWy2VEqM3YuM76atCpxl4xHhSmS/dcDOgQNBxKvdSAMvlX6/uao/XNxmu5ZJ654dh06OdqMwtsZhNYlS9lyNZwj0KeWfyk/YH9HI6+8r+xJhqbr1lKsjUAdZtTAJydgnjKFzq1e2CgQ5DS3/1GBgNKfZUdrR1t+2qME4+Njvo8VKvaUs4MmkfSv1eKTUVHq82wAWFuoJTh+2U9B/PivNOAMlbmenc6H2fXdsJx98wCm9kE7Aj99NOn5BM9r+gMDY+8SvvGX8wtw5488C2104hOtsdMgVJNs1mzkrFgmdw6Rc8xvGxVksKpYrDOOmsVD16QvvReKlCVZsUgGvAOUrSo3YuPjt7Fze4Vo1zKlO2lSJvr62nuXPMa2U/asky4NxYfyX1it03EvntmgZ0C4HGv0fxuGVi+Hi267qxOl0vTeqDG/ayZAnVNrNYsolb6JoWgTnt1GQNfhXIKYmhkK4dgQFSLU5ay+XGQzxetuSDvW3Z0pMoeDJvLByE3UZ1IWheMX9OrmbOI2MpJcj8Y1b2xWJWj5p8xsWk47swssJ1NYDUnoQ/3ycAmY6qvLw/n0+3eDpPBNlEJs1mz1GfQlHdHjO8vGMq1x7oexDssMZbFIRAB62PRZBxAojKdwXnNAX5W6pbdsTK4+BZtujm9seDIoo3evapBLzHa+LGbu6FIZ5RgRRGwnXDMGQJ2Xs1nE/htMJ6cOLx6tiYZU9l7/ve4mbdthVvjTAKoLgEzds58nuu1IxvdnrOSUcY9rjZOAUuLDZKHm9zyTlCHIMQo9epgH42RCRq3cyn3cl3cS9tfc9kq6laeEhuLpuhkTBlrZb2XOQptWyrK63qjWSxJa6vIvdxDaeMPxi/z2WCsZcn7N0rzvw+P/FsHJQLT00HJOYNtkilQgch0xu5zxNOqpM4HQXo0Cw6yIgV0CnjBZodgUJ3n5MSHTqnjLFRlMJBvuH/DZaGwTY8C+6iqbsZ0W9ytB+vkiDb8Llq9ljdE7UwVG9tSEDbWyuP4LDEv/uyY8dpZOClOmwnH/DwbG8DpjMqe+YCfDcmqT5mP9QxNTlwJds/pqgEzJadu+PyHqgwwLbV2CZyxXcT2kW3GgF/HzlWIHk1QeafAdhBSb4cgoWcyOARX7HWITY4HA7ZWxSY61Y2vTQlkW9xb7RtO0bOyl3wNyQtWWT/eENmZClX6wM4ar2WujoeNQdnt+IRqCOXvxcYJBxH8RoJ3lbqxOKZE6EpYHchXhsTGOeN1iI3NvePfqGvp495Tz5GXqoErhQkwug6V42dkzbp/GD17vM7x7/PrXJyrMoPyIWdJUn+RdK0V/WTfCA7ftMMjl9wNHGCNlr9zUfu4Wqi0fRHgxrjJCfvp0Mt5SM+PkFwLuslbpKfMJV/szNgMiVpMx498QC893n9gok1Us9U+oR0P+jMR9Z+/MoiEDpGkL41fx5/PdchvbH3Na/RczYuRf1VSoTLZRPvGNzs7lVphzi0SXITG4n7BkuGRsMP2fDUY66i8Q2AuGSNBx9SMhr3jem5GQpfp3uzNzM+ZLm85SO10lxfJTN/N1y6ZAi1V6zCErdPTkXzc9/yqUjzxsFawkntI1jwzUCf51UBOgacBVOkMNZvP992U1IAauk7koEdtDsqHVsKLsNtDU5KhUBEJEpXxvLKVveRrbvY4rVm3x6rshDfm4RF23KYG9jllMWw509Yd2OD3n5y46PTe703fsDYilIRkm19/XJ0nF+eHo7YsjSi5tLNzDyZjNE9HieiA2/u2P3K8rd9fOP8PLkYF+e/O/6Wv1fnPa8KxidqSD8dPXwuPzacLDoKkY7RmlB2OeyqyrjL1LM/ZibIvBDuUFDobvB6XudDTnW1KkRM6TpJ2BTy/66m14ASo8whrGLg6BUn7CzX119khoM108tN7gx0ChzrSIg0yKXeWwG2R4mgFKBnpTGFLLswMrmMkyK7EQEdvuSb6VRWVNzECef3SEr6vqizb6nvvCXpj6zUnw6TZOKyipvbfjxtCDxo7P5zBZRWctPFKz6itatzefMHqPuL3V43FiVsUk8tLeL/qHF/n767/TVXplr3ijeuEY5NJv67wtbhPftQz6r25B0EN8Hp6ubEqwhivPNE6JDby7drRNx9sl/38gpVgeNmqNI3Snex5unjnQ9R/8qGKSrQuxXcIGDQaLz8d3FQmHI3La+4RNRAXl5KNomn687RVl01W1UQT10TP6JIq+bnaSHiK6uLgpPaojkaLp9TU75aK1GUr43ExLlXJwZYTTgIMS84PR4LZgb+o62wbdxYHOaY/P7oQbefp2NsWzsngpYGHW+0bf8S4jIgdlbgZ4vywnXAcy7FniUqX8tEiIulE8MZzW9ESdlZ0T1i9y3pigfIhx0ZjW41shl83N/v8YIegfSMfhyDgIJMyouQLHa9DVYzLWpHOOJfMFAVer1RE0FLubxnK0J9aiD5/TO30O/WHmyj5//PPlXFu8MywIegq2zh355D1mny/Wsyuxe/H32vxO3a+nzhmZLzqxm3unwCxG465ptwHHL0W8teVkevm7zGUHg3/OZaDXrWzElZlEQCvkqQ2CxjXNrJD0K92VTWqwUMuBFoh4qDz4ms7fRXkKA8sflep08+bLH+n4ho1J5wUWXhNHZIv+nF8AqD7J8Lr1ZcZ24F7/RiSJ729FzsGQ/KRwt5jJrDaYQxVNRd5cw7KcDYjD/g+ZMWuugD1IQ9OgUpJGiwOfHOfnt490CEowtAM3CAaPzWkbg2MIA+mvDRQFg3+TqxVX0SWyojsYSOHh3MV2fEpw/yHsk047heE82348vv9dPcJ9d5lRc1DirS+2WYKfGcAbSTiuXe0LmB4mafhZVnLQtjjPP1ZfwUKpQ5RAIeg3BNcizMhcjFF6zFSBcKjntWKlA31CmZIluArpOG8yVm/nTMivKEXMZqry4i48RrEkMf00WDcy3nhAF8ZI8n87McUT3AdhKrP9bZoTphyCNo7KxkUAhGcAlUWMmDz4YdwkEY0p5V1veraYpyJhca6uuI6IXIRcaa0g6/qSJZntQqw01M0w5mjgYPmtWSFN3RWdosdYexLOqNq0qvscPrAZSBdbOUwXisaycPlyBrw/dd6Lvr955op6BDFCUtnMg2RrSKoDvHkFLAXK9IDA4yMsxkMUD/NUD7ghSO0IkGR4YyNj+sRq5ELeKCGBtuS4XyuINmZbV7XHXbGdYQx/2gun2M+14g+xms49tVgPAi+Z9lg1U3I+T9Lfe+/HIxd10zBSieM7ZMQzj6Xd3NZWOcZDTXNvaigfMiTU7CUjr9/McjilRfJIVDNlVxrWEMvednk0ObHnt5tClmCgtNpJuveDOqENpw5Arcnl6wBr5vaGQuXnVGGhDLY4mcN+DP1PrAba0HkhuPYZZu8fiw5B1cLlh3I7/7zlSnowPaJdvY9rVmdc/TZgWW9f/x3O0MZg1+p7k4BMyT3L96gWY1rXbNeHIegrmmzlSVcPuBNoU5R57LB14c3lbnZXymjse6N4Hyvnrr2WBTnQDlidEKVXbCxEsMZ0wbbtmgG25Kzs00ZuCBuw3GIBmO7e+1Ifs526zn1TOe9p/vMFKxcsziYozIHrFBkIvqysAbxNep/jngeST0Gv6J8aFXsRxTzArRvfDPNy/N66uf1/hvd5JZ3nAbt+IQfEF+1vGXF9/UIPSUSDEY552qk/W0dvRE/UtK6oIw0Njo4PVx3Z2Al2pE9q0UPGq8Q0XYvfU466vsVEb2v+rDyOu/aAdmmVd7E79WANV+zYLSzcUU1ynavpbjH4k84DtVgbH6v8Z+3uiZ7v+Dtmcp6/1UZ/WyxQf9J13yn8SVjnrMU8pfaUFfOyS1K6Gv6afZmtufSJstR0sGvGF62KnGGX09OfKg0qwtBOqMk/OqyiKyEDcPhkUtep2jq+ujqN6uCeqBlkrfrCb5ygyoH6GfULDlj7ARcVJtwd51u0YzkJUPiBRJyk+H3u0kJXaZ7WY0MYMTkxBXztTmdUdHfUjxTymjdqJ6rLM5p595Tf8f91xcfa43N/ZeljxSUBhHBAP2gUA4BNx/VVR1H9Q8k7/idGp3OqJQmDARQZXgtG133C2qLhxfVymZ/uF2p+56ju7I5TGl7nfp+ojVX27UyD/R++W/jqHqZgzKde47h+47p3Ht37v6nUs9XGa5FKzFXYax7X2bFEKWKSLumGgdNVq4qOjL4lnfnDGVYAADga7/8rXHPnZ4L8wicN5DL/cdwr1RdKy8qiH1PQbkcgnM0N/tKNIeAPe5ORLEhv8t1webm7lb7YJCaTh548u40FgMAAHCB96a940cs4nSX4RBUWAik2bgWzeAW0vz+Y6eUM6agMoRxCtas+weR8Fii4gB33J+e7j9Z2edDTHSCWl0GeEvwz9kpuKzqjYfkheCLuMoMpG8SyT3BhsNxyvoUUoYAAOCptNN8z0wcFItA0bP7J6jV5n6MZ4Irlg2Pvk1EFjabOFPL6osKE6Z8qCizCGLVWppmRvSMh4teVUn0IsKa0Xv89gz0OH6WVgQAAOC+f6hAmum6XYIGY+AuzqLk09s7g9Xtu9hrLHFax3k3FSZcT4GW+PsoWKS6H6EfIp/ynrYOAm8ka9dspbS5w6vM4CDq3JsBAABF2T+g+lKvgaJqSnPjsNdyIj07yk4GF05pJQmrPsTR63brUjSDtWO0DskXo9VZ+pwIvJrO/P0awCzntinqOV2k5upNAABgsv/1U3DSMp1vW/XeocG4vlkjLoluJn9ycg5c7r3u4+CpyKBSRJpTEGlwWR7SbFa60mWk5vMdAADAKgqbzmiN/c7kV/lL58AODLJqYmIrqeFt4uayAZX9nI2RBzcszCd51dlmgfJgZYnjFATTyO9aIIfSo9Ej2MqrH/0vVZ3Y2RcAACg7IYd2QgayenD0Xoov/VUaKHhC8SbvZdwoXassYdSHVkPX9z+20GvwivPoc34AWNHHd42dCWtHNpKkahNbzhUAAKqAygaIMGsyMrbVQ5XzOLxe2VNiLQkbFSHDICEmGFeWeE7BcudANwArB6G5Y6B05pIH/BUR3aSELtOphY53jtbnRns0j1MYjTJPygQAgLxQ+1KIrLi8pwJhoFpoBaDilyHr+++1vA8DVKF8KPPALza0F0ge+FYNxihqlLrK5UMYXQ4AAPmUgvQCZRvVw1qStuKqjqDmTkFZ2Tv+TeEfZtPUIEcCkJ4GAIDizOrRZRvbcEkqiJ4z9JfCZguUQ0Dhh6iB3EnyPoDSI201fgv40Oso1DY4BAAA4MRDQcQeQDXhIBzP/2HRlMLBUuSNJ+EQ1AM4Ba5ww42SBisx3Lg2JB9B8xAAAHhho7fzCPW3esBl0qz7z6W7Wkglf9TANNqMQGF9gFPgA47glNIxSGfUmPLT07shNwoAAD6VhzzAkWOOIEMOuj5wzT4H6VjoIy/ngJ0Blr2FbVA70FPgE6eR4RHRDsz7NDf7t8I2cQMAQBnxIUDBa3TS/iOaOmsO30vDI78lIY8E713syLwndFyVCvFnwz6oHXAKfLI4NTB9c6DMamzUAy/OOI9HBwAA4F95aNEoa38AZwDcf18tSrhv9NaQ3H3PDZqKDGoBnILQHr6PkeJOpDMkxRkakieRggYAgAjy2vNiH5FYrw04uYGkWK+CRPdPnb1JRLcooa/p3uxNGGUgs32xds1WShu/6epfWb94rzHd9xvTfc8l7S+U5DsChGAFcAribRI7iMRTJNJng6YBO54/0UW10UBCDAAAikln+CYitACAAgCnIG8ngSNJRJusSo1Wm/TccQJQDwgAAAAAADICp6BIw0vSnx9Vf08bD66idX1L/W/S/oGocYca8juUAwEAAAAAAFD1lDIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQM78P8jDNvwdZ1PzAAAAAElFTkSuQmCC' width='220' height='44' alt='BreezySign'>
+        </div>
+        <div class="meta-tag">COMPETITIVE INTELLIGENCE SNAPSHOT ． 2026-06-01</div>
+        <h1>電子簽章能量登錄競品情報普查快照 (2026 年 6 月)</h1>
+        <p class="subtitle">2026 年 6 月最新電子簽章競品普查快照。確實查找點點簽、律果簽、全景及我方官網 Production 最新現狀，排除了測試站（Staging）對比。對照 5 月底稿，依據完整七大觀測通道，揭示點點簽強制漲價實施日（4/21）、與叡揚 Vital BizForm 深度整合及 MCP 導入；律果簽主打 AI 法遵助理「法樂多」；全景 IDExpert Cloud 零信任與 PQC 安全防線。</p>
+    </header>
+
+    <div class="doc-body">
+        <h1 id="2026-6">電子簽章能量登錄競品情報普查快照 (2026 年 6 月)</h1>
+<blockquote>
+<p><strong>普查執行時間</strong>：2026-06-01<br />
+<strong>調查基準與實測規範</strong>：依據《普查與情報快照實測規範》對點點簽 (DottedSign)、律果簽 (LegalSign)、全景軟體 (FastSIGN) 暨我方好好簽 (BreezySign) 進行 <strong>Production 正式官網 100% 實地查找</strong>。<br />
+⚠️ <strong>重要規範</strong>：本觀測與比較基準已<strong>全面排除預備測試站（Staging）</strong>，好好簽亦僅能以正式官網為唯一比對基準。<br />
+<strong>我方官方登錄證號</strong>：數發部「電子簽章解決方案服務能量登錄」名單中，我方蒙恬科技（好好簽）核可編號為 <strong><code>113電簽0008</code></strong>，有效期至民國 116/08/13。</p>
+</blockquote>
+<hr />
+<h2 id="comparison-summary">🌐 兩代快照對照摘要 (Comparison Summary)</h2>
+<p>與 5 月的底稿相比，6 月份各核心競品在官網呈現、合作生態與技術演進上皆有重大突破：</p>
+<ol>
+<li><strong>點點簽 (DottedSign) 漲價大刀落地</strong>：<ul>
+<li><em>5 月底稿</em>：提及改版以件計費造成瑞奇點子等客戶跳船意願。</li>
+<li><em>6 月實測</em>：確認點點簽官網正式落實定價調整。公告指出 <strong>自 2026 年 4 月 21 日起，舊有企業方案不再提供續約</strong>，合約到期後強制轉換為以「Envelope Tasks（任務件數）」計費的全新企業方案，否則降為免費方案，面臨文件停簽風險。這為我方搶單提供了確鑿的「日期依據與合約抗性」攻擊點。</li>
+</ul>
+</li>
+<li><strong>律果簽 (LegalSign) 集火 AI 法務助理</strong>：<ul>
+<li><em>5 月底稿</em>：主推 CLM 合約生命週期，缺乏 FAQ。</li>
+<li><em>6 月實測</em>：律果科技大力推廣其結合 LLM 生成式 AI 的 <strong>「AI 法務助理（法樂多）」</strong> 產品，主打「30秒自動審約、草擬、風險預判」，藉此建構法遵技術壁壘。</li>
+</ul>
+</li>
+<li><strong>全景軟體 (Changing/FastSIGN) 大舉挺進零信任</strong>：<ul>
+<li><em>5 月底稿</em>：行銷傳統，以政府與金融標案為主。</li>
+<li><em>6 月實測</em>：全景軟體的戰略重點已全面向零信任安全與後量子密碼學（PQC）遷移。於 2026-03-31 正式推出了 <strong>IDExpert Cloud 身分認證系統</strong> 雲端版，並完成了政府零信任三階段驗證。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="2026-6_1">📊 四大電子簽章最新普查矩陣 (2026 年 6 月版)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">數據維度 / 廠商</th>
+<th style="text-align: left;">好好簽 (BreezySign) 我方 (正式站)</th>
+<th style="text-align: left;">點點簽 (DottedSign) 競品</th>
+<th style="text-align: left;">律果簽 (LegalSign) 競品</th>
+<th style="text-align: left;">FastSIGN (全景) 競品</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>數發部登錄編號</strong></td>
+<td style="text-align: left;"><strong>113電簽0008</strong> (蒙恬科技)</td>
+<td style="text-align: left;"><strong>113電簽0003</strong> (凱鈿行動)</td>
+<td style="text-align: left;"><strong>113電簽0005</strong> (律果科技)</td>
+<td style="text-align: left;"><strong>113電簽0001</strong> (全景軟體)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>登錄有效期至</strong></td>
+<td style="text-align: left;">民國 116/08/13</td>
+<td style="text-align: left;">民國 115/08/29</td>
+<td style="text-align: left;">民國 116/01/15</td>
+<td style="text-align: left;">民國 115/07/21</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最新產品與整合動態</strong></td>
+<td style="text-align: left;">已將「113電簽0008」聲明正式同步上線 Production 官網。持續優化與鼎新 ERP 整合。</td>
+<td style="text-align: left;">1. 2026-05 深度整合叡揚 <strong>Vital BizForm</strong>。<br>2. 導入 <strong>MCP</strong> 支援大模型流程語意互動。</td>
+<td style="text-align: left;">大力主推 <strong>AI 法務助理「法樂多」</strong>，主打 30 秒自動審約與合約生命週期管理 (CLM)。</td>
+<td style="text-align: left;">1. 2026-03 推出 <strong>IDExpert Cloud</strong>。<br>2. 完成零信任三階段驗證，推廣 PQC 遷移。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>主要弱點與致命傷</strong></td>
+<td style="text-align: left;">官網 FAQ 模組大模型抓取空白、品牌宣傳發散。</td>
+<td style="text-align: left;"><strong>2026-04-21 強制廢止舊企業方案續約</strong>，大漲價引發舊客戶跳船潮。</td>
+<td style="text-align: left;">SaaS 平台大批量合約 Loading 過慢（旅行社客戶實測需 10 分鐘）。</td>
+<td style="text-align: left;">極少投放線上行銷廣告，大眾消費級 AI 搜尋 (GEO) 能見度極低。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>勘誤備註</strong>：前一版文檔將「雲想科技」誤標記為點點簽。經本次官網實地普查查證，「雲想科技」之解決方案為 <strong>SelfieSign 影像電子簽章</strong>（<code>113電簽0002</code>），點點簽的母公司應為 <strong>凱鈿行動科技</strong>（<code>113電簽0003</code>），已於本矩陣中更正。</p>
+</blockquote>
+<hr />
+<h2 id="7-dimensional-analysis">🔍 核心競品七大情報通道深度解析 (7-Dimensional Analysis)</h2>
+<h3 id="1-digital-storefront-pricing">1. 官網與定價動向 (Digital Storefront &amp; Pricing)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：定價頁面已全面上線「以簽署任務次數 (Envelope Tasks)」為核心的新版企業方案。官網公告明確規定，自 <strong>2026 年 4 月 21 日起，舊版企業方案正式走入歷史，不予續約</strong>。其價格頁面底部仍部署了高品質 FAQ 模組以方便 GEO 爬取。</li>
+<li><strong>律果簽 (LegalSign)</strong>：價格方案維持體驗版（$0/3份）、基本版（$180）、標準版（$490）、專業版（$980）。定價頁面上線了「AI 法務助手」與「CLM 模組」的加購按鈕，並掛載數發部能量登錄許可標章。</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：維持 FastSIGN Cloud 與 Pro 買斷制。官網全面向政府與金融資安解決方案靠攏，極少宣傳低價訂閱方案。</li>
+<li><strong>好好簽 (BreezySign)</strong>：價格維持免費版（$0/3份）、專業版（$300/月）、企業版（$1500/月）。</li>
+</ul>
+<h3 id="2-content-strategy">2. 內容文章的策略方向 (Content Strategy)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>： Blog 集火於「ESG 淨零無紙化實證（富士軟片攜手 YONEX 案例）」與「HR 人資自動化入職管理」，高頻率產出且全數埋設 FAQ Schema。</li>
+<li><strong>律果簽 (LegalSign)</strong>：Blog 轉型為主攻 <strong>AI 智慧合約講堂</strong>。發布多篇「律師如何利用 AI 加速審約」、「企業法規風險預判」等高知識產出文章，建立專業法律顧問形象。</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：內容策略完全偏向「製造業零信任資安升級」與「後量子密碼學 (PQC) 設備防護」，電子簽章部分的 Blog 近兩月無更新。</li>
+<li><strong>好好簽 (BreezySign)</strong>：已累積 40 篇 Blog，主攻電子簽章法修法合規解析、臨櫃簽核應用及 ESG 行銷，但亟需在定價頁面底端追加 FAQ 模組。</li>
+</ul>
+<h3 id="3-ads-keyword-strategy">3. 廣告策略與關鍵字清單 (Ads &amp; Keyword Strategy)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：<ul>
+<li><em>預算評估</em>：預估日均廣告預算高達 <strong>NT$ 2,700 - 4,000</strong>，月均預算達 <strong>NT$ 80,000 - 120,000</strong>。</li>
+<li><em>核心字組</em>：<code>電子簽章</code>、<code>數位簽名</code>、<code>電子簽署 API</code>。強買我方品牌字 <code>BreezySign 費用</code> 進行搶客攔截。</li>
+</ul>
+</li>
+<li><strong>律果簽 (LegalSign)</strong>：<ul>
+<li><em>預算評估</em>：日均預算 <strong>NT$ 800 - 1,300</strong>，月均預算 <strong>NT$ 25,000 - 40,000</strong>。</li>
+<li><em>核心字組</em>：集火長尾高意圖字如 <code>合約管理系統</code>、<code>合約 CLM</code>、<code>線上審約</code>。</li>
+</ul>
+</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：<ul>
+<li><em>預算評估</em>：日均預算 <strong>NT$ 170 - 500</strong>，月均預算 <strong>NT$ 5,000 - 15,000</strong>，廣告中心查證無運行中多媒體廣告，完全依靠標案與實體關係銷售。</li>
+</ul>
+</li>
+<li><strong>好好簽 (BreezySign)</strong>：<ul>
+<li><em>預算評估</em>：日均預算 <strong>NT$ 500 - 800</strong>，月均預算 <strong>NT$ 15,000 - 25,000</strong>。主要投放 <code>線上合約簽署</code>、<code>手寫板簽名</code> 等通用詞，品牌防禦與合規關鍵字投放依然是空白。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-talent-recruitment">4. 人才招募與戰略重心 (Talent &amp; Recruitment)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：於 Yourator 釋出 <strong>AI Solution Consultant</strong> 與 <strong>AI Solution Engineer</strong> 職缺，預示其正大舉朝「AI 智慧文件解決方案商」轉型，不再侷限於簽核工具。</li>
+<li><strong>律果簽 (LegalSign)</strong>：持續招聘 <strong>「法律 AI 解決方案工程師」</strong>，要求具備 LLM 開發與法律條文 Fine-tuning 實務能力，以法務科技純血新創實施人才卡位。</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：大舉招募「深度學習開發工程師」、「資安網路工程師」，用於 IDExpert 零信任模組研發。</li>
+</ul>
+<h3 id="5-compliance-accreditation">5. 能量登錄與合規認證 (Compliance &amp; Accreditation)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：已完成數發部能量登錄，編號 <code>113-電簽-0003</code>，有效期限至 115/08/29。整合內政部行動自然人憑證 (TWFidO)，支援手機刷臉/指紋 10 秒簽署。</li>
+<li><strong>律果簽 (LegalSign)</strong>：已完成數發部能量登錄，編號 <code>113-電簽-0005</code>，有效期限至 116/01/15。通過 ISO 27001/27017/27018 資安認證。</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：已完成數發部能量登錄，編號 <code>113-電簽-0001</code>，有效期限至 115/07/21。</li>
+<li><strong>好好簽 (BreezySign)</strong>：已通過數發部能量登錄，編號 <strong><code>113電簽0008</code></strong> (登記主體為母公司蒙恬科技)，有效期限至 116/08/13。首頁與 Footer 聲明已 100% 上線 Production 站。</li>
+</ul>
+<h3 id="6-pr-public-sector">6. 公關新聞與政府標案 (PR &amp; Public Sector)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：發布「全球用戶突破 2000 萬」及「通過數發部能量登錄」等全國公關稿，在 AI 搜尋大模型的資料集中權重極高。</li>
+<li><strong>律果簽 (LegalSign)</strong>：主打與精誠資訊、數位時代等大型通路商及媒體結盟的新聞，在法務採購群組中知名度提升。</li>
+<li><strong>全景軟體 (FastSIGN)</strong>：2026 年 3 月成功通過政府零信任架構三階段完整驗證。擁有極強的政府機關與公股行庫信任錨點。</li>
+</ul>
+<h3 id="7-seo-geo-technical-seo-geo">7. 技術 SEO 與 GEO 能見度監控 (Technical SEO &amp; GEO)</h3>
+<ul>
+<li><strong>點點簽 (DottedSign)</strong>：因載入過多 HubSpot 與行銷追蹤代碼，CWV INP 表現不佳 (260ms)。受 4/21 漲價影響，大模型搜尋中開始出現客訴與負面引用漂移（AEO Citation Drift）。</li>
+<li><strong>律果簽 (LegalSign)</strong>：其 CLM 系統網頁採用純 SPA 架構且缺乏 SSR，在 raw-HTML 的大模型爬取中易被誤判為薄內容 (Thin Content)，在 GEO 推薦中常失去排名。</li>
+<li><strong>好好簽 (BreezySign)</strong>：官網技術 SEO 良好，GEO 提及率受惠於 Schema 優化上升至 40%。我方 Production 官網已完成能量登錄證號的聲明揭露，但在 H2/H3 標籤邏輯及 Organization Schema 的精確指定上仍有改善空間。</li>
+</ul>
+<hr />
+<h2 id="battle-cards">🎯 業務前線即戰力：最新反駁小卡 (Battle Cards)</h2>
+<h3 id="_1">🆚 當客戶提及點點簽時，最新追加話術：</h3>
+<blockquote>
+<p>「點點簽確實是大品牌，但他們在 <strong>今年 4 月 21 日起正式終止了舊版企業合約的續約</strong>，強制全面改以『件數 (Envelope)』計費。這意味著您的合約一旦到期，用印成本將會面臨暴增。好好簽擁有完全對等的數位發展部 <strong><code>113電簽0008</code></strong> 能量登錄背書與 AATL 國際憑證，且我們採用吃到飽或高彈性透明的方案，同時背靠上櫃大廠蒙恬科技 30 年的技術支援。我們更有在地化的 LINE 傳簽與聲明錄影防賴，是您在法規與成本考量下的最佳選擇。」</p>
+</blockquote>
+<h3 id="_2">🆚 當客戶提及律果簽時，最新追加話術：</h3>
+<blockquote>
+<p>「律果簽主打法律 AI CLM 確實有其特色，但法務系統的底層運算性能才是企業高頻率使用的關鍵。根據前線企業的實測，律果簽在處理大批量或複雜合約時，經常出現系統 Loading 超過 10 分鐘的性能卡頓，嚴重延宕商務進度。好好簽在核心簽署引擎上經過高頻率壓力測試，運行極速且穩定。如果您需要的是一個流暢、具備法庭證據力（聲明錄影），且獲得國家級能量登錄核可的極速電簽平台，好好簽絕對是更實實在在的選擇。」</p>
+</blockquote>
+<hr />
+<h2 id="next-steps">🚀 下一步行動方針 (Next Steps)</h2>
+<ol>
+<li><strong>[行銷/研發] 實作定價頁面 FAQ 模組</strong>：<ul>
+<li>於好好簽官網定價頁面下方，比照點點簽設計 6~8 組文字問答 FAQ，方便大模型 (GEO/AEO) 提取對比定價。</li>
+</ul>
+</li>
+<li><strong>[行銷] 部署對手比較著陸頁 (Competitor Landing Page)</strong>：<ul>
+<li>集火點點簽 4/21 舊合約失效與漲價痛點，主打好好簽透明吃到飽方案，搶攻流失客戶。</li>
+</ul>
+</li>
+<li><strong>[廣告投放] 啟動防禦型品牌與合規長尾關鍵字廣告</strong>：<ul>
+<li>立刻投放防禦型字組，防止搜尋我方品牌時被點點簽的搶客廣告攔截。</li>
+</ul>
+</li>
+</ol>
+    </div>
+
+    <footer>
+        <p>報告版次: V1.0 | 產出時間: 2026-06-02 13:06 | 營運單位: 好好簽 BreezySign 業務與技術整合小組</p>
+        <p style="margin-top: 4px; font-size: 10px; color:#94a3b8;">本報告由自動化轉換引擎產生，並透過 Microsoft Edge Headless 進行封裝存證。好好簽正式 Production 官網為唯一比對基準。</p>
+    </footer>
+</div>
+
+</body>
+</html>

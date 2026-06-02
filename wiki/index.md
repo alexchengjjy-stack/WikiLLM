@@ -89,17 +89,20 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 ### 📁 工作專案追蹤 (Projects)
 > 記錄「正在做什麼」— 進行中的重要工作
 
-* 🔴 **[鼎新電腦 API 對接](projects/ding-xin-api-integration.md)** — API 技術對接，合約審核中；6/11 直播活動備備戰
+* 🔴 **[鼎新電腦 API 對接](projects/ding-xin-api-integration.md)** — API 串接完成與連結時效調優，合約審核中；6/11 直播活動備戰
+* 🔴 **[福安健康與職安 API](projects/fuan-api-integration.md)** — 點點簽跳槽大戶 (年用量 2 萬份)，API 專案報價 12 萬簽約中
+* 🔴 **[聯合線上 API 對接與公開表單](projects/udn-api-integration.md)** — API 串接完成，業務流程與防偽簽署流程測試中
 * 🔴 **[聖洋科技 API 串接](projects/cacafly-api-integration.md)** — 每年 8k-10k 份 API 對接，進行多品牌動態 Logo 規格規劃
 * 🔴 **[工研院跨境電子簽章計畫](projects/itri-cross-border-esign.md)** — ⚡ 5/15 截止提交亮點簡報
-* 🔴 **[太平洋旅行社 Onboarding](projects/pacific-travel-onboarding.md)** — 40人企業版方案 Onboarding 共享範本設定，正式合約 6/1 生效啟用
-* 🔴 **[得勝者 PACS 醫療影像電簽整合](projects/deshengzhe-pacs-integration.md)** — 6月測試 7月上線，包含旗下診所與商之器 PACS 影像 AI 平台電簽 API 串接
+* 🔴 **[太平洋旅行社 Onboarding](projects/pacific-travel-onboarding.md)** — 40人企業版年租正式生效啟用，後台 UNIFY 共享範本設定完成
+* 🔴 **[得勝者 PACS 醫療影像電簽整合](projects/deshengzhe-pacs-integration.md)** — 盧森眼科與東港盧森 7 月上線，PACS AI 醫療影像串接測試中
 * 🔴 **[鴻運聯邦 Onboarding](projects/hong-yun-onboarding.md)** — 現場平板簽署與證件上傳大用量需求，預備線上展示
 * 🟡 **[華杏出版 Onboarding](projects/huaxing-publishing-onboarding.md)** — 5/26 簡報會後升級專業體驗版，進行 3 個月試用監控與帳號共用防禦
 * 🟡 **[海沃管理顧問 Onboarding](projects/hai-wo-onboarding.md)** — 企業版體驗試用中，跟進點點簽轉單痛點，試用至 6/10
+* 🟡 **[耐斯旅行社 Onboarding](projects/nice-tour-onboarding.md)** — 旅遊定型化契約 Line 傳簽與公開表單測試通過，引導線上訂閱商務方案月費制
 * 🟡 **[麻吉行得通 Onboarding](projects/maji-mobility-onboarding.md)** — 500-600份年約轉單跟進，等待主管決策，7月初重啟聯繫
 * 🟡 **[恩主公醫院 AIO 院內平台](projects/enzhugong-hospital-aio.md)** — 護理單位提案，進入預算估算
-* 🟡 **[101 客戶 BPM 系統建置](projects/project-101-bpm-deployment.md)** — HiCloud+DMZ 轉介 Server 建置中
+* 🟡 **[101 客戶 BPM 系統建置](projects/project-101-bpm-deployment.md)** — 交付地端原始碼與安裝文件，進行 isHealth API 檢測機制討論
 * 🟡 **[百加資通 BPM 通路合作](projects/pai-plus-bpm-partnership.md)** — 精鈺金屬需求評估中；巨虹電子分潤已結算
 
 ---
@@ -116,7 +119,8 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * [SEO & GEO 健檢分析 Starter Kit (Agent 提示詞)](playbooks/seo-geo-starter-kit/agent.md)
 * [電子簽章能量登錄競品週期性觀測機制](playbooks/esign-competitor-monitoring-mechanism.md)
 * [WikiLLM 工作項目分類與打標指南](playbooks/work-categorization-guideline.md) — 定義現有業務 (好好簽) 與下一代產品 (好好腦) 的分類範疇與打標規範。
-* [輸出檔案治理與 Skill 迭代規範 SOP](playbooks/output-file-governance-sop.md) — 規範 outputs 輸出檔案命名、物理子目錄分類與 Skill 增量更新機制。
+* [輸出檔案治理與 Skill 迭代規範 SOP](playbooks/output-file-governance-sop.md)
+* [SaaS 月度營運數據對齊與整體分析流程 SOP](playbooks/bzs-monthly-operations-reconciliation-sop.md) ── 規範每月營運資料更新時，底層數據對帳與各分析報告前後對齊更新之標準作業流程。 — 規範 outputs 輸出檔案命名、物理子目錄分類與 Skill 增量更新機制。
 
 
 ---
@@ -131,7 +135,7 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
   * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
   * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式、數發部徽章與 FAQ 完整部署實現爆發式反超競品。
   * [點點簽價格調漲與以份計費引發之轉單潮深度分析報告](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
-  * [BZS 客戶畫像特徵](analyses/bzs/bzs-customer-personas.md)
+  * [好好簽 (BZS) 企業客戶畫像分析](analyses/bzs/bzs-customer-personas.md) ── 重構醫療HIS/PACS整合、競品漲價流失轉單大客及大檔案防禦邊界之客戶畫像分析。
   * [BZS 功能需求與痛點](analyses/bzs/bzs-feature-requirements.md)
   * [SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) — 勾稽分析後台營收、PLG/SLG 漏斗與 Leads 跟進軌跡。
   * [BreezySign 商業部門職務工作清單整理](analyses/bzs/bzs-bu-role-based-tasklist.md) ── 依銷售、行銷、產品、工程與營運職務梳理的「待進行、可優化、下一步工作建議」工作清單。
@@ -150,7 +154,7 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 - [BreezySign 好好簽 20260523-0525 三日日報](./sources/bzs-daily-reports-20260523-20260525.md) — 記錄 2026-05-23 至 05-25 的三日業務數據與客戶進展，包含神坊資訊與愛因斯坦量化科技的 API 需求，以及喜事來與人合國際的結案紀錄。
 - [BreezySign 好好簽 20260522 日報](./sources/bzs-daily-report-20260522.md) — 記錄 2026-05-22 當日業務進展，包含予時包租代管、瑞飛憑證介接與華杏出版預約展示。
 - [BreezySign 好好簽 20260522 週報](./sources/bzs-weekly-report-20260522.md) — 記錄 2026-05-22 當週營運指標與太平洋旅行社、台灣奇恭等點點簽轉單移轉進度。
-- [BZS PM 數據分析報表彙整 (2025.10-2026.05)](./sources/pm-breezysign-analytics-reports.md) — 好好簽過去 8 個月的 PM/業務關鍵營運日報彙整。
+- [PM BreezySign 分析報表 (2025.10 - 2026.06)](./sources/pm-breezysign-analytics-reports.md) — 產品經理的每月營運儀表板，包含公司整體數據、營收狀況、付費客戶及進件量追蹤。
 - [BZS 2026 行銷廣告報表 (Google Ads & Pmax)](./sources/bzs-marketing-ads-2026.md) — 2026年好好簽 Google Ads 廣告花費與轉換漏斗數據。
 - [BreezySign 搜尋字詞報表 (2026.01-05)](sources/bzs-search-terms-2026.md) — 分析了 2026 上半年的 Google Ads 關鍵字成效與競品攔截轉換率。
 - [BreezySign 好好簽實際案例和場景](sources/bzs-use-cases-and-clients.md) — 詳列各垂直產業（不動產、貸款、旅行、租車等）的客戶名單、應用文件與主推特色功能（錄影簽、Line傳簽等）。

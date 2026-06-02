@@ -1,0 +1,431 @@
+# -*- coding: utf-8 -*-
+import os
+
+target_dir = r"c:\Users\alexc\OneDrive\文件\WikiLLM\outputs"
+if not os.path.exists(target_dir):
+    os.makedirs(target_dir)
+
+target_path = os.path.join(target_dir, "bzs-202605-operations-dashboard.html")
+
+html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好好簽 (BreezySign) 2026年5月營運數據深度勾稽與對齊分析看板</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap');
+        
+        :root {
+            --bg-color: #0d0f14;
+            --card-bg: rgba(22, 28, 45, 0.6);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #3b82f6; /* Blue */
+            --accent-success: #10b981; /* Green */
+            --accent-warning: #f59e0b; /* Amber */
+            --accent-danger: #ef4444; /* Red */
+            --glow-color: rgba(59, 130, 246, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .meta-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Grid Layouts */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.8rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .metric-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .metric-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+        }
+
+        .metric-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value.success { color: var(--accent-success); }
+        .metric-value.info { color: var(--accent-primary); }
+        .metric-value.warning { color: var(--accent-warning); }
+
+        .metric-footer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-left: 4px solid var(--accent-primary);
+            padding-left: 0.8rem;
+        }
+
+        /* Lists and Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight-row {
+            background: rgba(255, 255, 255, 0.02);
+            font-weight: 600;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag.success { background: rgba(16, 185, 129, 0.1); color: #34d399; }
+        .tag.info { background: rgba(59, 130, 246, 0.1); color: #60a5fa; }
+        .tag.warning { background: rgba(245, 158, 11, 0.1); color: #fbbf24; }
+        .tag.danger { background: rgba(239, 68, 68, 0.1); color: #f87171; }
+
+        /* Custom Flow list */
+        .flow-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .flow-item {
+            border-left: 2px solid rgba(255, 255, 255, 0.08);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .flow-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        .flow-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flow-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-pill {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .alert-box {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+            font-size: 0.88rem;
+            color: #fbbf24;
+        }
+
+        .alert-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>BreezySign 好好簽</h1>
+                <div class="subtitle">2026年5月營運數據深度勾稽與對齊分析看板 (Production)</div>
+            </div>
+            <div class="meta-tag">數據截至：2026-05-31</div>
+        </header>
+
+        <!-- KPI Cards Grid -->
+        <div class="metrics-grid">
+            <div class="card metric-card">
+                <div class="metric-title">5月實收總營收 (Total Rev)</div>
+                <div class="metric-value info">NT$ 365,202</div>
+                <div class="metric-footer">
+                    <span class="tag info">SaaS $84,080</span>
+                    <span class="tag info">專案/API $281,122</span>
+                </div>
+            </div>
+            <div class="card metric-card">
+                <div class="metric-title">5月對帳口徑落差 (Reconciliation Gap)</div>
+                <div class="metric-value success">NT$ 0</div>
+                <div class="metric-footer">
+                    <span>SaaS 扣款與 CSM 紀錄完美對齊</span>
+                </div>
+            </div>
+            <div class="card metric-card">
+                <div class="metric-title">5月新增公司數 (New Registrations)</div>
+                <div class="metric-value">312 家</div>
+                <div class="metric-footer">
+                    <span>電訪 30 家 leads (15家有興趣, 9家高意願)</span>
+                </div>
+            </div>
+            <div class="card metric-card">
+                <div class="metric-title">B2B 窄口徑 LTV:CAC 效率</div>
+                <div class="metric-value warning">67 : 1</div>
+                <div class="metric-footer">
+                    <span>CAC $1,792 NTD | 遠超 3:1 標準</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-grid">
+            <!-- Left Column: Operations & Reconciliation -->
+            <div class="card">
+                <h2>📊 營運後台金流與客成 (CSM) 對帳清單</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>對帳項目</th>
+                            <th>營運後台實收金額 (Production)</th>
+                            <th>CSM 系統登記/分析口徑</th>
+                            <th>落差與時間差分析 (Reconciliation Notes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SaaS 訂閱營收</strong></td>
+                            <td class="success">NT$ 84,080</td>
+                            <td>NT$ 84,080</td>
+                            <td>
+                                <strong>無落差 (完美對齊)</strong><br>
+                                包含新購業績 $73,200 (太平洋 $60k + 9家新客 $13.2k) 與舊客續期 ARR $10,880。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>專案與 API 營收</strong></td>
+                            <td>NT$ 281,122</td>
+                            <td>-</td>
+                            <td>
+                                <strong>獨立核算 (一次性專案大頭)</strong><br>
+                                線下專案一次性收入，不計入 SaaS MRR 訂閱漏斗，與 SaaS 金流完全拆分。
+                            </td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>總計營收</strong></td>
+                            <td>NT$ 365,202</td>
+                            <td>-</td>
+                            <td>本月總體營收 MoM 成長達 +87.49%。前 5 個月累計實收 728,700 NTD。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>代表性新購 (大客)</strong></td>
+                            <td>-</td>
+                            <td class="success">NT$ 60,000</td>
+                            <td>
+                                <strong>太平洋旅行社 (40人年租約)</strong><br>
+                                電匯款於 5/26 實收扣款，但合約於 6/1 生效，屬常態跨月對帳時間差。
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <span class="alert-icon">⚠️</span>
+                    <div>
+                        <strong>數據合規紅線規範</strong>：本看板排除任何測試站 (Staging) 數據、測試官網與進行中未生效項目（如：大瀚環球專屬 LP、福安 API、聯合線上 API 專案等），僅以正式 Production 入帳與正式生效大客為對帳依據。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: CSM Lead Followups & Boundaries -->
+            <div class="card">
+                <h2>🤝 CSM 客成商機與服務邊界</h2>
+                <div class="flow-list">
+                    <div class="flow-item">
+                        <div class="flow-title">
+                            <span>太平洋旅行社</span>
+                            <span class="tag success">已成交 (6/1生效)</span>
+                        </div>
+                        <div class="flow-desc">
+                            原點點簽大客，因競品改採按件計費導致年費報價翻倍，大舉轉單好好簽，已於 5/26 電匯入帳 6 萬，正式開通 40 人企業版 UNIFY 範本權限控管。
+                        </div>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-title">
+                            <span>恩主公醫院</span>
+                            <span class="tag danger">婉拒結案 (5/20)</span>
+                        </div>
+                        <div class="flow-desc">
+                            諮詢院內大廳 AIO 簽名板設備與 HIS 系統整合。因院內今年度資源與預算配置已滿，無法配合後續開發，已主動婉拒本案並正式結案。
+                        </div>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-title">
+                            <span>聖美麗健康管理</span>
+                            <span class="tag danger">婉拒結案 (5月)</span>
+                        </div>
+                        <div class="flow-desc">
+                            評估跳槽好好簽，但其健檢 PDF 超過 10MB (約 28MB)，嵌入 AATL 數位憑證時易超時失敗。我方為維護伺服器穩定與毛利，主動婉拒其年約，確立 10MB 技術防禦邊界。
+                        </div>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-title">
+                            <span>豐盛富足資產 & 自強基金會</span>
+                            <span class="tag success">Onboarding 轉化</span>
+                        </div>
+                        <div class="flow-desc">
+                            註冊後處於 Cold Start (未簽署) 狀態。經 CSM 電訪與線上 DEMO 輔導後，分別轉化訂閱企業版月約與 5 人企業版 2 個月方案。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+"""
+
+with open(target_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("HTML dashboard generated successfully.")
