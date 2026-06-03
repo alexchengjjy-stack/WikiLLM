@@ -51,6 +51,11 @@ def main():
     if os.path.exists(logo_path):
         with open(logo_path, "rb") as f:
             logo_base64 = base64.b64encode(f.read()).decode("utf-8")
+            
+    if logo_base64:
+        logo_html = f'<img class="bzs-logo" src="data:image/png;base64,{logo_base64}" width="220" height="44" alt="BreezySign">'
+    else:
+        logo_html = '<div style="font-family:\'Outfit\', sans-serif; font-size:24px; font-weight:800; color:var(--primary);">BreezySign 好好簽</div>'
 
     # 定義時間戳記與檔名 (SOP 規範)
     timestamp = datetime.now().strftime("%Y%m%d-%H%M")
@@ -274,7 +279,7 @@ def main():
 <div class="container">
     <header>
         <div class="logo-area">
-            {"<img class='bzs-logo' src='data:image/png;base64," + logo_base64 + "' width='220' height='44' alt='BreezySign'>" if logo_base64 else "<div style='font-family:\"Outfit\", sans-serif; font-size:24px; font-weight:800; color:var(--primary);'>BreezySign 好好簽</div>"}
+            {logo_html}
         </div>
         <div class="meta-tag">COMPETITIVE INTELLIGENCE SNAPSHOT ． {metadata.get('date_created', '2026-06-01')}</div>
         <h1>{metadata.get('title', '電子簽章能量登錄競品情報普查快照 (2026 年 6 月)')}</h1>

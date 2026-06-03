@@ -2,7 +2,7 @@
 title: "WikiLLM 知識庫首頁"
 type: index
 date_created: 2026-04-18
-date_updated: 2026-06-01
+date_updated: 2026-06-03
 summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程實踐、個人技能、工作專案與產品規劃。"
 ---
 
@@ -26,11 +26,13 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * [新版電子簽章法用戶服務協議 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-terms-of-service.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證條款。
 * [新版電子簽章法隱私權宣告 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-privacy-policy.html) ── 包含聲明錄影簽影像隨合約保管、被遺忘權與資安保護之最新公告。
 * [新版電子簽章法隱私權宣告 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/20260529-1558-bzs-privacy-policy.pdf) ── 套用 BreezySign 官方高階報告樣式之 PDF 存證宣告。
-* [好好簽 2026 年 5 月營運月報 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.html) ── 整合 SaaS $84K 與專案 API $281K 雙引擎營收、2025-10 至 2026-05 歷史實收 MoM 趨勢、新增註冊、Leads 漏斗及點點簽轉單與大檔案憑證婉拒深度分析網頁。
-* [好好簽 2026 年 5 月營運月報 (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.pdf) ── 套用官方翠綠色視覺、帶有 `@media print` 列印保護之高品質無損 PDF 報告。
-* [好好簽 2026 年 5 月營運月報 (PPTX 演示簡報)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260601-1747-v3.pptx) ── 載入官方 bzs-presentation-template.pptx 製作之 5 頁營運匯報投影片。
-* [電子簽章 6 月競品普查快照 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.html) ── 包含點點簽大漲價、律果簽 AI 助理法樂多與全景零信任資安之最新分析。
-* [電子簽章 6 月競品普查快照 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pdf) ── 套用官方翠綠色視覺、無損列印之高品質商務 PDF 檔案。
+* [好好簽 2026 年 5 月營運月報 Dashboard (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260603-1812-v4.html) ── 整合 SaaS 經常性實收 $104K 與專案 API $281K 雙引擎營收、SaaS 訂閱方案實收結構明細、新增註冊、Leads 漏斗、大瀚/福安等重點專案進展及點點簽轉單與大檔案憑證限制深度分析網頁（2026-05付費公司數已更新為 205 家）。
+* [好好簽 2026 年 5 月營運月報 Dashboard (PDF 合規版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260603-1812-v4.pdf) ── 套用官方翠綠色視覺、帶有 `@media print` 列印保護之高品質無損 PDF 看板（2026-05付費公司數已更新為 205 家）。
+* [好好簽 2026 年 5 月營運月報 Dashboard (PPTX 演示簡報)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-ops-report-20260603-1812-v4.pptx) ── 載入官方 bzs-presentation-template.pptx 製作之 15 頁完整版營運匯報投影片（新增四大維度、客戶畫像、競品普查、Battle Cards）。
+* [好好簽 2026 年 5 月營運深度分析報告 (HTML 長篇版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-saas-ops-analysis-20260603-1812-v4.html) ── 完整將 9 大章節文字報告編譯為美觀的網頁。
+* [好好簽 2026 年 5 月營運深度分析報告 (PDF 完整版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-saas-ops-analysis-20260603-1812-v4.pdf) ── 完整包含營運進展與 SaaS 客戶結構、SaaS 訂閱數據統計、退訂流失、財務訂單認列拆分、SaaS 歷年四大維度演進、BZS 企業客戶畫像、重大專案進程、競品情報普查快照（含 Battle Cards）與 H2 營運策略等 9 大章節的 A4 多頁完整 PDF 分析報告。
+* [電子簽章 6 月競品普查快照 (HTML 版本)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260603-1845-v1.html) ── 包含點點簽大漲價、律果簽 AI 助理法樂多與全景零信任資安之最新分析。
+* [電子簽章 6 月競品普查快照 (PDF 旗艦版)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260603-1845-v1.pdf) ── 套用官方翠綠色視覺、無損列印之高品質商務 PDF 檔案。
 * [電子簽章 6 月競品普查快照 (PPTX 演示簡報)](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-esign-monitoring-snapshot-202606-20260601-1842-v1.pptx) ── 載入官方範本製作，包含四大普查矩陣、七大觀測通道深度解析與 Battle Cards 話術。
 
 ---
@@ -138,6 +140,7 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
   * [好好簽 (BZS) 企業客戶畫像分析](analyses/bzs/bzs-customer-personas.md) ── 重構醫療HIS/PACS整合、競品漲價流失轉單大客及大檔案防禦邊界之客戶畫像分析。
   * [BZS 功能需求與痛點](analyses/bzs/bzs-feature-requirements.md)
   * [SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) — 勾稽分析後台營收、PLG/SLG 漏斗與 Leads 跟進軌跡。
+  * [BreezySign 好好簽 2026年5月營運月報](analyses/bzs/bzs-saas-ops-report-202605.md) ── 彙整5月份實收雙引擎 NT$ 385k、新增 Booking、得勝者等專案進展與點點簽轉單潮。
   * [BreezySign 商業部門職務工作清單整理](analyses/bzs/bzs-bu-role-based-tasklist.md) ── 依銷售、行銷、產品、工程與營運職務梳理的「待進行、可優化、下一步工作建議」工作清單。
   * [好好簽官網 Blog 行銷推廣系列文章 (2026-05)](analyses/bzs/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 案例、情境與數發部能量登錄里程碑文章。
   * [BreezyBrain 完善度診斷與 MVP/Roadmap 規劃](analyses/bzb/bzb-mvp-roadmap.md) ── 針對 BreezyBrain 進行整體產品規格之完善度評估，列出四大隱性死角，並提煉三階段產品路線圖。
@@ -145,6 +148,7 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
   * [WikiLLM 知識庫健康檢查與 Lint 優化報告](analyses/wikillm/wikillm-kb-health-check-report.md) ── 針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。
 
 ## 📄 來源摘要 (Sources)
+- [BreezySign 好好簽 20260602 SaaS 業務日報](./sources/20260602-saas-daily-report.md) — 記錄 2026-06-02 業務進展，包含鼎鈦生技零售/美容教學方案諮詢與永豐高中活動授權書初期評估。
 - [得勝者醫療資訊整合專案會議紀錄](./sources/deshengzhe-meeting-report-20260601.md) — 記錄 2026-06-01 專案會議，包含方鼎與商之器之座標完簽 API、混合雲時間戳記離線設計及體驗包行銷推廣策略。
 - [BreezySign 好好簽 20260529 專案與 API 業務日報](./sources/20260529-projects-daily.md) — 記錄 2026-05-29 業務與技術對接，包含大瀚 LP 正式上線準備、得勝者 PACS 影像整合、星鴻 Albert 高雄行及 101 地端原始碼安裝包交付。
 - [BreezySign 好好簽 20260529 SaaS 業務日報](./sources/20260529-saas-daily.md) — 記錄 2026-05-29 業務日報，聚焦「麻吉行得通」點點簽 8/3 到期轉換好好簽決策跟進。
@@ -256,4 +260,4 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 
 ### 🏢 實體與品牌 (Entities)
 * 本土電子簽章：[點點簽](entities/dottedsign.md) | [律果簽](entities/legalsign.md) | [好好簽](entities/breezysign.md) | [FastSIGN](entities/fastsign.md)
-* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md)
+* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md) | [鼎鈦生技](entities/dingtai-biotech.md) | [永豐高中](entities/yongfeng-high-school.md)
