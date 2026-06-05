@@ -2,6 +2,50 @@
 title: "操作日誌"
 ---
 
+## [2026-06-05 18:45] ingest | 2026-06-05 BreezySign 週報攝入與回流/體驗新客實體建立
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創來源摘要**:
+    - [20260605-saas-weekly.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260605-saas-weekly.md) ── 記錄本週營運動態、太平洋大單匯款落地、耐斯/奇恭付費意向跟進，以及大客競品防守統計。
+  - **新創實體頁面**:
+    - [taiwan-gigo.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/taiwan-gigo.md) ── 台灣奇恭股份有限公司，記錄 DocuSign 回流大客 6/30 到期採購進度。
+    - [pu-ran-zi.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/pu-ran-zi.md) ── 樸然子股份有限公司，記錄服飾零售大客 8/19 體驗評估進展。
+  - **更新實體與專案**:
+    - [pacific-travel.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/pacific-travel.md) ── 太平洋旅行社，加入 6/5 週報來源，標記正式付款年約生效。
+    - [nice-tour.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/nice-tour.md) ── 耐斯旅行社，更新 6/1 負責人承諾採用商務方案月費制之意向進展。
+    - [dingtai-biotech.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/dingtai-biotech.md) ── 鼎鈦生技，更新 6/2 註冊體驗版至 6/18 及最新測試任務數 2 的記錄。
+    - [st-mary-health.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/st-mary-health.md) ── 聖美麗，加註 6/2 承辦人對紙本 PDF 加註解自我簽署時，AATL 會出現「只有一個簽名需要驗證」之技術反饋與排查進度。
+    - [jie-bao-hr.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/jie-bao-hr.md) ── 傑報人資，更新來源清單。
+    - [pacific-travel-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/pacific-travel-onboarding.md) ── 太平洋 Onboarding 專案，將範本 Unify 配置與業務教育訓練輔導標記為已完成，進入系統效能監控階段。
+  - **更新分析與索引**:
+    - [esign-dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 在清單與 Mermaid 圖中，加註並分析「找到了旅行社因律果簽提供私有雲落地方案，防守成功留客」之流失案例。
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立之 1 份週報與 2 個新實體頁面。
+- **關鍵發現**:
+  - **競品留客防守策略**：找到了旅行社（年 3.5 萬份）雖然因為律果簽效能卡頓而詢問好好簽，但最終律果簽透過主動提供「私有雲落地」解決方案並展示誠意，成功防守留客。這指出私有雲/大用量效能優化是競品防禦的關鍵武器。
+  - **DocuSign 轉換回流**：台灣奇恭 (GiGO) 於體驗版測試 322 次任務後，確認系統穩定，主管已批准回流好好簽（年 80-100 份），正在進行人數與報價確認。
+
+## [2026-06-05 18:30] ingest | 2026-06-03 與 06-04 業務日報攝入與新客實體建立
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創來源摘要**:
+    - [20260603-saas-daily.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260603-saas-daily.md) ── 記錄傑報人資（點點簽轉單）、AsiaYo HR 進件與聖美麗最新評估動態。
+    - [20260604-saas-daily.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260604-saas-daily.md) ── 記錄福安管理顧問決定改用 SaaS 公版、合規認證與教育訓練協調情形。
+  - **新創實體頁面**:
+    - [st-mary-health.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/st-mary-health.md) ── 聖美麗健康管理顧問有限公司，記錄其 10MB 上限自主優化並重啟評估之動態。
+    - [jie-bao-hr.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/jie-bao-hr.md) ── 傑報人力資源顧問有限公司，記錄 3,600 份點點簽替換評估案。
+    - [fuan-management.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/fuan-management.md) ── 福安管理顧問企業社，記錄 20,000 份大客轉單與 IPO 時程限制決策。
+    - [asia-yo-travel.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/asia-yo-travel.md) ── 亞揪遊旅行社股份有限公司，HR Sarah 專人客製化方案進件。
+    - [taiwan-green-energy.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/taiwan-green-energy.md) ── 台灣綠能公益發展協會，開通體驗版至 6/16 測試。
+  - **更新實體與分析**:
+    - [dottedsign.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/dottedsign.md) ── 更新點點簽大量簽署流失案例中，福安成交及聖美麗重啟評估之最新動態。
+    - [esign-dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 更新轉單清單與 Mermaid 流程圖，修改聖美麗狀態為重新評估中（解決 10MB 單檔限制），福安改為確定合作。
+    - [bzs-customer-personas.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-customer-personas.md) ── 增量調整聖美麗之 10MB 技術防禦邊界描述，記錄其妥協自行解決檔案限制之客群適應特徵。
+  - **更新目錄索引**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立之 2 份日報摘要與 5 家新客戶實體頁。
+- **關鍵發現**:
+  - **客群自主適應防線**：原先因為 10MB 單檔憑證效能上限而被我方主動婉拒的聖美麗，在面對競品漲價壓力下回覆會「自行解決檔案大小上限問題」並重啟評估。這顯示在點點簽大漲價的強烈推力下，客戶會傾向主動配合好好簽的系統硬性邊界。
+  - **IPO 與 SaaS 公版決策**：年需求 2 萬份的福安管理顧問，因 IPO 時程限制來不及做 API 串接，決定直接採用 SaaS 60人版公版（NT$76,000/年），並對 ISO27001 與數發部能量登錄做合規備書。
+
 ## [2026-06-03 18:45] update | 修正 PDF 報告 Logo 遺失並重新編譯
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:

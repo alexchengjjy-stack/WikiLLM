@@ -5,9 +5,9 @@ entity_type: company
 aliases: ["太平洋旅行社", "太平洋旅遊"]
 tags: [tourism, client, dottedsign_churn, unify_template]
 date_created: 2026-06-01
-date_updated: 2026-06-01
-source_count: 2
-sources: ["bzs-weekly-report-20260522.md", "bzs-weekly-report-20260529.md"]
+date_updated: 2026-06-05
+source_count: 3
+sources: ["bzs-weekly-report-20260522.md", "bzs-weekly-report-20260529.md", "20260605-saas-weekly.md"]
 summary: "太平洋旅行社為旅遊服務業者，因點點簽改按份計費費用過高，轉換訂閱好好簽企業方案 40 人版 (NT$60,000/年)。"
 ---
 

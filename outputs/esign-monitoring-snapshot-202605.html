@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子簽章能量登錄競品情報普查快照 (2026年5月)</title>
+    <meta name="description" content="跨品牌 SEM 廣告預算與 GEO 生成式引擎檢索實證分析儀表板 - 蒙恬科技市場情報處">
+    <!-- Google Fonts Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #070B1E;
+            --bg-radial: radial-gradient(circle at 50% 50%, #0F1938 0%, #070B1E 100%);
+            --card-bg: rgba(19, 27, 53, 0.6);
+            --card-border: rgba(0, 214, 255, 0.2);
+            --text-white: #FFFFFF;
+            --text-silver: #D2DCF0;
+            --color-bzs: #00D6FF;
+            --color-green: #00FFA6;
+            --color-orange: #FF9A3C;
+            --sidebar-width: 280px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Outfit', 'Microsoft JhengHei', sans-serif;
+            background: var(--bg-radial);
+            color: var(--text-silver);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* Sidebar Navigation Style */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: rgba(10, 17, 40, 0.85);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(0, 214, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--color-bzs);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-header p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 4px;
+        }
+
+        /* Custom Scrollbar for Sidebar */
+        .nav-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .nav-list::-webkit-scrollbar-thumb {
+            background: rgba(0, 214, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .nav-item button {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-silver);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item button:hover {
+            background: rgba(0, 214, 255, 0.08);
+            color: var(--color-bzs);
+            padding-left: 20px;
+        }
+
+        .nav-item.active button {
+            background: rgba(0, 214, 255, 0.15);
+            color: var(--text-white);
+            border-left-color: var(--color-bzs);
+        }
+
+        /* Main Display Frame */
+        .main-content {
+            flex-grow: 1;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            flex-grow: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px 60px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Slide Headers */
+        .slide-header {
+            margin-bottom: 24px;
+        }
+
+        .slide-category {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-bzs);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -0.5px;
+        }
+
+        /* Card Layout Styles */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px;
+            backdrop-filter: blur(12px);
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--theme-color, var(--color-bzs));
+            box-shadow: 0 12px 40px 0 rgba(0, 214, 255, 0.15);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--theme-color, var(--color-bzs));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+
+        .card-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-bullets li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-silver);
+            position: relative;
+            padding-left: 4px;
+        }
+
+        /* Table Layout Styles */
+        .table-wrapper {
+            width: 100%;
+            background: rgba(13, 21, 43, 0.4);
+            border: 1px solid rgba(0, 214, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(26, 45, 84, 0.8);
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 214, 255, 0.2);
+        }
+
+        td {
+            padding: 16px 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-silver);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: top;
+        }
+
+        /* First Column (Dimension Labels) style */
+        tr td:first-child {
+            font-weight: 700;
+            color: var(--color-bzs);
+            background: rgba(19, 27, 53, 0.5);
+            width: 18%;
+        }
+
+        tr:nth-child(even) td:not(:first-child) {
+            background: rgba(13, 21, 43, 0.25);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td ul {
+            list-style: none;
+        }
+
+        td ul li {
+            margin-bottom: 4px;
+        }
+
+        /* Center alignment for specific table elements */
+        .align-center {
+            text-align: center;
+        }
+
+        /* Text Highlighting Classes */
+        .hl-green {
+            color: var(--color-green) !important;
+            font-weight: 700;
+        }
+
+        .hl-orange {
+            color: var(--color-orange) !important;
+            font-weight: 700;
+        }
+
+        /* Battle Card Layout Styles */
+        .battle-card-wrapper {
+            background: var(--card-bg);
+            border: 2px solid var(--theme-color, var(--color-green));
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.4);
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .battle-header {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--theme-color, var(--color-green));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 16px;
+        }
+
+        .battle-challenge {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-orange);
+            font-style: italic;
+            background: rgba(255, 154, 60, 0.08);
+            border-left: 4px solid var(--color-orange);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.5;
+        }
+
+        .battle-rebuttal {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            white-space: pre-line;
+        }
+
+        /* Footer Controls */
+        .footer-controls {
+            position: absolute;
+            bottom: 24px;
+            right: 40px;
+            display: flex;
+            gap: 16px;
+            z-index: 50;
+        }
+
+        .btn-nav {
+            background: rgba(0, 214, 255, 0.1);
+            border: 1px solid rgba(0, 214, 255, 0.3);
+            color: var(--color-bzs);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-nav:hover {
+            background: rgba(0, 214, 255, 0.25);
+            color: var(--text-white);
+            box-shadow: 0 0 15px rgba(0, 214, 255, 0.3);
+        }
+
+        /* Slide 1 Cover Specifics */
+        .cover-slide {
+            justify-content: center;
+            padding-left: 100px;
+        }
+
+        .cover-tracker {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-bzs);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .cover-title {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .cover-subtitle {
+            font-size: 22px;
+            color: var(--text-silver);
+            margin-bottom: 48px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        .cover-footer {
+            font-size: 13px;
+            color: var(--color-bzs);
+            letter-spacing: 1px;
+            border-left: 3px solid var(--color-bzs);
+            padding-left: 12px;
+        }
+
+        /* Responsive scaling */
+        @media (max-width: 1200px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+            .sidebar {
+                display: none; /* simple fallback */
+            }
+            .slide {
+                position: relative;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                height: auto;
+                padding: 40px 20px;
+            }
+        }
+
+        /* 完美無損列印樣式：將深色 Dashboard 在列印/轉 PDF 時反轉為高端淺色商務版面，防止大片空白 */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #1e293b !important;
+                overflow: visible !important;
+                height: auto !important;
+                display: block !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .sidebar, .footer-controls {
+                display: none !important;
+            }
+            .main-content {
+                margin: 0 !important;
+                padding: 0 !important;
+                height: auto !important;
+                display: block !important;
+                background: #ffffff !important;
+            }
+            .slide-container {
+                display: block !important;
+                height: auto !important;
+            }
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                height: auto !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                padding: 40px 0 !important;
+                background: #ffffff !important;
+                color: #1e293b !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            .slide-title {
+                color: #0f172a !important;
+            }
+            .slide-category {
+                color: #2563eb !important;
+            }
+            .cards-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 20px !important;
+            }
+            .card {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #334155 !important;
+                box-shadow: none !important;
+                break-inside: avoid !important;
+                padding: 20px !important;
+            }
+            .card-title {
+                color: #1e3a8a !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            .card-bullets li {
+                color: #475569 !important;
+            }
+            .table-wrapper {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                margin-top: 15px !important;
+            }
+            table {
+                border-collapse: collapse !important;
+            }
+            th {
+                background: #f1f5f9 !important;
+                color: #0f172a !important;
+                border-bottom: 2px solid #cbd5e1 !important;
+                padding: 12px !important;
+            }
+            td {
+                color: #334155 !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+                padding: 12px !important;
+            }
+            tr td:first-child {
+                background: #f8fafc !important;
+                color: #1e3a8a !important;
+            }
+            .battle-card-wrapper {
+                background: #f8fafc !important;
+                border: 2px solid #10b981 !important;
+                color: #1e293b !important;
+                box-shadow: none !important;
+                padding: 24px !important;
+            }
+            .battle-header {
+                color: #047857 !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            .battle-challenge {
+                background: #fff7ed !important;
+                border-left: 4px solid #ea580c !important;
+                color: #c2410c !important;
+                padding: 12px !important;
+            }
+            .battle-rebuttal {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #0f172a !important;
+                padding: 16px !important;
+            }
+            .cover-slide {
+                justify-content: center !important;
+                height: 95vh !important;
+                padding-left: 0 !important;
+                text-align: center !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+            .cover-title {
+                color: #1e3a8a !important;
+                font-size: 38px !important;
+            }
+            .cover-subtitle {
+                color: #475569 !important;
+                font-size: 18px !important;
+            }
+            .cover-footer {
+                border-left: none !important;
+                padding-left: 0 !important;
+                color: #2563eb !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>WikiLLM Monitoring</h2>
+            <p>競品情報普查快照 ． 2026-05</p>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item active" data-slide="0"><button>📌 封面首頁</button></li>
+            <li class="nav-item" data-slide="1"><button>🌐 01 / 市場格局全景</button></li>
+            <li class="nav-item" data-slide="2"><button>📊 02 / 基礎數據基準線</button></li>
+            <li class="nav-item" data-slide="3"><button>📈 03 / SEM & GEO 實證</button></li>
+            <li class="nav-item" data-slide="4"><button>🟢 04 / 點點簽深度情報</button></li>
+            <li class="nav-item" data-slide="5"><button>🟡 05 / 律果簽深度情報</button></li>
+            <li class="nav-item" data-slide="6"><button>⚪ 06 / 全景軟體深度情報</button></li>
+            <li class="nav-item" data-slide="7"><button>⚠️ 07 / 我方戰略盲區</button></li>
+            <li class="nav-item" data-slide="8"><button>🛡️ 08 / 對話反駁卡 (1)</button></li>
+            <li class="nav-item" data-slide="9"><button>🛡️ 09 / 對話反駁卡 (2)</button></li>
+            <li class="nav-item" data-slide="10"><button>🚀 10 / 我方反擊方案</button></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main-content">
+        <div class="slide-container">
+
+            <!-- SLIDE 1: Cover -->
+            <section class="slide cover-slide active">
+                <div class="cover-tracker">MARKET INTELLIGENCE REPORT | 2026 年 5 月</div>
+                <h1 class="cover-title">電子簽章能量登錄競品情報普查快照</h1>
+                <p class="cover-subtitle">跨品牌 SEM 廣告預算與 GEO 生成式引擎檢索實證分析</p>
+                <div class="cover-footer">蒙恬科技 ． 市場情報與業務前線即戰力簡報</div>
+            </section>
+
+            <!-- SLIDE 2: Market Panorama -->
+            <section class="slide">
+                <div class="slide-header">
+                    <div class="slide-category">01 / Market Panorama</div>
+                    <h2 class="slide-title">2026 年 5 月電子簽章市場格局全景</h2>
+                </div>
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <h3 class="card-title">🔍 普查方法與觀測維度</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>五大情報觀測管道</b>：官網動態、內容行銷策略、104人才招募、搜尋能見度 (SEM/SEO/GEO) 及 PR 與政府標案動能。</li>
+                            <li>• <b>數據獲取實證</b>：彙整 SEMrush 流量預算數據、Google 廣告透明度中心實時文案、Perplexity/Gemini 引用滲透率。</li>
+                        </ul>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <h3 class="card-title">⚖️ 三大陣營定位與格局</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>流量收割陣營</b>：點點簽 (DottedSign) 以極高買量與生態系整合稱霸市場聲量。</li>
+                            <li>• <b>垂直 CLM 陣營</b>：律果簽 (LegalSign) 深耕法律 AI 工程師招募與合約管理防禦。</li>
+                            <li>• <b>基礎資安陣營</b>：全景軟體 (FastSIGN) 地端硬核 PKI 安全規格，線上處於靜默。</li>
+                        </ul>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <h3 class="card-title">⚠️ 我方好好簽定位省思</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>實力卓越但缺乏宣告</b>：背靠蒙恬上櫃技術且通過數發部官方能量登錄，但官網零宣傳，公信力靜默斷鏈。</li>
+                            <li>• <b>AI 引用率僅 40%</b>：價格頁缺乏常見問題 FAQ 語意板塊，面臨大模型檢索盲區，急需戰略反擊。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Competitor Baseline Table -->
+            <section class="slide">
+                <div class="slide-header">
+                    <div class="slide-category">02 / Competitor Baseline Overview</div>
+                    <h2 class="slide-title">競品觀測基礎數據基準線 (營運規模、定價與內容優勢)</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>數據維度</th>
+                                <th>好好簽 (BreezySign) 我方</th>
+                                <th>點點簽 (DottedSign)</th>
+                                <th>律果簽 (LegalSign)</th>
+                                <th>FastSIGN (全景)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>母公司 / 主體</td>
+                                <td>蒙恬科技 (PenPower)</td>
+                                <td>凱鈿行動科技 (Kdan)</td>
+                                <td>律果科技 (Legaltech)</td>
+                                <td>全景軟體 (Changingtec)</td>
+                            </tr>
+                            <tr>
+                                <td>公司員工人數</td>
+                                <td>總部約 90 人<br>(電簽為旗下獨立業務)</td>
+                                <td>全球約 200 - 230 人</td>
+                                <td>約 12 - 20 人<br>(法務科技純血新創)</td>
+                                <td>約 170 人<br>(緯創集團成員興櫃廠)</td>
+                            </tr>
+                            <tr>
+                                <td>主要方案與價格</td>
+                                <td>
+                                    <ul>
+                                        <li>• 免費: NT$0 (3份/月)</li>
+                                        <li>• 專業: NT$300/月</li>
+                                        <li>• 企業: NT$1,500/月</li>
+                                        <li>• 客製: API 整合</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>• Pro: USD 15/月 (年繳 $96)</li>
+                                        <li>• Business: USD 200起/年</li>
+                                        <li>• Enterprise: 客製報價</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>• 體驗: NT$0 (3份/月)</li>
+                                        <li>• 基本: NT$180/月/人</li>
+                                        <li>• 標準: NT$490/月/人</li>
+                                        <li>• 專業: NT$980/月/人</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>• 羽量: NT$2,800/年 (1人)</li>
+                                        <li>• 輕量: NT$25,000/年 (5人)</li>
+                                        <li>• 標準: NT$49,000/年 (10人)</li>
+                                        <li>• Pro: 地端永久授權買斷</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>官方 Blog 數量</td>
+                                <td>約 20 - 40 篇<br>(側重電簽法解析/ESG)</td>
+                                <td>約 60 - 100 篇<br>(高頻更新，含產品/故事)</td>
+                                <td>約 30 - 50 篇<br>(合約講堂/教學/智庫)</td>
+                                <td>約 15 - 30 篇<br>(資安公告/憑證技術)</td>
+                            </tr>
+                            <tr>
+                                <td>客戶案例 (實績)</td>
+                                <td>官網 0 篇 (內部日報累積<br>10+ 家，如富友旅行社)</td>
+                                <td>約 9 - 15 篇<br>(如 SurveyCake/YONEX)</td>
+                                <td>約 5 - 10 篇<br>(CLM導入/宏碁國泰合作)</td>
+                                <td>導入九成銀行與34+政府<br>網頁案例約 15 - 25 篇</td>
+                            </tr>
+                            <tr>
+                                <td>核心優勢亮點</td>
+                                <td>聲明錄影防賴證據力強<br>與手寫面板深度整合<br>支援 LINE 在地化通知</td>
+                                <td>國際化品牌與口碑<br>API 串接門檻極低<br>大型任務包裝划算</td>
+                                <td>唯一內建合約管理 (CLM)<br>具備法律合規與法顧加持</td>
+                                <td>地端永久授權買斷制<br>興櫃資安大廠背書<br>AD 系統整合實力強</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: SEM & GEO Table -->
+            <section class="slide">
+                <div class="slide-header">
+                    <div class="slide-category">03 / SEM & GEO Comparison</div>
+                    <h2 class="slide-title">各家 SEM 廣告預算與關鍵字實證對比表</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>數據維度</th>
+                                <th>好好簽 (BreezySign) 我方</th>
+                                <th>點點簽 (DottedSign)</th>
+                                <th>律果簽 (LegalSign)</th>
+                                <th>FastSIGN (全景)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>預估日均廣告預算</td>
+                                <td class="align-center">NT$ 500 - 800 / 日</td>
+                                <td class="align-center">NT$ 2,700 - 4,000 / 日</td>
+                                <td class="align-center">NT$ 800 - 1,300 / 日</td>
+                                <td class="align-center">NT$ 170 - 500 / 日</td>
+                            </tr>
+                            <tr>
+                                <td>預估月度廣告預算</td>
+                                <td class="align-center">NT$ 15,000 - 25,000 / 月</td>
+                                <td class="align-center">NT$ 80,000 - 120,000 / 月</td>
+                                <td class="align-center">NT$ 25,000 - 40,000 / 月</td>
+                                <td class="align-center">NT$ 5,000 - 15,000 / 月</td>
+                            </tr>
+                            <tr>
+                                <td>核心付費關鍵字<br>(Google Ads)</td>
+                                <td>線上合約簽署、免費電子簽名<br>手寫板簽名</td>
+                                <td>電子簽章、數位簽名<br>電子簽署 API、PDF 簽名</td>
+                                <td>合約管理系統、合約 CLM<br>線上審約、定型化契約</td>
+                                <td>PKI 憑證地端<br>AD 系統整合、行動 Fido</td>
+                            </tr>
+                            <tr>
+                                <td>廣告實證運行狀態<br>(透明度中心實證)</td>
+                                <td>🔴 無廣告<br>(實證處於靜默狀態<br>完全無運行中廣告)</td>
+                                <td>🟢 運行中<br>(強打 SurveyCake 串接<br>TWFidO 刷臉簽等8組廣告)</td>
+                                <td>🟢 運行中<br>(強打百款合約範本下載<br>AI 助理30秒審約等4組廣告)</td>
+                                <td>🔴 無廣告<br>(行銷重心純線下<br>無任何線上廣告運行)</td>
+                            </tr>
+                            <tr>
+                                <td>AI 引用滲透率</td>
+                                <td class="align-center hl-orange">40% (落後)</td>
+                                <td class="align-center hl-green">85% (領先)</td>
+                                <td class="align-center hl-orange">60% (中等)</td>
+                                <td class="align-center">< 10% (極低)</td>
+                            </tr>
+                            <tr>
+                                <td>GEO 推薦與標籤</td>
+                                <td>被標記「台灣本土廠商」<br>「符合能量登錄」<br>主打聲明錄影與簽名板整合</td>
+                                <td>被標記「跨國首選」<br>「功能最全」<br>主打 API 整合與 ESG 標籤</td>
+                                <td>被標記「法務合規」<br>「律師推薦」<br>主打內建 CLM 與 AI 審約</td>
+                                <td>被標記「資安地端大廠」<br>幾乎未被消費級 AI 引擎引用</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: DottedSign Intel -->
+            <section class="slide" style="--theme-color: var(--color-green);">
+                <div class="slide-header">
+                    <div class="slide-category">04 / DottedSign Intel</div>
+                    <h2 class="slide-title">點點簽 (DottedSign) — 流量收割與強勢佈局者</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3 class="card-title">🌐 官網定價與整合動態</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>任務次數計費</b>：以簽署任務次數為計費基礎，企業內部高頻發送時加購成本高昂。</li>
+                            <li>• <b>SurveyCake 深度整合</b>：一站式結合「問卷填寫」與「自動送簽」，精準收割人資與商務表單客群。</li>
+                            <li>• <b>支援行動 TWFidO</b>：強調手機 10 秒即簽，主打高資安強度的身分識別。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">📝 內容行銷與 Topical Authority</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>200+ 篇 Blog 矩陣</b>：官網長期累積龐大文章量，奠定「電子簽章」極強的自然搜尋權威。</li>
+                            <li>• <b>ESG 綠色轉型剛需</b>：高頻發布 YONEX 導入案例與碳排紅利，精準吃下上市櫃企業採購意圖。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">🔍 SEM 廣告與 GEO 實證</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>月預算高達 8-12 萬</b>：佔據市場霸主地位，高價攔截我方及 DocuSign 品牌詞。</li>
+                            <li>• <b>AI 引用滲透率 85%</b>：在 Perplexity / Gemini 中詢問排名首位，被標記為「跨國首選」、「功能最全」。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: LegalSign Intel -->
+            <section class="slide" style="--theme-color: var(--color-orange);">
+                <div class="slide-header">
+                    <div class="slide-category">05 / LegalSign Intel</div>
+                    <h2 class="slide-title">律果簽 (LegalSign.ai) — 垂直深耕的法遵護城河</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3 class="card-title">🌐 CLM 定價與 product GEO 軟肋</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>透明價格階梯</b>：基本方案 NT$180/人、標準方案 NT$490/人、專業方案 NT$980/人，API 與 CLM 為客製加購。</li>
+                            <li>• <b>⚠️ 產品頁無 FAQ</b>：價格方案頁底部缺乏整合 FAQ，大模型抓取其定價與退改規則的難度高。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">📝 內容文章與 AI 工程師招募</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>法律 AI 主題集火</b>：Blog 發布多篇「AI 審約」與 CLM 法遵文章，強化「法律科技專家」定位。</li>
+                            <li>• <b>👥 104 招募戰略重心</b>：開出「法律 AI 解決方案工程師」關鍵職缺，要求具備 LLM 開發能力，深耕垂直護城河。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">🔍 搜尋廣告預算與 SEO 裸奔</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>預估月預算 2.5-4 萬</b>：集火 CLM 管理詞。但 ❌ SEO 標籤裸奔：首頁 Title Tag 僅設定為單純 `LegalSign.ai`，未含核心商業詞，流失通用搜尋流量。</li>
+                            <li>• <b>AI 引用滲透率 60%</b>：常被標記為「法務合規」、「律師推薦」。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: FastSIGN Intel -->
+            <section class="slide" style="--theme-color: var(--text-silver);">
+                <div class="slide-header">
+                    <div class="slide-category">06 / FastSIGN Intel</div>
+                    <h2 class="slide-title">全景 FastSIGN — 基礎資安架構巨頭的軟硬兼施</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3 class="card-title">🌐 資安底蘊與地端整合</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>上櫃資安大廠底層</b>：依託全景軟體硬核的 PKI 憑證技術，安全合規規格極高。</li>
+                            <li>• <b>AD 域控制地端部署</b>：專攻中大型企業與政府單位的內部地端部署客製化串接，與精誠資訊等大型通路商結盟。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">📝 線下重心與線上內容靜默</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>⚠️ 線上行銷靜默</b>：官方 Blog 長期無更新，缺乏針對自然流量的內容布局。</li>
+                            <li>• <b>無線上付費廣告</b>：主要依靠增加資安展會、政府標案及線下推廣，Google 廣告實證為 🔴 完全無運行廣告。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">🔍 GEO 盲區與引用的黑洞</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>預估月預算 5k-15k</b>：僅維持 brand word 防禦。</li>
+                            <li>• <b>❌ GEO 引用率 &lt; 10%</b>：線上文字情報極少，大眾消費級 AI 引擎完全無法檢索及推薦此品牌。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: BreezySign Weakness Analysis -->
+            <section class="slide">
+                <div class="slide-header">
+                    <div class="slide-category">07 / BreezySign Weakness</div>
+                    <h2 class="slide-title">好好簽 (BreezySign 我方) — 戰略盲區與優勢靜默</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3 class="card-title">⚠️ 合規宣告缺席 (公信力靜默)</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>能量登錄硬優勢</b>：已通過數發部「113 年電子簽章解決方案服務能量登錄」官方合規資質，推定效力完備。</li>
+                            <li>• <b>❌ 官網隻字未提</b>：該合規優勢在好好簽產品官網首頁、功能頁上完全未提及，導致大模型與客戶無法獲取該信任錨點。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">⚠️ 核心字組攔截空白 (廣告真空)</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>流量低商業意圖</b>：主要投放「線上合約簽署」、「手寫板簽名」等偏免費體驗的通用詞。</li>
+                            <li>• <b>❌ 攔截詞重大缺漏</b>：完全沒有投放「數發部能量登錄」、「合規電子簽章法」等高採購意圖核心詞，使得在政府與法人大模型推薦中完全處於靜默。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">⚠️ SEO 品牌發散與 FAQ 資訊黑洞</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>實體稀釋與檢索空白</b>：首頁 Title Tag 關鍵字覆蓋密度不足，且「蒙恬好好簽」與「BreezySign 好好簽」在不同網頁中混用。</li>
+                            <li>• <b>常見問題黑洞</b>：官網價格與常見問題 FAQ 模組「僅有問題、沒有文字解答」，AI 引用率僅 40% 落後。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Battle Card 1 -->
+            <section class="slide" style="--theme-color: var(--color-green);">
+                <div class="slide-header">
+                    <div class="slide-category">08 / Battle Card vs DottedSign</div>
+                    <h2 class="slide-title">前線即戰力：對話反駁 Battle Card (1)</h2>
+                </div>
+                <div class="battle-card-wrapper">
+                    <div class="battle-header">🆚 當客戶提及「點點簽 (DottedSign)」</div>
+                    <div class="battle-challenge">客戶質疑：「點點簽市佔率很高，而且現在串接了問卷系統感覺很完整。」</div>
+                    <div class="battle-rebuttal">我方反駁話術框架：
+「點點簽確實做得早，但其商務計費核心是基於『簽署任務次數』，當您企業內部用印量或自動化發送量大增時，後續加購成本會直線上線。
+
+好好簽同樣通過數發部電子簽章能量登錄官方審查，具備同等級的數位憑證不可否認性；且我們背靠上櫃公司蒙恬科技 30 年的技術支援，能提供您更具彈性且透明的授權計費結構，不會用次數綁架您的長遠數位化流程。」</div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Battle Card 2 -->
+            <section class="slide" style="--theme-color: var(--color-orange);">
+                <div class="slide-header">
+                    <div class="slide-category">09 / Battle Card vs LegalSign</div>
+                    <h2 class="slide-title">前線即戰力：對話反駁 Battle Card (2)</h2>
+                </div>
+                <div class="battle-card-wrapper">
+                    <div class="battle-header">🆚 當客戶提及「律果簽 (LegalSign)」</div>
+                    <div class="battle-challenge">客戶質疑：「律果簽有律師團隊撰寫範本，定價 490/980 也標得很清楚。」</div>
+                    <div class="battle-rebuttal">我方反駁話術框架：
+「律果簽在合約 CLM 的深度確實有其特色，但純軟新創在底層系統整合與長期營運穩定度上，往往不如具備硬體與原生研發實力的老牌大廠。
+
+好好簽不僅提供符合電子簽章法推定效力的數位簽署，更整合了蒙恬科技深厚的影像與文字辨識底層技術。若您需要的是一套運行極速、直覺且具備國家級能量登錄資質的純粹電子簽核中樞，好好簽能給予您更輕量、無痛的導入體驗。」</div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: GEO Action Plan -->
+            <section class="slide">
+                <div class="slide-header">
+                    <div class="slide-category">10 / GEO Action Plan</div>
+                    <h2 class="slide-title">決策實施建議：我方 GEO 反擊行動方案</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3 class="card-title">🥇 1. 官網掛載能量登錄徽章</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>行動</b>：於好好簽產品官網首頁首屏 (Above the fold) 顯眼處、定價頁頂部掛載「通過數發部電子簽章服務能量登錄」徽章與官方證書連結。</li>
+                            <li>• <b>效果</b>：補齊公信力信任錨點，供大模型掃描並貼上「國家官方合規推薦」品牌實體標籤。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">📝 2. 補齊定價 FAQ 語意解答</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>行動</b>：將常見問題 (FAQ) 由單純的摺疊連結，修改為「包含完整繁體中文文字解答」的 FAQ 語意板塊，並埋設 Schema Markup 結構化數據。</li>
+                            <li>• <b>效果</b>：供 AI 搜尋引擎 (Perplexity/Gemini) 爬取並精確對比定價方案，打破檢索資訊黑洞。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">🎯 3. 攔截高採購意圖關鍵字</h3>
+                        <ul class="card-bullets">
+                            <li>• <b>行動</b>：新增投放「數發部能量登錄」、「合規電子簽章法」、「政府電子簽章合格」等垂直專業合規字組廣告。</li>
+                            <li>• <b>效果</b>：攔截具有高客單價、政府/企業背景的高意圖採購決策流量，提升大模型被問及時的推薦概率。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer Control Buttons -->
+        <div class="footer-controls">
+            <button class="btn-nav" id="btn-prev">⬅️ PREV SLIDE</button>
+            <button class="btn-nav" id="btn-next">NEXT SLIDE ➡️</button>
+        </div>
+    </main>
+
+    <script>
+        // Slideshow Navigation Logic
+        const slides = document.querySelectorAll('.slide');
+        const navItems = document.querySelectorAll('.nav-item');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        let currentSlideIdx = 0;
+
+        function goToSlide(idx) {
+            if (idx < 0 || idx >= slides.length) return;
+            
+            // Remove active classes
+            slides[currentSlideIdx].classList.remove('active');
+            navItems[currentSlideIdx].classList.remove('active');
+            
+            // Set new active slide
+            currentSlideIdx = idx;
+            slides[currentSlideIdx].classList.add('active');
+            navItems[currentSlideIdx].classList.add('active');
+            
+            // Auto scroll sidebar nav into view if needed
+            navItems[currentSlideIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Nav Sidebar Clicks
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetIdx = parseInt(item.getAttribute('data-slide'));
+                goToSlide(targetIdx);
+            });
+        });
+
+        // Prev/Next Button clicks
+        btnPrev.addEventListener('click', () => {
+            if (currentSlideIdx > 0) {
+                goToSlide(currentSlideIdx - 1);
+            }
+        });
+
+        btnNext.addEventListener('click', () => {
+            if (currentSlideIdx < slides.length - 1) {
+                goToSlide(currentSlideIdx + 1);
+            }
+        });
+
+        // Keyboard navigation (Arrow keys left/right)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                if (currentSlideIdx > 0) goToSlide(currentSlideIdx - 1);
+            } else if (e.key === 'ArrowRight') {
+                if (currentSlideIdx < slides.length - 1) goToSlide(currentSlideIdx + 1);
+            }
+        });
+    </script>
+</body>
+</html>

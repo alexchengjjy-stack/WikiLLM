@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezySign 好好簽 2026年5月營運月報</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #057857; /* 品牌翠綠色 */
+            --primary-light: #ecfdf5;
+            --primary-border: #a7f3d0;
+            --secondary: #0284c7; /* 輔助藍色 */
+            --secondary-light: #e0f2fe;
+            --dark-text: #0f172a;
+            --light-text: #475569;
+            --border-color: #cbd5e1;
+            --page-width: 820px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #ffffff;
+            color: var(--light-text);
+            line-height: 1.8;
+            padding: 60px 50px;
+            max-width: var(--page-width);
+            margin: 0 auto;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* 封面頁樣式 */
+        .cover-page {
+            height: 980px; /* 大致對齊 A4 單頁高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 50px;
+            page-break-after: always;
+        }
+
+        .cover-header {
+            border-top: 6px solid var(--primary);
+            padding-top: 30px;
+        }
+
+        .cover-meta {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .cover-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--dark-text);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .cover-subtitle {
+            font-size: 18px;
+            color: var(--light-text);
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .cover-summary {
+            background-color: var(--primary-light);
+            border-left: 5px solid var(--primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: var(--dark-text);
+            line-height: 1.7;
+        }
+
+        .cover-footer {
+            font-size: 13px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .cover-footer table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cover-footer td {
+            padding: 4px 0;
+            border: none;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* 內容頁樣式 */
+        .content-container {
+            margin-top: 40px;
+        }
+
+        h1 {
+            display: none; /* 隱藏本文中的 H1，因為封面已有大標題 */
+        }
+
+        /* 每個 H2 設為新的一頁，維持 PDF 排版美觀 */
+        h2 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 22px;
+            color: var(--dark-text);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            page-break-before: always;
+        }
+
+        /* 第一個 H2 不需要強制換頁 */
+        .content-container > h2:first-of-type {
+            page-break-before: avoid;
+            margin-top: 10px;
+        }
+
+        h3 {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 16px;
+            color: var(--dark-text);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 14.5px;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        /* 列表樣式 */
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            list-style-type: square;
+        }
+
+        /* 引用塊樣式 (轉為 Alert Box) */
+        blockquote {
+            background-color: var(--primary-light);
+            border-left: 5px solid var(--primary);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+            font-style: normal;
+            font-size: 14px;
+            color: var(--dark-text);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13.5px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        th, td {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        /* 分頁防斷裂 */
+        .content-container table, blockquote, ul {
+            page-break-inside: avoid;
+        }
+
+        /* 頁碼與頁尾 */
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            font-size: 11px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        /* 列印模式調優 */
+        @media print {
+            body {
+                padding: 40px 30px;
+                font-size: 12px;
+            }
+            .cover-page {
+                height: 100%;
+                page-break-after: always;
+            }
+            h2 {
+                margin-top: 30px;
+                font-size: 20px;
+            }
+            p, li {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面頁 -->
+    <div class="cover-page">
+        <div class="cover-header">
+            <div class="cover-meta">BreezySign 好好簽 ． Monthly Operations Analysis</div>
+            <h1 class="cover-title">2026 年 5 月營運月報<br><span style="font-size:26px; font-weight:600; color:var(--light-text);">業務與深度技術專案分析報告</span></h1>
+            <div class="cover-subtitle">編譯自 WikiLLM 知識庫 ． 雙引擎財務勾稽與競品觀測</div>
+            
+            <div class="cover-summary">
+                <strong>報告摘要：</strong><br>
+                2026年5月營運月報，包含SaaS與專案雙引擎實收NT$385k、新增合約Booking NT$209k、得勝者與百加等重點專案進展、點點簽轉單潮分析與優化PLG建議。
+            </div>
+        </div>
+        
+        <div class="cover-footer">
+            <table>
+                <tr>
+                    <td style="width:15%;"><strong>發布單位：</strong></td>
+                    <td style="width:35%;">蒙恬科技 電子簽章業務與技術整合小組</td>
+                    <td style="width:15%;"><strong>編譯日期：</strong></td>
+                    <td style="width:35%;">2026-06-03</td>
+                </tr>
+                <tr>
+                    <td><strong>文件版次：</strong></td>
+                    <td>V4.0 (對齊 Dashboard 看板)</td>
+                    <td><strong>檔案編號：</strong></td>
+                    <td>BZS-OPS-202605-ANALYSIS-V4</td>
+                </tr>
+                <tr>
+                    <td><strong>關鍵標籤：</strong></td>
+                    <td colspan="3">[好好簽, SaaS營運, 營運月報, 2026-05]</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 內容頁 -->
+    <div class="content-container">
+        <h1>BreezySign 好好簽 2026年5月營運月報</h1>
+<blockquote>
+<p><strong>報告摘要</strong>：本月報彙整 2026 年 5 月份 BreezySign（好好簽）之營運財務、SaaS 訂閱與退訂狀況、重點企業專案與 API 對接進度、競品市場動態（以點點簽漲價轉單為主），並提出後續執行與產品建議。5 月份受惠於專案款項入帳與點點簽轉單效應，總實收營收達到 <strong>NT$ 385,602</strong>，展現 SaaS 訂閱與系統整合（SI/API）雙引擎增長。同時，本月報增量勾稽了 SaaS 歷年四大維度演進、企業客戶畫像與 6 月最新競品情報普查，提供全局戰略指引。</p>
+</blockquote>
+<hr />
+<h2>一、營運進展</h2>
+<p>5 月份實收營收總計為 <strong>NT$ 385,602</strong>（金流認列口徑）。</p>
+<h3>1. 5 月份訂閱狀況 (SaaS Subscription)</h3>
+<p>本月訂閱各方案與加購項目明細如下：
+- <strong>企業方案</strong>：NT$ 73,500
+- <strong>商務方案</strong>：NT$ 15,000
+- <strong>專業方案</strong>：NT$ 28,800
+- <strong>簡訊點數</strong>：NT$ 600
+- <strong>雲端憑證</strong>：NT$ 80
+- <strong>簽名板</strong>：NT$ 0
+- <strong>5月份訂閱小計</strong>：<strong>NT$ 104,480</strong></p>
+<h3>2. 5 月份專案與 API 實收 (SI/API Revenue)</h3>
+<p>本月線下專案與 API 介接費用實收小計為 <strong>NT$ 281,122</strong>，各客戶明細如下：
+- <strong>唯心醫院管理顧問</strong>：NT$ 61,425
+- <strong>百加-偉勝乾燥</strong>：NT$ 60,000
+- <strong>NX</strong>：NT$ 52,500
+- <strong>百加-巨虹</strong>：NT$ 38,225
+- <strong>得勝者-盧森眼科</strong>：NT$ 25,000
+- <strong>得勝者-東港盧森</strong>：NT$ 25,000
+- <strong>瑋勝</strong>：NT$ 15,000
+- <strong>天元 寵物美容 POS</strong>：NT$ 2,640
+- <strong>合信數位</strong>：NT$ 1,332
+- <strong>專案實收小計</strong>：<strong>NT$ 281,122</strong></p>
+<hr />
+<h2>二、SaaS客戶進展</h2>
+<p>5 月份 SaaS 經常性實收金流總計為 <strong>NT$ 104,480</strong>（包含當月扣款成功之新購與續訂名單）。</p>
+<h3>1. 方案訂閱與續訂狀況</h3>
+<ul>
+<li><strong>企業方案</strong>：</li>
+<li><strong>實收金額</strong>：NT$ 73,500</li>
+<li><strong>續訂率 (Retention Rate)</strong>：<strong>71.30%</strong></li>
+<li><strong>商務方案</strong>：</li>
+<li><strong>實收金額</strong>：NT$ 1,500</li>
+<li><strong>續訂率 (Retention Rate)</strong>：<strong>100%</strong></li>
+<li><strong>專業方案</strong>：</li>
+<li><strong>實收金額</strong>：NT$ 28,800</li>
+<li><strong>續訂率 (Retention Rate)</strong>：<strong>50.45%</strong></li>
+<li><strong>加購與其他</strong>：</li>
+<li>簡訊點數：NT$ 600</li>
+<li>雲端憑證：NT$ 80</li>
+<li>簽名板：NT$ 0</li>
+<li><strong>SaaS 經常性實收小計</strong>：<strong>NT$ 104,480</strong></li>
+</ul>
+<hr />
+<h2>三、SaaS 訂閱戶數據統計</h2>
+<p>根據後台營運數據與客成 (CSM) 統計：
+1. <strong>新增註冊公司數</strong>：本月新註冊公司達 <strong>312 家</strong>。
+   - 免費方案註冊：200+ 家
+   - 體驗方案（專業/企業體驗版）開通：<strong>70 家</strong>（包含 SaaS 體驗 7 家，API/SI 通路體驗 12 家等）。
+2. <strong>當月新購付費轉化</strong>：
+   - 本月新簽訂閱共 <strong>9 家</strong>（包含 6 家專業方案，3 家企業方案），新購業績 (New Booking) 為 <strong>NT$ 13,200</strong>。
+   - 其中包含 CSM 團隊主動 Onboarding 轉化之典型客戶：
+     - <strong>豐盛富足資產管理</strong>（主動電訪教學範本，5/7 訂閱企業月約）
+     - <strong>自強工業科學基金會</strong>（安排線上 Demo 組織管理，5/15 訂閱企業版 2 個月）
+     - <strong>富友旅行社</strong>（針對旅遊代收轉付優化傳簽，5/8 訂閱專業方案年約）</p>
+<hr />
+<h2>四、SaaS 退訂戶數據統計</h2>
+<p>本月重點流失或主動婉拒續約/結案之客戶歷程如下：
+1. <strong>聖美麗健康管理顧問有限公司 (主動婉拒續約)</strong>：
+   - <strong>流失原因</strong>：客戶護理師上傳之 PDF 檔案（健檢大圖）多在 27~28MB。因超大檔案在嵌入 AATL 數位憑證時易造成伺服器負載超時、簽署失敗。評估調整系統架構將破壞毛利，因此 CSM 與技術團隊予以<strong>主動婉拒續約</strong>。本案已正式結案。
+2. <strong>行天宮醫療財團法人恩主公醫院 (臨櫃現場簽署專案結案)</strong>：
+   - <strong>結案原因</strong>：5 月初評估設置電子簽名平台供院內民眾現場簽署。5/20 院方來信表示，因今年院內資源與預算配置已滿，無法支援此案開發，<strong>本案正式結案聯絡</strong>。</p>
+<hr />
+<h2>五、BZS 訂單、認列與對帳機制</h2>
+<p>SaaS 的營運指標主要區分為「財務金流實收 (Recurring)」與「合約訂單額 (Booking)」兩種認列時間與口徑：
+1. <strong>財務會計實收認列 (Realized Revenue)</strong>：
+   - 以當月金流「實際扣款/電匯入帳」為基準。5 月總實收 <strong>NT$ 385,602</strong>（SaaS 實收 NT$ 104,480 + 專案實收 NT$ 281,122）。
+   - 此數據為 5 月份最精準之財務 Production 基準。
+2. <strong>合約訂單認列 (Booking)</strong>：
+   - 以合約確認或開通生效日為基準。例如 <strong>太平洋旅行社</strong> 40 人企業年租約（NT$ 60,000），雖於 5/26 電匯入帳（認列於 5 月財務實收中），但合約生效日自 6/1 起算，業務面列入 6 月生效業績。
+3. <strong>對帳落差對齊</strong>：
+   - 後台金流與 CSM 登記數據達成 <strong>NT$ 0 落差對齊</strong>（新購 NT$ 73,200 + 續訂 NT$ 10,880 = 實收 NT$ 84,080），對帳機制已步入規範化軌道。
+4. <strong>專案認列拆分</strong>：
+   - 本月專案與 API 實收 NT$ 281,122 佔總營收 72.9%，此類屬於一次性（One-time）的系統整合費用，應與 SaaS 經常性訂閱收入（Recurring Revenue）進行物理拆分核算，以精準反映 SaaS MRR/ARR 的健康度。</p>
+<hr />
+<h2>六、SaaS 歷年四大維度與成長漏斗分析 (2024-2026)</h2>
+<h3>1. 歷年演進軌跡</h3>
+<ul>
+<li><strong>獲客維度 (Acquisition)</strong>：2024下半年註冊 2,126 次，2025年攀升至 3,738 次，2026前五個月累計達 1,620 次。Google Ads 5 月花費 NT$ 145,080。</li>
+<li><strong>營收維度 (Revenue)</strong>：2024下半年營收 NT$ 95,400，2025年突破百萬達 NT$ 1,263,480，2026年前五個月累計達 NT$ 728,700。5月單月實收總營收創 NT$ 385,602 歷史新高（SaaS $104K + 專案 $281K）。</li>
+<li><strong>留存維度 (Retention)</strong>：2026年透過 PipeDrive 記錄「發起任務家數」與「Line 操作詢問」，建立免費版活躍度預警，並利用未公開之「商務方案」作為降級防守 (Down-selling) 籌碼，預期可將流失率 (Churn Rate) 壓制在 5% 以內。</li>
+<li><strong>價值維度 (Value)</strong>：2026上半年實收已完全收回獲客成本（Payback Period &lt; 12 個月）。以年流失率 5% 估算，客戶終身價值 (LTV) 達 <strong>NT$ 120,000</strong>。</li>
+</ul>
+<h3>2. SaaS 核心指標名詞解釋與業界基準</h3>
+<p>為使營運數據評估具備一致性，以下定義好好簽 (BZS) 指標基準（匯率以 1 USD = 32 NTD 計算）：
+- <strong>CPA / CPL (每次獲取/名單成本)</strong>：特指獲取單個註冊試用或高意圖諮詢 Leads 的廣告花費。
+  - <em>台灣 B2B 基準</em>：NT$ 1,000 - 3,200 | <em>全球基準</em>：NT$ 2,500 - 6,400+
+  - <em>好好簽實績</em>：<strong>寬口徑</strong> (含個人註冊) 為 <strong>NT$ 465</strong>，<strong>窄口徑</strong> (僅企業 Leads) 為 <strong>NT$ 1,792</strong>（落在台灣正常均值內，成效極佳）。
+- <strong>LTV : CAC (獲客效率比值)</strong>：衡量獲客投資回報率的黃金指標（健康標準 &gt; 3 倍）。
+  - <em>好好簽實績</em>：<strong>寬口徑</strong>為 <strong>258 倍</strong>，<strong>窄口徑</strong> (B2B 決策基準) 為 <strong>67 倍</strong>（遠超業界標準，利潤空間極大）。</p>
+<hr />
+<h2>七、好好簽 (BZS) 企業客戶畫像分析 (Customer Personas)</h2>
+<p>好好簽的企業客群具備極強的「產業垂直性」與「需求異質性」，主要可歸納為以下六大畫像：
+1. <strong>醫療院所與生技保健 (HIS/PACS 系統整合、離線合規導向)</strong>：
+   - <em>代表客戶</em>：得勝者（盧森眼科）、衡星牙醫、膚適美仁愛診所。
+   - <em>特徵</em>：強烈要求 API 座標完簽、PDF 轉 Dicom 回寫，及混合雲斷線時「地端離線暫存與 NTP 3天內校時上傳」的法規要求。通訊偏向使用 LINE 或簡訊 (SMS)。
+2. <strong>競品（點點簽）漲價流失之大量簽署轉單大戶 (高性價比、安全內控導向)</strong>：
+   - <em>代表客戶</em>：太平洋旅行社（40人年租）、福安管理顧問（年簽2萬份）、海沃管顧。
+   - <em>特徵</em>：點點簽改以「按件計費」導致成本暴增，轉投我方「吃到飽年租方案」。高度要求 <strong>UNIFY 範本權限集中控制</strong>（子帳號禁止自建範本）與數發部能量登錄許可。
+3. <strong>不動產租售與代銷 (高敏證據、現場低阻力簽署導向)</strong>：
+   - <em>代表客戶</em>：第一建經、佶星廣告、二房東星鴻。
+   - <em>特徵</em>：業務親訪看房需平板現場簽，並要求「邊簽名邊錄影」與 AATL 數位憑證以自證法律效力。
+4. <strong>大型教育與補教機構 (大批量、B2C 敏捷交付導向)</strong>：
+   - <em>代表客戶</em>：智基科技 (志光公職)。
+   - <em>特徵</em>：年簽約量 3-5 萬份，決策鏈長，要求階梯式報價 (Tiered Pricing)，結合「公開表單簽」降低大批量發送行政成本。
+5. <strong>企業集團與數位行銷 (內部 BPM、KOL 簽約與私有雲/地端客群)</strong>：
+   - <em>代表客戶</em>：台北 101 地端 BPM 部署。
+   - <em>特徵</em>：要求 WAF 規則放寬，Docker 地端部署，提供原始代碼安裝包，及 isHealth 異常監控。
+6. <strong>大檔案憑證限制之防禦邊界 (主動退守/非目標客群)</strong>：
+   - <em>代表客戶</em>：聖美麗健康管理。
+   - <em>特徵</em>：健檢大圖 PDF 常超過 10MB，嵌入 AATL 憑證易失敗。我方主動婉拒年約，確立「單檔 10MB 憑證限制」的技術利潤防護線。</p>
+<hr />
+<h2>八、重點專案進展</h2>
+<h3>1. 通路合作與技術對接 (Channel &amp; Technical Integrations)</h3>
+<ul>
+<li><strong>鼎新電腦 (ISV 戰略合作)</strong>：API 串接已全數完成。本月針對 AI 拋出連結在 GCP 載入慢的問題進行技術調優，已成功將連結有效時間由 60 秒調增為 15 分鐘，大幅降低用戶操作摩擦。目前處於合約最後審核階段，並全力備戰 6/11 的聯名直播行銷活動。</li>
+<li><strong>百加資通 (BPM 通路合作)</strong>：本月配合 <strong>偉勝乾燥</strong> 專案實收 NT$ 60,000，已於 5/30 開立發票；<strong>巨虹電子</strong> 專案實收 NT$ 38,225。<strong>凌越生醫</strong> 專案，因其主管不願再採購另一套 BPM 系統，且其需求可直接由百加的 101 Form 滿足，我方已婉拒客製需求，本案已結案。</li>
+<li><strong>得勝者 (醫療 HIS / PACS 系統整合)</strong>：旗下 <strong>盧森眼科</strong> 與 <strong>東港盧森</strong> 專案時程已確立，預計 6 月進行測試、7 月正式上線，每家收費 NT$ 25,000（含 1,500 份 AATL 憑證，兩案共計 NT$ 50,000 實收，已於 5 月專案款項中認列）。6/1 早上與得勝者團隊召開年度整體規劃會議，並與南港「商之器」洽談其 PACS 後台 AI 醫療影像平台 mAIn 之後台 AI 引擎電簽 API 整合。規避斷線合規的「地端離線暫存與中華電信 NTP 校時機制」已設計。</li>
+<li><strong>中華電信 (憑證與時戳合規)</strong>：為 API 介接廠商 <strong>瑞飛智慧</strong> 釐清好好簽的 AATL 憑證確實是由中華電信 CA 提供的合規澄清。好好簽全面對齊「中華電信 AATL 憑證與 LTV 完整時戳」，作為符合電子簽章法第 6 條推定法律效力之信任錨點。</li>
+<li><strong>台北 101 (地端 BPM 建置獨立專案)</strong>：台北 101 BPM 專案為好好簽之<strong>獨立大型地端部署專案</strong>（非中華電信引薦）。目前已交付地端原始碼與 Hi-Cloud / DMZ 安裝文件，支援 10 份雲端憑證，正進行異常通知 isHealth API 檢測機制討論。</li>
+</ul>
+<h3>2. 潛力進行中專案 (SaaS / API 轉單大戶)</h3>
+<ul>
+<li><strong>大瀚 GTB (共享辦公租客訂閱合作案)</strong>：專屬合作測試版 Landing Page 已確認無誤，預計於 6 月初正式上線，好好簽將提供大瀚租客專屬之「免費 3 個月測試」體驗。本專案旨在透過大瀚商務中心之生態合作，獲取其旗下大量企業租客的付費訂閱，開拓新型態 of B2B2C 增長模型。</li>
+<li><strong>福安健康與職安 API (點點簽跳槽大戶)</strong>：預估年用量高達 <strong>2 萬份</strong>，API 專案報價 12 萬簽約中。目前正積極確認符合電子簽章法，我方已提供 ISO27001 及數發部能量登錄核可文件。</li>
+<li><strong>聖洋科技 (cacafly) API 串接</strong>：預估年用量 <strong>8,000 ~ 10,000 份</strong>，正進行多品牌動態 Logo 規格規劃，我方初步報價每份 NT$ 20。</li>
+<li><strong>神坊資訊 (小樹購 API)</strong>：預計年用量 <strong>2,000 份</strong>，正評估導入 API，嫌年費高已說明可談，我方正提供金融業合作實績中。</li>
+<li><strong>星鴻高雄二房東電簽專案</strong>：Albert 於 5/29 拜訪高雄自營品牌，好好簽團隊線上提供產品說明，積極爭取其自營品牌之全面導入。</li>
+<li><strong>聯合線上 (udn) API 對接</strong>：API 串接已全數完成，目前正進行業務流程與防偽簽署流程測試。</li>
+<li><strong>鴻運聯邦 (現場平板簽署與證件上傳)</strong>：汽車回收與銷售，月用量 <strong>400 ~ 500 份</strong>，主推平板現場簽署與證件上傳，目前試用體驗版中。</li>
+<li><strong>海沃管理顧問 (點點簽轉單)</strong>：財富管理顧問，點點簽調漲受災戶（新定價太貴），年用量 <strong>200 ~ 300 份</strong>，目前體驗版試用至 6/10，4~5 位承辦人共用一組帳號。</li>
+<li><strong>麻吉行得通 (點點簽轉單)</strong>：<strong>500 ~ 600 份</strong>年約轉單跟進，積極對接 8/3 到期轉換好好簽之決策。</li>
+<li><strong>耐斯旅行社</strong>：旅遊定型化契約 Line 傳簽與公開表單測試通過，正引導線上訂閱商務方案月費制。</li>
+</ul>
+<hr />
+<h2>九、電子簽章能量登錄競品情報普查快照 (2026年6月)</h2>
+<p>依據《普查與情報快照實測規範》，我們對核心競品進行 100% 正式官網實地普查（已完全排除預備測試站 Staging 對比）：
+1. <strong>好好簽 (我方)</strong>：數發部能量登錄編號為 <strong><code>113電簽0008</code></strong> (蒙恬科技)，有效期限至民國 116/08/13，能量登錄聲明已正式上線官網。
+2. <strong>點點簽 (DottedSign - 凱鈿行動科技)</strong>：
+   - <em>能量登錄</em>：編號 <code>113電簽0003</code>，有效期限至 115/08/29。
+   - <em>價格與合規動態</em>：確認官網正式落實改制。<strong>自 2026 年 4 月 21 日起，強制廢止舊企業方案續約</strong>，到期轉換為按 Envelope Tasks (簽署任務件數) 計費新方案。5月深度整合叡揚 <strong>Vital BizForm</strong>。導入 <strong>MCP</strong> 支援大模型語意傳簽。
+3. <strong>律果簽 (LegalSign - 律果科技)</strong>：
+   - <em>能量登錄</em>：編號 <code>113-電簽-0005</code>，有效期限至 116/01/15。
+   - <em>產品動態</em>：主推 <strong>AI 法務助理「法樂多」</strong>，主打 30 秒自動審約、草擬與 CLM 合約生命週期管理。但其系統在大批量合約傳簽時 Loading 過慢 (旅行社大戶測試需 10 分鐘) 為其硬傷。
+4. <strong>FastSIGN (全景軟體)</strong>：
+   - <em>能量登錄</em>：編號 <code>113-電簽-0001</code>，有效期限至 115/07/21。
+   - <em>產品與行銷</em>：2026 年 3 月底推出 <strong>IDExpert Cloud</strong> 雲端身分認證系統，完成政府零信任三階段驗證，主打 PQC 後量子密碼學遷移。線上多媒體行銷較少，GEO 能見度低。</p>
+<h3>🆚 業務前線反駁小卡 (Battle Cards)</h3>
+<ul>
+<li><strong>當客戶提及點點簽時</strong>：「點點簽自 2026 年 4 月 21 日起強制廢止了舊版企業方案的續約，全面改按件計費，導致合約到期成本暴增。好好簽具備國家數發部 <strong><code>113電簽0008</code></strong> 合規證號，且提供吃到飽方案與 LINE 傳簽/聲明錄影防賴，背靠蒙恬科技，是性價比與法規的更佳選擇。」</li>
+<li><strong>當客戶提及律果簽時</strong>：「律果簽主打 AI 審約，但在高頻大批量簽署時系統經常 Loading 超過 10 分鐘。好好簽採用高性能簽署引擎，流暢穩定且通過國家級能量登錄核可，提供實在、極速、法庭證據力強（聲明錄影）的完簽體驗。」</li>
+</ul>
+<hr />
+<h2>十、BreezySign 2026 行銷與營運策略全局綜合摘要 (H2 策略)</h2>
+<p>基於上述對帳、漏斗與競品普查，我們定調下半年四大戰略：
+1. <strong>建立財務與 CSM 數據月度對帳 SOP</strong>：每月 5 號前完成勾稽，標記扣款失敗與電匯差，控制誤差在 5% 內。
+2. <strong>優化 PLG (Product-Led Growth) Onboarding 引導</strong>：針對註冊後 50%~60% 從未簽署的 Cold Start 用戶，導入 3 分鐘引導動畫與範本，針對註冊 48 小時無動作 Leads 自動觸發 Email 並由 CSM 進行電訪關懷。
+3. <strong>擴大點點簽轉單定向行銷</strong>：放開 Google Ads 預算天花板，以「年約吃到飽、不限件數」為核心，定向投放點點簽漲價受災行業（如旅行社、連鎖醫療、人資派遣），攔截潛在 Leads，再由 CSM 迅速 Onboarding 轉換。
+4. <strong>中台化與通路嵌入</strong>：推動 API 與無程式碼元件，嵌入百加資通等 BPM 通路，加速 H2 規模化擴張。</p>
+<hr />
+<h2>相關連結</h2>
+<ul>
+<li><a href="bzs-saas-ops-csm-reconciliation-202605.md">SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)</a></li>
+<li><a href="bzs-saas-funnel-ltv-cac-report.md">SaaS 歷年四大維度與成長漏斗綜合分析報告 (2024-2026)</a></li>
+<li><a href="bzs-customer-personas.md">好好簽 (BZS) 企業客戶畫像分析 (Customer Personas)</a></li>
+<li><a href="bzs-saas-marketing-synthesis-2026.md">BreezySign 2026 行銷與營運策略全局綜合摘要</a></li>
+<li><a href="../esign/esign-monitoring-snapshot-202606.md">電子簽章能量登錄競品情報普查快照 (2026 年 6 月)</a></li>
+<li><a href="../../projects/deshengzhe-pacs-integration.md">得勝者 PACS 醫療影像電簽整合專案</a></li>
+</ul>
+<h2>來源引用</h2>
+<ul>
+<li><a href="../../sources/pm-breezysign-analytics-reports.md">PM BreezySign 分析報表 (2025.10 - 2026.06)</a></li>
+<li><a href="../../sources/deshengzhe-meeting-report-20260601.md">得勝者醫療資訊整合專案會議紀錄</a></li>
+<li><a href="../esign/esign-dottedsign-price-hike-churn-analysis.md">點點簽價格調漲與以份計費引發之轉單潮深度分析報告</a></li>
+</ul>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <p>報告版次: V4.0 | 產出時間: 2026-06-03 17:46 | 營運單位: 好好簽 BreezySign 業務與技術整合小組</p>
+        <p style="margin-top: 4px; font-size: 10px;">本報告為內部機密文件，已通過 Edge Headless 進行高保真 PDF 封裝，禁止非授權散布。</p>
+    </footer>
+
+</body>
+</html>

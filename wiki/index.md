@@ -2,7 +2,7 @@
 title: "WikiLLM 知識庫首頁"
 type: index
 date_created: 2026-04-18
-date_updated: 2026-06-03
+date_updated: 2026-06-05
 summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程實踐、個人技能、工作專案與產品規劃。"
 ---
 
@@ -148,6 +148,9 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
   * [WikiLLM 知識庫健康檢查與 Lint 優化報告](analyses/wikillm/wikillm-kb-health-check-report.md) ── 針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。
 
 ## 📄 來源摘要 (Sources)
+- [BreezySign 好好簽 2026-06-05 週報](./sources/20260605-saas-weekly.md) — 記錄 2026-06-05 當週營運指標與客戶進展。當週新購 NT$63,300（太平洋 60k 成交落地），本月累計金額達 NT$101,600。包含奇恭 (GiGO) 與耐斯旅行社付費跟進，以及聖美麗 AATL 憑證操作 bug 反饋。
+- [BreezySign 好好簽 2026-06-03 業務日報](./sources/20260603-saas-daily.md) — 記錄 2026-06-03 業務進展，包含傑報人資（點點簽轉單 3600 份）、亞揪遊 HR 諮詢客製化方案、台灣綠能公益發展協會試用，以及美科實業結案。
+- [BreezySign 好好簽 2026-06-04 業務日報](./sources/20260604-saas-daily.md) — 記錄 2026-06-04 業務進展，重點為福安管理顧問決定今年改用好好簽 SaaS 公版（年用量 2 萬份，點點簽轉單），並要求電子簽章法合規文件與安排教育訓練。
 - [BreezySign 好好簽 20260602 SaaS 業務日報](./sources/20260602-saas-daily-report.md) — 記錄 2026-06-02 業務進展，包含鼎鈦生技零售/美容教學方案諮詢與永豐高中活動授權書初期評估。
 - [得勝者醫療資訊整合專案會議紀錄](./sources/deshengzhe-meeting-report-20260601.md) — 記錄 2026-06-01 專案會議，包含方鼎與商之器之座標完簽 API、混合雲時間戳記離線設計及體驗包行銷推廣策略。
 - [BreezySign 好好簽 20260529 專案與 API 業務日報](./sources/20260529-projects-daily.md) — 記錄 2026-05-29 業務與技術對接，包含大瀚 LP 正式上線準備、得勝者 PACS 影像整合、星鴻 Albert 高雄行及 101 地端原始碼安裝包交付。
@@ -260,4 +263,4 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 
 ### 🏢 實體與品牌 (Entities)
 * 本土電子簽章：[點點簽](entities/dottedsign.md) | [律果簽](entities/legalsign.md) | [好好簽](entities/breezysign.md) | [FastSIGN](entities/fastsign.md)
-* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md) | [鼎鈦生技](entities/dingtai-biotech.md) | [永豐高中](entities/yongfeng-high-school.md)
+* 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md) | [鼎鈦生技](entities/dingtai-biotech.md) | [永豐高中](entities/yongfeng-high-school.md) | [聖美麗健康管理](entities/st-mary-health.md) | [傑報人資](entities/jie-bao-hr.md) | [福安管理顧問](entities/fuan-management.md) | [亞揪遊旅行社](entities/asia-yo-travel.md) | [台灣綠能公益](entities/taiwan-green-energy.md) | [台灣奇恭](entities/taiwan-gigo.md) | [樸然子](entities/pu-ran-zi.md)

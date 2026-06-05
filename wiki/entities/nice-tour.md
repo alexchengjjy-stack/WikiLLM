@@ -5,9 +5,9 @@ entity_type: company
 aliases: ["耐斯旅行社", "Nice Tour"]
 tags: [客戶, 旅行業, 付費意向, Line傳簽, 公開表單]
 date_created: 2026-06-02
-date_updated: 2026-06-02
-source_count: 1
-sources: ["../sources/20260530-saas-daily.md"]
+date_updated: 2026-06-05
+source_count: 2
+sources: ["../sources/20260530-saas-daily.md", "20260605-saas-weekly.md"]
 summary: "採用好好簽 Line 傳簽與公開表單功能簽署旅遊定型化契約的旅行社客戶，已承諾訂閱商務方案月費制。"
 ---
 
@@ -27,6 +27,7 @@ summary: "採用好好簽 Line 傳簽與公開表單功能簽署旅遊定型化�
 3. **體驗監控**：
    - 2026-05-25：後台觀察體驗版任務數為 8。
    - 2026-06-01：體驗版任務數為 9。電訪負責人後確認方案意願，後台已開通商務體驗版以便利其後續線上直接訂閱。
+   - 2026-06-05：週報確認客戶目前操作無問題，預計於有合約簽署需求時，直接線上訂閱商務方案月費制。
 
 ## 相關連結
 * [耐斯旅行社 Onboarding 專案](../projects/nice-tour-onboarding.md)

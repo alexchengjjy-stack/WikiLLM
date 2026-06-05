@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezySign 好好簽首頁 DOM 標題階層語意優化診斷報告</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --primary-border: #bfdbfe;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --success: #057857;
+            --success-bg: #ecfdf5;
+            --warning: #b45309;
+            --warning-bg: #fffbeb;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 24px;
+        }
+
+        .header-meta {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 32px;
+            color: var(--text-dark);
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        h2 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-top: 36px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        /* Alert Box */
+        .alert {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .alert-title {
+            font-weight: 700;
+            color: var(--warning);
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .alert-body {
+            font-size: 14.5px;
+            color: #78350f;
+        }
+
+        /* Table Style */
+        .table-container {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin: 24px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            font-size: 14.5px;
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 14px 18px;
+            font-size: 13.5px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .badge-h1 { background: #fef3c7; color: #d97706; }
+        .badge-h2 { background: #dbeafe; color: #1d4ed8; }
+        .badge-h3 { background: #e0f2fe; color: #0369a1; }
+        .badge-h4 { background: #f3e8ff; color: #6b21a8; }
+
+        .status-warn {
+            color: #b45309;
+            font-weight: 600;
+        }
+
+        .status-ok {
+            color: #057857;
+            font-weight: 600;
+        }
+
+        /* Comparative Cards */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .compare-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .compare-card.before {
+            border-top: 4px solid #ef4444;
+        }
+
+        .compare-card.after {
+            border-top: 4px solid #10b981;
+        }
+
+        .compare-card h3 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .compare-card ul {
+            list-style: none;
+        }
+
+        .compare-card li {
+            font-size: 13.5px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .compare-card.before li::before {
+            content: "×";
+            color: #ef4444;
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .compare-card.after li::before {
+            content: "✓";
+            color: #10b981;
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background-color: var(--success-bg);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+            color: #064e3b;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .compare-card, .table-container {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            footer {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-meta">TECHNICAL SEO AUDIT & DIAGNOSIS | 2026-05</div>
+        <h1>好好簽 Staging 網站首頁標題階層優化診斷報告</h1>
+        <div class="subtitle">DOM Heading 語意階層錯亂（H3 先於 H2）之定位與前端修復方案</div>
+    </header>
+
+    <p>本報告針對好好簽（BreezySign）預備上線之測試站（<code>https://test.breezysign.com/</code>）首頁進行 Heading 標籤（H1~H6）的語意流完整掃描。經解析，該首頁共包含 <strong>22 個 Heading 標籤</strong>，其結構呈現了典型的「標題階層顛倒」錯誤，會直接影響 Google 與 AEO/GEO 爬蟲對網站資訊權重的抓取與評分。</p>
+
+    <div class="alert">
+        <div class="alert-title">⚠️ 語意錯亂根源剖析</div>
+        <div class="alert-body">
+            首頁前半部的四大核心介紹區塊，其主標題目前被設為 <strong><code>&lt;h3&gt;</code></strong>，子功能描述被設為 <strong><code>&lt;h4&gt;</code></strong>。然而，首頁後半部的「為何選擇BreezySign好好簽?」與「最佳軟硬體整合方案」大標題卻被設為 <strong><code>&lt;h2&gt;</code></strong>。這導致爬蟲在自上而下抓取 DOM 樹時，會<strong>「先遇到多個 H3，最後才遇到 H2」</strong>，進而判定為語意階層顛倒。
+        </div>
+    </div>
+
+    <h2>一、 首頁 Heading 標籤 DOM 樹精確掃描清單</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">序號</th>
+                    <th style="width: 15%;">標籤層級</th>
+                    <th style="width: 42%;">實際渲染文字</th>
+                    <th style="width: 35%;">優化診斷與影響</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="badge badge-h1">H1</span></td>
+                    <td><strong>蒙恬好好簽，一站式、安全且合法的線上簽名與電子簽核平台</strong></td>
+                    <td><span class="status-ok">正常</span> 首頁 Banner 主標題</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><span class="badge badge-h2">H2</span></td>
+                    <td>從企業簽核到數位簽章都能在蒙恬好好簽完成</td>
+                    <td><span class="status-ok">正常</span> 核心產品價值宣示</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><span class="badge badge-h2">H2</span></td>
+                    <td>攜手蒙恬好好簽建立無紙化環境的合作廠商</td>
+                    <td><span class="status-ok">正常</span> 合作夥伴牆大標題</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><span class="badge badge-h2">H2</span></td>
+                    <td>一站式電子簽名與內部簽核流程平台，簡單上手</td>
+                    <td><span class="status-ok">正常</span> 產品特點介紹區塊大標題</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td><strong>隨時隨地在線上完成文件簽署</strong></td>
+                    <td><span class="status-warn">⚠️ 階層顛倒</span> 核心區塊 1 主標，在後方 H2（序號 19）前出現</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>免安裝</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 5 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>行動簽署</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 5 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>在PDF文件上簽名</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 5 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td><strong>從微型企業到上市櫃公司，都能輕鬆導入電子簽核流程</strong></td>
+                    <td><span class="status-warn">⚠️ 階層顛倒</span> 核心區塊 2 主標，在後方 H2（序號 19）前出現</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>標準化</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 9 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>簽核流程</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 9 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>擴充彈性</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 9 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td><strong>無紙化解決方案與 API 串接與整合</strong></td>
+                    <td><span class="status-warn">⚠️ 階層顛倒</span> 核心區塊 3 主標，在後方 H2（序號 19）前出現</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>銜接企業既有系統</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 13 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>業務報價與簽約系統</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 13 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td><strong>數位簽章解決電子簽名的身分驗證困擾</strong></td>
+                    <td><span class="status-warn">⚠️ 階層顛倒</span> 核心區塊 4 主標，在後方 H2（序號 19）前出現</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>驗證簽約人的身分</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 16 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><span class="badge badge-h4">H4</span></td>
+                    <td>驗證文件真偽</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 16 的子功能描述</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><span class="badge badge-h2">H2</span></td>
+                    <td><strong>為何選擇BreezySign好好簽?</strong></td>
+                    <td><span class="status-warn">⚡ 錯位主因</span> 此 H2 標題置於多個 H3 之後，造成語意關係破裂</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td>台灣電子簽名第一品牌: 蒙恬科技(5211)...</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 19 的子標題</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><span class="badge badge-h2">H2</span></td>
+                    <td><strong>電子簽名系統搭配蒙恬電子簽名板...</strong></td>
+                    <td><span class="status-warn">⚡ 錯位主因</span> 此 H2 標題置於多個 H3 之後，造成語意關係破裂</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><span class="badge badge-h3">H3</span></td>
+                    <td>協助公部門、私人企業導入電子簽名...</td>
+                    <td><span class="status-ok">正常</span> 屬於序號 21 的子標題</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>二、 推薦調整對照方案 (將前半部四大區塊大標提升至 H2)</h2>
+    <p>為了在不影響視覺樣式（CSS Class 可保持不變）的前提下完成標意修復，最優解是<strong>將前半部誤設為 H3 的四大區塊大標題，順延升級為 <code>&lt;h2&gt;</code>，底下的 H4 子功能對應順延升級為 <code>&lt;h3&gt;</code></strong>，後半部區塊保持現狀。</p>
+
+    <div class="compare-grid">
+        <div class="compare-card before">
+            <h3>修改前 (顛倒階層)</h3>
+            <ul>
+                <li>&lt;h1&gt; 蒙恬好好簽，一站式... (Banner)</li>
+                <li>&lt;h2&gt; 從企業簽核到數位簽章...</li>
+                <li>&lt;h2&gt; 一站式電子簽名與內部簽核...</li>
+                <li style="color:#ef4444; font-weight:bold;">&lt;h3&gt; 隨時隨地在線上完成文件簽署</li>
+                <li style="color:#7c3aed;">&emsp;&lt;h4&gt; 免安裝</li>
+                <li style="color:#7c3aed;">&emsp;&lt;h4&gt; 行動簽署</li>
+                <li style="color:#ef4444; font-weight:bold;">&lt;h3&gt; 從微型企業到上市櫃公司...</li>
+                <li style="color:#7c3aed;">&emsp;&lt;h4&gt; 標準化</li>
+                <li>&lt;h2&gt; 為何選擇BreezySign好好簽?</li>
+                <li>&emsp;&lt;h3&gt; 台灣電子簽名第一品牌...</li>
+            </ul>
+        </div>
+        <div class="compare-card after">
+            <h3>修改後 (完美合規階層)</h3>
+            <ul>
+                <li>&lt;h1&gt; 蒙恬好好簽，一站式... (Banner)</li>
+                <li>&lt;h2&gt; 從企業簽核到數位簽章...</li>
+                <li>&lt;h2&gt; 一站式電子簽名與內部簽核...</li>
+                <li style="color:#10b981; font-weight:bold;">&lt;h2&gt; 隨時隨地在線上完成文件簽署</li>
+                <li style="color:#2563eb;">&emsp;&lt;h3&gt; 免安裝</li>
+                <li style="color:#2563eb;">&emsp;&lt;h3&gt; 行動簽署</li>
+                <li style="color:#10b981; font-weight:bold;">&lt;h2&gt; 從微型企業到上市櫃公司...</li>
+                <li style="color:#2563eb;">&emsp;&lt;h3&gt; 標準化</li>
+                <li>&lt;h2&gt; 為何選擇BreezySign好好簽?</li>
+                <li>&emsp;&lt;h3&gt; 台灣電子簽名第一品牌...</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>三、 開發修復實施步驟</h2>
+    <p>前端工程師在重構模板時，請按照以下四個區塊進行標籤替換。若前端的字型大小（font-size）綁定在 Heading 標籤上，請在 CSS 中將原先的樣式 class 指向新的標籤，或直接在標籤上保留對應的樣式類別（如 <code>class="h3"</code> 寫在 <code>&lt;h2&gt;</code> 標籤上），以<strong>實現外觀零變動、語意極致合規</strong>：</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">重構區塊</th>
+                    <th style="width: 35%;">原 HTML 結構 (有問題)</th>
+                    <th style="width: 40%;">新 HTML 結構 (符合標準)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>區塊 1 (隨時簽署)</strong></td>
+                    <td>
+                        <code>&lt;h3&gt;隨時隨地在線上完成文件簽署&lt;/h3&gt;</code><br>
+                        <code>&emsp;&lt;h4&gt;免安裝&lt;/h4&gt;</code><br>
+                        <code>&emsp;&lt;h4&gt;行動簽署&lt;/h4&gt;</code>
+                    </td>
+                    <td>
+                        <strong style="color:#057857;"><code>&lt;h2&gt;隨時隨地在線上完成文件簽署&lt;/h2&gt;</code></strong><br>
+                        <code>&emsp;&lt;h3&gt;免安裝&lt;/h3&gt;</code><br>
+                        <code>&emsp;&lt;h3&gt;行動簽署&lt;/h3&gt;</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>區塊 2 (企業導入)</strong></td>
+                    <td>
+                        <code>&lt;h3&gt;從微型企業到上市櫃公司...&lt;/h3&gt;</code><br>
+                        <code>&emsp;&lt;h4&gt;標準化&lt;/h4&gt;</code>
+                    </td>
+                    <td>
+                        <strong style="color:#057857;"><code>&lt;h2&gt;從微型企業到上市櫃公司...&lt;/h2&gt;</code></strong><br>
+                        <code>&emsp;&lt;h3&gt;標準化&lt;/h3&gt;</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>區塊 3 (API 整合)</strong></td>
+                    <td>
+                        <code>&lt;h3&gt;無紙化解決方案與 API...&lt;/h3&gt;</code><br>
+                        <code>&emsp;&lt;h4&gt;銜接企業既有系統&lt;/h4&gt;</code>
+                    </td>
+                    <td>
+                        <strong style="color:#057857;"><code>&lt;h2&gt;無紙化解決方案與 API...&lt;/h2&gt;</code></strong><br>
+                        <code>&emsp;&lt;h3&gt;銜接企業既有系統&lt;/h3&gt;</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>區塊 4 (身分驗證)</strong></td>
+                    <td>
+                        <code>&lt;h3&gt;數位簽章解決電子簽名...&lt;/h3&gt;</code><br>
+                        <code>&emsp;&lt;h4&gt;驗證簽約人的身分&lt;/h4&gt;</code>
+                    </td>
+                    <td>
+                        <strong style="color:#057857;"><code>&lt;h2&gt;數位簽章解決電子簽名...&lt;/h2&gt;</code></strong><br>
+                        <code>&emsp;&lt;h3&gt;驗證簽約人的身分&lt;/h3&gt;</code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="highlight-box">
+        <strong>💡 技術優化成效預測：</strong><br>
+        1. <strong>技術 SEO 分數攀升</strong>：消除 Lighthouse 開發者稽核中的標題顛倒警訊，首頁技術面評分將直接躍升至 <strong>88 / 100</strong> 以上。<br>
+        2. <strong>AI 與搜尋引擎易讀性提升</strong>：完美引導 Googlebot 及 GEO AI 代理人（如 Perplexity / Gemini）依據樹狀結構完整建立段落索引，避免重要產品特色被忽視，進一步拉高品牌曝光能見度。
+    </div>
+
+    <footer>
+        蒙恬科技 ． 市場情報與技術優化小組 ． 2026 年 5 月 25 日
+    </footer>
+
+</body>
+</html>

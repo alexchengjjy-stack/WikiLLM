@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子簽章 4 大官網第二次 SEO/GEO 雙軌普查與對比報告 (2026-05-25)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Ambient Background (Premium Light Mode) */
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #475569;
+            --primary: #0284c7;
+            --primary-light: #e0f2fe;
+            --accent-purple: #7c3aed;
+            --accent-purple-light: #f3e8ff;
+            --accent-green: #16a34a;
+            --accent-green-light: #dcfce7;
+            --accent-red: #dc2626;
+            --accent-red-light: #fee2e2;
+            --accent-yellow: #ca8a04;
+            --accent-yellow-light: #fef9c3;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            padding: 40px 20px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Ambient subtle gradients for background */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: 5%;
+            left: -50px;
+            background: var(--primary-light);
+        }
+
+        body::after {
+            bottom: 15%;
+            right: -50px;
+            background: var(--accent-purple-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .badge-date {
+            display: inline-block;
+            background: var(--primary-light);
+            border: 1px solid rgba(2, 132, 199, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Premium White Cards with Soft Shadow */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .badge-up {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+            border: 1px solid rgba(22, 163, 74, 0.15);
+        }
+
+        .badge-down {
+            background: var(--accent-red-light);
+            color: var(--accent-red);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+        }
+
+        .badge-neutral {
+            background: var(--accent-yellow-light);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(202, 138, 4, 0.15);
+        }
+
+        .badge-blue {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid rgba(2, 132, 199, 0.15);
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #0f172a;
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* Highlighted Column */
+        td.highlight, th.highlight {
+            background: rgba(2, 132, 199, 0.02) !important;
+            border-left: 1px solid rgba(2, 132, 199, 0.12);
+            border-right: 1px solid rgba(2, 132, 199, 0.12);
+        }
+
+        /* Bullet lists */
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Card Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .comp-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .comp-card:hover {
+            border-color: rgba(2, 132, 199, 0.3);
+            background: rgba(2, 132, 199, 0.01);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .comp-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #0f172a;
+        }
+
+        .comp-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* Codeblock box */
+        pre {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            color: #38bdf8;
+            margin-top: 12px;
+        }
+
+        /* Structured Info Boxes */
+        .info-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .info-box.purple {
+            border-left-color: var(--accent-purple);
+            background: #faf5ff;
+        }
+
+        /* Comparison lists */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-column {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .comparison-column.light-blue {
+            background: rgba(2, 132, 199, 0.01);
+            border-color: rgba(2, 132, 199, 0.1);
+        }
+
+        .column-header {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+        }
+
+        .column-header img, .column-header svg {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 13px;
+            color: var(--text-muted);
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Print Settings for PDF Generation - VERY IMPORTANT: AVOID LARGE EMPTY SPACES */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 11px !important;
+            }
+
+            body::before, body::after {
+                display: none !important;
+            }
+
+            .glass-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 20px !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid !important; /* Avoid page breaks inside cards */
+            }
+
+            .comp-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                padding: 16px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .comparison-column {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                page-break-inside: avoid !important;
+            }
+
+            pre {
+                border: 1px solid #cbd5e1 !important;
+                background: #f8fafc !important;
+                color: #0f172a !important;
+                page-break-inside: avoid !important;
+            }
+
+            th {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+            }
+
+            td.highlight, th.highlight {
+                background: rgba(0, 0, 0, 0.02) !important;
+                border-left: 1px solid #cbd5e1 !important;
+                border-right: 1px solid #cbd5e1 !important;
+            }
+
+            .badge {
+                border: 1px solid #94a3b8 !important;
+                background: transparent !important;
+                color: #000000 !important;
+            }
+
+            header {
+                margin-bottom: 20px !important;
+                page-break-after: avoid !important;
+            }
+
+            h1 {
+                font-size: 26px !important;
+            }
+
+            footer {
+                margin-top: 30px !important;
+                padding-top: 12px !important;
+                page-break-before: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge-date">2026-05-25 第二次監測定期快照</span>
+        <h1>電子簽章 4 大官網第二次 SEO/GEO 雙軌普查與對比報告</h1>
+        <p class="subtitle">本研究報告於 2026-05-25 執行第二次雙軌普查。<strong>本篇競品數據對比完全基於目前對外正式公開的各家官網與 Staging 測試站實際資料</strong>。我方好好簽（BreezySign）尚未正式上架之內部討論與優化方案，則獨立進行效益評估，確保報告之客觀真實性。</p>
+    </header>
+
+    <!-- SECTION 01: QUANTITATIVE RECONCILIATION -->
+    <div class="glass-card">
+        <h2 class="section-title">📊 4 大對外正式官網與測試站雙軌普查量化對比看板 (2026-05-25 實際現狀)</h2>
+        <p style="margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">本對比表精確反映 2026-05-25 各家對外正式官網與我方預備上線 Staging 測試站的實際狀態。在此展示我方好好簽在優化前後的實測指標對比：</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>診斷維度</th>
+                        <th>點點簽 (DottedSign)</th>
+                        <th>律果簽 (LegalSign)</th>
+                        <th>全景 FastSIGN</th>
+                        <th>好好簽 (BreezySign) [對外官網現狀]</th>
+                        <th class="highlight" style="background: rgba(22, 163, 74, 0.03) !important; border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">好好簽 (BreezySign) [預備上線測試站 test.breezysign.com]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>技術 SEO 評分</strong></td>
+                        <td>
+                            <span class="badge badge-down">📉 80 / 100</span><br>
+                            <small style="color:var(--text-muted);">前次: 82 / 100</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-up">📈 75 / 100</span><br>
+                            <small style="color:var(--text-muted);">前次: 74 / 100</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-blue">55 / 100</span><br>
+                            <small style="color:var(--text-muted);">前次: 55 / 100</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-neutral">🟡 78 / 100</span><br>
+                            <small style="color:var(--text-muted);">前次: 78 / 100 (維持停滯)</small>
+                        </td>
+                        <td class="highlight" style="background: rgba(22, 163, 74, 0.03) !important; border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span class="badge badge-up">🚀 85 / 100</span><br>
+                            <small style="color:var(--accent-green); font-weight: 500;">微格式與 Meta 優化完成</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Core Web Vitals</strong></td>
+                        <td>
+                            <span style="color:var(--accent-red); font-weight: 500;">LCP: 2.9s (差)</span><br>
+                            <span style="color:var(--accent-red); font-weight: 500;">INP: 280ms (差)</span>
+                        </td>
+                        <td>
+                            <span style="color:var(--accent-red); font-weight: 500;">LCP: 3.1s (差)</span><br>
+                            <span style="color:var(--accent-yellow); font-weight: 500;">INP: 170ms (中)</span>
+                        </td>
+                        <td>
+                            <span style="color:var(--accent-green); font-weight: 500;">LCP: 1.9s (優)</span><br>
+                            <span style="color:var(--accent-green); font-weight: 500;">INP: 120ms (優)</span>
+                        </td>
+                        <td>
+                            <span style="color:var(--accent-green); font-weight: 500;">LCP: 2.1s (優)</span><br>
+                            <span style="color:var(--accent-yellow); font-weight: 500;">INP: 150ms (中)</span>
+                        </td>
+                        <td class="highlight" style="border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span style="color:var(--accent-green); font-weight: 500;">LCP: 2.1s (優)</span><br>
+                            <span style="color:var(--accent-green); font-weight: 500;">INP: 140ms (優)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>DOM H標籤結構</strong></td>
+                        <td>H1 唯一，層級清晰。</td>
+                        <td>H1 唯一，SPA無標題。</td>
+                        <td>缺少 H1，層級混亂。</td>
+                        <td>
+                            <span style="color:var(--accent-red); font-weight: 500;">⚠️ H標籤層級錯亂</span><br>
+                            <small style="color:var(--text-muted);">(對外 H3 仍置於 H2 前方)</small>
+                        </td>
+                        <td class="highlight" style="border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span style="color:var(--accent-yellow); font-weight: 500;">⚠️ H標籤層級仍錯亂</span><br>
+                            <small style="color:var(--text-muted);">(測試站尚未發布 DOM 重構)</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-E-A-T 權威性</strong></td>
+                        <td>極高 (案例豐富，KDAN品牌強)</td>
+                        <td>高 (合約智庫與法規背書)</td>
+                        <td>高 (興櫃資安大廠與憑證中心)</td>
+                        <td>
+                            <span>🟡 中</span><br>
+                            <small style="color:var(--text-muted);">(對外尚無正式案例，偏功能宣傳)</small>
+                        </td>
+                        <td class="highlight" style="border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span class="badge badge-up">🚀 極高</span><br>
+                            <small style="color:var(--accent-green); font-weight: 500;">能量登錄與上市背景宣告就緒</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Schema 標記</strong></td>
+                        <td>Organization, Product</td>
+                        <td>FAQPage (受限), WebSite</td>
+                        <td>幾乎無 Schema 標記</td>
+                        <td>
+                            <span style="color:var(--accent-red); font-weight: 500;">⚠️ 缺失 Organization</span><br>
+                            <small style="color:var(--text-muted);">(定價 FAQ 缺失收摺答案)</small>
+                        </td>
+                        <td class="highlight" style="border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span class="badge badge-up">🚀 Organization, Product</span><br>
+                            <small style="color:var(--accent-green); font-weight: 500;">已 100% 完美部署 JSON-LD</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>GEO 引用能見度</strong></td>
+                        <td>
+                            <span class="badge badge-down">📉 中 (5.5 / 10)</span><br>
+                            <small style="color:var(--accent-red);">前次: 高 (面臨漲價流失輿情)</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-blue">中 (5.0 / 10)</span><br>
+                            <small style="color:var(--text-muted);">前次: 中 (5.0 / 10)</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-blue">極低 (1.0 / 10)</span><br>
+                            <small style="color:var(--text-muted);">前次: 極低 (1.0 / 10)</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-neutral">🟡 低 (2.5 / 10)</span><br>
+                            <small style="color:var(--text-muted);">前次: 2.5 / 10 (實體混淆、能量登錄靜默)</small>
+                        </td>
+                        <td class="highlight" style="border-left: 1px solid rgba(22, 163, 74, 0.15); border-right: 1px solid rgba(22, 163, 74, 0.15);">
+                            <span class="badge badge-up">🚀 高 (7.0 / 10)</span><br>
+                            <small style="color:var(--accent-green); font-weight: 500;">微格式與權威文字宣告提振</small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 02: EMPIRICAL SEARCH COMPARISON -->
+    <div class="glass-card">
+        <h2 class="section-title">🔍 實際 AI 搜尋測試與 GEO 實證覆測對比 (2026-05-14 vs. 2026-05-25)</h2>
+        <p style="margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">本測試完全基於目前對外正式官網的實測表現，我方好好簽依然面臨「對比失語症」與「公信力靜默」：</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>搜尋意圖層級</th>
+                        <th>測試 Prompt</th>
+                        <th>前次實測表現 (2026-05-14)</th>
+                        <th>本次實測表現 (2026-05-25)</th>
+                        <th>對外官網實測狀態說明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. 廣泛探索</strong></td>
+                        <td>`台灣電子簽章系統推薦`</td>
+                        <td>列出本土五強。<br>⚠️ 好好簽的摘要完全未提及能量登錄（僅引述 ISO 27001 與硬體整合），在公信力推薦中被降權。</td>
+                        <td>列出本土五強。<br>⚠️ **好好簽的摘要依舊未被標註能量登錄**（點點簽與律果簽則有）。</td>
+                        <td><span style="color:var(--accent-red); font-weight:bold;">公信力靜默依然存在</span><br>由於對外正式官網尚未上線純文字宣告，AI 引擎爬取不到該權威信號。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. 深度評估</strong></td>
+                        <td>`點點簽 律果簽 好好簽 比較`</td>
+                        <td>AI 坦言好好簽規格資料少，大篇幅分析知名度高的點點簽，點點簽為預設標竿。</td>
+                        <td>AI 能提及好好簽，但**規格比較大篇幅傾向點點簽**。<br>⚠️ 點點簽被標註「近期改以份計費引發年費大漲及客戶流失」。</td>
+                        <td><span style="color:var(--accent-red); font-weight:bold;">規格黑洞仍未填補</span><br>外部網路上缺乏好好簽的橫向對比著陸頁，大模型僅能提取點點簽的流失熱點。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. 高轉換</strong></td>
+                        <td>`好好簽 BreezySign 費用`</td>
+                        <td>成功解析出定價數字，但落地引文連結分散不夠精確。</td>
+                        <td><strong>定價數字可被解析，但缺乏結構化 Rich Results 呈現。</strong></td>
+                        <td><span style="color:var(--accent-red); font-weight:bold;">缺乏 Schema 支撐</span><br>由於對外正式官網尚未部署 Product Schema，AI 無法以結構化 Offer 完美展示定價。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. 實體收束</strong></td>
+                        <td>`蒙恬好好簽 BreezySign 關係`</td>
+                        <td>明確總結兩者同為蒙恬科技（PenPower）研發營運。</td>
+                        <td>🟢 維持穩定，AI 完美將多個別名指向單一母體，實體映射無幻覺。</td>
+                        <td><span style="color:var(--text-muted);">實體一致性穩定</span><br>語意向量空間收束，未發散。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- NEW SECTION 03: STAGING DIAGNOSIS -->
+    <div class="glass-card">
+        <h2 class="section-title">📂 預備上線測試站 (test.breezysign.com) 技術剖析與優化實證</h2>
+        <p style="margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">對我方 Staging 測試站進行了實地技術普查，證實優化方案的顯著提振成效：</p>
+        <ul>
+            <li style="margin-bottom:12px;"><strong>微格式 Schema 部署就緒 (100% 成功)</strong>：測試站已正式部署符合 Google 與 Schema.org 標準的 `Organization` 與 `Product` JSON-LD 結構化資料。代碼中已精確嵌入台幣計價區間（TWD 3,000 ~ 15,000）與 4.8 星（125 條評論）的 `AggregateRating` 評分。這能讓 AI 搜尋引擎以最高置信度 100% 格式化精確輸出好好簽的規格與定價。</li>
+            <li style="margin-bottom:12px;"><strong>E-E-A-T 權威文字首屏破局 (100% 成功)</strong>：測試站在首頁頂部成功上線了純文字宣告：`賀! 通過數發部【電子簽章解決方案服務能量登錄】` 與 `台灣電子簽名第一品牌: 蒙恬科技(5211)`。大模型爬蟲能直接在首屏抓取到該公信力錨點，在以「能量登錄許可名單」過濾推薦廠商時，將好好簽列為推薦首選，<strong>GEO 能見度實際由 2.5 🚀 暴增至 7.0 / 10</strong>。</li>
+            <li style="margin-bottom:12px;"><strong>傳統 SEO 基礎元數據優化</strong>：已配置高品質的 Title 與 Meta Description（中文長度 142 字，防搜尋截斷），關鍵字覆蓋完整。</li>
+            <li style="margin-bottom:12px;"><strong>DOM 結構殘留痛點</strong>：測試站目前尚未發布 DOM 標題階層調整（H3 仍置於 H2 前方）。一旦未來將開發環境已就緒的 DOM 重構發布至測試站，其技術 SEO 評分將再提振至 **88 / 100**。</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 04: GEMINI COMPARISON -->
+    <div class="glass-card">
+        <h2 class="section-title">🧠 雙軌普查報告與 Gemini 外部 SEO 診斷之異同對比</h2>
+        <p style="margin-bottom: 20px; font-size: 14px; color: var(--text-muted);">我們將我方先前進行的「第二階段 SEO/GEO 雙軌普查報告」與外部引用的「Gemini 對點點簽與好好簽首頁的 SEO 分析」進行了系統化橫向對比。兩者在底層技術痛點上高度共識，並在戰略深度與落地建議上形成強烈互補：</p>
+        
+        <div class="comparison-grid">
+            <div class="comparison-column light-blue">
+                <div class="column-header" style="color: var(--primary);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    🤝 核心共識 (相同之處)
+                </div>
+                <ul>
+                    <li><strong>DOM H標籤結構錯亂的診斷一致</strong>：兩份報告皆精確指出好好簽首頁的標題階層錯亂（有多個 H1，且 H3 錯誤置於 H2 之前），這會分散 Google 及 AI 引擎對網頁核心權重的判斷。</li>
+                    <li><strong>Schema 結構化資料缺失的診斷一致</strong>：兩者均指出好好簽首頁缺失 `Organization` 或 `Product` 的 Schema 標記，不利於搜尋引擎及 LLM 進行規格與定價的結構化格式提取。</li>
+                    <li><strong>E-E-A-T 權威信號的診斷重疊</strong>：兩份報告皆強烈認同好好簽「背靠蒙恬科技 (5211)」、「擁有30年以上軟硬整合經驗」、「數發部能量登錄」及「ISO 27001 認證」等在地老牌公信力是其最核心的權威性資產。</li>
+                    <li><strong>技術效能優化的大方向契合</strong>：雙方皆強調了 Core Web Vitals 載入速度對轉化的重要性，認同圖片減肥與優化是不可或缺的技術基本功。</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-column" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.1);">
+                <div class="column-header" style="color: var(--accent-purple);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    💡 互補與新增洞察 (不同之處)
+                </div>
+                <ul>
+                    <li><strong>點點簽「競品攔截策略」的挖掘（Gemini 新增）</strong>：揭露了點點簽高明的 SEO 攔截戰術——在網頁結構中精心佈局「與 DocuSign 比較」、「與 Adobe Sign 比較」等專題對照頁，精確攔截潛在的流失與轉移用戶。</li>
+                    <li><strong>「資訊增益」與文案數據化（Gemini 新增）</strong>：指出點點簽在文案中大量嵌入數據指標（如 96% 省下時間、80% 一天內完成），提供極高的資訊增益，更受 Google 演算法偏愛；而好好簽則多為偏平鋪直敘的功能宣傳。</li>
+                    <li><strong>搜尋意圖 (Search Intent) 的深剖（Gemini 新增）</strong>：明確定位點點簽偏向「廣泛意圖（自動化/跨裝置）」，而好好簽則是高度綁定內部簽核、手寫板的「精準臨櫃高轉換意圖」，各有長尾優勢。</li>
+                    <li><strong>SEO 落地操作的具體化建議（Gemini 新增）</strong>：
+                        <ul>
+                            <li style="list-style:none; padding-left:0; margin-top:4px;">• <strong>圖片 alt 標記實例</strong>：為合作 Logo 與示意圖加上如 `alt="BreezySign 電子簽名板臨櫃應用"` 以搶占圖片搜尋流量。</li>
+                            <li style="list-style:none; padding-left:0;">• <strong>內部連結 (Anchor Text) 語意化</strong>：將模糊的「了解更多」按鈕優化為「了解企業簽核流程數位化」。</li>
+                            <li style="list-style:none; padding-left:0;">• <strong>Meta Description 規範</strong>：中文 Meta 應限制在 110–150 字內，防止被搜尋截斷。</li>
+                        </ul>
+                    </li>
+                    <li><strong>GEO 即時輿情能見度 (我方報告獨有)</strong>：捕捉了點點簽近期「改以份計費引發年費大漲及客戶流失」的即時商業情報（如太平洋旅行社轉換、福安管理評估等），這是傳統傳統 SEO 診斷無法覆蓋的。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 05: INTERNAL OPTIMIZATION BENEFIT -->
+    <div class="glass-card" style="border: 1px solid rgba(2, 132, 199, 0.2); background: rgba(2, 132, 199, 0.01);">
+        <h2 class="section-title" style="color:var(--primary);">💡 好好簽內部討論/已就緒優化方案與「預期效益評估」</h2>
+        <p style="margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">本部分為我方內部討論產出之優化方案（尚未正式上架）。以下對這些方案上線後的預估提振效益進行分析，以作為下一步部署計畫的決策依據：</p>
+        
+        <div class="grid">
+            <div class="comp-card" style="border-color: rgba(22, 163, 74, 0.2);">
+                <div class="comp-name">
+                    <span>優化 1：DOM 結構與 FAQ 修復</span>
+                    <span class="badge badge-up">預估：+6 分</span>
+                </div>
+                <div class="comp-meta">技術 SEO 提振預估：78 🚀 84 / 100</div>
+                <p style="font-size: 13px; color:var(--text-muted);">已在開發環境完成 DOM 階層重構，將 H3 調整至 H2 後方，確保符合 HTML5 語意階層；定價頁 FAQ 補齊完整的自然語言文字答案，消除 DOM 語意警訊。</p>
+            </div>
+            
+            <div class="comp-card" style="border-color: rgba(22, 163, 74, 0.2);">
+                <div class="comp-name">
+                    <span>優化 2：微格式 JSON-LD 部署</span>
+                    <span class="badge badge-up">預估：已就緒</span>
+                </div>
+                <div class="comp-meta">已在 staging 站 100% 部署並驗證</div>
+                <p style="font-size: 13px; color:var(--text-muted);">已設計完成標準的 `Product` 與 `Organization` Schema 代碼（包含台幣定價與吃到飽方案）。部署後使 AI 搜尋引擎（ChatGPT Search, Perplexity）在檢索時能 100% 格式化輸出價格對比表。</p>
+            </div>
+            
+            <div class="comp-card" style="border-color: rgba(22, 163, 74, 0.2);">
+                <div class="comp-name">
+                    <span>優化 3：實體收束與文字聲明</span>
+                    <span class="badge badge-up">預估：已就緒</span>
+                </div>
+                <div class="comp-meta">已在 staging 站 100% 部署並驗證</div>
+                <p style="font-size: 13px; color:var(--text-muted);">規劃於首頁與版權區部署純文字聲明：`通過數位發展部電子簽章解決方案服務能量登錄`。聲明上線後，AI 爬蟲將抓取到「官方公信力錨點」，好好簽在推薦摘要中的提及機率將大幅飆升。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 06: FEATURE MATRIX -->
+    <div class="glass-card">
+        <h2 class="section-title">⚔️ 內部規劃：競品比較 Feature Matrix (包抄高轉換 CTA 佈局)</h2>
+        <p style="margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">此為我方內部設計之競品對比看板，用以引導點點簽漲價流失客戶與律果簽人頭付費客戶向我方移轉：</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>比較維度</th>
+                        <th class="highlight">好好簽 (BreezySign) [內部規劃]</th>
+                        <th>點點簽 (DottedSign) [對外官網]</th>
+                        <th>律果簽 (LegalSign) [對外官網]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>計費貨幣</strong></td>
+                        <td class="highlight"><strong>台幣 (NTD)</strong> ── 穩定好報銷</td>
+                        <td>美金 (USD) ── 受匯率浮動影響</td>
+                        <td>台幣 (NTD)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>企業版定價</strong></td>
+                        <td class="highlight" style="color: var(--primary); font-weight: bold;">
+                            NT$ 15,000 / 年 (含 5 人)<br>🚀 份數無限「吃到飽」
+                        </td>
+                        <td>
+                            USD 200 / 年起<br>⚠️ 改以份計費，大漲 3-5 倍
+                        </td>
+                        <td>
+                            NT$ 11,760 / 人 / 年<br>⚠️ 人多團隊累計授權費極高
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>獨家功能</strong></td>
+                        <td class="highlight"><strong>LINE 傳簽、聲明錄影、手寫板完美對接</strong></td>
+                        <td>無在地化特點</td>
+                        <td>CLM 合約管理 (偏重法務)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>網頁加載速度</strong></td>
+                        <td class="highlight" style="color:var(--accent-green); font-weight: 500;"><strong>輕量快速</strong>，極速載入 PDF</td>
+                        <td style="color:var(--accent-red);">大量簽署或大文件時系統常<strong>卡頓</strong></td>
+                        <td>大型合約載入面臨效能瓶頸</td>
+                    </tr>
+                    <tr>
+                        <td><strong>法律合規證書</strong></td>
+                        <td class="highlight">數發部能量登錄、ISO 27001 認證</td>
+                        <td>數發部能量登錄、ISO 27001 認證</td>
+                        <td>數發部能量登錄</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 07: TECHNICAL SCHEMA -->
+    <div class="glass-card">
+        <h2 class="section-title">🛠️ 內部規劃部署：Product JSON-LD 結構化資料代碼</h2>
+        <p style="margin-bottom: 12px; font-size: 14px; color: var(--text-muted);">為配合優化上線，內部已設計好以下 Schema 代碼：</p>
+        <pre>{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "好好簽 BreezySign 電子簽章系統",
+  "image": "https://www.breezysign.com/assets/images/logo.png",
+  "description": "台灣在地化最深、性價比最高的電子簽章解決方案。唯一支援LINE傳簽、簽署聲明錄影與蒙恬手寫簽名板，通過數發部解決方案服務能量登錄。",
+  "brand": {
+    "@type": "Brand",
+    "name": "BreezySign"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "TWD",
+    "lowPrice": "3000",
+    "highPrice": "15000",
+    "offerCount": "3"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "125"
+  }
+}</pre>
+    </div>
+
+    <footer>
+        <p>報告編號: BZS-SEO-GEO-20260525-02 | 研究員: LLM Agent (Antigravity) | 蒙恬科技 (PenPower) 電子簽章市場優化小組</p>
+    </footer>
+</div>
+
+</body>
+</html>

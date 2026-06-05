@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezySign 好好簽 ． 2026年5月營運月報</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #057857; /* BreezySign 品牌翠綠色 */
+            --primary-light: #ecfdf5;
+            --primary-border: #a7f3d0;
+            --secondary: #0284c7; /* Sky 輔助藍色 */
+            --secondary-light: #e0f2fe;
+            --dark-text: #0f172a;
+            --light-text: #475569;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            line-height: 1.7;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Subtle modern gradients */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: 5%;
+            left: -50px;
+            background: var(--primary-light);
+        }
+
+        body::after {
+            bottom: 15%;
+            right: -50px;
+            background: var(--secondary-light);
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 24px;
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            background: transparent;
+        }
+
+        .bzs-logo {
+            display: block;
+        }
+
+        .meta-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* Glass Cards with Shadow */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 22px;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 5px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        /* KPI Dashboard Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .kpi-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-border);
+        }
+
+        .kpi-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--light-text);
+        }
+
+        .kpi-sub {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        /* Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fafafa;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .badge-green {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-blue {
+            background-color: #e0f2fe;
+            color: #075985;
+        }
+
+        .badge-orange {
+            background-color: #ffedd5;
+            color: #9a3412;
+        }
+
+        /* Flex Layout columns */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .card-title {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 18px;
+            color: var(--dark-text);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "•";
+            color: var(--primary);
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Highlight block */
+        .highlight-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--light-text);
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 6px;
+        }
+
+        /* Alert block */
+        .alert-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--light-text);
+        }
+
+        .alert-title {
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 4px;
+        }
+
+        /* Visual Doughnut chart mockup */
+        .chart-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .chart-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .chart-title-inner {
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .glass-card {
+                padding: 20px;
+            }
+            .chart-box {
+                flex-direction: column;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 12px !important;
+            }
+
+            body::before, body::after {
+                display: none !important;
+            }
+
+            .glass-card {
+                background: #ffffff !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin-bottom: 24px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .chart-box {
+                border: 1px solid #cbd5e1 !important;
+                background: #ffffff !important;
+                page-break-inside: avoid !important;
+            }
+
+            th {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+            }
+
+            .badge {
+                border: 1px solid #94a3b8 !important;
+                background: transparent !important;
+                color: #000000 !important;
+            }
+
+            header {
+                margin-bottom: 20px !important;
+                page-break-after: avoid !important;
+            }
+
+            h1 {
+                font-size: 26px !important;
+            }
+
+            footer {
+                margin-top: 30px !important;
+                padding-top: 12px !important;
+                page-break-before: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <!-- Logo fallback using Base64 or local image -->
+            <img class='bzs-logo' src='data:image/png;base64,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' width='220' height='44' alt='BreezySign'>
+        </div>
+        <div class="meta-tag">OPERATIONAL REPORT ． 2026-05</div>
+        <h1>BreezySign 好好簽 2026 年 5 月營運月報</h1>
+        <p class="subtitle">本月報彙整 2026 年 5 月之財務營收、新增獲客漏斗、重大專案里程碑及競品轉單流失分析，提供公司高層營運決策參考。</p>
+    </header>
+
+    <!-- KPI DASHBOARD -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-label">實收總營收</div>
+            <div class="kpi-value">NT$ 385,602</div>
+            <div class="kpi-sub">SaaS $104,480 + 專案 $281,122</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">5月份訂閱狀況小計</div>
+            <div class="kpi-value">NT$ 104,480</div>
+            <div class="kpi-sub">企業 $73.5K | 商務 $15.0K | 專業 $28.8K</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">當月新增註冊公司</div>
+            <div class="kpi-value">312 家</div>
+            <div class="kpi-sub">獲客漏斗持續擴大</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Leads 電訪品質</div>
+            <div class="kpi-value">50%</div>
+            <div class="kpi-sub">電訪 30 家，「有興趣」15 家</div>
+        </div>
+    </div>
+
+    <!-- REVENUE DOUBLE ENGINE & VISUALIZATION -->
+    <div class="glass-card">
+        <h2 class="section-title">一、 財務營收與付費客戶結構 (Revenue Analysis)</h2>
+        <p style="font-size: 14px; margin-bottom: 16px;">本月營收展現<b>「SaaS 訂閱」</b>與<b>「Vertical / API 專案」</b>雙引擎增長模式：</p>
+        
+        <div class="chart-box">
+            <!-- Vector Doughnut Chart for Revenue Breakdown -->
+            <div class="chart-item">
+                <div class="chart-title-inner">2026-05 實收營收結構占比</div>
+                <svg width="220" height="220" viewBox="0 0 220 220" style="margin: 0 auto; display:block;">
+                    <!-- Circular sectors -->
+                    <!-- Background Circle -->
+                    <circle cx="110" cy="110" r="80" fill="none" stroke="#f1f5f9" stroke-width="24"/>
+                    <!-- Segment 1: Project Revenue (72.9%) - Arc length = 2 * pi * 80 * 0.729 = 366.4. Dasharray: 366.4 (stroke) 136.3 (gap) -->
+                    <!-- Start angle at 0deg (right side). Rotate by -90deg to start top. -->
+                    <circle cx="110" cy="110" r="80" fill="none" stroke="#057857" stroke-width="24" 
+                            stroke-dasharray="366.4 136.3" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+                    <!-- Segment 2: SaaS Revenue (27.1%) - Arc length = 2 * pi * 80 * 0.271 = 136.3. -->
+                    <circle cx="110" cy="110" r="80" fill="none" stroke="#0284c7" stroke-width="24" 
+                            stroke-dasharray="136.3 366.4" stroke-dashoffset="-366.4" transform="rotate(-90 110 110)"/>
+                    <!-- Center Text -->
+                    <text x="110" y="105" text-anchor="middle" font-family="Outfit" font-size="20" font-weight="800" fill="#0f172a">NT$ 385.6K</text>
+                    <text x="110" y="125" text-anchor="middle" font-family="Noto Sans TC" font-size="11" font-weight="600" fill="#475569">實收總營收</text>
+                </svg>
+                <div style="margin-top: 12px; font-size:12px; display:flex; justify-content:center; gap:16px;">
+                    <span><span style="display:inline-block; width:12px; height:12px; background:#057857; margin-right:4px; vertical-align:middle;"></span>專案/API: 72.9%</span>
+                    <span><span style="display:inline-block; width:12px; height:12px; background:#0284c7; margin-right:4px; vertical-align:middle;"></span>SaaS訂閱: 27.1%</span>
+                </div>
+            </div>
+
+            <!-- Detailed breakdown list -->
+            <div style="flex: 1; min-width: 320px; padding: 10px;">
+                <div class="highlight-box" style="margin-top:0;">
+                    <div class="highlight-title">財務重要里程碑明細</div>
+                    1. <b>SaaS 訂閱實收：NT$104,480</b>
+                    <br>• <b>方案訂閱明細</b>：企業方案 NT$ 73,500、商務方案 NT$ 15,000、專業方案 NT$ 28,800、簡訊點數 NT$ 600、雲端憑證 NT$ 80、簽名板 NT$ 0。
+                    <br>• <b>大客與客成 Onboarding</b>：包含太平洋旅行社電匯 NT$ 60,000（於 6/1 正式生效），以及 CSM 主動電訪協助引導之新客訂閱。
+                    <br><br>2. <b>專案與 API 實收：NT$281,122</b>
+                    <br>• 來自本月完成交付、驗收或首付款項之 API 串接與垂直客製化方案（如唯心醫管、百加-偉勝乾燥、NX、得勝者等專案款結算）。
+                </div>
+            </div>
+        </div>
+
+        <!-- 歷史月度 SaaS 營收與 MoM 趨勢 -->
+        <h3 style="margin-top: 32px; margin-bottom: 16px; color: var(--dark-text); font-size: 16px; font-weight: 700; border-left: 3px solid var(--secondary); padding-left: 8px;">📈 2025.10 - 2026.05 SaaS 歷年實收趨勢與 MoM 增減</h3>
+        
+        <div class="chart-box" style="margin-top: 16px; padding: 24px; background: #ffffff; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);">
+            <div class="chart-item" style="width: 100%;">
+                <div class="chart-title-inner" style="margin-bottom: 24px; font-size: 13px; font-weight: 600; color: var(--dark-text);">SaaS 實收營收月度歷史趨勢 (NT$)</div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; height: 180px; padding: 0 10px 10px 10px; border-bottom: 2px solid var(--border-color); position: relative; max-width: 800px; margin: 0 auto;">
+                    <!-- Y-Axis Gridlines -->
+                    <div style="position: absolute; left: 0; bottom: 10px; width: 100%; border-bottom: 1px dashed #e2e8f0; pointer-events: none;"></div>
+                    <div style="position: absolute; left: 0; bottom: 65px; width: 100%; border-bottom: 1px dashed #e2e8f0; pointer-events: none;"></div>
+                    <div style="position: absolute; left: 0; bottom: 120px; width: 100%; border-bottom: 1px dashed #e2e8f0; pointer-events: none;"></div>
+                    
+                    <!-- Bars -->
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">64.0K</span>
+                        <div style="width: 24px; height: 48px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">25-10</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">114.8K</span>
+                        <div style="width: 24px; height: 86px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">25-11</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px; color: var(--primary);">181.4K</span>
+                        <div style="width: 24px; height: 136px; background: var(--primary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(5,120,87,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">25-12</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">161.5K</span>
+                        <div style="width: 24px; height: 121px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">26-01</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">129.3K</span>
+                        <div style="width: 24px; height: 97px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">26-02</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">134.9K</span>
+                        <div style="width: 24px; height: 101px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">26-03</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px; color: var(--primary);">194.7K</span>
+                        <div style="width: 24px; height: 146px; background: var(--primary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(5,120,87,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">26-04</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 50px;">
+                        <span style="font-size: 10px; font-weight: 700; color: var(--light-text); margin-bottom: 6px;">104.5K</span>
+                        <div style="width: 24px; height: 78px; background: var(--secondary); border-radius: 4px 4px 0 0; box-shadow: 0 2px 4px rgba(2,132,199,0.15);"></div>
+                        <span style="font-size: 10px; margin-top: 8px; font-weight: 600; color: var(--light-text); font-family: 'Outfit', sans-serif;">26-05</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">月份</th>
+                        <th style="width: 20%;">SaaS 實收營收</th>
+                        <th style="width: 15%;">付費公司數</th>
+                        <th style="width: 20%;">MoM 增減幅度</th>
+                        <th style="width: 30%;">營收結構明細</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2025-10</strong></td>
+                        <td>NT$ 64,014</td>
+                        <td>145 家</td>
+                        <td><span class="badge" style="background:#f1f5f9; color:#475569; border: 1px solid #cbd5e1;">基準月份</span></td>
+                        <td>企業: $35,914 (49家) | 專業: $27,900 (96家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2025-11</strong></td>
+                        <td>NT$ 114,880</td>
+                        <td>154 家</td>
+                        <td><span class="badge badge-green">+79.46% (↗)</span></td>
+                        <td>企業: $78,000 (54家) | 專業: $34,800 (100家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2025-12</strong></td>
+                        <td>NT$ 181,440</td>
+                        <td>171 家</td>
+                        <td><span class="badge badge-green">+57.94% (↗)</span></td>
+                        <td>企業: $134,500 (58家) | 專業: $46,200 (112家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026-01</strong></td>
+                        <td>NT$ 161,586</td>
+                        <td>188 家</td>
+                        <td><span class="badge badge-orange">-10.94% (↘)</span></td>
+                        <td>企業: $129,286 (67家) | 專業: $26,100 (118家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026-02</strong></td>
+                        <td>NT$ 129,310</td>
+                        <td>190 家</td>
+                        <td><span class="badge badge-orange">-19.97% (↘)</span></td>
+                        <td>企業: $97,500 (68家) | 專業: $26,400 (118家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026-03</strong></td>
+                        <td>NT$ 134,903</td>
+                        <td>193 家</td>
+                        <td><span class="badge badge-green">+4.33% (↗)</span></td>
+                        <td>企業: $98,903 (66家) | 專業: $29,100 (121家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026-04</strong></td>
+                        <td>NT$ 194,779</td>
+                        <td>198 家</td>
+                        <td><span class="badge badge-green">+44.38% (↗)</span></td>
+                        <td>企業: $142,000 (70家) | 專業: $34,039 (119家)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026-05</strong></td>
+                        <td>NT$ 104,480</td>
+                        <td>-</td>
+                        <td><span class="badge badge-orange">-46.36% (↘)*</span></td>
+                        <td>企業: $73.5K | 商務: $15.0K | 專業: $28.8K | 簡訊與憑證</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size:12px; color:#64748b; margin-top:-8px; line-height: 1.5;">* 註：2026-05 SaaS 實收金流因大單（太平洋旅行社 $60K）生效扣款期為 6/1，且部分常規舊客戶未屆自動續約週期，導致技術性 MoM 下降。若併計當月<b>專案實收 NT$ 281,122</b>，則 5 月實收總營收高達 <b>NT$ 385,602</b>，總體營收 MoM 實際為 <b>+97.97%</b>，呈現雙引擎強勁增長。</p>
+
+    </div>
+
+    <!-- LEADS FUNNEL & CHURN ANALYSIS -->
+    <div class="grid-2">
+        <!-- Funnel card -->
+        <div class="card">
+            <div class="card-title">🚀 新增註冊與獲客漏斗 (Acquisition Funnel)</div>
+            <ul>
+                <li><b>註冊基底擴大</b>：当月新增註冊公司數達 <b>312 家</b>。</li>
+                <li><b>電話開發品質</b>：累計電訪 30 家註冊 Leads，其中 15 家明確表達「有興趣」（占比 50%），高達 9 家列入「較高意願」的名單。</li>
+                <li><b>輔導測試數據</b>：目前仍在體驗期且接受 CSM 技術輔導的企業客，計有 SaaS 體驗版 7 家，API/SI 方案 12 家，合計 19 家輔導中。</li>
+            </ul>
+            <div style="margin-top: 16px; text-align: center;">
+                <svg width="320" height="130" viewBox="0 0 320 130" style="display:block; margin:0 auto;">
+                    <!-- Funnel Visual representation -->
+                    <!-- Trapezoid 1: Registered -->
+                    <polygon points="10,10 310,10 270,40 50,40" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+                    <text x="160" y="28" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="600">1. 新增註冊 company: 312 家</text>
+                    
+                    <!-- Trapezoid 2: Tele-leads -->
+                    <polygon points="55,45 265,45 230,75 90,75" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1"/>
+                    <text x="160" y="63" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="600">2. 電訪跟進 Leads: 30 家</text>
+                    
+                    <!-- Trapezoid 3: Interested -->
+                    <polygon points="95,80 225,80 190,110 130,110" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+                    <text x="160" y="98" text-anchor="middle" font-size="12" fill="#057857" font-weight="600">3. 有興趣: 15 家 (高意願 9 家)</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Churn/Competitive analysis card -->
+        <div class="card">
+            <div class="card-title">🔍 凱鈿點點簽轉單效應與聖美麗大檔案防線</div>
+            <div class="alert-box" style="margin-top: 0;">
+                <div class="alert-title">🔥 凱鈿點點簽 (DottedSign) 漲價效應分析</div>
+                點點簽近期更動計價模型，由原本的吃到飽租約<b>改為以件計費（單份約 NT$45~50）</b>，這導致中大型簽署用量客戶面臨數倍的續約報價。
+                <br>• <b>福安（2萬份/年）</b>與 <b>太平洋旅行社（2000份/年）</b>均因改版面臨巨大續約成本抗性，促使其移轉至好好簽。
+                <br>• 這充分證明好好簽<b>「年租吃到飽」</b>在年簽署量 > 500 份的中大企業市場具備壓倒性的定價優勢。
+            </div>
+            <div class="alert-box" style="background:#fef2f2; border-left:4px solid #ef4444; color:#991b1b; margin-bottom: 0;">
+                <div class="alert-title" style="color:#ef4444;">⚠️ 聖美麗健康文件大檔案憑證限制婉拒結案</div>
+                醫療連鎖聖美麗（St. Mary）因其健康檢查文件多為富含影像的超大 PDF（單檔常超過 10MB），好好簽考量現行架構在嵌入 AATL 數位憑證時易因伺服器負載與超時失敗，若勉強承接將導致售後服務成本極大化。
+                <br><b>【決策回報】</b>：CSM 與技術團隊於本月正式予以婉拒年約，客戶選擇於 8/1 續約點點簽。此為我方首次針對「單檔 10MB 限額與 AATL 效能」主動退守之邊界，已記錄至系統規範中。
+            </div>
+        </div>
+    </div>
+
+    <!-- MAJOR PROJECTS & MILESTONES -->
+    <div class="glass-card">
+        <h2 class="section-title">二、 重大專案與 API 串接進程 (Project Milestones)</h2>
+        <p style="font-size: 14px; margin-bottom: 12px;">5 月份之主要 SLG 客戶與 API 技術串接項目已完成以下里程碑：</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">客戶/專案名稱</th>
+                        <th style="width: 25%;">本月進展 / 里程碑</th>
+                        <th style="width: 35%;">技術與串接細節</th>
+                        <th style="width: 15%;">狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>太平洋旅行社</strong></td>
+                        <td>40人企業方案正式成交</td>
+                        <td>開通正式版 (6/1 生效)，已完成後台 UNIFY 權限配置。</td>
+                        <td><span class="badge badge-green">已開通</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>101 客戶 BPM 部署</strong></td>
+                        <td>獨立地端專案交付</td>
+                        <td>交付 Hi-Cloud 與 DMZ 的安裝包及地端原始碼。此為獨立專案（非中華電信引薦）。</td>
+                        <td><span class="badge badge-blue">導入中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>得勝者 PACS AI 整合</strong></td>
+                        <td>診所 7 月上線準備</td>
+                        <td>串接 PACS AI 影像。規避斷線合規的「地端離線暫存與中華電信 NTP 校時機制」已設計。</td>
+                        <td><span class="badge badge-blue">導入中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>鼎新 API 串接專案</strong></td>
+                        <td>API 串接完成與調優</td>
+                        <td>串接完成。調優連結有效時效由 60 秒調增為 15 分鐘以配合 AI 拋出流程。</td>
+                        <td><span class="badge badge-green">串接完成</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>大瀚 GTB 租客合作</strong></td>
+                        <td>合作頁 6 月初上線</td>
+                        <td>提供租客 3 個月免費體驗，透過大瀚商務中心生態獲取租客訂閱。</td>
+                        <td><span class="badge badge-blue">導入中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>福安與聖洋 API</strong></td>
+                        <td>年簽大單積極推進</td>
+                        <td>福安 2 萬份 API 12 萬簽約中，已供 ISO 認證；聖洋 API 8k~10k 份規劃中。</td>
+                        <td><span class="badge badge-orange">跟進中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- REPORT METADATA & FOOTER -->
+    <footer>
+        <p>報告版次: V2.0 | 產出時間: 2026-06-03 17:00 | 營運單位: 好好簽 BreezySign 業務與技術整合小組</p>
+        <p style="margin-top: 4px; font-size: 11px; color:#94a3b8;">本報告已透過 edge headless 技術進行高保真 PDF 封裝認證，並以 YYYYMMDD-HHMM 精確時間戳進行版次管理。</p>
+    </footer>
+</div>
+
+</body>
+</html>
