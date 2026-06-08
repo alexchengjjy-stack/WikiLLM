@@ -5,9 +5,9 @@ entity_type: company
 aliases: ["得勝者", "得勝者諮詢"]
 tags: [healthcare, client, integration, pacs_ai]
 date_created: 2026-06-01
-date_updated: 2026-06-01
-source_count: 3
-sources: ["20260528-projects-daily.md", "20260529-projects-daily.md", "deshengzhe-meeting-report-20260601.md"]
+date_updated: 2026-06-08
+source_count: 4
+sources: ["20260528-projects-daily.md", "20260529-projects-daily.md", "deshengzhe-meeting-report-20260601.md", "20260605-projects-daily.md"]
 summary: "得勝者為醫療資訊與諮詢服務提供商，旗下包含盧森眼科與東港盧森，目前正與商之器合作串接 mAIn 醫療影像 AI 平台之電子簽章服務。"
 ---
 
@@ -18,6 +18,8 @@ summary: "得勝者為醫療資訊與諮詢服務提供商，旗下包含盧森�
 ## 核心要點
 - **旗下診所導入**：盧森眼科與東港盧森（同老闆）預計於 6 月進行測試、7 月正式上線。每一家診所收費 NT$25,000，包含加購 1,500 份 AATL 憑證，共計 NT$50,000 (含稅)。
 - **PACS 醫療影像 AI 整合**：與南港「商之器」合作，針對其 mAIn 醫療影像 AI 整合平台（透過 Pass-Through 影像運算機制直接串接於醫院 PACS 後台的 AI 引擎）進行好好簽電子簽章 API 整合，預計於 6-7 月進行技術測試。
+- **小額無期限體驗包**：針對習慣紙本且對年費有疑慮的醫師，推出低門檻（50-100 份）、高單價、無使用期限的「體驗包」（價格約 NT$1,000 - 2,000），培養使用者無紙化依賴後再引導升級年約。
+- **診所聯銷整合推廣**：結合得勝者、方鼎、PP 與商之器，打包推出「診所 HIS＋電子病歷＋電子簽名＋影像管理」整合方案。本案以「盧森眼科」為首波示範站（6-8月上線），後續藉由 Seminar 拓展至郁仁診所、善珉眼科等眼科與醫美市場。
 
 ## 詳細內容
 
@@ -31,6 +33,9 @@ summary: "得勝者為醫療資訊與諮詢服務提供商，旗下包含盧森�
 - **技術背景**：mAIn 並非專門的獨立軟體，而是串接於醫院 PACS 後台的 AI 處理引擎，核心技術為「Pass-Through」影像運算機制。當 AI 引擎拋出診斷分析或醫療影像報告時，需要電子簽章來保障報告的真實性與不可篡改性。
 - **串接模式**：透過 BZS API，將電子簽章機制無縫封裝於 mAIn 的 Pass-Through 工作流中。預計於 6-7 月展開系統測試。
 
+### 3. 診所資安自我檢查與健檢
+因應愛爾麗醫美診所監視器偷拍事件發酵，衛生局與健保局近期對診所內的監視器佈局與影像存留加強檢視。得勝者協助旗下診所同步進行資安健檢與自我檢查，確保好好簽電子簽署的患者隱私個資與醫療影像儲存流程，完全符合國家醫療資安與法規保護標準。
+
 ## 相關連結
 - [得勝者 PACS 醫療影像系統整合專案](../projects/deshengzhe-pacs-integration.md) — 專案進展
 - [2026-05-29 專案與 API 業務日報](../sources/20260529-projects-daily.md) — 來源日報
@@ -39,3 +44,4 @@ summary: "得勝者為醫療資訊與諮詢服務提供商，旗下包含盧森�
 - [得勝者醫療資訊整合專案會議紀錄](../sources/deshengzhe-meeting-report-20260601.md) — 6/1 會議紀錄來源
 - [20260528-projects-daily.md](../sources/20260528-projects-daily.md) — 盧森眼科與 PACS 最初提及
 - [20260529-projects-daily.md](../sources/20260529-projects-daily.md) — 會議與 PACS 更新
+- [好好簽 2026-06-05 業務與專案日報](../sources/20260605-projects-daily.md) — 體驗包、聯銷與資安健檢

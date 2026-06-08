@@ -2,6 +2,71 @@
 title: "操作日誌"
 ---
 
+## [2026-06-08 15:14] update | 週報 MD 檔搬移至 analyses/bzs/（規範修正）
+- **操作人**: LLM Agent (Antigravity)
+- **變更原因**: 使用者指示 MD 分析報告應歸入 `wiki/analyses/` 目錄，而非 `outputs/`
+- **搬移動作**:
+  - 刪除 `outputs/bzs/bzs-weekly-summary-20260605-20260608.md`
+  - 新建 `wiki/analyses/bzs/bzs-weekly-summary-20260605-20260608.md`（加入標準 YAML Frontmatter 與正確相對路徑連結）
+- **同步更新**:
+  - `wiki/index.md`：在 BZS 分析區段新增週報條目
+  - `wiki/log.md`：本筆記錄
+
+
+- **操作人**: LLM Agent (Antigravity)
+- **產出檔案**: [bzs-weekly-summary-20260605-20260608.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzs/bzs-weekly-summary-20260605-20260608.md)
+- **彙整範圍**: 2026-06-01 至 2026-06-05
+- **資料來源**:
+  - `wiki/sources/20260605-saas-weekly.md`（SaaS 週報）
+  - `wiki/sources/20260605-projects-daily.md`（業務與專案日報）
+  - `wiki/projects/` 各專案現況頁面
+- **週報架構**:
+  - 一、當週完成事項：1. 專案（SI/API）×7 項、2. SaaS 客戶成功（業績 NT$63,300 當週、NT$101,600 月累計）
+  - 二、待辦事項：分 1. 專案、2. SaaS 客戶成功、3. PM 產品、4. 行銷、5. 其他部門五個維度
+  - 附錄：競品情報（點點簽、DropboxSign、律果簽、DocuSign）
+- **關鍵數字**: 當週新購 NT$63,300；本月累計 NT$101,600；3 家新訂閱；18 家企業體驗版
+
+## [2026-06-08 10:04] ingest | 2026-06-05 業務與專案日報攝入與關聯檔案更新
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創來源摘要**:
+    - [20260605-projects-daily.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/20260605-projects-daily.md) ── 記錄 2026-06-05 當日業務與技術日報，摘要 19 項進展與數據。
+  - **新創實體頁面**:
+    - [qisheng-auto.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/qisheng-auto.md) ── 棋勝汽車實體，中古車龍頭，年用量 2000 份轉單跟進中。
+    - [beauty-fashion-clinic.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/beauty-fashion-clinic.md) ── 美力時尚診所實體，5000 份 AATL 報價 NT$80,000 含稅成交。
+    - [labor-development-agency.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/labor-development-agency.md) ── 勞動部勞動力發展署實體，On-premise 156 萬，記錄錄影簽分開之合規疑慮。
+    - [gigoline.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/gigoline.md) ── 吉格線實體，SI/經銷夥伴，引導地區醫院同意書無紙化。
+  - **新創專案頁面**:
+    - [qisheng-auto-onboarding.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/qisheng-auto-onboarding.md) ── 棋勝汽車電子合約 Onboarding，追蹤 CRM API 串接與轉單進度。
+  - **更新實體與專案**:
+    - [deshengzhe.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/deshengzhe.md) & [deshengzhe-pacs-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/deshengzhe-pacs-integration.md) ── 更新體驗包與 HIS/商之器聯銷策略、盧森眼科示範點時程，以及電子病歷「3天內校正」離線暫存設計。
+    - [project-101-bpm-deployment.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/project-101-bpm-deployment.md) ── 101 客戶 BPM 專案，記錄 4 點測試問題回溯、要求弱掃無高風險、補齊建置計劃書等 Hank 代辦事項。
+    - [sing-hung.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/sing-hung.md) & [sing-hung-kaohsiung-housing.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/sing-hung-kaohsiung-housing.md) ── 星鴻，高雄客戶 SaaS 測試與後台新增公司協作管理指引。
+    - [asia-yo-travel.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/asia-yo-travel.md) ── 亞揪遊，安排客製化對接與會議詳談。
+  - **更新目錄索引**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立之 1 份日報、4 個實體與 1 個專案。
+- **關鍵發現**:
+  - **電子病歷離線合規依據**：醫療法規支援「可離線但需在 3 天內校正」規範。好好簽研擬在診所地端設置 BZS 輕量中繼程式在斷線時暫存，上線後再與中華電信校時。
+  - **錄影簽分開檔案之安全性疑慮**：勞動部指出錄影存證未嵌入完簽 PDF 會降低法律自證力，此在 On-premise 客製部署中需提供影音雜湊加密寫入 PDF 之技術對策。
+  - **中古車電簽競爭力**：點點簽依靠人脈高價搶標，但我方憑藉「民國年格式彈性」與「API 串接技術熟悉度」建立強烈執行層傾向。
+
+## [2026-06-08 09:41] ingest | 系統整合部落格文章審核稿與完稿編譯
+- **操作人**: LLM Agent (Antigravity)
+- **變更與修改**:
+  - **新創來源摘要**:
+    - [system-integration-welly-seo.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/system-integration-welly-seo.md) ── 記錄 Welly SEO 系統整合部落格文章審核稿（原始檔案 `raw/BZSdata/Welly SEO/5.系統整合.md`）的元資料與核心要點。
+  - **新創分析報告**:
+    - [system-integration-blog-post-20260608.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/system-integration-blog-post-20260608.md) ── 整理並排版完稿部落格文章，並按「報告產出與版次管理」規範包含日期，防止版本混淆。
+    - [system-integration-audit-suggestions-20260608.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/system-integration-audit-suggestions-20260608.md) ── 針對 Welly SEO 審核稿提出之錯字、句型流暢度、專利功能融入與 GEO 優化之四大優化修改建議。
+  - **新創概念頁面**:
+    - [system-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/concepts/system-integration.md) ── 新增「系統整合 (System Integration)」概念頁面。
+  - **更新實體頁面**:
+    - [pacific-travel.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/pacific-travel.md) ── 更新太平洋旅行社作為 BPM 串接之 Blog 案例內容與引用來源。
+  - **更新目錄索引**:
+    - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立的 3 個 Wiki 頁面。
+- **關鍵發現**:
+  - **BPM 旅行社整合實績**：太平洋旅行社將好好簽 API/Webhook 整合其內部 BPM 流程，並透過簡訊/Line 發送傳簽連結，成功使合約回收率從原本的 60% 飆升至 98%，顯著提升行動簽署觸達率。
+
 ## [2026-06-05 18:45] ingest | 2026-06-05 BreezySign 週報攝入與回流/體驗新客實體建立
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:

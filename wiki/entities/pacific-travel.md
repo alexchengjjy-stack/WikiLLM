@@ -5,9 +5,9 @@ entity_type: company
 aliases: ["太平洋旅行社", "太平洋旅遊"]
 tags: [tourism, client, dottedsign_churn, unify_template]
 date_created: 2026-06-01
-date_updated: 2026-06-05
-source_count: 3
-sources: ["bzs-weekly-report-20260522.md", "bzs-weekly-report-20260529.md", "20260605-saas-weekly.md"]
+date_updated: 2026-06-08
+source_count: 4
+sources: ["bzs-weekly-report-20260522.md", "bzs-weekly-report-20260529.md", "20260605-saas-weekly.md", "system-integration-welly-seo.md"]
 summary: "太平洋旅行社為旅遊服務業者，因點點簽改按份計費費用過高，轉換訂閱好好簽企業方案 40 人版 (NT$60,000/年)。"
 ---
 
@@ -19,6 +19,7 @@ summary: "太平洋旅行社為旅遊服務業者，因點點簽改按份計費�
 - **點點簽轉單大戶**：年用量約 2,000 份，主要用於消費者旅遊定型化契約簽署。因點點簽新約調漲價格，促使其尋求好好簽作為替代方案。
 - **簽約財務**：採用好好簽企業方案 40 人版，年費為 NT$60,000，正式版啟用時間為 2026-06-01 至 2027-07-01。已於 2026-05-26 完成電匯匯款。
 - **範本 Unify 共享設定**：為滿足公司內業務統一範本的需求，客戶指定將好好簽系統設定為 `UNIFY` 模式（此設定為不可逆變更，一經設定，僅主管理帳號能共享範本給旗下所有子帳號使用，一般使用者不再允許自建範本）。
+- **部落格成功案例代表**：其運用 API/Webhook 將好好簽傳簽連結嵌入公司 BPM，並透過簡訊/Line 傳給旅客的無紙化案例，已被正式收錄為官方 [系統整合部落格文章](../analyses/bzs/system-integration-blog-post-20260608.md) 的代表性案例。
 
 ## 詳細內容
 
@@ -30,6 +31,13 @@ summary: "太平洋旅行社為旅遊服務業者，因點點簽改按份計費�
 - **多帳號權限管理**：客戶詳細詢問了好好簽主帳號與一般管理者、一般使用者之間的權限分級，並對帳號的批次匯入與 Google 登入整合完成了測試。
 - **範本共享權限 (UNIFY)**：客戶的主帳號為單一主控端，其餘皆為業務帳號。客戶決定放棄 SaaS 公版「各帳號可自建範本」的預設功能，要求好好簽客服後台手動將其切換為 `UNIFY` 模式，以確保所有業務使用的旅遊合約範本完全由主管理帳號統一發行與控管。
 
+### 3. BPM 系統串接與系統整合實績
+太平洋旅行社為了徹底解決旅客 Email 讀信率極低（信件沉入垃圾箱）與一般消費者家中沒有印表機的不便，在導入好好簽後進行了 BPM 系統整合：
+- 將好好簽電子簽章透過 API/Webhook 無縫對接其旅行社內部 BPM 流程。
+- 當系統審核通過，便能自動產生專屬的線上簽署連結，並自動轉發為簡訊或 Line 傳送給旅客。
+- 旅客直接在手機上開啟連結手寫簽名，簽署完成後合約自動回寫旅行社內部歸檔。
+- **實質成效**：合約回收率從原本的 **60% 飆升至 98%**，大幅縮減了 90% 的人工催收工時，且吃到飽方案免除了費用高昂的疑慮。
+
 ## 相關連結
 - [太平洋旅行社 Onboarding 專案](../projects/pacific-travel-onboarding.md) — 專案進展
 - [點點簽轉單潮深度分析報告](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) — 轉單分析
@@ -38,3 +46,6 @@ summary: "太平洋旅行社為旅遊服務業者，因點點簽改按份計費�
 ## 來源引用
 - [bzs-weekly-report-20260522.md](../sources/bzs-weekly-report-20260522.md) — 初次洽談與方案比較
 - [bzs-weekly-report-20260529.md](../sources/bzs-weekly-report-20260529.md) — 正式簽約匯款與 UNIFY 設定確認
+- [20260605-saas-weekly.md](../sources/20260605-saas-weekly.md) — 太平洋專案上線後效能監控
+- [system-integration-welly-seo.md](../sources/system-integration-welly-seo.md) — 系統整合部落格審核稿與案例說明
+
