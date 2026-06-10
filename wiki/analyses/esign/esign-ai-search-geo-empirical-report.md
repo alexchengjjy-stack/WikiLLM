@@ -12,7 +12,7 @@ summary: "透過四維度 Prompt 矩陣對主流 AI 檢索生成引擎發起實�
 
 > 實測日期：2026-05-14  
 > 測試引擎：Google Grounding Engine / Vertex AI Search (模擬主流 RAG 檢索聚合)  
-> 測試框架：[實際 AI 搜尋測試與 GEO 實證方法](../topics/ai-search-testing.md)
+> 測試框架：[實際 AI 搜尋測試與 GEO 實證方法](../../topics/ai-search-testing.md)
 
 ---
 

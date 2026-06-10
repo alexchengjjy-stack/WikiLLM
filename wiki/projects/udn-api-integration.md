@@ -51,4 +51,4 @@ summary: "為聯合線上（udn新聞）對接 BZS 電子簽章 API，支援其�
 ## 相關連結
 - [好好簽實體頁](../entities/breezysign.md) — 實體資訊
 - [BZS PM 數據分析報表彙整](../sources/pm-breezysign-analytics-reports.md) — 月報來源
-- [BreezySign 好好簽功能需求與痛點](../../analyses/bzs/bzs-feature-requirements.md) — 需求來源
+- [BreezySign 好好簽功能需求與痛點](../analyses/bzs/bzs-feature-requirements.md) — 需求來源

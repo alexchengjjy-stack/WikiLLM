@@ -75,6 +75,9 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * [系統整合 (SI) 部落格文章 (Welly SEO 審核稿)](sources/system-integration-welly-seo.md)
 * [BreezySign 好好簽功能特色 v2 (2026 最新導購文案)](sources/bzs-features-v2.md)
 * [鼎新 x 蒙恬 ISV 生態夥伴合作推案 (簡報摘要)](sources/bzs-dingxin-isv-partnership-v2.md)
+* [2026 Google Ads 關鍵字研究怎麼做？用 Claude Skill 幾個步驟鎖定精準關鍵字!](sources/sorla-google-ads-keyword-research-claude.md) ── 探討以排除、備用、主力三層意圖分類法優化 Ads 預算的實戰。
+* [AI 搶走你的流量？SEO、AEO、GEO 三大行銷攻略，必收教學指南！](sources/frankknow-seo-aeo-guide.md) ── 解析 SEO 地基、AEO 牆壁、GEO 房子的三軌協同優化指南。
+* [geniushub-seo/google-ads-keyword-classifier: Google Ads 關鍵字研究分類 Skill](sources/sorla-google-ads-keyword-classifier-skill.md) ── GitHub 開源之 Claude Ads 關鍵字分類 Skill 設定與判定 SOP。
 
 ---
 
@@ -136,21 +139,24 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
   * [國內電子簽章服務競品比較](analyses/esign/esign-domestic-comparison.md)
   * [好好簽 BreezySign 電子簽章定價成本結構與利潤邊際分析報告 (2026-05-25)](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md)
   * [電子簽章 4 大官網第二次 SEO/GEO 雙軌普查與對比報告 (2026-05-25)](analyses/esign/esign-competitor-seo-geo-analysis-20260525.md)
-  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
-  * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式與 FAQ 完整部署，GEO 中高水準破局領先。
   * [電子簽章 4 大官網第三次 SEO/GEO 雙軌普查與對比報告 (官網正式上線完工版)](analyses/esign/esign-competitor-seo-geo-analysis-20260527.md) ── 正式站重構完工版對比，好好簽憑藉微格式、數發部徽章與 FAQ 完整部署實現爆發式反超競品。
+  * [電子簽章官網 SEO/GEO 雙軌普查對比基礎報告](analyses/esign/esign-competitor-seo-geo-analysis.md)
+  * [電子簽章市場競品定價與功能特徵對比](analyses/esign/esign-pricing-feature-comparison.md)
   * [點點簽價格調漲與以份計費引發之轉單潮深度分析報告](analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
   * [好好簽 (BZS) 企業客戶畫像分析](analyses/bzs/bzs-customer-personas.md) ── 重構醫療HIS/PACS整合、競品漲價流失轉單大客及大檔案防禦邊界之客戶畫像分析。
   * [BZS 功能需求與痛點](analyses/bzs/bzs-feature-requirements.md)
+  * [好好簽 BreezySign 業務前線 Battle Cards 競品話術](analyses/bzs/bzs-battle-cards.md)
   * [SaaS 營運後台與客成數據深度勾稽分析報告 (2025.10 - 2026.05)](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) — 勾稽分析後台營收、PLG/SLG 漏斗與 Leads 跟進軌跡。
   * [BreezySign 好好簽 2026年5月營運月報](analyses/bzs/bzs-saas-ops-report-202605.md) ── 彙整5月份實收雙引擎 NT$ 385k、新增 Booking、得勝者等專案進展與點點簽轉單潮。
+  - [2026 數位行銷操作具體建議與四大維度數據推估](analyses/bzs/bzs-h2-marketing-strategy-2026.md)
   * [BreezySign 商業部門職務工作清單整理](analyses/bzs/bzs-bu-role-based-tasklist.md) ── 依銷售、行銷、產品、工程與營運職務梳理的「待進行、可優化、下一步工作建議」工作清單。
-  * [好好簽官網 Blog 行銷推廣系列文章 (2026-05)](analyses/bzs/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 案例、情境與數發部能量登錄里程碑文章。
+  * [好好簽官網 Blog 行銷推廣系列文章 (2026-05)](analyses/bzs/bzs-blog-marketing-posts-202605.md) ── 專為官網後台欄位規格量身打造的四篇高質感 Blog 案例、情境與數發部能量登錄里程碑文章.
   * [好好簽官網 Blog 系統整合完稿文章 (2026-06)](analyses/bzs/system-integration-blog-post-20260608.md) ── Welly SEO 審核通過之系統整合 (SI) 專題完稿文章。
   * [好好簽官網 Blog 系統整合文章委外審稿修改建議 (2026-06)](analyses/bzs/system-integration-audit-suggestions-20260608.md) ── 針對 Welly SEO 審核稿提出之錯字、句型、專利特色與 GEO 優化之修改建議。
   * [BreezySign 好好簽 匯整週報（2026-06-01 至 06-05）](analyses/bzs/bzs-weekly-summary-20260605-20260608.md) ── 彙整當週完成事項（業績 NT$101,600 月累計、7 項專案里程碑）與全部門待辦清單（專案、SaaS 客成、PM、行銷、官網、其他部門）。
   * [BreezyBrain 完善度診斷與 MVP/Roadmap 規劃](analyses/bzb/bzb-mvp-roadmap.md) ── 針對 BreezyBrain 進行整體產品規格之完善度評估，列出四大隱性死角，並提煉三階段產品路線圖。
   * [BreezyBrain 需求規格深度分析與規劃報告](analyses/bzb/bzb-spec-analysis-report.md) ── 針對 BreezyBrain 進行分層架構、順逆向流程管道、六大資安與個資防衛細節、及三階段產品 Roadmap 規劃的正式評估報告。
+  * [BreezyBrain 概念市場定位與競爭分析報告](analyses/bzb/bzb-concept-market-analysis.md)
   * [WikiLLM 知識庫健康檢查與 Lint 優化報告](analyses/wikillm/wikillm-kb-health-check-report.md) ── 針對 WikiLLM 知識庫 170 個頁面進行全面 Lint 普查，分析編碼、Frontmatter 缺失、孤立頁面及潛在法規政策矛盾並給出優化方案。
 
 ## 📄 來源摘要 (Sources)
@@ -271,7 +277,9 @@ summary: "WikiLLM 知識庫入口頁面，涵蓋電子簽章分析、AI 工程�
 * [Forge / OpenClaw 框架概念](concepts/forge-openclaw-framework.md)
 * [毒舌開發系統概念](concepts/toxic-development-system.md)
 * [SEO / GEO 優化評分標準](concepts/seo-geo-optimization.md)
+* [關鍵字意圖分類與 Claude Skill 自動化](concepts/keyword-categorization.md)
 
 ### 🏢 實體與品牌 (Entities)
 * 本土電子簽章：[點點簽](entities/dottedsign.md) | [律果簽](entities/legalsign.md) | [好好簽](entities/breezysign.md) | [FastSIGN](entities/fastsign.md)
 * 重要客戶與 Leads：[神坊資訊](entities/symphox-information.md) | [愛因斯坦量化科技](entities/einstein-quantitative-tech.md) | [聖洋科技](entities/cacafly-marketing.md) | [華杏出版](entities/huaxing-publishing.md) | [屏東縣獅子鄉公所](entities/shizi-township-office.md) | [海沃管理顧問](entities/hai-wo-management.md) | [鴻運聯邦企業](entities/hong-yun-federal.md) | [云行銷](entities/yun-marketing.md) | [得勝者](entities/deshengzhe.md) | [太平洋旅行社](entities/pacific-travel.md) | [麻吉行得通](entities/maji-mobility.md) | [鼎鈦生技](entities/dingtai-biotech.md) | [永豐高中](entities/yongfeng-high-school.md) | [聖美麗健康管理](entities/st-mary-health.md) | [傑報人資](entities/jie-bao-hr.md) | [福安管理顧問](entities/fuan-management.md) | [亞揪遊旅行社](entities/asia-yo-travel.md) | [台灣綠能公益](entities/taiwan-green-energy.md) | [台灣奇恭](entities/taiwan-gigo.md) | [樸然子](entities/pu-ran-zi.md) | [棋勝汽車](entities/qisheng-auto.md) | [美力時尚診所](entities/beauty-fashion-clinic.md) | [勞動部勞動力發展署](entities/labor-development-agency.md) | [吉格線](entities/gigoline.md) | [台福麟旅行社](entities/taifulin-travel.md)
+* 行銷夥伴與教學實體：[犬哥網站](entities/frankknow.md) | [Sorla - 超簡單行銷](entities/sorla.md)

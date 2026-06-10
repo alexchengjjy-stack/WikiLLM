@@ -108,6 +108,6 @@ tags:
 
 ## 🔗 相關報告與追蹤機制
 
-- **競品情報快照**：[[analyses/esign/esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照 (2026 年 5 月)]]
-- **官網技術 SEO 普查**：[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
-- **本土競品總分析**：[[analyses/esign/esign-domestic-comparison|國內電子簽章服務競品比較]]
+- **競品情報快照**：[[esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照 (2026 年 5 月)]]
+- **官網技術 SEO 普查**：[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
+- **本土競品總分析**：[[esign-domestic-comparison|國內電子簽章服務競品比較]]

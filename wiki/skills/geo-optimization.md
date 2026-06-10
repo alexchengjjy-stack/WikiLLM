@@ -5,10 +5,10 @@ category: marketing
 proficiency: intermediate
 tags: [GEO, 生成式引擎優化, AI搜尋, LLM, ChatGPT, Perplexity, 行銷]
 date_created: 2026-05-14
-date_updated: 2026-05-14
+date_updated: 2026-06-10
 related_projects: []
-related_concepts: [seo-geo-optimization]
-summary: "掌握生成式引擎優化（GEO）的評估與實施能力：讓 ChatGPT、Gemini、Perplexity 等 AI 引擎在回答問題時主動引用並推薦你的品牌。"
+related_concepts: [seo-geo-optimization, keyword-categorization]
+summary: "掌握生成式引擎優化（GEO）與問答引擎優化（AEO）的評估與實施能力，使 AI 搜尋引擎與 LLM 平台能主動引用與提及品牌。"
 ---
 
 # GEO 生成式引擎優化
@@ -46,6 +46,8 @@ summary: "掌握生成式引擎優化（GEO）的評估與實施能力：讓 Cha
 - **定義框段落撰寫**：品牌首段 100~150 字的可摘要定義（LLM 最常引用）
 - **統計數據與 E-E-A-T 注入**：在內容中強制補強真實案例、在地數字與獨家第一手觀點（[Claude寫作流](../sources/sorla-claude-seo-writer.md)）
 - **實體與 Knowledge Graph 管理 (Entity Management)**：實施 `Organization Schema`，明確定義 brand 實體，防範品牌實體混淆風險（[參考教學](../sources/sorla-entity-organization-schema.md)）
+- **第三方高信任平台佈局**：能在 Reddit、LinkedIn、YouTube、G2 等高權威第三方平台上規劃與佈局品牌內容，為 LLM 提供外部高可信度的訓練與引用資料庫。
+- **三軌行銷架構調配**：能靈活實施「SEO 地基、AEO 牆壁、GEO 房子」的整合優化，讓傳統搜尋和 AI 搜尋協同搭配。
 - **/seo geo AI 搜尋優化實踐**：藉由 [[claude-seo-universal-tool|Claude SEO]] 插件，針對 Google AI Overviews、ChatGPT Web Search 和 Perplexity 等生成式回答引擎，一鍵進行可摘要性微調與定義框嵌入。
 - **/seo hreflang 國際化語意定位**：全自動生成並驗證 HTML/XML Sitemap 中的 hreflang 標籤，明確綁定語言與地區代碼（ISO 639-1 / ISO 3166-1），防範多語言在 AI 向量空間中的語意漂移。
 
@@ -137,9 +139,11 @@ GEO 和 SEO 不是競爭關係，而是**互補策略**：
 
 - [[seo-optimization|SEO 搜尋引擎優化技能]]
 - [[seo-geo-optimization|SEO/GEO 概念與評分標準]]
+- [關鍵字意圖分類與 Claude Skill 自動化](../concepts/keyword-categorization.md)
 - [好好簽 SEO/GEO 分析](../analyses/bzs/bzs-website-seo-geo-analysis.md)
 - [[ai-agent-prompting|AI Agent Prompting 技能]]
 - [[claude-seo-universal-tool|Claude SEO 系統架構與實施指南]]
+- [犬哥網站 SEO/AEO/GEO 指南](../sources/frankknow-seo-aeo-geo-guide.md)
 - **[Sorla 行銷實戰系列]**
   - [Claude 自動化寫作流](../sources/sorla-claude-seo-writer.md)
   - [決定 AI 推薦的 5 大關鍵](../sources/sorla-geo-5-keys-strategy.md)

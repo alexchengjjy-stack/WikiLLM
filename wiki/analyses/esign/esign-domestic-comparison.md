@@ -12,7 +12,7 @@ summary: "台灣在地四大電子簽章服務的完整比較，涵蓋點點簽�
 
 # 國內電子簽章服務競品比較
 
-> 本分析專注於比較台灣市場起家的四大電子簽章服務：[點點簽](../entities/dottedsign.md)、[律果簽](../entities/legalsign.md)、[好好簽](../entities/breezysign.md)與[FastSIGN](../entities/fastsign.md)，從定價模式、功能覆蓋、差異化特色等角度進行全方位對比。如需了解國際品牌，請參見[國內外電子簽章服務全景分析](esign-global-comparison.md)。
+> 本分析專注於比較台灣市場起家的四大電子簽章服務：[點點簽](../../entities/dottedsign.md)、[律果簽](../../entities/legalsign.md)、[好好簽](../../entities/breezysign.md)與[FastSIGN](../../entities/fastsign.md)，從定價模式、功能覆蓋、差異化特色等角度進行全方位對比。如需了解國際品牌，請參見[國內外電子簽章服務全景分析](esign-global-comparison.md)。
 
 ---
 
@@ -31,7 +31,7 @@ summary: "台灣在地四大電子簽章服務的完整比較，涵蓋點點簽�
 - 行政機關（除了司法程序外）在 3 年內必須全面接受電子簽章。
 
 ### 官方背書：數發部「服務能量登錄」
-配合修法，數發部推出了[電子簽章解決方案服務能量登錄](../sources/moda-esignature-energy-registration.md)機制，旨在盤點國內電子簽章技術服務能量。
+配合修法，數發部推出了[電子簽章解決方案服務能量登錄](../../sources/moda-esignature-energy-registration.md)機制，旨在盤點國內電子簽章技術服務能量。
 - **點點簽、律果簽、好好簽與全景軟體(FastSIGN)均已成功取得該能量登錄許可**（證書效期兩年），形同取得進入 B2B 與 B2G（政府標案）市場的官方「白名單」門票，大幅提升服務公信力。
 
 ---
@@ -221,6 +221,6 @@ FastSIGN Pro：採永久授權買斷制，初期建置費高但免後續訂閱�
 
 ## 相關連結與技術普查
 
-- **官網技術 SEO 普查**：[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
-- **競品情報快照**：[[analyses/esign/esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照 (2026 年 5 月)]]
-- **全球電子簽章對比**：[[analyses/esign/esign-global-comparison|全球電子簽章服務比較]]
+- **官網技術 SEO 普查**：[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
+- **競品情報快照**：[[esign-monitoring-snapshot-202605|電子簽章能量登錄競品情報普查快照 (2026 年 5 月)]]
+- **全球電子簽章對比**：[[esign-global-comparison|全球電子簽章服務比較]]

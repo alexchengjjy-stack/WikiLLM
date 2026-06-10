@@ -56,5 +56,5 @@ summary: "福安管理顧問（點點簽轉單大戶，年約 2 萬份）評估�
 ## 相關連結
 - [好好簽實體頁](../entities/breezysign.md) — 實體資訊
 - [點點簽轉單潮深度分析報告](../../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) — 轉單分析
-- [BZS 定價與利潤分析報告](../../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 福安毛利分析來源
+- [BZS 定價與利潤分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 福安毛利分析來源
 - [BZS 業務日報摘要](../sources/bzs-sales-reports-2026.md) — 歷史商機記錄

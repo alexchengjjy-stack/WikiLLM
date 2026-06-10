@@ -12,7 +12,7 @@ summary: "點點簽（DottedSign）官網的 SEO 與 GEO 效果評估。整體�
 
 > 分析日期：2026-05-14  
 > 爬取頁面：首頁（/zh-tw/）、定價頁（/zh-tw/pricing）、部落格（/zh-tw/blog）  
-> 評分標準：[SEO / GEO 優化評分標準](../concepts/seo-geo-optimization.md)
+> 評分標準：[SEO / GEO 優化評分標準](../../concepts/seo-geo-optimization.md)
 
 ---
 

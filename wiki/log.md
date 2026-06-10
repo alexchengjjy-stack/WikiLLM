@@ -2,6 +2,48 @@
 title: "操作日誌"
 ---
 
+## [2026-06-10 16:40] update | analyses/ 根目錄 28 個分析報告物理子目錄歸檔與全域相對連結修復
+
+- **操作人**: LLM Agent (Antigravity)
+- **搬移動作**:
+  - `wiki/analyses/` 根目錄下的 28 個 Markdown 分析報告檔案，被物理移動至正確的業務主題子目錄中，清理了根目錄，使其符合 `AGENTS.md` 目錄結構規範：
+    - 好好簽相關分析 (15個) ➡️ `wiki/analyses/bzs/`（部分重命名統一為 `bzs-` 前綴）
+    - 好好腦相關分析 (4個) ➡️ `wiki/analyses/bzb/`（部分重命名統一為 `bzb-` 前綴）
+    - 電子簽章與競品分析 (9個) ➡️ `wiki/analyses/esign/`（部分重命名統一為 `esign-` 前綴）
+- **全域相對連結與雙鏈修復**:
+  - 利用 Python 自動化重構腳本 `organize_analyses.py`，全域掃描並自動重構了所有被移動檔案之內部相對連結（由 `../` 加深至 `../../` 階層）。
+  - 自動重構全域 `wiki/` 目錄下的外部文件相對連結，將原本指向 `analyses/` 根目錄的連結自動修復為對應的子目錄路徑（如 `analyses/bzs/`、`analyses/bzb/` 或 `analyses/esign/`），共修復數十處跨檔案連結與 Obsidian 雙鏈。
+- **更新目錄索引**:
+  - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 重新梳理「核心領域研究」區塊，移除重複行，登錄 `bzs-battle-cards.md`、`bzb-concept-market-analysis.md` 等漏登之分析報告。
+- **關鍵成效**:
+  - 徹底消除了 analyses 根目錄檔案未分類堆積現象，全域實現斷鏈零殘留，保障了 WikiLLM 知識庫中分析報告物理歸檔與引用連結之高保真一致性。
+
+## [2026-06-10 16:20] ingest | Sorla 關鍵字分類與犬哥網站 SEO/AEO/GEO 指南
+
+- **操作人**: LLM Agent (Antigravity)
+- **來源文件**:
+  - `raw/marketing/2026 Google Ads 關鍵字研究怎麼做？用 Claude Skill 幾個步驟鎖定精準關鍵字!.md`
+  - `raw/marketing/AI 搶走你的流量？SEO、AEO、GEO 三大行銷攻略，必收教學指南！.md`
+  - `raw/marketing/geniushub-seogoogle-ads-keyword-classifier Google Ads 關鍵字研究分類 Skill：將 Keyword Planner 匯出清單分類為排除競品品牌品類痛點決策資訊詞，並透過 SERP 抽樣驗證，輸出結構化分類 Excel 供廣告群組規劃使用。.md`
+- **新創來源摘要**:
+  - [sorla-google-ads-keyword-research-claude.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/sorla-google-ads-keyword-research-claude.md) ── 2026 Google Ads 關鍵字研究意圖分類與三層邏輯。
+  - [frankknow-seo-aeo-geo-guide.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/frankknow-seo-aeo-geo-guide.md) ── 犬哥網站 SEO、AEO、GEO 三合一搭配優化指南。
+  - [sorla-google-ads-keyword-classifier-skill.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/sorla-google-ads-keyword-classifier-skill.md) ── GitHub 開源 Google Ads 關鍵字分類 Claude Skill 機制。
+- **新創實體頁面**:
+  - [frankknow.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/frankknow.md) ── 犬哥網站，專注 WordPress 架架與 SEO/GEO 服務。
+  - [sorla.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/sorla.md) ── Sorla - 超簡單行銷，專注 AI 數位行銷與 Skill 教學。
+- **新創概念頁面**:
+  - [keyword-categorization.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/concepts/keyword-categorization.md) ── 關鍵字意圖三層分類與自動化 Skill 機制。
+- **更新概念與技能**:
+  - [seo-geo-optimization.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/concepts/seo-geo-optimization.md) ── 升級為 SEO/AEO/GEO 三軌合一優化評分標準。
+  - [seo-optimization.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/skills/seo-optimization.md) ── 新增 AEO 問答優化與 Ads 關鍵字分類技能。
+  - [geo-optimization.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/skills/geo-optimization.md) ── 新增第三方高信任平台佈局與三軌行銷調配。
+- **更新目錄索引**:
+  - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 加入 3 個來源、1 個概念與 2 個實體。
+- **關鍵發現**:
+  - **預算防燒的核心在於「意圖分類」**：不應將未分類關鍵字直接投放，需透過排除、備用、主力三層分類控制主力詞上限在 10-20 個，且以 SERP 驗證意圖漂移。
+  - **三軌行銷大一統**：AI 時代需以 SEO 為地基（排名）、AEO 為牆壁（FAQ 與 40-60 字回答型段落）、GEO 為房子（Reddit/LinkedIn 佈局與品牌向量一致性）進行全方位曝光優化。
+
 ## [2026-06-10 13:20] update | outputs 根目錄舊檔案分類整理與連結全域修復
 
 - **操作人**: LLM Agent (Antigravity)
@@ -153,7 +195,7 @@ title: "操作日誌"
   - **更新實體與分析**:
     - [dottedsign.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/entities/dottedsign.md) ── 更新點點簽大量簽署流失案例中，福安成交及聖美麗重啟評估之最新動態。
     - [esign-dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 更新轉單清單與 Mermaid 流程圖，修改聖美麗狀態為重新評估中（解決 10MB 單檔限制），福安改為確定合作。
-    - [bzs-customer-personas.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-customer-personas.md) ── 增量調整聖美麗之 10MB 技術防禦邊界描述，記錄其妥協自行解決檔案限制之客群適應特徵。
+    - [bzs-customer-personas.md](analyses/bzs/bzs-customer-personas.md) ── 增量調整聖美麗之 10MB 技術防禦邊界描述，記錄其妥協自行解決檔案限制之客群適應特徵。
   - **更新目錄索引**:
     - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 註冊新建立之 2 份日報摘要與 5 家新客戶實體頁。
 - **關鍵發現**:
@@ -270,13 +312,13 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 補齊 5 月份寬/窄口徑 CPA 的詳細計算公式與分子分母（NT$ 145,080 / 312 與 NT$ 145,080 / 81）；優化同類服務正常值與好好簽高於均值的台美業界數字對照。
+    - [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 補齊 5 月份寬/窄口徑 CPA 的詳細計算公式與分子分母（NT$ 145,080 / 312 與 NT$ 145,080 / 81）；優化同類服務正常值與好好簽高於均值的台美業界數字對照。
     - [bzs-h2-marketing-strategy-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-h2-marketing-strategy-2026.md) ── 將指標釋義升級為詳細對照表格，補齊英文原詞與中文名詞解釋；增補寬/窄口徑 CPA 數據計算公式；修剪重複贅字。
-    - [bzs-acquisition-channels.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-acquisition-channels.md) ── 補齊 CPA 英文原詞、中文釋義與 5 月份公式精算。
-    - [bzs-saas-marketing-synthesis-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-marketing-synthesis-2026.md) ── 統一行銷預算與 CPA 金額單位為 NT$（包括 `NT$ 640 - 1,600` 及 `NT$ 9,600` 等美元對照）；增補 SaaS 指標英文原詞與名詞解釋。
-    - [bzs-pricing-cost-structure-analysis-20260525.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) ── 統一上半年廣告費為 `NT$ 711,136 (約 US$ 22,223)` 以維持單位一致。
+    - [bzs-acquisition-channels.md](analyses/bzs/bzs-acquisition-channels.md) ── 補齊 CPA 英文原詞、中文釋義與 5 月份公式精算。
+    - [bzs-saas-marketing-synthesis-2026.md](analyses/bzs/bzs-saas-marketing-synthesis-2026.md) ── 統一行銷預算與 CPA 金額單位為 NT$（包括 `NT$ 640 - 1,600` 及 `NT$ 9,600` 等美元對照）；增補 SaaS 指標英文原詞與名詞解釋。
+    - [bzs-pricing-cost-structure-analysis-20260525.md](analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) ── 統一上半年廣告費為 `NT$ 711,136 (約 US$ 22,223)` 以維持單位一致。
     - [esign-dottedsign-price-hike-churn-analysis.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/esign/esign-dottedsign-price-hike-churn-analysis.md) ── 統一海沃管理顧問的競品費用為 `NT$ 16,320 (約 US$ 510)` 以維持單位一致。
-    - [bzs-saas-ops-csm-reconciliation-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 清理報告中殘留的 `any` 與 `the` 等中英夾雜字眼。
+    - [bzs-saas-ops-csm-reconciliation-202605.md](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 清理報告中殘留的 `any` 與 `the` 等中英夾雜字眼。
 - **關鍵發現**:
   - **完成寬窄 CPA 精算勾稽**：確認 5 月份 Google Ads 廣告費用（NT$ 145,080）與總註冊數（312 家）及高意圖企業 Leads（81 次）的計算公式完全一致，寬口徑 CPA (NT$ 465) 與窄口徑 CPA (NT$ 1,792) 金額計算無誤。
   - **同類服務業界基準對照**：對齊經查證的台灣（NT$ 1,000 - 3,200）與全球（US$ 80 - 200+，約合 NT$ 2,500 - 6,400+）B2B CPL (CPA-Leads) 與實質 CAC 的業界標準，釐清並修正了先前不準確的粗估。好好簽窄口徑 CPL (NT$ 1,792) 處於台灣合理中游區間，但由於高 LTV (NT$ 120,000) 帶來 67 倍 LTV:CAC，其獲客效益極高。
@@ -286,11 +328,11 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 統一貨幣單位為 NT$ (行銷廣告費 NT$ 711,136 等)；新增「SaaS 核心指標名詞解釋與業界基準」表格；新增「窄口徑 CPA (NT$ 1,792) 高於業界均值原因解析」；刪除重複的 Executive Summary 區塊。
+    - [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 統一貨幣單位為 NT$ (行銷廣告費 NT$ 711,136 等)；新增「SaaS 核心指標名詞解釋與業界基準」表格；新增「窄口徑 CPA (NT$ 1,792) 高於業界均值原因解析」；刪除重複的 Executive Summary 區塊。
     - [bzs-h2-marketing-strategy-2026.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-h2-marketing-strategy-2026.md) ── 統一廣告預算與 CPA 之貨幣單位為 NT$；新增「SaaS 行銷與價值維度指標釋義」小節；新增「B2B 獲客成本 (CPA) 業界基準與好好簽定位分析」。
-    - [bzs-acquisition-channels.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-acquisition-channels.md) ── 統一貨幣單位為 NT$；釐清 5 月與上半年廣告費用的時間區分；補強 CPA 業界基準對比。
-    - [bzs-saas-ops-csm-reconciliation-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 統一後台實收金額與備註中的貨幣符號為 NT$。
-    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 將 9 家企業與合作夥伴之備註金額從 `$` 或純數值修正為 `NT$`。
+    - [bzs-acquisition-channels.md](analyses/bzs/bzs-acquisition-channels.md) ── 統一貨幣單位為 NT$；釐清 5 月與上半年廣告費用的時間區分；補強 CPA 業界基準對比。
+    - [bzs-saas-ops-csm-reconciliation-202605.md](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 統一後台實收金額與備註中的貨幣符號為 NT$。
+    - [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 將 9 家企業與合作夥伴之備註金額從 `$` 或純數值修正為 `NT$`。
 - **關鍵發現**:
   - **確立單位一致性**: 全面將 SaaS 分析與對帳報告之美金行銷預算及 CPA 換算為台幣 (NT$) 呈現，消除貨幣符號混淆問題。
   - **導入業界 CPA 基準**: 梳理台灣 (NT$ 300~1,500) 與美國 (US$ 100~300) 的電簽行業平均 B2B CPA。好好簽寬口徑 (NT$ 465) 極具優勢；窄口徑 (NT$ 1,792) 略高於均值但由於 LTV (NT$ 120,000) 極高，使 LTV:CAC 仍達 67 倍，財務結構仍極為健康。
@@ -313,7 +355,7 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 依據閱讀體驗調整內容順序，將「銷售方案佔比與客戶結構對照分析」移至最前方，詳細付費客戶名單降為二級標題移至後方。
+    - [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 依據閱讀體驗調整內容順序，將「銷售方案佔比與客戶結構對照分析」移至最前方，詳細付費客戶名單降為二級標題移至後方。
 - **關鍵發現**:
   - **結構層級優化**: 讓決策者在開啟付費清單分析時，優先閱讀宏觀的銷售金額佔比與客戶數量結構分析（企業方案佔營收比重 83.2% 的核心啟示），再進入微觀明細列表，提升報告可讀性。
 
@@ -321,8 +363,8 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 新增「BZS SaaS 各方案銷售佔比與客戶結構對照分析」，定量拆分 5 月份 SaaS 實收金額中企業方案與專業方案的銷售營收比重（企業方案佔 83.2% 主導增長，專業方案家數佔 63.1% 提供 ARR 留存底座）。
-    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 新增「行銷與營運策略全局綜合摘要」，對四大維度、漏斗演進、CPA 雙軌及客成服務邊界進行全局策略提煉，並定調下半年加碼競品攔截的戰略。
+    - [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 新增「BZS SaaS 各方案銷售佔比與客戶結構對照分析」，定量拆分 5 月份 SaaS 實收金額中企業方案與專業方案的銷售營收比重（企業方案佔 83.2% 主導增長，專業方案家數佔 63.1% 提供 ARR 留存底座）。
+    - [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 新增「行銷與營運策略全局綜合摘要」，對四大維度、漏斗演進、CPA 雙軌及客成服務邊界進行全局策略提煉，並定調下半年加碼競品攔截的戰略。
   - **新創產出 (Outputs)**:
     - [bzs-202605-operations-complete-report.html](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/outputs/bzs/bzs-202605-operations-complete-report.html) ── 依據對齊 SOP 成功生成截至 5 月底 Production 實績之「完整營運數據分析及執行報告」網頁看板，整合全局摘要、四大維度演進、各管道成效矩陣與各方案對照分析。
 - **關鍵發現**:
@@ -353,7 +395,7 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-saas-ops-csm-reconciliation-202605.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 增量更新 2026 年 5 月全月實績，定量分析 5 月份營收口徑落差，剖析太平洋旅行社成交、恩主公醫院及聖美麗大檔案限制主動婉拒之結案歷程。
+    - [bzs-saas-ops-csm-reconciliation-202605.md](analyses/bzs/bzs-saas-ops-csm-reconciliation-202605.md) ── 增量更新 2026 年 5 月全月實績，定量分析 5 月份營收口徑落差，剖析太平洋旅行社成交、恩主公醫院及聖美麗大檔案限制主動婉拒之結案歷程。
 - **關鍵發現**:
   - **5月營收口徑契合**: 5 月 SaaS 後台實收 NT$84,080 與 CSM 登記之新購業績 NT$73,200（含太平洋大單 NT$60k）及續訂 ARR NT$10,880 完美契合，口徑落差為 0。專案與 API 實收 NT$281,122 獨立拆分核算。
   - **客成商機跟進結案**: 太平洋旅行社已付款並於 6/1 生效；恩主公醫院因預算已滿婉拒結案；聖美麗因 10MB 與 AATL 數位憑證效能瓶頸已主動婉拒結案，確立技術防禦邊界。
@@ -371,7 +413,7 @@ title: "操作日誌"
 - **操作人**: LLM Agent (Antigravity)
 - **變更與修改**:
   - **修改分析報告**:
-    - [bzs-customer-personas.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-customer-personas.md) ── 重構企業客戶畫像結構，增量整合醫療 HIS/PACS 系統 API 對接、混合雲離線時間戳記合規、競品調漲轉單大客（如太平洋旅行社、福安管理顧問等）以及大檔案憑證限制防禦邊界（如聖美麗）等最新實戰案例與技術特徵。
+    - [bzs-customer-personas.md](analyses/bzs/bzs-customer-personas.md) ── 重構企業客戶畫像結構，增量整合醫療 HIS/PACS 系統 API 對接、混合雲離線時間戳記合規、競品調漲轉單大客（如太平洋旅行社、福安管理顧問等）以及大檔案憑證限制防禦邊界（如聖美麗）等最新實戰案例與技術特徵。
   - **修改目錄**:
     - [index.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/index.md) ── 更新客戶畫像分析之標題與詳細描述。
 - **關鍵發現**:
@@ -387,10 +429,10 @@ title: "操作日誌"
   - **修改來源摘要**:
     - [pm-breezysign-analytics-reports.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/sources/pm-breezysign-analytics-reports.md) ── 增量寫入 2026.06.02 最新報表之財務營收、獲客漏斗與競品轉單指標數據。
   - **修改分析報告**:
-    - [bzs-saas-funnel-ltv-cac-report.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 增量更新 2026 年 5 月底財務與 Leads 漏斗實績，並加入聖美麗憑證大檔案限制之防禦決策分析。
-    - [bzs-saas-paid-subscribers-by-plan.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 企業方案中新增太平洋旅行社，並將計數更新至 142 家以對齊最新數據。
-    - [bzs-saas-customer-list.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-saas-customer-list.md) ── 增量更新太平洋旅行社、自強基金會、豐盛富足、富友、耐斯、福安與聯合線上的日報引用，並新增「透明房訊」與「自強基金會」。
-    - [bzs-acquisition-channels.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/analyses/bzs/bzs-acquisition-channels.md) ── 重構獲客管道與成效矩陣，整合最新 5 月底廣告支出、Leads 漏斗、GEO/AIO 攔截與高佔比 SI/ISV 通路實績。
+    - [bzs-saas-funnel-ltv-cac-report.md](analyses/bzs/bzs-saas-funnel-ltv-cac-report.md) ── 增量更新 2026 年 5 月底財務與 Leads 漏斗實績，並加入聖美麗憑證大檔案限制之防禦決策分析。
+    - [bzs-saas-paid-subscribers-by-plan.md](analyses/bzs/bzs-saas-paid-subscribers-by-plan.md) ── 企業方案中新增太平洋旅行社，並將計數更新至 142 家以對齊最新數據。
+    - [bzs-saas-customer-list.md](analyses/bzs/bzs-saas-customer-list.md) ── 增量更新太平洋旅行社、自強基金會、豐盛富足、富友、耐斯、福安與聯合線上的日報引用，並新增「透明房訊」與「自強基金會」。
+    - [bzs-acquisition-channels.md](analyses/bzs/bzs-acquisition-channels.md) ── 重構獲客管道與成效矩陣，整合最新 5 月底廣告支出、Leads 漏斗、GEO/AIO 攔截與高佔比 SI/ISV 通路實績。
   - **新創專案**:
     - [fuan-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/fuan-api-integration.md) ── 福安健康與職安 API 專案 (12 萬報價簽約中)。
     - [udn-api-integration.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/wiki/projects/udn-api-integration.md) ── 聯合線上 API 對接與公開表單專案 (3 萬成交測試中)。

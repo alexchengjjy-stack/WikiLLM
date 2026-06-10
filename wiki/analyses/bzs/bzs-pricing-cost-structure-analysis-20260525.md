@@ -6,7 +6,7 @@ tags: [財務分析, 定價策略, 成本結構, 利潤邊際, 競品分析]
 date_created: 2026-05-25
 date_updated: 2026-05-25
 source_count: 3
-sources: ["bzs-weekly-report-20260522.md", "bzs-saas-funnel-ltv-cac-report.md", "esign-dottedsign-price-hike-churn-analysis.md"]
+sources: ["bzs-weekly-report-20260522.md", "bzs-saas-funnel-ltv-cac-report.md", "dottedsign-price-hike-churn-analysis.md"]
 summary: "基於 AATL 憑證、簡訊通道、ISO 驗證維持、10人管銷與每月 Google Ads 投放數據，深度剖析好好簽定價模型之毛利邊際與損益平衡點，並對抗點點簽與律果簽定價劣勢制定截擊定價方針。"
 ---
 
@@ -47,7 +47,7 @@ summary: "基於 AATL 憑證、簡訊通道、ISO 驗證維持、10人管銷與�
     *   *小計*：**NT$7,700,000 / 年** (每月人事管銷固定支出約 NT$641,600)。
 *   **行銷與顧問推廣費用 (Marketing & Ads)**：
     *   行銷顧問年費：**NT$360,000 / 年** (每月 NT$30,000)。
-    *   Google Ads (Search + Pmax) 廣告費：依 2026 上半年花費 **NT$ 711,136** (約 US$ 22,223) 換算，全年度預算約 **NT$1,440,000 / 年** (每月 NT$120,000)。
+    *   Google Ads (Search + Pmax) 廣告費：依 2026 上半年花費 $22,223 USD 換算，全年度預算約 **NT$1,440,000 / 年** (每月 NT$120,000)。
     *   *小計*：**NT$1,800,000 / 年**。
 *   **GCP 伺服器基本租用費**：約 **NT$400,000 / 年**。
 

@@ -5,10 +5,10 @@ category: marketing
 proficiency: intermediate
 tags: [SEO, 搜尋引擎優化, 行銷, Google, 關鍵字, 技術SEO]
 date_created: 2026-05-14
-date_updated: 2026-05-26
+date_updated: 2026-06-10
 related_projects: []
-related_concepts: [seo-geo-optimization]
-summary: "掌握傳統搜尋引擎優化（SEO）的技術、內容與結構評估能力，能對網站進行基礎 SEO 審核並提出改善建議。"
+related_concepts: [seo-geo-optimization, keyword-categorization]
+summary: "掌握傳統搜尋引擎優化（SEO）、問答引擎優化（AEO）與關鍵字意圖分類能力，能對網站進行結構化審核並進行 Ads 預算優化。"
 ---
 
 # SEO 搜尋引擎優化
@@ -40,6 +40,8 @@ summary: "掌握傳統搜尋引擎優化（SEO）的技術、內容與結構評�
   - 針對 YMYL（金融、法律、簽章）等高資安要求產業，實施雙軌權威布局：
     * **在地老牌背書**：上市公司背景 (5211)、數發部能量登錄、ISO 27001 認證（適合文字化呈現在首頁以利 AI 與 Google 提取）。
     * **國際技術合規**：中華電信 AATL 憑證機構、國際 ISO 標準、OTP 隱私。
+- **關鍵字意圖三層分類 (Keyword Intent Categorization)**：熟練掌握排除（負評/免費/求職）、備用（競品/資訊）與主力（品牌/決策/痛點/長尾通用）之分類邏輯。能運用搜尋量分層（前25%高層、中層、後25%低層）與特徵字強制升降級，控制主力字上限為 10-20 個，最大化廣告投放效率。
+- **AEO 問答優化與語音搜尋對齊 (AEO & Voice Search Optimization)**：能撰寫 40-60 字開門見山的回答型段落，以量化數據佐證；能將 H2/H3 設計為口語化完整問句，配合 `FAQPage` / `HowTo` JSON-LD 結構化資料，提升 Google 精選摘要與 AI Overview 的覆蓋率。
 - **薄內容識別（Thin Content）**：只有標題和按鈕的頁面對 SEO 的負面影響。
 
 ---

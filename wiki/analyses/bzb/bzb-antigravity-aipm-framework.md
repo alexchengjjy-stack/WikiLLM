@@ -2,7 +2,7 @@
 
 > **狀態**：已正式攝入 WikiLLM
 > **核心來源**：`raw/AIPM/Agent.md`, `raw/AIPM/project.md`
-> **關聯概念**：[Harness Engineering](../topics/harness-engineering.md), [Vibe Coding](../concepts/vibe-coding-paradigm.md)
+> **關聯概念**：[Harness Engineering](../../topics/harness-engineering.md), [Vibe Coding](../../concepts/vibe-coding-paradigm.md)
 
 ## 01. 什麼是 AIPM？
 AIPM 是一套專為 **Antigravity AI Agent** 設計的產品開發與專案管理框架。其核心目標是透過「角色化指令」與「標準化文件結構」，解決 AI 在長程開發中容易產生的「語意漂移」與「黑箱操作」問題。

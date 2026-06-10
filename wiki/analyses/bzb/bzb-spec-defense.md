@@ -30,7 +30,7 @@ summary: "針對 BreezyBrain CRM 同步、轉檔、地端 LLM 及 BPM 工作流�
 *   **情境 1C：評估欄位缺失**
     *   *威脅*：名片上通常無「員工人數」、「資本額」等潛力評估關鍵指標，大腦若無預設值，將無法進行 `potential_level` (高/中/低) 的自動分級。
 
-### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#2.3.2](../products/breezy-brain/Product-Spec.md#2.3.2)）
+### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#2.3.2](../../products/breezy-brain/Product-Spec.md#2.3.2)）
 - [x] **Account 模糊去重機制**：BreezyCRM 接收 WorldCard 資訊時，優先以 `(公司名稱 + 聯絡人姓名)` 進行模糊比對。若匹配度 > 85%，則僅在既有 Account 下「新增 Contact」，不建立新 Account。
 - [x] **離線暫存與合併**：資料同步以「時間戳記」及「名片識別碼 (Card ID)」為準，提供手動合併 (Merge Accounts) 功能。
 - [x] **大腦「合理瞎猜」與欄位補全**：當缺少資本額/規模時，地端 LLM 根據「公司名稱」上網搜尋或比對內部工商智庫；若無外網，則預設歸類為 `🟡 中潛力`，並提示業務「待補充關鍵欄位」。
@@ -49,7 +49,7 @@ summary: "針對 BreezyBrain CRM 同步、轉檔、地端 LLM 及 BPM 工作流�
 *   **情境 2B：任務佇列「黑洞」 (Silent Task Failure)**
     *   *威脅*：伺服器寫入佇列回傳 `task_id` 後，地端 Docker 容器或 Ollama 崩潰重啟。任務死在佇列中，前端頁面持續顯示 `Processing (處理中)`，客戶無限等待。
 
-### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#3.1](../products/breezy-brain/Product-Spec.md#3.1)）
+### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#3.1](../../products/breezy-brain/Product-Spec.md#3.1)）
 - [x] **雙軌轉檔 Fallback**：若前端 WASM 初始化失敗或轉檔超過 15 秒，自動降級為「直接上傳 raw 檔」，由地端伺服器之背景服務 (如 LibreOffice Headless) 進行非同步轉檔，但前端需跳出「正在由伺服器處理轉檔，需耗時較久」提示。
 - [x] **任務心跳偵測與逾時重試 (Task Heartbeat & TTL)**：
   - 每個非同步任務在 Redis/資料庫中設定 TTL (存活時間，預設 5 分鐘)。
@@ -69,7 +69,7 @@ summary: "針對 BreezyBrain CRM 同步、轉檔、地端 LLM 及 BPM 工作流�
 *   **情境 3B：物理隔離網閘 (Intranet Lock)**
     *   *威脅*：混合落地部署在 100% 無外網的區域網路內，雲端 Fallback 機制呼叫時必定失敗，且會因 http connection timeout 再次卡死背景執行緒。
 
-### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#3.2](../products/breezy-brain/Product-Spec.md#3.2)）
+### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#3.2](../../products/breezy-brain/Product-Spec.md#3.2)）
 - [x] **「顯性授權」回退機制 (Explicit Opt-in)**：
   - 嚴禁「全自動」回退至雲端。
   - **規格**：當任務排隊超時，系統發送通知：「地端算力繁忙，預計還需 X 分鐘。是否授權透過安全雲端大腦 (Azure OpenAI) 進行加速解析？[授權雲端解析] [繼續地端排隊]」。
@@ -89,13 +89,13 @@ summary: "針對 BreezyBrain CRM 同步、轉檔、地端 LLM 及 BPM 工作流�
 *   **情境 4B：大腦偽陽性 (False Positive - 效率歸零)**
     *   *威脅*：地端小模型 (7B) 理解力有限，將正常的「若有未盡事宜，雙方友好協商」也判斷為「高風險：管轄權限不明確」，導致 99% 的合約都被卡在法務審批隊列，BPM 自動化形同虛設。
 
-### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#2.7.2](../products/breezy-brain/Product-Spec.md#2.7.2)）
+### 3. PM 推薦防禦規格 (Defense)（已收斂至 [Product-Spec.md#2.7.2](../../products/breezy-brain/Product-Spec.md#2.7.2)）
 - [x] **「雙重確認」防線**：大腦的「低風險直接傳簽」規格修正為**「低風險快速通道（仍需業務確認）」**。大腦審完低風險後，系統呈現簡化報告：「大腦評估此合約無異常條款，是否確認發送？[確認發送]」，嚴禁大腦 100% 自主決定合約發送。
 - [x] **高亮可信度評分 (Confidence Score)**：LLM 輸出結構化 JSON 時，必須針對每個風險點給出 `confidence` (0.0 - 1.0) 與「引用原文段落」。若可信度評分低於 0.8，即使判定為無風險，也必須強制進入法務人工審查佇列。
 
 ---
 
 ## 相關連結
-- [BreezyBrain 產品規格書](../products/breezy-brain/Product-Spec.md)
-- [新潛客資格確認 SOP](../playbooks/new-lead-qualification.md)
-- [企業試用版跟進 Checklist](../playbooks/enterprise-trial-followup.md)
+- [BreezyBrain 產品規格書](../../products/breezy-brain/Product-Spec.md)
+- [新潛客資格確認 SOP](../../playbooks/new-lead-qualification.md)
+- [企業試用版跟進 Checklist](../../playbooks/enterprise-trial-followup.md)

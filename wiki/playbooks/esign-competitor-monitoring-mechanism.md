@@ -121,7 +121,7 @@ summary: "針對已通過數位發展部電子簽章解決方案服務能量登�
     - **凱鈿 (DottedSign)**：招募通路轉向 Yourator，擴張 AI 團隊，從工具轉向 AI 顧問。
     - **律果簽 (LegalSign)**：確立「法律垂直 AI」定位，強化法律專屬 LLM 研發。
     - **我方 (BreezySign)**：AI 引用能見度受益於 Schema 優化，上升至約 40%。
-    - **技術審計**：完成國內四家電簽官網 [[analyses/esign/esign-competitor-seo-geo-analysis|Claude SEO 競品技術普查]]，指出點點簽 INP 與 AEO 漂移缺陷、律果 SPA 盲區，並為我方設計 Product JSON-LD 比較頁。
+    - **技術審計**：完成國內四家電簽官網 [[esign-competitor-seo-geo-analysis|Claude SEO 競品技術普查]]，指出點點簽 INP 與 AEO 漂移缺陷、律果 SPA 盲區，並為我方設計 Product JSON-LD 比較頁。
 - **動作建議**：強化「ERP 生態系整合」優勢，並啟動 BreezySign 競品對比著陸頁部署，包抄競品流失流量。
 
 ---

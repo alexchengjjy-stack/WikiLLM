@@ -11,8 +11,8 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 
 # 電子簽章能量登錄競品情報普查快照 (2026 年 5 月)
 
-> **普查執行時間**：2026-05-14 (於 2026-05-18 全量更新；並於 2026-05-27 依據四大官網 100% 實地爬取與競品快照實測規範進行覆核對齊)  
-> **基準依據與實測規範**：[電子簽章能量登錄競品週期性觀測機制 (Playbook)](../playbooks/esign-competitor-monitoring-mechanism.md) 暨《普查與情報快照實測規範》（普查對比及快照必須實際爬取各競品官網最新 Production 現狀，最多僅加入我方測試站對照）。  
+> **普查執行時間**：2026-05-14 (於 2026-05-18 依最新 SEO/SEM 情報觀測 SOP 進行全量更新)  
+> **基準依據機制**：[電子簽章能量登錄競品週期性觀測機制 (Playbook)](../../playbooks/esign-competitor-monitoring-mechanism.md)  
 > **核心涵蓋廠商**：點點簽 (DottedSign)、律果簽 (LegalSign.ai)、全景軟體 (CHANGING)、好好簽 (BreezySign)
 
 ---
@@ -139,7 +139,7 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 - **安全與憑證基礎**：主頁宣稱支援 AATL 國際信賴清單憑證，並保障符合我國《電子簽章法》規範。
 
 #### ⚡ 痛點與落後指標 (以產品主頁呈現與 GEO 實測為準)
-- **🟢 核心公信力宣告已正式同步 Production**：先前存在的「能量登錄未顯化」問題已於 2026-05-27 實地覆核中確認解決。好好簽首頁 Hero Section 及 Footer 已 100% 正式同步上線純文字聲明：`賀！已通過數位發展部【電子簽章解決方案服務能量登錄（113電簽0008）】`，成功打通大模型最重視的官方信任背書，AI 搜尋 (GEO) 能見度實現破局突破，消除資訊靜默。
+- **⚠️ 核心公信力宣告缺席 (能量登錄未顯化)**：雖然母公司蒙恬科技的大事紀記載好好簽已通過數發部「113 年電子簽章解決方案服務能量登錄」，但此重磅合規優勢在**好好簽產品官網首頁、功能頁上完全未予提及或掛載徽章**。這導致大模型或潛在客戶瀏覽產品主頁時，無法取得該官方合規資格，存在嚴重的公信力靜默斷鏈。
 - **GEO 萃取靜默（資訊黑洞）**：官網價格與常見問題 FAQ 模組「僅有問題、沒有文字解答內容」，大模型在提取對比定價與規則時面臨空白。
 
 #### 🔍 廣告策略與關鍵字清單 (SOP 實證更新)
@@ -231,7 +231,7 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 本期普查特別調用 [[claude-seo-universal-tool|Claude SEO]] 技術對比子代理，針對國內 4 大電子簽章官網在技術 SEO、DOM H標籤層級、Schema 標記及 AI 搜尋能見度 (GEO) 進行了全量剖析。
 
 詳細剖析與完整 Feature Matrix 比較頁規劃請參閱專屬報告：
-👉 **[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]**
+👉 **[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]**
 
 ### 核心發現與戰術包抄要點：
 1. **點點簽的 INP 弱點與 GEO 漂移**：點點簽由於過度加載國際化 HubSpot/Hotjar 腳本，Core Web Vitals INP (260ms) 表現不佳。且其近期漲價客訴引發了嚴重的 **AI 引用負面漂移 (AEO Drift)**，這是我方搶客的絕佳時機。
@@ -255,9 +255,9 @@ summary: "基於升級後的電子簽章能量登錄競品週期性觀測機制�
 
 ## 🔗 關聯報告與追蹤機制
 
-- **觀測機制 SOP**：[電子簽章能量登錄競品週期性觀測機制](../playbooks/esign-competitor-monitoring-mechanism.md)
+- **觀測機制 SOP**：[電子簽章能量登錄競品週期性觀測機制](../../playbooks/esign-competitor-monitoring-mechanism.md)
 - **本土競品總分析**：[國內電子簽章服務競品比較](esign-domestic-comparison.md)
-- **能量登錄許可名單**：[電子簽章解決方案服務能量登錄許可名單](../sources/esign-solution-approved-list.md)
-- **官網技術 SEO 普查**：[[analyses/esign/esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
+- **能量登錄許可名單**：[電子簽章解決方案服務能量登錄許可名單](../../sources/esign-solution-approved-list.md)
+- **官網技術 SEO 普查**：[[esign-competitor-seo-geo-analysis|電子簽章 4 大官網 Claude SEO 競品比較與技術普查]]
 
 
