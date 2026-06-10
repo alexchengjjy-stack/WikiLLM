@@ -5,7 +5,7 @@ status: active
 priority: medium
 tags: [華杏出版, 出版業, 體驗升級, 專案管理, 客戶成功]
 date_started: 2026-05-18
-date_updated: 2026-05-27
+date_updated: 2026-06-10
 related_entities: ["../entities/huaxing-publishing.md"]
 related_skills: ["../skills/saas-sales-development.md"]
 summary: "華杏出版有限公司之 Onboarding 與試用轉化專案，已完成 5/26 線上簡報演示，現已開通並進入 3 個月專業方案體驗期。"
@@ -63,4 +63,4 @@ summary: "華杏出版有限公司之 Onboarding 與試用轉化專案，已完�
 ## 相關文件
 - [華杏出版股份有限公司實體頁面](../entities/huaxing-publishing.md)
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md)
-- [2026H2 跨部門執行計畫](../../outputs/20260527-1228-bzs-2026h2-cross-department-plan.html)
+- [2026H2 跨部門執行計畫](../../outputs/bzs/20260527-1228-bzs-2026h2-cross-department-plan.html)

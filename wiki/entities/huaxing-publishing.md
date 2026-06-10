@@ -5,7 +5,7 @@ entity_type: company
 aliases: ["華杏出版股份有限公司"]
 tags: [客戶情報, 實質付費潛客, 專業版體驗, 能量登錄效應, 帳號共用現象]
 date_created: 2026-05-27
-date_updated: 2026-05-27
+date_updated: 2026-06-10
 source_count: 1
 sources: ["bzs-daily-report-20260526.md"]
 summary: "專營護理科學教科書的出版社，搜尋數發部「能量登錄」廠商而與好好簽對接，目前已升級專業體驗版並使用共用帳號。"
@@ -41,7 +41,7 @@ summary: "專營護理科學教科書的出版社，搜尋數發部「能量登�
 
 ## 相關連結
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md) — 來源日報。
-- [2026H2 跨部門執行計畫](../../outputs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 舊客維護與 Onboarding 冷啟動戰術。
+- [2026H2 跨部門執行計畫](../../outputs/bzs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 舊客維護與 Onboarding 冷啟動戰術。
 - [好好簽電子簽章定價成本結構與利潤邊際分析報告](../analyses/bzs/bzs-pricing-cost-structure-analysis-20260525.md) — 個人專業方案大戶限制與加購精算。
 
 ## 來源引用

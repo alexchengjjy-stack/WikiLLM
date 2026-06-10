@@ -4,6 +4,7 @@ type: product-definition
 product_line: BreezySeries
 status: concept
 date_created: 2026-05-19
+date_updated: 2026-06-10
 tags:
   - "下一代產品"
   - "BreezyBrain"
@@ -24,7 +25,7 @@ tags:
 
 BreezyBrain 採用與 Tauri 邊界同級的「高內聚、安全隔離」三層架構。以下為系統的核心編排與數據流向圖：
 
-![BreezyBrain Agent Framework](../../../outputs/wikillm_agent_framework.png)
+![BreezyBrain Agent Framework](../../../outputs/assets/wikillm_agent_framework.png)
 
 ---
 

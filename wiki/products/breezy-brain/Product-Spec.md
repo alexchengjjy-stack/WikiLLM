@@ -2,7 +2,7 @@
 title: "BreezyBrain 產品需求文件 (Product Spec)"
 type: product-spec
 date_created: 2026-05-20
-date_updated: 2026-05-29
+date_updated: 2026-06-10
 status: active
 version: v1.6.0-MVP
 ---
@@ -56,31 +56,31 @@ BreezyBrain 採取「雲端 SaaS 訂閱」與「混合落地建置」雙軌模�
 
 #### 1.5.1 形式一：產品核心分層架構藍圖 (BreezyBrain Layered Workflow Blueprint - V2 橫向版)
 *   **設計形式**：分層規格說明型架構圖。以直欄將系統垂直切割，卡片內部包含詳細的中文功能說明與技術標籤（Tech Badges），強調模組歸屬與功能規格。此為適應簡報投影需求調整之 16:9 橫向版本。
-*   **線上預覽與列印**：[HTML 自適應網頁版](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260528-1815-breezy-brain-architecture_v2.html) | [高畫質 PDF 下載](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260528-1815-breezy-brain-architecture_v2.pdf)
+*   **線上預覽與列印**：[HTML 自適應網頁版](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzb/20260528-1815-breezy-brain-architecture_v2.html) | [高畫質 PDF 下載](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzb/20260528-1815-breezy-brain-architecture_v2.pdf)
 *   **架構藍圖預覽**：
 <div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
-  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260528-1815-breezy-brain-architecture_v2.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 產品核心分層架構 (V2 橫向版)" />
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzb/20260528-1815-breezy-brain-architecture_v2.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 產品核心分層架構 (V2 橫向版)" />
 </div>
 
 #### 1.5.2 形式二：系統拓撲關係示意圖 (BreezySign Neon Connection Blueprint)
 *   **設計形式**：極簡 Eraser.io 風格之系統互聯拓撲圖。呈現中央大腦與外部 API、名片雲及用戶端在雲地混合部署下的安全邊界與數據交換路由。（本形式不提供獨立的 HTML/PDF 網頁預覽）
 *   **架構藍圖預覽**：
 <div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
-  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/20260528-1807-breezy-brain-architecture.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezySign 系統拓撲關係示意圖" />
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzb/20260528-1807-breezy-brain-architecture.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezySign 系統拓撲關係示意圖" />
 </div>
 
 #### 1.5.3 形式三：BreezyBrain 智慧工作流操作系統架構圖 (BreezyBrain Agent Framework)
 *   **設計形式**：中央大腦驅動型架構圖。以深藍色發光霓虹風格展示，突顯「大腦中樞」與六大業務垂直支柱（BCR、CRM、BPM、CLM、KM、Integration）的雙向推理與控制流。
 *   **架構藍圖預覽**：
 <div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
-  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/breezy_brain_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 智慧工作流操作系統架構圖 (BreezyBrain Agent Framework)" />
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/bzb/breezy_brain_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="BreezyBrain 智慧工作流操作系統架構圖 (BreezyBrain Agent Framework)" />
 </div>
 
 #### 1.5.4 形式四：WikiLLM Agent 系統架構編排藍圖 (WikiLLM Agent Orchestration Blueprint)
 *   **設計形式**：Agent 管道流程型架構圖。以深藍色霓虹發光風格展示，呈現從 Raw Ingestion 到 Agent Engine（三層式架構：Planning, Execution, Memory）再到 Local Knowledge Base 的資料流向與協定。
 *   **架構藍圖預覽**：
 <div class="page-break" style="page-break-before: always; text-align: center; margin: 30px 0;">
-  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/wikillm_agent_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="WikiLLM Agent 系統架構編排藍圖 (WikiLLM Agent Orchestration Blueprint)" />
+  <img src="file:///c:/Users/alexc/OneDrive/文件/WikiLLM/outputs/assets/wikillm_agent_framework.png" style="width: 100%; max-width: 100%; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" alt="WikiLLM Agent 系統架構編排藍圖 (WikiLLM Agent Orchestration Blueprint)" />
 </div>
 
 ```mermaid

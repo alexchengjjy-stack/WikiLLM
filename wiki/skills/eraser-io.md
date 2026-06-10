@@ -5,7 +5,7 @@ category: ai_tools
 proficiency: advanced
 tags: [架構圖, Diagram-as-Code, 技術文檔, 視覺設計]
 date_created: 2026-05-28
-date_updated: 2026-05-28
+date_updated: 2026-06-10
 related_projects: []
 related_concepts: []
 summary: "使用 Eraser.io 進行技術架構圖設計與 Diagram-as-Code 代碼化繪圖技能。"
@@ -28,7 +28,7 @@ summary: "使用 Eraser.io 進行技術架構圖設計與 Diagram-as-Code 代碼
 
 ### 1. 應用場景與實績
 在 WikiLLM 與 BreezySign 專案中，Eraser.io 主要用於以下高階技術交付物的視覺化：
-*   **WikiLLM Agent 系統架構圖**：例如 [wikillm_agent_framework.png](../outputs/wikillm_agent_framework.png)，清晰展現了 Raw Ingestion 到 Agent Engine（三層式架構）再到 Local Knowledge Base 的資料流向與協定。
+*   **WikiLLM Agent 系統架構圖**：例如 [wikillm_agent_framework.png](../outputs/assets/wikillm_agent_framework.png)，清晰展現了 Raw Ingestion 到 Agent Engine（三層式架構）再到 Local Knowledge Base 的資料流向與協定。
 *   **BreezyBrain 架構部署與防禦**：用於繪製 CLM、BPM 整合連動，以及 MCP 伺服器的多層護城河防禦拓撲圖。
 
 ### 2. Eraser.io 設計規範與最佳實踐

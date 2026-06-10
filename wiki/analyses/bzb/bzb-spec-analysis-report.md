@@ -4,7 +4,7 @@ type: analysis
 analysis_type: deep_dive
 tags: [BreezyBrain, 架構規劃, 流程防錯, 安全防範, 產品Roadmap]
 date_created: 2026-05-29
-date_updated: 2026-05-29
+date_updated: 2026-06-10
 source_count: 3
 sources: ["../products/breezy-brain/Product-Spec.md", "bzb-spec-defense.md", "bzb-mvp-roadmap.md"]
 summary: "針對 BreezyBrain 進行分層架構、順逆向流程管道、安全性防護規格與三階段路線圖規劃的正式評估報告。"
@@ -93,4 +93,4 @@ BreezyBrain 的數據處理流程分為**順向自動化閉環**與**反向例�
 BreezyBrain 的規格設計極為紮實，克服了市面上大部分 iPaaS/RAG 系統在地端部署與個資隱私上的致命漏洞。
 1.  **目前核心重點**：應確實執行 **Phase 1 MVP** 的開發收斂，利用輕量架構快速實現「掃描名片 ➡️ CRM 商機 ➡️ 語意匹配 CLM ➡️ 快速送簽」的完整閉環。
 2.  **中長期規劃**：在 Phase 2 開始時，應將主力放在 **「雙重確認防線」與「GDPR 被遺忘權向量擦除」** 的實作上，這是進入醫療、金融或跨國企業市場的必要法規敲門磚。
-3.  **視覺化輔助**：為使團隊溝通一致，本報告規劃的系統拓撲與分層關係已完全同步生成於 [BreezySign 拓撲圖](../outputs/20260529-1155-breezysign-architecture.html)，該關係圖已支援**高解析度橫向顯示**及**白底 PDF 高對比度列印模式**，確保紙本與流式 PDF 列印品質無損。
+3.  **視覺化輔助**：為使團隊溝通一致，本報告規劃的系統拓撲與分層關係已完全同步生成於 [BreezySign 拓撲圖](../outputs/bzs/20260529-1155-breezysign-architecture.html)，該關係圖已支援**高解析度橫向顯示**及**白底 PDF 高對比度列印模式**，確保紙本與流式 PDF 列印品質無損。

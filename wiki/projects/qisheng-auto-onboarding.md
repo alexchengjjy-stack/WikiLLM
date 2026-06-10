@@ -5,7 +5,7 @@ status: active
 priority: medium
 tags: [棋勝汽車, 中古車, 電子合約, Onboarding, AATL]
 date_started: 2026-06-08
-date_updated: 2026-06-08
+date_updated: 2026-06-10
 related_entities: ["qisheng-auto.md", "breezysign.md"]
 related_skills: ["../skills/electronic-signature-consulting.md", "../skills/saas-sales-development.md"]
 summary: "為中古車龍頭「棋勝汽車」導入好好簽電子合約方案（年用量 2000 份），目前與其自研 CRM 系統進行 API 串接規格規劃與轉單談判中。"
@@ -24,11 +24,12 @@ summary: "為中古車龍頭「棋勝汽車」導入好好簽電子合約方案�
 | **技術方案** | 好好簽 (BZS) API 串接、AATL 憑證、OCR 辨識 |
 | **當前階段** | 評估與技術展示 (轉單爭奪中，點點簽競品攔截) |
 
-## 目前狀態（截至 2026-06-08）
+## 目前狀態（截至 2026-06-10）
 
 ### ✅ 已完成
 - [x] 初步洽談與需求釐清：確立年用量 2,000 份，提供 AATL $30/份報價。 (6/05)
 - [x] 關鍵痛點分析：釐清點點簽因「日期無法設為民國年格式」及「業務對技術細節不熟」引發其執行層抗性，我方以此切入。 (6/05)
+- [x] **整合測試帳號開通**：帳號 `cw_robot@cwgroup.com.tw` 已開通整合測試兩個月（6/08）；目前仍在拉框規劃，範本建立完成後將以操作員帳號進行測試。
 - [x] OCR 識別展示：向客戶介紹好好簽 OCR 身分證、行照等車籍證件識別方案，客戶目前自行測試 Google OCR 效果良好。 (6/05)
 
 ### 🔄 進行中
@@ -45,8 +46,10 @@ summary: "為中古車龍頭「棋勝汽車」導入好好簽電子合約方案�
 | 日期 | 里程碑 |
 |------|--------|
 | 2026-06-05 | 業務進件，確立 2,000 份需求與 AATL 報價；分析點點簽痛點並介紹 OCR 身分證與行照識別方案 |
+| 2026-06-08 | 整合測試帳號 `cw_robot@cwgroup.com.tw` 開通兩個月；目前拉框規劃中，等待範本建立完成後開始操作員測試 |
 
 ## 相關文件
 - [棋勝汽車實體](../entities/qisheng-auto.md) — 實體資訊
 - [點點簽轉單潮深度分析報告](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
 - [好好簽 2026-06-05 業務與專案日報](../sources/20260605-projects-daily.md) — 來源日報
+- [好好簽 2026-06-08 業務與專案日報](../sources/20260608-projects-daily.md) — 整合測試帳號開通來源

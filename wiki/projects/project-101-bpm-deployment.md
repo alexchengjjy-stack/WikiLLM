@@ -5,7 +5,7 @@ status: active
 priority: medium
 tags: [101, BPM, 地端部署, HiCloud, 系統建置]
 date_started: 2026-03-01
-date_updated: 2026-06-08
+date_updated: 2026-06-10
 related_entities: []
 related_skills: ["../skills/electronic-signature-consulting.md"]
 summary: "BZS 替客戶「101」進行 BPM 系統整合建置，包含電子簽章串接與 HiCloud+DMZ 地端部署架構，已完成安裝文件與 source code 交付及異常 Email 提案。"
@@ -24,7 +24,7 @@ summary: "BZS 替客戶「101」進行 BPM 系統整合建置，包含電子簽�
 | **核心整合** | 好好簽電子簽章 + BPM 流程 + 地端部署 |
 | **技術窗口** | Neil（負責設定與測試；5/13 帳號已加入 101 組織管理）|
 
-## 目前狀態（截至 2026-06-08）
+## 目前狀態（截至 2026-06-10）
 
 ### ✅ 已完成
 - [x] 初版系統部署完成（已可連線，Teamviewer 遠端設定就緒）
@@ -37,6 +37,7 @@ summary: "BZS 替客戶「101」進行 BPM 系統整合建置，包含電子簽�
 - [x] 為 101 技術窗口 (`steven.yu@tfc101.com.tw`) 開通支援 10 份雲端憑證 (5/29)
 
 ### 🔄 進行中
+- [ ] **現場簽審核功能**：6/8 線上會議討論現場簽支援審核功能規格，評估中。
 - [ ] **BPM 存取系統**：剩餘 BPM 功能開發中。
 - [ ] **佈署環境架構調整**：HiCloud 與 DMZ 間轉介 Server 安裝調整中。
 - [ ] **寫回機制與系統建置計畫**：規劃寫回成功與失敗的容錯與重試邏輯。需要請 Hank 協助補上「完成版建置計劃書」（如：補上寫回機制等具體執行內容），作為合規文件。
@@ -81,6 +82,7 @@ BPM 系統（101Form BPM）
 | 2026-05-28 | 確定合約與軌跡紀錄分開以保護 AATL 簽章，並使用關聯檔名；提供寫回機制異常處理架構，預計 6 月初完成 |
 | 2026-05-29 | 交付 Hi-Cloud 和 DMZ 的安裝文檔與原始碼；開通 steven 帳號 10 份雲端憑證；提案兩種異常通知與 isHealth 檢測機制 |
 | 2026-06-05 | 測試反溯4點問題（確認檔名與刪除信，同Email與客製信評估中）；要求弱掃報告無高風險漏洞、補齊完成版計劃書、IT研擬以會議紀錄替代培訓驗收 |
+| 2026-06-08 | 線上會議討論現場簽支援審核功能規格，持續評估中 |
 
 ## 相關文件
 
@@ -88,6 +90,7 @@ BPM 系統（101Form BPM）
 - [2026-05-28 專案與 API 業務日報](../sources/20260528-projects-daily.md) — 合約與軌跡決策來源
 - [2026-05-29 專案與 API 業務日報](../sources/20260529-projects-daily.md) — 安裝與異常方案來源
 - [好好簽 2026-06-05 業務與專案日報](../sources/20260605-projects-daily.md) — 來源日報
+- [好好簽 2026-06-08 業務與專案日報](../sources/20260608-projects-daily.md) — 現場簽功能討論來源
 - [百加 BPM 通路合作](pai-plus-bpm-partnership.md)
 - [電子簽章顧問技能](../skills/electronic-signature-consulting.md)
 

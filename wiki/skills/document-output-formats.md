@@ -5,7 +5,7 @@ category: tools
 proficiency: expert
 tags: [HTML, PPTX, PDF, 文件轉換, 簡報製作, python-pptx, Headless, 視覺化, 知識輸出, Native Shapes, 向量繪圖]
 date_created: 2026-05-15
-date_updated: 2026-05-19
+date_updated: 2026-06-10
 related_projects: []
 related_concepts: []
 summary: "掌握使用大模型結合自動化程式將 Wiki 知識庫內容導出為企業級展示格式的專家級技能。包含互動架構圖、PPTX 原生幾何向量繪製，以及透過 Headless 瀏覽器無痛渲染高保真 PDF 的終極技術。"
@@ -147,9 +147,9 @@ subprocess.run(cmd, check=True)
 
 ## 🔗 6. 實戰案例連結
 
-*   **互動式 HTML 案例**：[20260515-si-article-landing-page.html](../../outputs/20260515-si-article-landing-page.html)
-*   **自動化 PPTX 提案案例**：[BreezyBrain_PenPower_Edition_v3.pptx](../../outputs/BreezyBrain_PenPower_Edition_v3.pptx) (原生向量架構圖展現)
-*   **Headless PDF 產出案例**：[breezysign-case-study-fuyou-travel.pdf](../../outputs/breezysign-case-study-fuyou-travel.pdf)
+*   **互動式 HTML 案例**：[20260515-si-article-landing-page.html](../../outputs/bzs/20260515-si-article-landing-page.html)
+*   **自動化 PPTX 提案案例**：[BreezyBrain_PenPower_Edition_v3.pptx](../../outputs/bzb/BreezyBrain_PenPower_Edition_v3.pptx) (原生向量架構圖展現)
+*   **Headless PDF 產出案例**：[breezysign-case-study-fuyou-travel.pdf](../../outputs/bzs/breezysign-case-study-fuyou-travel.pdf)
 
 ---
 

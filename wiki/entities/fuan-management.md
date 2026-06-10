@@ -5,14 +5,15 @@ entity_type: company
 aliases: ["福安管理顧問", "福安"]
 tags: [客戶, 工商顧問, 健康管理, 點點簽轉單, 評估中]
 date_created: 2026-06-05
-date_updated: 2026-06-05
-source_count: 5
+date_updated: 2026-06-10
+source_count: 6
 sources: 
   - "20260604-saas-daily.md"
   - "bzs-weekly-report-20260522.md"
   - "bzs-weekly-report-20260529.md"
   - "esign-dottedsign-price-hike-churn-analysis.md"
   - "bzs-customer-personas.md"
+  - "20260608-projects-daily.md"
 summary: "年簽署量達 2 萬份的指標型大客。原使用點點簽，因價格上漲與 IPO 時程考量，決定採用好好簽 SaaS 公版，並要求電子簽章法合規佐證與教育訓練。"
 ---
 
@@ -31,9 +32,14 @@ summary: "年簽署量達 2 萬份的指標型大客。原使用點點簽，因�
 - **嚴格合規與輔導要求**：
   * **電子簽章法合規**：客戶強烈要求電子簽章服務需具備完整的法律合規佐證。我方已提供 ISO27001 認證與數位發展部「電子簽章服務能量登錄」核可文件。
   * **教育訓練**：客戶希望安排教育訓練並錄影供內部同事參考。目前雙方正在協調工作日（週二至週四）的培訓時程。
+- **6/8 最新動態（55 人報價/政府補助）**：
+  * 初期先使用 SaaS 方案，明年才考慮 API 串接；需求已升為 **55 人方案**報價。
+  * 因需要申請**政府補助**，客戶要求提供合約文件與電子簽章解決方案服務能量登錄許可證明。
+  * 已轉由 Jack 負責接洽。
 
 ## 相關連結
 - [點點簽](../entities/dottedsign.md)
 - [點點簽轉單潮深度分析報告](../analyses/esign/esign-dottedsign-price-hike-churn-analysis.md)
 - [好好簽企業客戶畫像分析](../analyses/bzs/bzs-customer-personas.md)
 - [BreezySign 好好簽 2026-06-04 業務日報](../sources/20260604-saas-daily.md)
+- [BreezySign 好好簽 2026-06-08 業務與專案日報](../sources/20260608-projects-daily.md) — 55 人方案報價與政府補助申請

@@ -5,7 +5,7 @@ entity_type: company
 aliases: ["獅子鄉公所", "屏東獅子鄉公所"]
 tags: [客戶情報, 潛在客戶, 聯絡專人, 公部門]
 date_created: 2026-05-27
-date_updated: 2026-05-27
+date_updated: 2026-06-10
 source_count: 1
 sources: ["bzs-daily-report-20260526.md"]
 summary: "公部門進件客戶，聯絡專人留下串接與使用需求，由 Jack 進行跟進。"
@@ -26,7 +26,7 @@ summary: "公部門進件客戶，聯絡專人留下串接與使用需求，由 
 
 ## 相關連結
 - [BreezySign 好好簽 20260526 業務日報](../sources/bzs-daily-report-20260526.md) — 來源日報。
-- [2026H2 跨部門執行計畫](../../outputs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 公部門 EEAT 開發。
+- [2026H2 跨部門執行計畫](../../outputs/bzs/20260527-1228-bzs-2026h2-cross-department-plan.html) — 公部門 EEAT 開發。
 
 ## 來源引用
 - [20260526日報.md](file:///c:/Users/alexc/OneDrive/文件/WikiLLM/raw/BZSdata/SaaS/20260526日報.md) ── 聯絡專人進件原始記錄。
